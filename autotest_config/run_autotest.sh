@@ -17,7 +17,7 @@ usage()
 	exit 1
 }
 
-VERSION_FILE=$TKWROOT/config/FHIR_111_UEC/version_string.txt
+VERSION_FILE=$TKWROOT/config/FHIR_BaRS/version_string.txt
 if [[ "$1" == "--version" ]]
 then
 	if [[ -e $VERSION_FILE ]]
@@ -76,7 +76,7 @@ fi
 
 SCRIPT_NAME=111_uec
 
-ROOT=$TKWROOT/config/FHIR_111_UEC/autotest_config
+ROOT=$TKWROOT/config/FHIR_BaRS/autotest_config
 MERGED_TSTP_FILE=$ROOT/mergedfile.tstp
 TSTP_FOLDER=$ROOT/tstp/
 

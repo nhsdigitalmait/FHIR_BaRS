@@ -1,5 +1,5 @@
 #
-#  Docker file for building FHIR_111_UEC emergency booking consumer simulator docker image
+#  Docker file for building FHIR_BaRS emergency booking consumer simulator docker image
 #
 FROM nhsdigitalmait/tkw-x:d02cf9b
 
@@ -9,7 +9,7 @@ RUN useradd -rm -u $USER_ID service && apt-get update && apt-get install zip && 
 
 ENV TKWROOT=/home/service/TKW
 
-WORKDIR $TKWROOT/config/FHIR_111_UEC
+WORKDIR $TKWROOT/config/FHIR_BaRS
 
 VOLUME $TKWROOT/autotest_config/auto_tests
 VOLUME $TKWROOT/autotest_config/autotest_logs
@@ -26,10 +26,10 @@ RUN mkdir transmitter_source simulator_config transmitter_sent_messages messages
 COPY --chown=service:service ITK_Autotest/test_tks_rule_config.txt simulator_config/
 COPY --chown=service:service ITK_Autotest/validator.conf validator_config/
 
-RUN sh -c 'cd /home/service/TKW/config/FHIR_111_UEC; find autotest_config validator_config simulator_config -type f -exec grep -l TKW_ROOT {} \; -exec sed -i -e "s|TKW_ROOT|/home/service/TKW|" {} \;'
+RUN sh -c 'cd /home/service/TKW/config/FHIR_BaRS; find autotest_config validator_config simulator_config -type f -exec grep -l TKW_ROOT {} \; -exec sed -i -e "s|TKW_ROOT|/home/service/TKW|" {} \;'
 
 # show all the folders created
-#RUN sh -c 'find /home/service/TKW/config/FHIR_111_UEC -type f'
+#RUN sh -c 'find /home/service/TKW/config/FHIR_BaRS -type f'
 
 USER service
-ENTRYPOINT ["bash", "/home/service/TKW/config/FHIR_111_UEC/autotest_config/run_autotest.sh"]
+ENTRYPOINT ["bash", "/home/service/TKW/config/FHIR_BaRS/autotest_config/run_autotest.sh"]

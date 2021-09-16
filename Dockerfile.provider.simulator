@@ -6,10 +6,10 @@ RUN mkdir /home/service/data/ && chown service:service /home/service/data/
 VOLUME /home/service/data
 VOLUME /home/service/fhir
 VOLUME /home/service/certs
-COPY . /home/service/TKW/config/FHIR_111_UEC
-WORKDIR /home/service/TKW/config/FHIR_111_UEC
-RUN mkdir /home/service/TKW/config/FHIR_111_UEC/simulator_saved_messages/
-RUN mkdir /home/service/TKW/config/FHIR_111_UEC/messages_for_validation/
+COPY . /home/service/TKW/config/FHIR_BaRS
+WORKDIR /home/service/TKW/config/FHIR_BaRS
+RUN mkdir /home/service/TKW/config/FHIR_BaRS/simulator_saved_messages/
+RUN mkdir /home/service/TKW/config/FHIR_BaRS/messages_for_validation/
 RUN sh set-all-configurations.sh
 
 ENV trustStore=default

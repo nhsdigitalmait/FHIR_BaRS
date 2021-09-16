@@ -14,7 +14,7 @@ else
 fi
 
 IMAGENAME=tkw_uec_consumer_simulator
-PROJECT=FHIR_111_UEC
+PROJECT=FHIR_BaRS
 
 echo "Building $IMAGENAME:$TAG"
 read -n 1 -p "Press any key to continue..."

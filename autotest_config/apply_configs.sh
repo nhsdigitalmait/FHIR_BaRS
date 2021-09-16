@@ -4,7 +4,7 @@
 # then run the tst file
 #
 
-autotest=$TKWROOT/config/FHIR_111_UEC/autotest_config
+autotest=$TKWROOT/config/FHIR_BaRS/autotest_config
 tst=$autotest/tst
 
 

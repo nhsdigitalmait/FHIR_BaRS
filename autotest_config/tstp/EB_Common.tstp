@@ -5,8 +5,8 @@
 SCRIPT EB_Common
 
 # NB this references the *internal* autotest simulator rules applied when listening for async messages not the rule set autotest applies which are referenced in the main properties file
-SIMULATOR __TKWROOT__/config/FHIR_111_UEC/simulator_config/test_tks_rule_config.txt
-VALIDATOR __TKWROOT__/config/FHIR_111_UEC/validator_config/consumer_simulator_validator.conf
+SIMULATOR __TKWROOT__/config/FHIR_BaRS/simulator_config/test_tks_rule_config.txt
+VALIDATOR __TKWROOT__/config/FHIR_BaRS/validator_config/consumer_simulator_validator.conf
 STOP WHEN COMPLETE
 
 # generic test names - cant be used with auto populated descriptions from a spreadsheet
@@ -18,7 +18,7 @@ SFFSWithValidParameters_3_days SEND_TKW empty_file TO __TO_ENDPOINT__/Slot?sched
 SFFSWithValidParameters_3_days_5 SEND_TKW empty_file5 TO __TO_ENDPOINT__/Slot?schedule.actor%3Ahealthcareservice=__HCS__&start=ge__START_SLOT_TIME__&start=le__END_SLOT_TIME__&status=free&_include=Slot%3Aschedule&_include=Schedule%3Aactor%3APractitioner&_include=Schedule%3Aactor%3APractitionerRole&_include=Schedule%3Aactor%3AHealthcareService&_include=HealthcareService.location&_include=HealthcareService.providedBy FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ SYNC ok WITH_PROPERTYSET base+webservices+get WITH_HTTPHEADERS credentials+default_accept+search_slots_interactionid+JWT_search_slots TEXT "HTTP Response must be HTTP 200"
 
 # happy path
-BookAppointment SEND_TKW book_appointment_slot5 TO __TO_ENDPOINT__/Appointment FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ PRETRANSFORM __TKWROOT__/config/FHIR_111_UEC/autotest_config/transforms/remove_appt_id.xslt APPLYPRETRANSFORMTO data SYNC httpstatuscheck201 WITH_PROPERTYSET base+webservices+post WITH_HTTPHEADERS credentials+book_appt_interactionid+JWT_book_cancel+default_content+default_accept+integrity TEXT "HTTP Response must be HTTP 201"
+BookAppointment SEND_TKW book_appointment_slot5 TO __TO_ENDPOINT__/Appointment FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ PRETRANSFORM __TKWROOT__/config/FHIR_BaRS/autotest_config/transforms/remove_appt_id.xslt APPLYPRETRANSFORMTO data SYNC httpstatuscheck201 WITH_PROPERTYSET base+webservices+post WITH_HTTPHEADERS credentials+book_appt_interactionid+JWT_book_cancel+default_content+default_accept+integrity TEXT "HTTP Response must be HTTP 201"
 
 ResponseIsOperationOutcome CHAIN SYNC operation_outcome TEXT "Response contains a root fhir:OperationOutcome element"
 OperationOutcomeSystemCodeIsSpine CHAIN SYNC operation_outcome_system_code_is_spine TEXT "OperationOutcome System code is https://fhir.nhs.uk/STU3/CodeSystem/Spine-ErrorOrWarningCode-1"
@@ -122,8 +122,8 @@ END MESSAGES
 
 BEGIN TEMPLATES
 # for GET
-empty_file_template __TKWROOT__/config/FHIR_111_UEC/autotest_config/requests/emptyfile.txt
-book_appt_template __TKWROOT__/config/FHIR_111_UEC/autotest_config/requests/book_appt.xml
+empty_file_template __TKWROOT__/config/FHIR_BaRS/autotest_config/requests/emptyfile.txt
+book_appt_template __TKWROOT__/config/FHIR_BaRS/autotest_config/requests/book_appt.xml
 END TEMPLATES
 
 # future proofing
@@ -170,17 +170,17 @@ update_appt_interactionid
 # 111222333444 is the practitioner id value
 # see https://developer.nhs.uk/apis/uec-appointments/fs_authentication.html for details of jwt claims
 JWT_metadata
-	Authorization function:uk.nhs.digital.mait.tkwx.tk.internalservices.testautomation.PropertySetFunctions.getJWT __TKWROOT__/config/FHIR_111_UEC/autotest_config/jwt_templates/111_uec_jwt_template_metadata.fhir3.txt 111222333444 "__TO_ENDPOINT__" secret true
+	Authorization function:uk.nhs.digital.mait.tkwx.tk.internalservices.testautomation.PropertySetFunctions.getJWT __TKWROOT__/config/FHIR_BaRS/autotest_config/jwt_templates/111_uec_jwt_template_metadata.fhir3.txt 111222333444 "__TO_ENDPOINT__" secret true
 JWT_search_slots
-	Authorization function:uk.nhs.digital.mait.tkwx.tk.internalservices.testautomation.PropertySetFunctions.getJWT __TKWROOT__/config/FHIR_111_UEC/autotest_config/jwt_templates/111_uec_jwt_template.sffs.fhir3.txt 111222333444 "__TO_ENDPOINT__" secret true
+	Authorization function:uk.nhs.digital.mait.tkwx.tk.internalservices.testautomation.PropertySetFunctions.getJWT __TKWROOT__/config/FHIR_BaRS/autotest_config/jwt_templates/111_uec_jwt_template.sffs.fhir3.txt 111222333444 "__TO_ENDPOINT__" secret true
 JWT_search_slots_no_practitioner
-	Authorization function:uk.nhs.digital.mait.tkwx.tk.internalservices.testautomation.PropertySetFunctions.getJWT __TKWROOT__/config/FHIR_111_UEC/autotest_config/jwt_templates/111_uec_jwt_template.sffs.nopractitioner.fhir3.txt 111222333444 "__TO_ENDPOINT__" secret true
+	Authorization function:uk.nhs.digital.mait.tkwx.tk.internalservices.testautomation.PropertySetFunctions.getJWT __TKWROOT__/config/FHIR_BaRS/autotest_config/jwt_templates/111_uec_jwt_template.sffs.nopractitioner.fhir3.txt 111222333444 "__TO_ENDPOINT__" secret true
 JWT_book_cancel
-	Authorization function:uk.nhs.digital.mait.tkwx.tk.internalservices.testautomation.PropertySetFunctions.getJWT __TKWROOT__/config/FHIR_111_UEC/autotest_config/jwt_templates/111_uec_jwt_template.book_cancel.fhir3.txt 111222333444 "__TO_ENDPOINT__" secret true
+	Authorization function:uk.nhs.digital.mait.tkwx.tk.internalservices.testautomation.PropertySetFunctions.getJWT __TKWROOT__/config/FHIR_BaRS/autotest_config/jwt_templates/111_uec_jwt_template.book_cancel.fhir3.txt 111222333444 "__TO_ENDPOINT__" secret true
 JWT_invalid_aud
-	Authorization function:uk.nhs.digital.mait.tkwx.tk.internalservices.testautomation.PropertySetFunctions.getJWT __TKWROOT__/config/FHIR_111_UEC/autotest_config/jwt_templates/111_uec_jwt_template.sffs.fhir3.txt 111222333444 notanendpoint secret true
+	Authorization function:uk.nhs.digital.mait.tkwx.tk.internalservices.testautomation.PropertySetFunctions.getJWT __TKWROOT__/config/FHIR_BaRS/autotest_config/jwt_templates/111_uec_jwt_template.sffs.fhir3.txt 111222333444 notanendpoint secret true
 JWT_read_appt
-	Authorization function:uk.nhs.digital.mait.tkwx.tk.internalservices.testautomation.PropertySetFunctions.getJWT __TKWROOT__/config/FHIR_111_UEC/autotest_config/jwt_templates/111_uec_jwt_template.read_appt.fhir3.txt 111222333444 "__TO_ENDPOINT__" secret true
+	Authorization function:uk.nhs.digital.mait.tkwx.tk.internalservices.testautomation.PropertySetFunctions.getJWT __TKWROOT__/config/FHIR_BaRS/autotest_config/jwt_templates/111_uec_jwt_template.read_appt.fhir3.txt 111222333444 "__TO_ENDPOINT__" secret true
 
 unsupported_content
 	Content-type "application/xml"
@@ -211,49 +211,49 @@ resent_rq_id
 END HTTPHEADERS
 
 BEGIN EXTRACTORS
-slots_free5_extractor xpathextractor __TKWROOT__/config/FHIR_111_UEC/autotest_config/extractor_configs/slots_free5.cfg
+slots_free5_extractor xpathextractor __TKWROOT__/config/FHIR_BaRS/autotest_config/extractor_configs/slots_free5.cfg
 
-slots_free6_extractor xpathextractor __TKWROOT__/config/FHIR_111_UEC/autotest_config/extractor_configs/slots_free6.cfg
-slots_free7_extractor xpathextractor __TKWROOT__/config/FHIR_111_UEC/autotest_config/extractor_configs/slots_free7.cfg
-slots_free8_extractor xpathextractor __TKWROOT__/config/FHIR_111_UEC/autotest_config/extractor_configs/slots_free8.cfg
-slots_free9_extractor xpathextractor __TKWROOT__/config/FHIR_111_UEC/autotest_config/extractor_configs/slots_free9.cfg
-slots_free10_extractor xpathextractor __TKWROOT__/config/FHIR_111_UEC/autotest_config/extractor_configs/slots_free10.cfg
-slots_free11_extractor xpathextractor __TKWROOT__/config/FHIR_111_UEC/autotest_config/extractor_configs/slots_free11.cfg
-slots_free12_extractor xpathextractor __TKWROOT__/config/FHIR_111_UEC/autotest_config/extractor_configs/slots_free12.cfg
+slots_free6_extractor xpathextractor __TKWROOT__/config/FHIR_BaRS/autotest_config/extractor_configs/slots_free6.cfg
+slots_free7_extractor xpathextractor __TKWROOT__/config/FHIR_BaRS/autotest_config/extractor_configs/slots_free7.cfg
+slots_free8_extractor xpathextractor __TKWROOT__/config/FHIR_BaRS/autotest_config/extractor_configs/slots_free8.cfg
+slots_free9_extractor xpathextractor __TKWROOT__/config/FHIR_BaRS/autotest_config/extractor_configs/slots_free9.cfg
+slots_free10_extractor xpathextractor __TKWROOT__/config/FHIR_BaRS/autotest_config/extractor_configs/slots_free10.cfg
+slots_free11_extractor xpathextractor __TKWROOT__/config/FHIR_BaRS/autotest_config/extractor_configs/slots_free11.cfg
+slots_free12_extractor xpathextractor __TKWROOT__/config/FHIR_BaRS/autotest_config/extractor_configs/slots_free12.cfg
 
-slots_free13_extractor xpathextractor __TKWROOT__/config/FHIR_111_UEC/autotest_config/extractor_configs/slots_free13.cfg
-slots_free14_extractor xpathextractor __TKWROOT__/config/FHIR_111_UEC/autotest_config/extractor_configs/slots_free14.cfg
-slots_free15_extractor xpathextractor __TKWROOT__/config/FHIR_111_UEC/autotest_config/extractor_configs/slots_free15.cfg
-slots_free16_extractor xpathextractor __TKWROOT__/config/FHIR_111_UEC/autotest_config/extractor_configs/slots_free16.cfg
-slots_free17_extractor xpathextractor __TKWROOT__/config/FHIR_111_UEC/autotest_config/extractor_configs/slots_free17.cfg
-slots_free18_extractor xpathextractor __TKWROOT__/config/FHIR_111_UEC/autotest_config/extractor_configs/slots_free18.cfg
-slots_free19_extractor xpathextractor __TKWROOT__/config/FHIR_111_UEC/autotest_config/extractor_configs/slots_free19.cfg
+slots_free13_extractor xpathextractor __TKWROOT__/config/FHIR_BaRS/autotest_config/extractor_configs/slots_free13.cfg
+slots_free14_extractor xpathextractor __TKWROOT__/config/FHIR_BaRS/autotest_config/extractor_configs/slots_free14.cfg
+slots_free15_extractor xpathextractor __TKWROOT__/config/FHIR_BaRS/autotest_config/extractor_configs/slots_free15.cfg
+slots_free16_extractor xpathextractor __TKWROOT__/config/FHIR_BaRS/autotest_config/extractor_configs/slots_free16.cfg
+slots_free17_extractor xpathextractor __TKWROOT__/config/FHIR_BaRS/autotest_config/extractor_configs/slots_free17.cfg
+slots_free18_extractor xpathextractor __TKWROOT__/config/FHIR_BaRS/autotest_config/extractor_configs/slots_free18.cfg
+slots_free19_extractor xpathextractor __TKWROOT__/config/FHIR_BaRS/autotest_config/extractor_configs/slots_free19.cfg
 
-slots_free20_extractor xpathextractor __TKWROOT__/config/FHIR_111_UEC/autotest_config/extractor_configs/slots_free20.cfg
+slots_free20_extractor xpathextractor __TKWROOT__/config/FHIR_BaRS/autotest_config/extractor_configs/slots_free20.cfg
 END EXTRACTORS
 
 BEGIN DATASOURCES
 # do we actually need this datasource?
-slots circularwritabletdv __TKWROOT__/config/FHIR_111_UEC/autotest_config/extractor_configs/slots.tdv
+slots circularwritabletdv __TKWROOT__/config/FHIR_BaRS/autotest_config/extractor_configs/slots.tdv
 
-slots5 circularwritabletdv __TKWROOT__/config/FHIR_111_UEC/autotest_config/extractor_configs/slot_5.tdv
-slots6 circularwritabletdv __TKWROOT__/config/FHIR_111_UEC/autotest_config/extractor_configs/slot_6.tdv
-slots7 circularwritabletdv __TKWROOT__/config/FHIR_111_UEC/autotest_config/extractor_configs/slot_7.tdv
-slots8 circularwritabletdv __TKWROOT__/config/FHIR_111_UEC/autotest_config/extractor_configs/slot_8.tdv
-slots9 circularwritabletdv __TKWROOT__/config/FHIR_111_UEC/autotest_config/extractor_configs/slot_9.tdv
-slots10 circularwritabletdv __TKWROOT__/config/FHIR_111_UEC/autotest_config/extractor_configs/slot_10.tdv
-slots11 circularwritabletdv __TKWROOT__/config/FHIR_111_UEC/autotest_config/extractor_configs/slot_11.tdv
-slots12 circularwritabletdv __TKWROOT__/config/FHIR_111_UEC/autotest_config/extractor_configs/slot_12.tdv
+slots5 circularwritabletdv __TKWROOT__/config/FHIR_BaRS/autotest_config/extractor_configs/slot_5.tdv
+slots6 circularwritabletdv __TKWROOT__/config/FHIR_BaRS/autotest_config/extractor_configs/slot_6.tdv
+slots7 circularwritabletdv __TKWROOT__/config/FHIR_BaRS/autotest_config/extractor_configs/slot_7.tdv
+slots8 circularwritabletdv __TKWROOT__/config/FHIR_BaRS/autotest_config/extractor_configs/slot_8.tdv
+slots9 circularwritabletdv __TKWROOT__/config/FHIR_BaRS/autotest_config/extractor_configs/slot_9.tdv
+slots10 circularwritabletdv __TKWROOT__/config/FHIR_BaRS/autotest_config/extractor_configs/slot_10.tdv
+slots11 circularwritabletdv __TKWROOT__/config/FHIR_BaRS/autotest_config/extractor_configs/slot_11.tdv
+slots12 circularwritabletdv __TKWROOT__/config/FHIR_BaRS/autotest_config/extractor_configs/slot_12.tdv
 
-slots13 circularwritabletdv __TKWROOT__/config/FHIR_111_UEC/autotest_config/extractor_configs/slot_13.tdv
-slots14 circularwritabletdv __TKWROOT__/config/FHIR_111_UEC/autotest_config/extractor_configs/slot_14.tdv
-slots15 circularwritabletdv __TKWROOT__/config/FHIR_111_UEC/autotest_config/extractor_configs/slot_15.tdv
-slots16 circularwritabletdv __TKWROOT__/config/FHIR_111_UEC/autotest_config/extractor_configs/slot_16.tdv
-slots17 circularwritabletdv __TKWROOT__/config/FHIR_111_UEC/autotest_config/extractor_configs/slot_17.tdv
-slots18 circularwritabletdv __TKWROOT__/config/FHIR_111_UEC/autotest_config/extractor_configs/slot_18.tdv
-slots19 circularwritabletdv __TKWROOT__/config/FHIR_111_UEC/autotest_config/extractor_configs/slot_19.tdv
+slots13 circularwritabletdv __TKWROOT__/config/FHIR_BaRS/autotest_config/extractor_configs/slot_13.tdv
+slots14 circularwritabletdv __TKWROOT__/config/FHIR_BaRS/autotest_config/extractor_configs/slot_14.tdv
+slots15 circularwritabletdv __TKWROOT__/config/FHIR_BaRS/autotest_config/extractor_configs/slot_15.tdv
+slots16 circularwritabletdv __TKWROOT__/config/FHIR_BaRS/autotest_config/extractor_configs/slot_16.tdv
+slots17 circularwritabletdv __TKWROOT__/config/FHIR_BaRS/autotest_config/extractor_configs/slot_17.tdv
+slots18 circularwritabletdv __TKWROOT__/config/FHIR_BaRS/autotest_config/extractor_configs/slot_18.tdv
+slots19 circularwritabletdv __TKWROOT__/config/FHIR_BaRS/autotest_config/extractor_configs/slot_19.tdv
 
-slots20 circularwritabletdv __TKWROOT__/config/FHIR_111_UEC/autotest_config/extractor_configs/slot_20.tdv
+slots20 circularwritabletdv __TKWROOT__/config/FHIR_BaRS/autotest_config/extractor_configs/slot_20.tdv
 END DATASOURCES
 
 BEGIN PASSFAIL

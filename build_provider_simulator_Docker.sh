@@ -3,18 +3,18 @@
 # usage build_provider_simulator_Docker.sh [<userid>]
 # if no user id is provided it defaults to 1000 and the tag is just the version number
 #
-TAG=0.6
+TAG=0.7-1004
 
 if [[ "$1" == "" ]]
 then
-	USER_ID=1000
+	USER_ID=1004
 else
 	USER_ID=$1
 	TAG+=-$USER_ID
 fi
 
 IMAGENAME=tkw_uec_provider_simulator
-PROJECT=FHIR_111_UEC
+PROJECT=FHIR_BaRS
 
 echo "Building $IMAGENAME:$TAG"
 read -n 1 -p "Press any key to continue..."

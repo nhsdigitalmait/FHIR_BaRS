@@ -13,5 +13,5 @@ to_ep=http://localhost:4434/STU3
 #toasid=200000000359
 #fromasid=200000000359
 sendtls=No
-truststore=/home/service/TKW/config/FHIR_111_UEC/autotest_config/endpoint_configs/certs/opentest.jks
-keystore=/home/service/TKW/config/FHIR_111_UEC/autotest_config/endpoint_configs/certs/vpn-client-1003.opentest.hscic.gov.uk.jks
+truststore=/home/service/TKW/config/FHIR_BaRS/autotest_config/endpoint_configs/certs/opentest.jks
+keystore=/home/service/TKW/config/FHIR_BaRS/autotest_config/endpoint_configs/certs/vpn-client-1003.opentest.hscic.gov.uk.jks
