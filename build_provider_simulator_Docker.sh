@@ -3,11 +3,11 @@
 # usage build_provider_simulator_Docker.sh [<userid>]
 # if no user id is provided it defaults to 1000 and the tag is just the version number
 #
-TAG=0.7-1004
+TAG=0.1
 
 if [[ "$1" == "" ]]
 then
-	USER_ID=1004
+	USER_ID=1000
 else
 	USER_ID=$1
 	TAG+=-$USER_ID

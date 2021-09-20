@@ -5,7 +5,7 @@
 version: "3"
 services:
   tkw_bars_consumer_simulator:
-    image: nhsdigitalmait/tkw_bars_consumer_simulator:0.7
+    image: nhsdigitalmait/tkw_bars_consumer_simulator:0.1
 
     environment:
       - TZ=Europe/London
