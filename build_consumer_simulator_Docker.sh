@@ -13,7 +13,7 @@ else
 	TAG+=-$USER_ID
 fi
 
-IMAGENAME=tkw_uec_consumer_simulator
+IMAGENAME=tkw_bars_consumer_simulator
 PROJECT=FHIR_BaRS
 
 echo "Building $IMAGENAME:$TAG"
@@ -35,7 +35,7 @@ cd -
 #	cp $TKWROOT/lib/TKWPropertiesEditor.jar .
 #fi
 
-echo "111 UEC Booking Consumer Simulator Version: $TAG"  > version_string.txt
+echo "BaRS Consumer Simulator Version: $TAG"  > version_string.txt
 # put the git commit hash and date into a text file
 git show -s --format="$PROJECT %h %cI" >> version_string.txt
 

@@ -13,7 +13,7 @@ else
 	TAG+=-$USER_ID
 fi
 
-IMAGENAME=tkw_uec_provider_simulator
+IMAGENAME=tkw_bars_provider_simulator
 PROJECT=FHIR_BaRS
 
 echo "Building $IMAGENAME:$TAG"
@@ -26,8 +26,8 @@ fixtkwroot.sh -u .
 cd -
 
 # put the git commit hash and date into a text file
-echo "111 UEC Booking Provider Simulator Version: $TAG"  > version_string.txt
-echo "111 UEC Booking Github repository shortcode:" `git show -s --format="$PROJECT %h %cI"` >> version_string.txt
+echo "BaRS Provider Simulator Version: $TAG"  > version_string.txt
+echo "BaRS Github repository shortcode:" `git show -s --format="$PROJECT %h %cI"` >> version_string.txt
 
 
 #Update the docker ignore sim link
