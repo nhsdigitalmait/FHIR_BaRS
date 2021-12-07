@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-#  Script for TKWATM test script generation and execution for Emergency Booking
+#  Script for TKWATM test script generation and execution for Booking and referral system
 #
 #  usage ./run_autotest.sh --version | ( -s  <environment> [<testname> *]) |  ( [<environment> <A|S|B|C|>*] )
 #
@@ -28,7 +28,7 @@ then
 	exit 
 fi
 
-TSTP_FILES=EB_Common.tstp
+TSTP_FILES=BaRS_Common.tstp
 
 if [[ "$1" == '-s' ]]
 then
@@ -37,7 +37,7 @@ then
 fi
 
 # local
-ENVIRONMENT=200000000359   # acts as a label for an endpoint config in endpoint_configs
+ENVIRONMENT=NHS0001   # acts as a label for an endpoint config in endpoint_configs
 if [[ $# != 0 ]]
 then
 	ENVIRONMENT=$1
@@ -46,25 +46,25 @@ fi
 
 if [[ "$OPTION" == '-s' || $# == 0 ]]
 then
-	TSTP_FILES+=' EB_Capability.tstp EB_SearchForFreeSlots.tstp EB_BookAppointment.tstp EB_CancelAppointment.tstp'
+	TSTP_FILES+=' BaRS_Capability.tstp BaRS_SearchForFreeSlots.tstp BaRS_BookAppointment.tstp BaRS_CancelAppointment.tstp'
 else
 	for t in $*
 	do
 		case "$t" in
 			A|a)
-			TSTP_FILES+=' EB_Capability.tstp'
+			TSTP_FILES+=' BaRS_Capability.tstp'
 			;;
 
 			S|s)
-			TSTP_FILES+=' EB_SearchForFreeSlots.tstp'
+			TSTP_FILES+=' BaRS_SearchForFreeSlots.tstp'
 			;;
 
 			B|b)
-			TSTP_FILES+=' EB_BookAppointment.tstp'
+			TSTP_FILES+=' BaRS_BookAppointment.tstp'
 			;;
 
 			C|c)
-			TSTP_FILES+=' EB_CancelAppointment.tstp'
+			TSTP_FILES+=' BaRS_CancelAppointment.tstp'
 			;;
 			*)
 			echo "unrecognised group parameter $t"
@@ -74,7 +74,7 @@ else
 	done
 fi
 
-SCRIPT_NAME=111_uec
+SCRIPT_NAME=BaRS
 
 ROOT=$TKWROOT/config/FHIR_BaRS/autotest_config
 MERGED_TSTP_FILE=$ROOT/mergedfile.tstp

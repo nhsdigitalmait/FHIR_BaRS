@@ -1,8 +1,8 @@
-# Emergency Booking Search for free slots test script
+# BaRS Search for free slots test script
 #
 # slot numbers refer to test scenario identifiers not actual slot numbers
 #
-SCRIPT EB_SearchForFreeSlots
+SCRIPT BaRS_SearchForFreeSlots
 #
 #  Search parameters spec implies thay are all optional https://developer.nhs.uk/apis/nhsbooking-2.0.0-beta/search_free_slots.html
 #  

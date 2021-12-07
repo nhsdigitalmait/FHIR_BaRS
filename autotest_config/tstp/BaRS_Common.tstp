@@ -1,8 +1,8 @@
 #
-# Care Connect Emergency Booking EB_Common tstp file
+# BaRS_Common tstp file
 # slot numbers refer to test scenario identifiers not actual slot numbers
 #
-SCRIPT EB_Common
+SCRIPT BaRS_Common
 
 # NB this references the *internal* autotest simulator rules applied when listening for async messages not the rule set autotest applies which are referenced in the main properties file
 SIMULATOR __TKWROOT__/config/FHIR_BaRS/simulator_config/test_tks_rule_config.txt
@@ -126,8 +126,6 @@ empty_file_template __TKWROOT__/config/FHIR_BaRS/autotest_config/requests/emptyf
 book_appt_template __TKWROOT__/config/FHIR_BaRS/autotest_config/requests/book_appt.xml
 END TEMPLATES
 
-# future proofing
-#	SET tks.fhir.version R4
 # if chunking required
 #SET tks.transmitter.send.chunksize 150
 BEGIN PROPERTYSETS
@@ -137,7 +135,7 @@ webservices
 	SET tks.tls.truststore __TRUSTSTORE__
 	SET tks.tls.keystore __KEYSTORE__
 	SET tks.sendtls __SEND_TLS__
-	SET tks.fhir.version Dstu3
+	SET tks.fhir.version R4
 	SET tks.HttpTransport.suppress.close Y
 	SET tks.transmitter.send.chunksize 0
 	SET tks.autotest.stoponfail No
@@ -149,11 +147,13 @@ put
 	SET tks.transmitter.http.method PUT
 END PROPERTYSETS
 
+#Ssp-From "__FROM_ASID__"
+#Ssp-To "__TO_ASID__"
+#Ssp-TraceID function:uk.nhs.digital.mait.tkwx.tk.internalservices.testautomation.PropertySetFunctions.getuuid
 BEGIN HTTPHEADERS
 credentials
-	Ssp-From "__FROM_ASID__"
-	Ssp-To "__TO_ASID__"
-	Ssp-TraceID function:uk.nhs.digital.mait.tkwx.tk.internalservices.testautomation.PropertySetFunctions.getuuid
+	NHSD-Service NHS0001
+	NHSD-Token "subject,91122,organisation,[object Object]"
 
 getmetadata_interactionid
 	Ssp-InteractionID "urn:nhs:names:services:careconnect:fhir:rest:read:metadata"

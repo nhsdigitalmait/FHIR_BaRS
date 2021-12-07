@@ -1,8 +1,8 @@
 #
-# Care Connect emergency booking EB_CancelAppointment tstp file
+# BaRS_CancelAppointment tstp file
 # slot numbers refer to test scenario identifiers not actual slot numbers
 #
-SCRIPT EB_CancelAppointment
+SCRIPT BaRS_CancelAppointment
 
 BEGIN SCHEDULES
 ReadNonExistentAppointment TESTS ReadNonExistentAppointment ResponseIsOperationOutcome 

@@ -1,8 +1,8 @@
 #
-# Care Connect emergency booking EB_BookAppointment tstp file
+# BaRS_BookAppointment tstp file
 # slot numbers refer to test scenario identifiers not actual slot numbers
 #
-SCRIPT EB_BookAppointment
+SCRIPT BaRS_BookAppointment
 
 BEGIN SCHEDULES
 # valid date ranges this tests populates the slot 5 tdv including the etag from the successful book, contact telecom is removed for happy path

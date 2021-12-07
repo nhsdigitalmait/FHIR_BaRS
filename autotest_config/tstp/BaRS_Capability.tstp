@@ -1,7 +1,7 @@
 #
-# Care Connect emergency booking EB_Capability tstp file
+# BaRS_Capability tstp file
 #
-SCRIPT EB_Capability
+SCRIPT BaRS_Capability
 
 BEGIN SCHEDULES
 Capability_xml_accept TESTS CapabilityTest_xml_accept ResponseIsCapabilityStatement ResponseIsXml

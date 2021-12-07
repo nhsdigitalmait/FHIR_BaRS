@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# take the 111 Emergency Booking tstp files and perform substitutions to generate tst files in the correct location
+# take the BaRS tstp files and perform substitutions to generate tst files in the correct location
 # then run the tst file
 #
 
