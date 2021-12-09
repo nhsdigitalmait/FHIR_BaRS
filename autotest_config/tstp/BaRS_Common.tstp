@@ -13,12 +13,12 @@ STOP WHEN COMPLETE
 # tests which define an extractor cannot be reused unless all the extractor references are the same
 BEGIN TESTS
 # valid date ranges
-SFFSWithValidParameters_3_days SEND_TKW empty_file TO __TO_ENDPOINT__/Slot?schedule.actor%3Ahealthcareservice=__HCS__&start=ge__START_SLOT_TIME__&start=le__END_SLOT_TIME__&status=free&_include=Slot%3Aschedule&_include=Schedule%3Aactor%3APractitioner&_include=Schedule%3Aactor%3APractitionerRole&_include=Schedule%3Aactor%3AHealthcareService&_include=HealthcareService.location&_include=HealthcareService.providedBy FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ SYNC ok WITH_PROPERTYSET base+webservices+get WITH_HTTPHEADERS credentials+default_accept+JWT_search_slots TEXT "HTTP Response must be HTTP 200"
+SFFSWithValidParameters_3_days SEND_TKW empty_file TO __TO_ENDPOINT__/Slot?schedule.actor%3Ahealthcareservice=__HCS__&start=ge__START_SLOT_TIME__&start=le__END_SLOT_TIME__&status=free&_include=Slot%3Aschedule&_include=Schedule%3Aactor%3APractitioner&_include=Schedule%3Aactor%3APractitionerRole&_include=Schedule%3Aactor%3AHealthcareService&_include=HealthcareService.location&_include=HealthcareService.providedBy FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ SYNC ok WITH_PROPERTYSET base+webservices+get WITH_HTTPHEADERS credentials+default_accept+Oauth2AccessToken TEXT "HTTP Response must be HTTP 200"
 
-SFFSWithValidParameters_3_days_5 SEND_TKW empty_file5 TO __TO_ENDPOINT__/Slot?schedule.actor%3Ahealthcareservice=__HCS__&start=ge__START_SLOT_TIME__&start=le__END_SLOT_TIME__&status=free&_include=Slot%3Aschedule&_include=Schedule%3Aactor%3APractitioner&_include=Schedule%3Aactor%3APractitionerRole&_include=Schedule%3Aactor%3AHealthcareService&_include=HealthcareService.location&_include=HealthcareService.providedBy FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ SYNC ok WITH_PROPERTYSET base+webservices+get WITH_HTTPHEADERS credentials+default_accept+JWT_search_slots TEXT "HTTP Response must be HTTP 200"
+SFFSWithValidParameters_3_days_5 SEND_TKW empty_file5 TO __TO_ENDPOINT__/Slot?schedule.actor%3Ahealthcareservice=__HCS__&start=ge__START_SLOT_TIME__&start=le__END_SLOT_TIME__&status=free&_include=Slot%3Aschedule&_include=Schedule%3Aactor%3APractitioner&_include=Schedule%3Aactor%3APractitionerRole&_include=Schedule%3Aactor%3AHealthcareService&_include=HealthcareService.location&_include=HealthcareService.providedBy FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ SYNC ok WITH_PROPERTYSET base+webservices+get WITH_HTTPHEADERS credentials+default_accept+Oauth2AccessToken TEXT "HTTP Response must be HTTP 200"
 
 # happy path
-BookAppointment SEND_TKW book_appointment_slot5 TO __TO_ENDPOINT__/Appointment FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ PRETRANSFORM __TKWROOT__/config/FHIR_BaRS/autotest_config/transforms/remove_appt_id.xslt APPLYPRETRANSFORMTO data SYNC httpstatuscheck201 WITH_PROPERTYSET base+webservices+post WITH_HTTPHEADERS credentials+JWT_book_cancel+default_content+default_accept+integrity TEXT "HTTP Response must be HTTP 201"
+BookAppointment SEND_TKW book_appointment_slot5 TO __TO_ENDPOINT__/Appointment FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ PRETRANSFORM __TKWROOT__/config/FHIR_BaRS/autotest_config/transforms/remove_appt_id.xslt APPLYPRETRANSFORMTO data SYNC httpstatuscheck201 WITH_PROPERTYSET base+webservices+post WITH_HTTPHEADERS credentials+Oauth2AccessToken+default_content+default_accept+integrity TEXT "HTTP Response must be HTTP 201"
 
 ResponseIsOperationOutcome CHAIN SYNC operation_outcome TEXT "Response contains a root fhir:OperationOutcome element"
 OperationOutcomeSystemCodeIsSpine CHAIN SYNC operation_outcome_system_code_is_spine TEXT "OperationOutcome System code is https://fhir.nhs.uk/STU3/CodeSystem/Spine-ErrorOrWarningCode-1"
@@ -90,7 +90,7 @@ IntegrityHeadersMatch CHAIN SYNC integrity_headers_match TEXT "Request httpheade
 
 ResponseWasGzip CHAIN SYNC response_has_was_gzip_header TEXT "Response was returned with a Content-encoding http header value of gzip"
 
-SFFSWithValidParameters_3_days_slots_only SEND_TKW empty_file TO __TO_ENDPOINT__/Slot?schedule.actor%3Ahealthcareservice=__HCS_SLOTS_ONLY__&start=ge__START_SLOT_TIME__&start=le__END_SLOT_TIME__&status=free&_include=Slot%3Aschedule&_include=Schedule%3Aactor%3APractitioner&_include=Schedule%3Aactor%3APractitionerRole&_include=Schedule%3Aactor%3AHealthcareService&_include=HealthcareService.location&_include=HealthcareService.providedBy FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ SYNC ok WITH_PROPERTYSET base+webservices+get WITH_HTTPHEADERS credentials+default_accept+JWT_search_slots TEXT "HTTP Response must be HTTP 200"
+SFFSWithValidParameters_3_days_slots_only SEND_TKW empty_file TO __TO_ENDPOINT__/Slot?schedule.actor%3Ahealthcareservice=__HCS_SLOTS_ONLY__&start=ge__START_SLOT_TIME__&start=le__END_SLOT_TIME__&status=free&_include=Slot%3Aschedule&_include=Schedule%3Aactor%3APractitioner&_include=Schedule%3Aactor%3APractitionerRole&_include=Schedule%3Aactor%3AHealthcareService&_include=HealthcareService.location&_include=HealthcareService.providedBy FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ SYNC ok WITH_PROPERTYSET base+webservices+get WITH_HTTPHEADERS credentials+default_accept+Oauth2AccessToken TEXT "HTTP Response must be HTTP 200"
 END TESTS
 
 BEGIN MESSAGES
@@ -155,32 +155,9 @@ credentials
 	NHSD-Service NHS0001
 	NHSD-Token "subject,91122,organisation,[object Object]"
 
-#getmetadata_interactionid
-#	Ssp-InteractionID "urn:nhs:names:services:careconnect:fhir:rest:read:metadata"
-#search_slots_interactionid
-#	Ssp-InteractionID "urn:nhs:names:services:careconnect:fhir:rest:search:slot"
-#book_appt_interactionid
-#	Ssp-InteractionID "urn:nhs:names:services:careconnect:fhir:rest:create:appointment"
-#read_appt_interactionid
-#	Ssp-InteractionID "urn:nhs:names:services:careconnect:fhir:rest:read:appointment"
-#update_appt_interactionid
-#	Ssp-InteractionID "urn:nhs:names:services:careconnect:fhir:rest:update:appointment"
+Oauth2AccessToken 
+	Authorization function:uk.nhs.digital.mait.jwttools.OauthUtils.oauthGetAccessToken __TKWROOT__/config/FHIR_BaRS/autotest_config/endpoint_configs/__TO_ASID__.sh
 
-# The endpoint repurposes the unused __NHS_NUMBER__ tag in the template to populate the aud field, we may need to generalise this later if more tags are required
-# 111222333444 is the practitioner id value
-# see https://developer.nhs.uk/apis/uec-appointments/fs_authentication.html for details of jwt claims
-JWT_metadata
-	Authorization function:uk.nhs.digital.mait.tkwx.tk.internalservices.testautomation.PropertySetFunctions.getJWT __TKWROOT__/config/FHIR_BaRS/autotest_config/jwt_templates/111_uec_jwt_template_metadata.fhir3.txt 111222333444 "__TO_ENDPOINT__" secret true
-JWT_search_slots
-	Authorization function:uk.nhs.digital.mait.tkwx.tk.internalservices.testautomation.PropertySetFunctions.getJWT __TKWROOT__/config/FHIR_BaRS/autotest_config/jwt_templates/111_uec_jwt_template.sffs.fhir3.txt 111222333444 "__TO_ENDPOINT__" secret true
-JWT_search_slots_no_practitioner
-	Authorization function:uk.nhs.digital.mait.tkwx.tk.internalservices.testautomation.PropertySetFunctions.getJWT __TKWROOT__/config/FHIR_BaRS/autotest_config/jwt_templates/111_uec_jwt_template.sffs.nopractitioner.fhir3.txt 111222333444 "__TO_ENDPOINT__" secret true
-JWT_book_cancel
-	Authorization function:uk.nhs.digital.mait.tkwx.tk.internalservices.testautomation.PropertySetFunctions.getJWT __TKWROOT__/config/FHIR_BaRS/autotest_config/jwt_templates/111_uec_jwt_template.book_cancel.fhir3.txt 111222333444 "__TO_ENDPOINT__" secret true
-JWT_invalid_aud
-	Authorization function:uk.nhs.digital.mait.tkwx.tk.internalservices.testautomation.PropertySetFunctions.getJWT __TKWROOT__/config/FHIR_BaRS/autotest_config/jwt_templates/111_uec_jwt_template.sffs.fhir3.txt 111222333444 notanendpoint secret true
-JWT_read_appt
-	Authorization function:uk.nhs.digital.mait.tkwx.tk.internalservices.testautomation.PropertySetFunctions.getJWT __TKWROOT__/config/FHIR_BaRS/autotest_config/jwt_templates/111_uec_jwt_template.read_appt.fhir3.txt 111222333444 "__TO_ENDPOINT__" secret true
 
 unsupported_content
 	Content-type "application/xml"

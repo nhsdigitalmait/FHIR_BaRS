@@ -18,8 +18,8 @@ else
 fi
 
 # endpoint defaults
-toasid=200000000359
-fromasid=200000000359
+toasid=NHS0001
+fromasid=NHS0001
 sendtls=No
 truststore=NONE
 keystore=NONE
