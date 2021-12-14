@@ -147,16 +147,13 @@ put
 	SET tks.transmitter.http.method PUT
 END PROPERTYSETS
 
-#Ssp-From "__FROM_ASID__"
-#Ssp-To "__TO_ASID__"
-#Ssp-TraceID function:uk.nhs.digital.mait.tkwx.tk.internalservices.testautomation.PropertySetFunctions.getuuid
 BEGIN HTTPHEADERS
 credentials
-	NHSD-Service NHS0001
+	NHSD-Service __TO_SERVICE__
 	NHSD-Token "subject,91122,organisation,[object Object]"
 
 Oauth2AccessToken 
-	Authorization function:uk.nhs.digital.mait.jwttools.OauthUtils.oauthGetAccessToken __TKWROOT__/config/FHIR_BaRS/autotest_config/endpoint_configs/__TO_ASID__.sh
+	Authorization function:uk.nhs.digital.mait.jwttools.OauthUtils.oauthGetAccessToken __TKWROOT__/config/FHIR_BaRS/autotest_config/endpoint_configs/__TO_SERVICE__.sh
 
 
 unsupported_content

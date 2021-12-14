@@ -10,7 +10,7 @@ tst=$autotest/tst
 
 if [[ $# == 2 ]]
 then
-	dest_asid=$1
+	dest_service=$1
 	tstfile=$2
 else
 	echo usage $0 '<destination asid> <tst filename>'
@@ -18,8 +18,8 @@ else
 fi
 
 # endpoint defaults
-toasid=NHS0001
-fromasid=NHS0001
+toservice=NHS0001
+fromservice=NHS0001
 sendtls=No
 truststore=NONE
 keystore=NONE
@@ -38,15 +38,15 @@ today4=`date $date_format --date='+ 4 days'`
 todayl1=`date $date_format --date='- 1 days'`
 
 # read in the endpoint config
-if [[ -e $autotest/endpoint_configs/$dest_asid.sh ]]
+if [[ -e $autotest/endpoint_configs/$dest_service.sh ]]
 then
 	# The script does not expect dos format files
-	dos2unix -n $autotest/endpoint_configs/$dest_asid.sh $autotest/endpoint_configs/temp.sh
+	dos2unix -n $autotest/endpoint_configs/$dest_service.sh $autotest/endpoint_configs/temp.sh
 	. $autotest/endpoint_configs/temp.sh
 	rm $autotest/endpoint_configs/temp.sh
-	#. $autotest/endpoint_configs/$dest_asid.sh
+	#. $autotest/endpoint_configs/$dest_service.sh
 else
-	echo "Unrecognised endpoint $dest_asid"
+	echo "Unrecognised endpoint $dest_service"
 	if [[ "$TKW_BROWSER" != "" ]]
 	then
 		read -n 1 -p "Press any key to exit..."
@@ -71,14 +71,14 @@ echo Writing transformed $tstfile to $tst/$prefix'.tst'
 #	    -e s!$truststore!__TRUSTSTORE__!g \
 #	    -e s!$keystore!__KEYSTORE__!g \
 #	    -e s!$sendtls!__SEND_TLS__!g \
-#	    -e s!$fromasid!__FROM_ASID__!g \
-#	    -e s!$toasid!__TO_ASID__!g \
+#	    -e s!$fromservice!__FROM_SERVICE__!g \
+#	    -e s!$toservice!__TO_SERVICE__!g \
 #		< $f  > $tst/$prefix".tst"
 
 # these need preserving they are handled by substitution tags
 sed -e s!__TKWROOT__!$TKWROOT!g \
-	-e s!__FROM_ASID__!$fromasid!g \
-	-e s!__TO_ASID__!$toasid!g \
+	-e s!__FROM_SERVICE__!$fromservice!g \
+	-e s!__TO_SERVICE__!$toservice!g \
 	-e s!__TO_ENDPOINT__!$to_ep!g \
 	-e s!__FROM_ENDPOINT__!$from_ep!g \
 	-e s!__FROM_ENDPOINT_PORT__!$from_ep_port!g \
@@ -106,24 +106,24 @@ cp $tst/$prefix'.tst' $autotest/auto_tests/$latest_autotest_folder/
 cp $tst/$prefix'.tst' $autotest/tst/mergedfile.tst
 
 # move the folder into a folder named for the asid
-if [[ ! -e $autotest/auto_tests/$dest_asid ]]
+if [[ ! -e $autotest/auto_tests/$dest_service ]]
 then
-	mkdir $autotest/auto_tests/$dest_asid
+	mkdir $autotest/auto_tests/$dest_service
 fi
 
-mv $autotest/auto_tests/$latest_autotest_folder $autotest/auto_tests/$dest_asid/
+mv $autotest/auto_tests/$latest_autotest_folder $autotest/auto_tests/$dest_service/
 
-cd $autotest/auto_tests/$dest_asid/
+cd $autotest/auto_tests/$dest_service/
 zip -qr $latest_autotest_folder'.zip'  $latest_autotest_folder/
 cd -
 
 # if there's a browser configured display the results
 if [[ "$TKW_BROWSER" != "" ]]
 then
-	if [[ -e $autotest/auto_tests/$dest_asid/$latest_autotest_folder/test_log.html ]]
+	if [[ -e $autotest/auto_tests/$dest_service/$latest_autotest_folder/test_log.html ]]
 	then
-		$TKW_BROWSER $autotest/auto_tests/$dest_asid/$latest_autotest_folder/test_log.html
+		$TKW_BROWSER $autotest/auto_tests/$dest_service/$latest_autotest_folder/test_log.html
 	else
-		echo Test log file $autotest/auto_tests/$dest_asid/$latest_autotest_folder/test_log.html not found
+		echo Test log file $autotest/auto_tests/$dest_service/$latest_autotest_folder/test_log.html not found
 	fi
 fi
