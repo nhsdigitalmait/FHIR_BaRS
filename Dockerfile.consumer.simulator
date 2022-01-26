@@ -1,7 +1,7 @@
 #
 #  Docker file for building FHIR_BaRS emergency booking consumer simulator docker image
 #
-FROM nhsdigitalmait/tkw-x:d02cf9b
+FROM nhsdigitalmait/tkw-x:a558e32
 
 ARG USER_ID
 
@@ -11,9 +11,7 @@ ENV TKWROOT=/home/service/TKW
 
 WORKDIR $TKWROOT/config/FHIR_BaRS
 
-VOLUME $TKWROOT/autotest_config/auto_tests
-VOLUME $TKWROOT/autotest_config/autotest_logs
-
+# copy configs
 COPY --chown=service:service autotest_config autotest_config
 COPY --chown=service:service validator_config validator_config
 COPY --chown=service:service simulator_config simulator_config
@@ -25,8 +23,6 @@ RUN mkdir -p transmitter_source simulator_config transmitter_sent_messages messa
 
 COPY --chown=service:service ITK_Autotest/test_tks_rule_config.txt simulator_config/
 COPY --chown=service:service ITK_Autotest/validator.conf validator_config/
-
-RUN sh -c 'cd /home/service/TKW/config/FHIR_BaRS; find autotest_config validator_config simulator_config -type f -exec grep -l TKW_ROOT {} \; -exec sed -i -e "s|TKW_ROOT|/home/service/TKW|" {} \;'
 
 # show all the folders created
 #RUN sh -c 'find /home/service/TKW/config/FHIR_BaRS -type f'

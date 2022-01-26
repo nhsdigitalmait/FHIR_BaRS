@@ -1,15 +1,12 @@
-FROM nhsdigitalmait/tkw-x:d02cf9b
+FROM nhsdigitalmait/tkw-x:a558e32
 ARG USER_ID
 
 RUN useradd -rm -u $USER_ID service
+ENV TKWROOT=/home/service/TKW
 RUN mkdir /home/service/data/ && chown service:service /home/service/data/
-VOLUME /home/service/data
-VOLUME /home/service/fhir
-VOLUME /home/service/certs
 COPY . /home/service/TKW/config/FHIR_BaRS
 WORKDIR /home/service/TKW/config/FHIR_BaRS
-RUN mkdir /home/service/TKW/config/FHIR_BaRS/simulator_saved_messages/
-RUN mkdir /home/service/TKW/config/FHIR_BaRS/messages_for_validation/
+RUN mkdir simulator_saved_messages messages_for_validation transmitter_sent_messages && chown -R service:service .
 RUN sh set-all-configurations.sh
 
 ENV trustStore=default
