@@ -4,5 +4,5 @@ services:
         ports:
             - '4434:4434'
         volumes:
-            - '${HOME}/Scratch/data:/home/service/data'
+            - '${TKWROOT}/config/FHIR_BaRS:/home/service/data'
         image: 'nhsdigitalmait/tkw_bars_provider_simulator:0.1'

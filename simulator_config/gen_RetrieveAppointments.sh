@@ -12,7 +12,7 @@ do
 			-e s/__SR__/$sr/ \
 			-e s/__SS__/$ss/ \
 			-e s/__SE__/$se/ \
-			< 111_UEC_Booking/RetrieveAppointment_HappyPath_Response.xml  > 111_UEC_Booking/RetrieveAppointment_HappyPath_$tag.xml
+			< BaRS_Booking/RetrieveAppointment_HappyPath_Response.xml  > BaRS_Booking/RetrieveAppointment_HappyPath_$tag.xml
 	fi
 done < RetrieveAppointment.csv
 

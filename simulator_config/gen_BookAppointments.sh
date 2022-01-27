@@ -6,6 +6,6 @@ do
 	then
 		echo $tag
 		sed -e s/__MESSAGEID__/$message_id/ \
-			< 111_UEC_Booking/BookAppointment_HappyPath_Response.xml  > 111_UEC_Booking/BookAppointment_HappyPath_$tag.xml
+			< BaRS_Booking/BookAppointment_HappyPath_Response.xml  > BaRS_Booking/BookAppointment_HappyPath_$tag.xml
 	fi
 done < BookAppointment.csv
