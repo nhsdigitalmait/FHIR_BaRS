@@ -148,9 +148,14 @@ put
 END PROPERTYSETS
 
 BEGIN HTTPHEADERS
+# TODO check base 64 w/wout paddiing or base64 url - these are url for the time being
 credentials
 	NHSD-Service __TO_SERVICE__
-	NHSD-Token "subject,91122,organisation,[object Object]"
+	NHSD-Target-Identifier "TkhTRC1UYXJnZXQtSWRlbnRpZmllcg"
+	NHSD-End-User-Organisation "TkhTRC1FbmQtVXNlci1PcmdhbmlzYXRpb24"
+	NHSD-Requesting-Practitioner "TkhTRC1SZXF1ZXN0aW5nLVByYWN0aXRpb25lcg"
+	NHSD-Requesting-Person "TkhTRC1SZXF1ZXN0aW5nLVBlcnNvbg"
+	NHSD-Requesting-Software "TkhTRC1SZXF1ZXN0aW5nLVNvZnR3YXJl"
 
 Oauth2AccessToken 
 	Authorization function:uk.nhs.digital.mait.jwttools.OauthUtils.oauthGetAccessToken_ClientCredentials __TKWROOT__/config/FHIR_BaRS/autotest_config/endpoint_configs/__TO_SERVICE__.sh
