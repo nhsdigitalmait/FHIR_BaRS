@@ -1,6 +1,7 @@
 # Simulator rule definition file for ITK Testbench
-#  FHIR 111 UEC Booking
+#  FHIR BaRS
 #	Richard Robinson 14/10/2020
+#	Simon Farrow 1/02/2022
 #
 BEGIN RESPONSES
 
@@ -62,27 +63,27 @@ __XCORRID__ reg_exp http_header X-Request-ID "." "$0"
 __RFC822TIMESTAMP__	RFC822datetime
 __TOMORROW__ Class uk.nhs.digital.mait.tkwx.tk.internalservices.rules.FormattedTimeSubstitution "yyyy-MM-dd Europe/London 1 0"
 __DAY_AFTER_TOMORROW__ Class uk.nhs.digital.mait.tkwx.tk.internalservices.rules.FormattedTimeSubstitution "yyyy-MM-dd Europe/London 2 0"
-__SLOT_START_TIME__	Xpath /fhir:Appointment/fhir:contained/fhir:Slot/fhir:start/@value
-__SLOT_END_TIME__	Xpath /fhir:Appointment/fhir:contained/fhir:Slot/fhir:end/@value
-__START_TIME__	Xpath /fhir:Appointment/fhir:start/@value
-__END_TIME__	Xpath /fhir:Appointment/fhir:end/@value
-__CREATED_TIME__	Xpath /fhir:Appointment/fhir:created/@value
-__SLOT_ID__	Xpath /fhir:Appointment/fhir:contained/fhir:Slot/fhir:id/@value
-__SLOT_VALUE__	Xpath /fhir:Appointment/fhir:contained/fhir:Slot/fhir:identifier/fhir:value/@value
-__SLOT_SCHED_REF__	Xpath /fhir:Appointment/fhir:contained/fhir:Slot/fhir:schedule/fhir:reference/@value
-__DOC_REF__	Xpath /fhir:Appointment/fhir:contained/fhir:DocumentReference/fhir:id/@value
-__DOC_REF_IDENTIFIER__	Xpath /fhir:Appointment/fhir:contained/fhir:DocumentReference/fhir:identifier/fhir:value/@value
+__SLOT_START_TIME__	Xpath //fhir:Appointment/fhir:contained/fhir:Slot/fhir:start/@value
+__SLOT_END_TIME__	Xpath //fhir:Appointment/fhir:contained/fhir:Slot/fhir:end/@value
+__START_TIME__	Xpath //fhir:Appointment/fhir:start/@value
+__END_TIME__	Xpath //fhir:Appointment/fhir:end/@value
+__CREATED_TIME__	Xpath //fhir:Appointment/fhir:created/@value
+__SLOT_ID__	Xpath //fhir:Appointment/fhir:contained/fhir:Slot/fhir:id/@value
+__SLOT_VALUE__	Xpath //fhir:Appointment/fhir:contained/fhir:Slot/fhir:identifier/fhir:value/@value
+__SLOT_SCHED_REF__	Xpath //fhir:Appointment/fhir:contained/fhir:Slot/fhir:schedule/fhir:reference/@value
+__DOC_REF__	Xpath //fhir:Appointment/fhir:contained/fhir:DocumentReference/fhir:id/@value
+__DOC_REF_IDENTIFIER__	Xpath //fhir:Appointment/fhir:contained/fhir:DocumentReference/fhir:identifier/fhir:value/@value
 # needs to be html escaped for full url on response
 __FULL_CONTEXT_PATH__ reg_exp context_path "&" "&amp;" ALL
 __HOST__ reg_exp http_header Host "." "$0"
 __APPOINTMENT_ID__	reg_exp context_path "^.*/R4/Appointment/(([0-9]|[a-f]){8}-([0-9]|[a-f]){4}-([0-9]|[a-f]){4}-([0-9]|[a-f]){4}-([0-9]|[a-f]){12}).*$" "$1"
-__DOCUMENT_REF_NODE__	Class uk.nhs.digital.mait.tkwx.tk.internalservices.rules.XmlFragmentSubstitution "/fhir:Appointment/fhir:contained[fhir:DocumentReference]"
-__SLOT_NODE__	Class uk.nhs.digital.mait.tkwx.tk.internalservices.rules.XmlFragmentSubstitution "/fhir:Appointment/fhir:contained[fhir:Slot]"
-__PATIENT_NODE__	Class uk.nhs.digital.mait.tkwx.tk.internalservices.rules.XmlFragmentSubstitution "/fhir:Appointment/fhir:contained[fhir:Patient]"
-__SUPPORTING_INFO_NODE__	Class uk.nhs.digital.mait.tkwx.tk.internalservices.rules.XmlFragmentSubstitution "/fhir:Appointment/fhir:supportingInformation"
+__DOCUMENT_REF_NODE__	Class uk.nhs.digital.mait.tkwx.tk.internalservices.rules.XmlFragmentSubstitution "//fhir:Appointment/fhir:contained[fhir:DocumentReference]"
+__SLOT_NODE__	Class uk.nhs.digital.mait.tkwx.tk.internalservices.rules.XmlFragmentSubstitution "//fhir:Appointment/fhir:contained[fhir:Slot]"
+__PATIENT_NODE__	Class uk.nhs.digital.mait.tkwx.tk.internalservices.rules.XmlFragmentSubstitution "//fhir:Appointment/fhir:contained[fhir:Patient]"
+__SUPPORTING_INFO_NODE__	Class uk.nhs.digital.mait.tkwx.tk.internalservices.rules.XmlFragmentSubstitution "//fhir:Appointment/fhir:supportingInformation"
 __SLOT_REF_NODE__	Class uk.nhs.digital.mait.tkwx.tk.internalservices.rules.XmlFragmentSubstitution "/fhir:Appointment/fhir:slot"
 __PARTICIPANT_NODE__	Class uk.nhs.digital.mait.tkwx.tk.internalservices.rules.XmlFragmentSubstitution "/fhir:Appointment/fhir:participant"
-__DESCRIPTION_VALUE__	Xpath /fhir:Appointment/fhir:description/@value
+__DESCRIPTION_VALUE__	Xpath //fhir:Appointment/fhir:description/@value
 END SUBSTITUTIONS
 
 # all the "match/contains" rules apply to the content by default to use eg the context path it must be specified as context_path
@@ -91,7 +92,7 @@ BEGIN EXPRESSIONS
 FREEONLY						context_path matches ^.*&status=free&.*$|^.*&status=free$
 FREEANDBUSY						context_path matches ^.*&status=free%2Cbusy&.*$|^.*&status=free%2Cbusy$|^.*&status=busy%2Cfree&.*$|^.*&status=busy%2Cfree$
 HEALTHCARESERVICE_MISSING		context_path notcontains schedule.actor%3Ahealthcareservice
-SLOT_MISSING					xpathnotmatches /fhir:Appointment/fhir:contained/fhir:Slot/fhir:id/@value ^.+$
+SLOT_MISSING					xpathnotmatches //fhir:Appointment/fhir:contained/fhir:Slot/fhir:id/@value ^.+$
 HTTP_Authorization_MISSING		http_header Authorization notmatches ^.+$
 X-Request-ID_MISSING		http_header X-Request-ID notmatches ^.+$
 
@@ -134,22 +135,22 @@ HEALTHCARESERVICE999999994		context_path matches ^.*schedule.actor%3Ahealthcares
 HEALTHCARESERVICE999999993		context_path matches ^.*schedule.actor%3Ahealthcareservice=999999993.*$
 
 
-SLOT005								xpathmatches /fhir:Appointment/fhir:contained/fhir:Slot/fhir:id/@value slot005
-SLOT006								xpathmatches /fhir:Appointment/fhir:contained/fhir:Slot/fhir:id/@value slot006
-SLOT007								xpathmatches /fhir:Appointment/fhir:contained/fhir:Slot/fhir:id/@value slot007
-SLOT008								xpathmatches /fhir:Appointment/fhir:contained/fhir:Slot/fhir:id/@value slot008
-SLOT009								xpathmatches /fhir:Appointment/fhir:contained/fhir:Slot/fhir:id/@value slot009
-SLOT010								xpathmatches /fhir:Appointment/fhir:contained/fhir:Slot/fhir:id/@value slot010
-SLOT011								xpathmatches /fhir:Appointment/fhir:contained/fhir:Slot/fhir:id/@value slot011
-SLOT012								xpathmatches /fhir:Appointment/fhir:contained/fhir:Slot/fhir:id/@value slot012
-SLOT013								xpathmatches /fhir:Appointment/fhir:contained/fhir:Slot/fhir:id/@value slot013
-SLOT014								xpathmatches /fhir:Appointment/fhir:contained/fhir:Slot/fhir:id/@value slot014
-SLOT015								xpathmatches /fhir:Appointment/fhir:contained/fhir:Slot/fhir:id/@value slot015
-SLOT016								xpathmatches /fhir:Appointment/fhir:contained/fhir:Slot/fhir:id/@value slot016
-SLOT017								xpathmatches /fhir:Appointment/fhir:contained/fhir:Slot/fhir:id/@value slot017
-SLOT018								xpathmatches /fhir:Appointment/fhir:contained/fhir:Slot/fhir:id/@value slot018
-SLOT019								xpathmatches /fhir:Appointment/fhir:contained/fhir:Slot/fhir:id/@value slot019
-SLOT021								xpathmatches /fhir:Appointment/fhir:contained/fhir:Slot/fhir:id/@value slot021
+SLOT005								xpathmatches //fhir:Appointment/fhir:contained/fhir:Slot/fhir:id/@value slot005
+SLOT006								xpathmatches //fhir:Appointment/fhir:contained/fhir:Slot/fhir:id/@value slot006
+SLOT007								xpathmatches //fhir:Appointment/fhir:contained/fhir:Slot/fhir:id/@value slot007
+SLOT008								xpathmatches //fhir:Appointment/fhir:contained/fhir:Slot/fhir:id/@value slot008
+SLOT009								xpathmatches //fhir:Appointment/fhir:contained/fhir:Slot/fhir:id/@value slot009
+SLOT010								xpathmatches //fhir:Appointment/fhir:contained/fhir:Slot/fhir:id/@value slot010
+SLOT011								xpathmatches //fhir:Appointment/fhir:contained/fhir:Slot/fhir:id/@value slot011
+SLOT012								xpathmatches //fhir:Appointment/fhir:contained/fhir:Slot/fhir:id/@value slot012
+SLOT013								xpathmatches //fhir:Appointment/fhir:contained/fhir:Slot/fhir:id/@value slot013
+SLOT014								xpathmatches //fhir:Appointment/fhir:contained/fhir:Slot/fhir:id/@value slot014
+SLOT015								xpathmatches //fhir:Appointment/fhir:contained/fhir:Slot/fhir:id/@value slot015
+SLOT016								xpathmatches //fhir:Appointment/fhir:contained/fhir:Slot/fhir:id/@value slot016
+SLOT017								xpathmatches //fhir:Appointment/fhir:contained/fhir:Slot/fhir:id/@value slot017
+SLOT018								xpathmatches //fhir:Appointment/fhir:contained/fhir:Slot/fhir:id/@value slot018
+SLOT019								xpathmatches //fhir:Appointment/fhir:contained/fhir:Slot/fhir:id/@value slot019
+SLOT021								xpathmatches //fhir:Appointment/fhir:contained/fhir:Slot/fhir:id/@value slot021
 
 #HTTP HEADER CHECKS
 #QUESTION - is the GUID Upper or Lower case? 3cb63c23-2d28-49c5-ad57-033fcbba71c7
@@ -159,28 +160,57 @@ dontpassthrough	Never
 #
 END EXPRESSIONS
 
+# new BarS 
+
+# requests
 BEGIN RULE
-POST
+POST+urn:nhs:names:services:bars:fhir:messaging:new:admin-notify
+IF passthrough THEN notFound_Response
+END RULE
+
+BEGIN RULE
+POST+urn:nhs:names:services:bars:fhir:messaging:new:referral-validation-request
+IF passthrough THEN notFound_Response
+END RULE
+
+# responses
+BEGIN RULE
+POST+urn:nhs:names:services:bars:fhir:messaging:TBD:371528001
+IF passthrough THEN notFound_Response
+END RULE
+
+BEGIN RULE
+POST+urn:nhs:names:services:bars:fhir:messaging:new:referral-validation-response
+IF passthrough THEN notFound_Response
+END RULE
+
+BEGIN RULE
+POST+urn:nhs:names:services:bars:fhir:messaging:new:booking-request
 IF	SLOT	AND	HEALTHCARESERVICE999999994	THEN	Operation_Outcome_405	ELSE	NEXT
 IF 	X-Request-ID_MISSING	THEN	Operation_Outcome_400				ELSE	NEXT
 IF 	SLOT_MISSING			THEN	Operation_Outcome_400				ELSE	NEXT
-IF	APPOINTMENT	AND	SLOT005	THEN	BookAppointment_HappyPath005_Response	ELSE	NEXT
-IF	APPOINTMENT	AND	SLOT006	THEN	Operation_Outcome_422_PF			ELSE	NEXT
-IF	APPOINTMENT	AND	SLOT007	THEN	Operation_Outcome_422_IP			ELSE	NEXT
-IF	APPOINTMENT	AND	SLOT008	THEN	Operation_Outcome_400				ELSE	NEXT
-IF	APPOINTMENT	AND	SLOT009	THEN	Operation_Outcome_403				ELSE	NEXT
-IF	APPOINTMENT	AND	SLOT010	THEN	Operation_Outcome_500				ELSE	NEXT
-IF	APPOINTMENT	AND	SLOT011	THEN	Operation_Outcome_415				ELSE	NEXT
-IF	APPOINTMENT	AND	SLOT012	THEN	Operation_Outcome_502				ELSE	NEXT
-IF	APPOINTMENT	AND	SLOT013	THEN	BookAppointment_HappyPath013_Response	ELSE	NEXT
-IF	APPOINTMENT	AND	SLOT014	THEN	BookAppointment_HappyPath014_Response	ELSE	NEXT
-IF	APPOINTMENT	AND	SLOT015	THEN	BookAppointment_HappyPath015_Response	ELSE	NEXT
-IF	APPOINTMENT	AND	SLOT016	THEN	BookAppointment_HappyPath016_Response	ELSE	NEXT
-IF	APPOINTMENT	AND	SLOT017	THEN	BookAppointment_HappyPath017_Response	ELSE	NEXT
-IF	APPOINTMENT	AND	SLOT018	THEN	BookAppointment_HappyPath018_Response	ELSE	NEXT
-IF	APPOINTMENT	AND	SLOT019 THEN	BookAppointment_HappyPath019_Response	ELSE	NEXT
-IF	APPOINTMENT	AND	SLOT021 THEN	BookAppointment_HappyPath021_Response	ELSE	NEXT
+IF	SLOT005	THEN	BookAppointment_HappyPath005_Response	ELSE	NEXT
+IF	SLOT006	THEN	Operation_Outcome_422_PF			ELSE	NEXT
+IF	SLOT007	THEN	Operation_Outcome_422_IP			ELSE	NEXT
+IF	SLOT008	THEN	Operation_Outcome_400				ELSE	NEXT
+IF	SLOT009	THEN	Operation_Outcome_403				ELSE	NEXT
+IF	SLOT010	THEN	Operation_Outcome_500				ELSE	NEXT
+IF	SLOT011	THEN	Operation_Outcome_415				ELSE	NEXT
+IF	SLOT012	THEN	Operation_Outcome_502				ELSE	NEXT
+IF	SLOT013	THEN	BookAppointment_HappyPath013_Response	ELSE	NEXT
+IF	SLOT014	THEN	BookAppointment_HappyPath014_Response	ELSE	NEXT
+IF	SLOT015	THEN	BookAppointment_HappyPath015_Response	ELSE	NEXT
+IF	SLOT016	THEN	BookAppointment_HappyPath016_Response	ELSE	NEXT
+IF	SLOT017	THEN	BookAppointment_HappyPath017_Response	ELSE	NEXT
+IF	SLOT018	THEN	BookAppointment_HappyPath018_Response	ELSE	NEXT
+IF	SLOT019 THEN	BookAppointment_HappyPath019_Response	ELSE	NEXT
+IF	SLOT021 THEN	BookAppointment_HappyPath021_Response	ELSE	NEXT
 IF passthrough THEN notFound_Response
+END RULE
+
+BEGIN RULE
+POST
+IF passthrough THEN Operation_Outcome_405
 END RULE
 
 #=========================================================================================
@@ -212,18 +242,24 @@ IF passthrough THEN notFound_Response
 END RULE
 
 BEGIN RULE
-PUT
+# this will change when the template is amended
+PUT+urn:nhs:names:services:bars:fhir:messaging:new:booking-request
 IF 	X-Request-ID_MISSING	THEN	Operation_Outcome_400				ELSE	NEXT
 IF 	SLOT_MISSING			THEN	Operation_Outcome_400						ELSE	NEXT
-IF	APPOINTMENT	AND	SLOT005 THEN	CancelAppointment_HappyPath_Response		ELSE	NEXT
-IF	APPOINTMENT	AND	SLOT013 THEN	Operation_Outcome_422_RNF					ELSE	NEXT
-IF	APPOINTMENT	AND	SLOT014 THEN	Operation_Outcome_409						ELSE	NEXT
-IF	APPOINTMENT	AND	SLOT015 THEN	Operation_Outcome_412						ELSE	NEXT
-IF	APPOINTMENT	AND	SLOT016 THEN	Operation_Outcome_400						ELSE	NEXT
-IF	APPOINTMENT	AND	SLOT017 THEN	Operation_Outcome_403						ELSE	NEXT
-IF	APPOINTMENT	AND	SLOT018 THEN	Operation_Outcome_500						ELSE	NEXT
-IF	APPOINTMENT	AND	SLOT019 THEN	Operation_Outcome_504						ELSE	NEXT
+IF	SLOT005 THEN	CancelAppointment_HappyPath_Response		ELSE	NEXT
+IF	SLOT013 THEN	Operation_Outcome_422_RNF					ELSE	NEXT
+IF	SLOT014 THEN	Operation_Outcome_409						ELSE	NEXT
+IF	SLOT015 THEN	Operation_Outcome_412						ELSE	NEXT
+IF	SLOT016 THEN	Operation_Outcome_400						ELSE	NEXT
+IF	SLOT017 THEN	Operation_Outcome_403						ELSE	NEXT
+IF	SLOT018 THEN	Operation_Outcome_500						ELSE	NEXT
+IF	SLOT019 THEN	Operation_Outcome_504						ELSE	NEXT
 IF passthrough THEN Operation_Outcome_404
+END RULE
+
+BEGIN RULE
+PUT
+IF passthrough THEN Operation_Outcome_405
 END RULE
 
 BEGIN RULE

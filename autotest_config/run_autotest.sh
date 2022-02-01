@@ -46,7 +46,7 @@ fi
 
 if [[ "$OPTION" == '-s' || $# == 0 ]]
 then
-	TSTP_FILES+=' BaRS_Capability.tstp BaRS_SearchForFreeSlots.tstp BaRS_BookAppointment.tstp BaRS_CancelAppointment.tstp'
+	TSTP_FILES+=' BaRS_Capability.tstp BaRS_SearchForFreeSlots.tstp BaRS_BookAppointment.tstp BaRS_CancelAppointment.tstp BaRS_ReferralRequest.tstp BaRS_ValidationRequest.tstp'
 else
 	for t in $*
 	do
@@ -66,6 +66,24 @@ else
 			C|c)
 			TSTP_FILES+=' BaRS_CancelAppointment.tstp'
 			;;
+
+			# new BARS messages
+			REFRQ|refrq)
+			TSTP_FILES+=' BaRS_ReferralRequest.tstp'
+			;;
+
+			VALRQ|valrq)
+			TSTP_FILES+=' BaRS_ValidationRequest.tstp'
+			;;
+
+			REFRP|refrp)
+			TSTP_FILES+=' BaRS_ReferralResponse.tstp'
+			;;
+
+			VALRP|valrp)
+			TSTP_FILES+=' BaRS_ValidationResponse.tstp'
+			;;
+
 			*)
 			echo "unrecognised group parameter $t"
 			exit 1

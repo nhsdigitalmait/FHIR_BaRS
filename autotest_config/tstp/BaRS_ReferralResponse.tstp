@@ -1,0 +1,25 @@
+#
+# BaRS_ReferralResponse tstp file
+#
+SCRIPT BaRS_ReferralResponse
+
+BEGIN SCHEDULES
+ReferralResponse_xml_accept TESTS ReferralResponseTest_xml_accept ResponseIsXml
+ReferralResponse_json_accept TESTS ReferralResponseTest_json_accept ResponseIsJson
+END SCHEDULES
+
+BEGIN TESTS
+ReferralResponseTest_xml_accept SEND_TKW referral_response TO __TO_ENDPOINT__/$process-message FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ SYNC ok WITH_PROPERTYSET base+webservices+post WITH_HTTPHEADERS credentials+Oauth2AccessToken+xml_accept+xml_content+integrity TEXT "HTTP Response must be HTTP 200"
+ReferralResponseTest_json_accept SEND_TKW referral_response TO __TO_ENDPOINT__/$process-message FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ SYNC ok WITH_PROPERTYSET base+webservices+post WITH_HTTPHEADERS credentials+Oauth2AccessToken+json_accept+json_content+integrity TEXT "HTTP Response must be HTTP 200"
+END TESTS
+
+BEGIN MESSAGES
+referral_response USING referral_response_template WITH NULL
+END MESSAGES
+
+BEGIN TEMPLATES
+referral_response_template __TKWROOT__/config/FHIR_BaRS/autotest_config/requests/referral_response.xml
+END TEMPLATES
+
+BEGIN PASSFAIL
+END PASSFAIL
