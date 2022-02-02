@@ -72,6 +72,7 @@
 					   <display value="Integrated Urgent Care Report"></display>
 					</coding>
 				 </type>
+				 <!-- R4 parser does not like this -->
 				 <indexed value="2018-12-20T09:43:41+11:00"></indexed>
 				 <content>
 					<attachment>

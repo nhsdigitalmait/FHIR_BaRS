@@ -209,6 +209,21 @@ IF passthrough THEN notFound_Response
 END RULE
 
 BEGIN RULE
+POST+urn:nhs:names:services:bars:fhir:messaging:update:booking-request
+IF 	X-Request-ID_MISSING	THEN	Operation_Outcome_400				ELSE	NEXT
+IF 	SLOT_MISSING			THEN	Operation_Outcome_400						ELSE	NEXT
+IF	SLOT005 THEN	CancelAppointment_HappyPath_Response		ELSE	NEXT
+IF	SLOT013 THEN	Operation_Outcome_422_RNF					ELSE	NEXT
+IF	SLOT014 THEN	Operation_Outcome_409						ELSE	NEXT
+IF	SLOT015 THEN	Operation_Outcome_412						ELSE	NEXT
+IF	SLOT016 THEN	Operation_Outcome_400						ELSE	NEXT
+IF	SLOT017 THEN	Operation_Outcome_403						ELSE	NEXT
+IF	SLOT018 THEN	Operation_Outcome_500						ELSE	NEXT
+IF	SLOT019 THEN	Operation_Outcome_504						ELSE	NEXT
+IF passthrough THEN Operation_Outcome_404
+END RULE
+
+BEGIN RULE
 POST
 IF passthrough THEN Operation_Outcome_405
 END RULE
@@ -241,21 +256,6 @@ IF	SLOT	AND	HEALTHCARESERVICE999999993		THEN	SearchSlots_HappyPath_OnlySlots_Res
 IF passthrough THEN notFound_Response
 END RULE
 
-BEGIN RULE
-# this will change when the template is amended
-PUT+urn:nhs:names:services:bars:fhir:messaging:new:booking-request
-IF 	X-Request-ID_MISSING	THEN	Operation_Outcome_400				ELSE	NEXT
-IF 	SLOT_MISSING			THEN	Operation_Outcome_400						ELSE	NEXT
-IF	SLOT005 THEN	CancelAppointment_HappyPath_Response		ELSE	NEXT
-IF	SLOT013 THEN	Operation_Outcome_422_RNF					ELSE	NEXT
-IF	SLOT014 THEN	Operation_Outcome_409						ELSE	NEXT
-IF	SLOT015 THEN	Operation_Outcome_412						ELSE	NEXT
-IF	SLOT016 THEN	Operation_Outcome_400						ELSE	NEXT
-IF	SLOT017 THEN	Operation_Outcome_403						ELSE	NEXT
-IF	SLOT018 THEN	Operation_Outcome_500						ELSE	NEXT
-IF	SLOT019 THEN	Operation_Outcome_504						ELSE	NEXT
-IF passthrough THEN Operation_Outcome_404
-END RULE
 
 BEGIN RULE
 PUT

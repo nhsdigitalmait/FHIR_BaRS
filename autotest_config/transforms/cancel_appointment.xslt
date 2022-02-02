@@ -6,6 +6,10 @@
 
 	<xsl:output method="xml" indent="yes" omit-xml-declaration="yes"/>
 
+	<xsl:template match="fhir:MessageHeader/fhir:reason/fhir:coding/fhir:code/@value">
+		<xsl:attribute name="value">update</xsl:attribute>
+	</xsl:template>
+
 	<xsl:template match="fhir:Appointment/fhir:status/@value">
 		<xsl:attribute name="value">cancelled</xsl:attribute>
 	</xsl:template>
