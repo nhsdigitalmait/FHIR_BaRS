@@ -1,87 +1,45 @@
 <CapabilityStatement xmlns="http://hl7.org/fhir">
-   <version value="2.0.1"/>
-   <name value="Care Connect"/>
-   <status value="active"/>
-   <date value="2021-01-20"/>
-   <publisher value="[Provider Software Vendor Name]"/>
-   <contact>
-      <name value="NHS Digital MAIT BaRS TKW Test Harness"/>
-   </contact>
-   <description value="This server implements the Booking and referral API version 2.0.0"/>
-   <copyright value="Copyright NHS Digital 2016-21"/>
-   <kind value="capability"/>
-   <software>
-      <name value="BaRS TKW Test Harness"/>
-      <version value="Release v1.0"/>
-      <releaseDate value="2021-02-01T00:00:00+00:00"/>
-   </software>
-   <fhirVersion value="4.0.1"/>
-
-	<extension url="http://hl7.org/fhir/3.0/StructureDefinition/extension-CapabilityStatement.acceptUnknown" >
-		<valueCode value="none"/>
-	</extension>
-
-   <format value="application/fhir+json"/>
-   <format value="application/fhir+xml"/>
-   <rest>
-      <mode value="server"/>
-      <security>
-         <cors value="true"/>
-      </security>
-      <resource>
-         <type value="Appointment"/>
-         <profile value="https://fhir.hl7.org.uk/STU3/StructureDefinition/CareConnect-Appointment-1"/>
-         <interaction>
-            <code value="read"/>
-         </interaction>
-         <interaction>
-            <code value="create"/>
-         </interaction>
-         <interaction>
-            <code value="search-type"/>
-         </interaction>
-         <updateCreate value="false"/>
-         <searchParam>
-            <name value="identifier"/>
-            <type value="token"/>
-            <documentation value="NHS Number (i.e. https://fhir.nhs.uk/Id/nhs-number|123456789)"/>
-         </searchParam>
-         <searchParam>
-            <name value="_id"/>
-            <type value="token"/>
-            <documentation value="Unique identifier for an appointment"/>
-         </searchParam>
-         <searchParam>
-            <name value="version"/>
-            <type value="token"/>
-            <documentation value="The version identifier for the Appointment being requested."/>
-         </searchParam>
-      </resource>
-      <resource>
-         <type value="Slot"/>
-      	 <profile value="https://fhir.hl7.org.uk/STU3/StructureDefinition/CareConnect-Slot-1"/>
-         <interaction>
-            <code value="search-type"/>
-         </interaction>
-         <searchInclude value="Slot.schedule"/>
-         <searchInclude value="Schedule:actor:Practitioner"/>
-         <searchInclude value="Schedule:actor:PractitionerRole"/>
-         <searchInclude value="Schedule:actor:HealthcareService"/>
-         <searchInclude value="HealthcareService.providedBy"/>
-         <searchInclude value="HealthcareService:location"/>
-         <searchParam>
-            <name value="service"/>
-            <type value="token"/>
-            <documentation value="The service id of the Healthcare Service for which Slots are being requested."/>
-         </searchParam>
-         <searchParam>
-            <name value="status"/>
-            <type value="token"/>
-         </searchParam>
-         <searchParam>
-            <name value="start"/>
-            <type value="date"/>
-         </searchParam>
-      </resource>
-   </rest>
+    <id value="45bcbe62-718b-4874-a68c-b0fe39a76cf5" />
+    <status value="draft" />
+    <experimental value="true" />
+    <date value="2022-02-08" />
+    <publisher value="NHS Digital" />
+    <contact>
+        <name value="System Administrator" />
+        <telecom>
+            <system value="email" />
+            <value value="interoperabilityteam@nhs.net" />
+        </telecom>
+    </contact>
+    <description value="Sample capability statement showing new MessageDefinition structure" />
+    <kind value="instance" />
+    <software>
+        <name value="NHS Digital" />
+    </software>
+    <implementation>
+        <description value="NHS Digital Message endpoint" />
+        <url value="https://fhir.nhs.uk/fhir/message-drop" />
+    </implementation>
+    <fhirVersion value="4.0.1" />
+    <format value="xml" />
+    <format value="json" />
+    <messaging>
+        <endpoint>
+            <protocol>
+                <system value="http://terminology.hl7.org/CodeSystem/message-transport" />
+                <code value="mllp" />
+            </protocol>
+            <address value="mllp:10.1.1.10:9234" />
+        </endpoint>
+        <reliableCache value="30" />
+        <documentation value="ADT A08 equivalent for external system notifications" />
+        <supportedMessage>
+            <mode value="receiver" />
+            <definition value="MessageDefinition/bars-message-servicerequest-request" />
+        </supportedMessage>
+        <supportedMessage>
+            <mode value="receiver" />
+            <definition value="MessageDefinition/bars-message-servicerequest-response" />
+        </supportedMessage>
+    </messaging>
 </CapabilityStatement>

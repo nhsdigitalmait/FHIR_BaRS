@@ -42,7 +42,8 @@
                </coding>
             </reason>
             <focus>
-               <reference value="urn:uuid:236bb75d-90ef-461f-b71e-fde7f899802c"/>
+				<reference value="urn:uuid:236bb75d-90ef-461f-b71e-fde7f899802c"/>
+				<type value="Appointment"/>
             </focus>
          </MessageHeader>
       </resource>
