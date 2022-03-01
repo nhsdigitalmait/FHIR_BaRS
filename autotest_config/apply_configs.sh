@@ -24,6 +24,11 @@ sendtls=No
 truststore=NONE
 keystore=NONE
 
+enduserorganization=org1
+requestingpractitioner=prac1
+requestingperson=person1
+requestingsoftware=software1
+
 # not required for EB since it relates to async but is required for TKW
 from_ep=http://127.0.0.1
 from_ep_port=4000
@@ -57,28 +62,24 @@ fi
 
 prefix=`basename $tstfile .tstp`
 prefix=$prefix'_'`date +%Y%m%d%H%M%S`
+# base 64 headers
+toserviceb64=`cat $TKWROOT/config/FHIR_BaRS/autotest_config/target_identifier.json | sed -e s!__VALUE__!$toservice! -e s!__SYSTEM__!http://directoryofservices.nhs.uk! | base64 -w 0`
+enduserorganizationb64=`cat $TKWROOT/config/FHIR_BaRS/autotest_config/target_identifier.json | sed -e s!__VALUE__!$enduserorganization!  -e s!__SYSTEM__!s2! | base64 -w 0`
+requestingpractitionerb64=`cat $TKWROOT/config/FHIR_BaRS/autotest_config/target_identifier.json | sed -e s!__VALUE__!$requestingpractitioner!  -e s!__SYSTEM__!s3! | base64 -w 0`
+requestingpersonb64=`cat $TKWROOT/config/FHIR_BaRS/autotest_config/target_identifier.json | sed -e s!__VALUE__!$requestingperson!  -e s!__SYSTEM__!s4! | base64 -w 0`
+requestingsoftwareb64=`cat $TKWROOT/config/FHIR_BaRS/autotest_config/target_identifier.json | sed -e s!__VALUE__!$requestingsoftware!  -e s!__SYSTEM__!s5! | base64 -w 0`
 
 echo Writing transformed $tstfile to $tst/$prefix'.tst'
-
-# __TO_URL__ is the whole thing in normal tstp files but it excludes the context path here
-# __FROM_URL__ excludes the context path
-
-
-#	sed -e s!$TKWROOT!__TKWROOT__!g \
-#	    -e s!$to_ep!__TO_ENDPOINT__!g \
-#	    -e s!$from_ep!__FROM_ENDPOINT__!g \
-#	    -e s!$from_ep_port!__FROM_ENDPOINT_PORT__!g \
-#	    -e s!$truststore!__TRUSTSTORE__!g \
-#	    -e s!$keystore!__KEYSTORE__!g \
-#	    -e s!$sendtls!__SEND_TLS__!g \
-#	    -e s!$fromservice!__FROM_SERVICE__!g \
-#	    -e s!$toservice!__TO_SERVICE__!g \
-#		< $f  > $tst/$prefix".tst"
 
 # these need preserving they are handled by substitution tags
 sed -e s!__TKWROOT__!$TKWROOT!g \
 	-e s!__FROM_SERVICE__!$fromservice!g \
 	-e s!__TO_SERVICE__!$toservice!g \
+	-e s!__TO_SERVICE_B64__!$toserviceb64!g \
+	-e s!__END_USER_ORGANIZATION_B64__!$enduserorganizationb64!g \
+	-e s!__REQUESTING_PRACTITIONER_B64__!$requestingpractitionerb64!g \
+	-e s!__REQUESTING_PERSON_B64__!$requestingpersonb64!g \
+	-e s!__REQUESTING_SOFTWARE_B64__!$requestingsoftwareb64!g \
 	-e s!__TO_ENDPOINT__!$to_ep!g \
 	-e s!__FROM_ENDPOINT__!$from_ep!g \
 	-e s!__FROM_ENDPOINT_PORT__!$from_ep_port!g \
@@ -105,7 +106,7 @@ cp $tst/$prefix'.tst' $autotest/auto_tests/$latest_autotest_folder/
 # copy a statically named version for ease of debugging
 cp $tst/$prefix'.tst' $autotest/tst/mergedfile.tst
 
-# move the folder into a folder named for the asid
+# move the folder into a folder named for the target service id
 if [[ ! -e $autotest/auto_tests/$dest_service ]]
 then
 	mkdir $autotest/auto_tests/$dest_service
