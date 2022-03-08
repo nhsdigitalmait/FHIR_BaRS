@@ -40,6 +40,7 @@ BookAppointment_HappyPath017_Response	TKW_ROOT/config/FHIR_BaRS/simulator_config
 BookAppointment_HappyPath018_Response	TKW_ROOT/config/FHIR_BaRS/simulator_config/BaRS_Booking/BookAppointment_HappyPath_018.xml "201 Created" WITH_HTTP_HEADERS ( Location : "https://clinicals.spineservices.nhs.uk/R4/Appointment/ec104b34-adfa-40ac-9dfb-20c428397e85/_history/__VERSIONID__" Date : "__RFC822TIMESTAMP__" ETag : "W/\"__VERSIONID__\"" Last-Modified : "__TIMESTAMP__" X-Request-ID : "__XREQID__" X-Correlation-ID : "__XCORRID__" )
 BookAppointment_HappyPath019_Response	TKW_ROOT/config/FHIR_BaRS/simulator_config/BaRS_Booking/BookAppointment_HappyPath_019.xml "201 Created" WITH_HTTP_HEADERS ( Location : "https://clinicals.spineservices.nhs.uk/R4/Appointment/6fdd6b8f-7752-445b-88a4-cb1f8efb1373/_history/__VERSIONID__" Date : "__RFC822TIMESTAMP__" ETag : "W/\"__VERSIONID__\"" Last-Modified : "__TIMESTAMP__" X-Request-ID : "__XREQID__" X-Correlation-ID : "__XCORRID__" )
 BookAppointment_HappyPath021_Response	TKW_ROOT/config/FHIR_BaRS/simulator_config/BaRS_Booking/BookAppointment_HappyPath_021.xml "201 Created" WITH_HTTP_HEADERS ( Location : "https://clinicals.spineservices.nhs.uk/R4/Appointment/95e58add-0b10-4a8c-817c-2729eb0cab75/_history/__VERSIONID__" Date : "__RFC822TIMESTAMP__" ETag : "W/\"__VERSIONID__\"" Last-Modified : "__TIMESTAMP__" X-Request-ID : "__XREQID__" X-Correlation-ID : "__XCORRID__" )
+
 RetrieveAppointment_HappyPath005_Response	TKW_ROOT/config/FHIR_BaRS/simulator_config/BaRS_Booking/RetrieveAppointment_HappyPath_005.xml "200 OK" 
 RetrieveAppointment_HappyPath013_Response	TKW_ROOT/config/FHIR_BaRS/simulator_config/BaRS_Booking/RetrieveAppointment_HappyPath_013.xml "200 OK" 
 RetrieveAppointment_HappyPath014_Response	TKW_ROOT/config/FHIR_BaRS/simulator_config/BaRS_Booking/RetrieveAppointment_HappyPath_014.xml "200 OK" 
@@ -49,7 +50,10 @@ RetrieveAppointment_HappyPath017_Response	TKW_ROOT/config/FHIR_BaRS/simulator_co
 RetrieveAppointment_HappyPath018_Response	TKW_ROOT/config/FHIR_BaRS/simulator_config/BaRS_Booking/RetrieveAppointment_HappyPath_018.xml "200 OK" 
 RetrieveAppointment_HappyPath019_Response	TKW_ROOT/config/FHIR_BaRS/simulator_config/BaRS_Booking/RetrieveAppointment_HappyPath_019.xml "200 OK" 
 CancelAppointment_HappyPath_Response	TKW_ROOT/config/FHIR_BaRS/simulator_config/BaRS_Booking/CancelAppointment_HappyPath_Response.xml "200 OK" WITH_HTTP_HEADERS ( Location : "https://clinicals.spineservices.nhs.uk/R4/Appointment/48fae2df-8010-4c80-8dd0-289a9dd60ae4/_history/__VERSIONID__" Date : "__RFC822TIMESTAMP__" ETag : "W/\"__VERSIONID__\"" Last-Modified : "__TIMESTAMP__" X-Request-ID : "__XREQID__" X-Correlation-ID : "__XCORRID__" )
+
 Capability_HappyPath_Response	TKW_ROOT/config/FHIR_BaRS/simulator_config/BaRS_Booking/CapabilityStatement_Response.xml "200 OK"
+
+Validation_HappyPath_Response	TKW_ROOT/config/FHIR_BaRS/simulator_config/BaRS_Validation/999_to_111_Validation_Response_New.xml "200 OK" 
 
 do_process	NONE	0
 END RESPONSES
@@ -84,6 +88,7 @@ __SUPPORTING_INFO_NODE__	Class uk.nhs.digital.mait.tkwx.tk.internalservices.rule
 __SLOT_REF_NODE__	Class uk.nhs.digital.mait.tkwx.tk.internalservices.rules.XmlFragmentSubstitution "/fhir:Appointment/fhir:slot"
 __PARTICIPANT_NODE__	Class uk.nhs.digital.mait.tkwx.tk.internalservices.rules.XmlFragmentSubstitution "/fhir:Appointment/fhir:participant"
 __DESCRIPTION_VALUE__	Xpath //fhir:Appointment/fhir:description/@value
+__VALIDATEBUNDLE_NODE__	Class uk.nhs.digital.mait.tkwx.tk.internalservices.rules.XmlFragmentSubstitution "/fhir:Bundle TKW_ROOT/config/FHIR_BaRS/simulator_config/transforms/bundle_insert_uuid_id.xsl"
 END SUBSTITUTIONS
 
 # all the "match/contains" rules apply to the content by default to use eg the context path it must be specified as context_path
@@ -151,6 +156,14 @@ SLOT017								xpathmatches //fhir:Appointment/fhir:contained/fhir:Slot/fhir:id/
 SLOT018								xpathmatches //fhir:Appointment/fhir:contained/fhir:Slot/fhir:id/@value slot018
 SLOT019								xpathmatches //fhir:Appointment/fhir:contained/fhir:Slot/fhir:id/@value slot019
 SLOT021								xpathmatches //fhir:Appointment/fhir:contained/fhir:Slot/fhir:id/@value slot021
+
+
+#Service Request Category
+SR_CATEGORY_VALIDATION	xpathmatches //fhir:Bundle/fhir:entry/fhir:resource/fhir:ServiceRequest/fhir:category/fhir:coding/fhir:code/@value validation
+
+#NHS Number
+PATIENT001	xpathmatches //fhir:Bundle/fhir:entry/fhir:resource/fhir:Patient/fhir:identifier/fhir:value/@value 3478526985
+
 
 #HTTP HEADER CHECKS
 #QUESTION - is the GUID Upper or Lower case? 3cb63c23-2d28-49c5-ad57-033fcbba71c7
@@ -221,6 +234,12 @@ IF	SLOT017 THEN	Operation_Outcome_403						ELSE	NEXT
 IF	SLOT018 THEN	Operation_Outcome_500						ELSE	NEXT
 IF	SLOT019 THEN	Operation_Outcome_504						ELSE	NEXT
 IF passthrough THEN Operation_Outcome_404
+END RULE
+
+BEGIN RULE
+POST+urn:nhs:names:services:bars:fhir:messaging:new:servicerequest-request
+IF SR_CATEGORY_VALIDATION AND PATIENT001 THEN Validation_HappyPath_Response ELSE NEXT
+IF passthrough THEN notFound_Response
 END RULE
 
 BEGIN RULE
