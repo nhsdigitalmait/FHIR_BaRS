@@ -46,7 +46,7 @@ fi
 
 if [[ "$OPTION" == '-s' || $# == 0 ]]
 then
-	TSTP_FILES+=' BaRS_Capability.tstp BaRS_SearchForFreeSlots.tstp BaRS_BookAppointment.tstp BaRS_CancelAppointment.tstp BaRS_ReferralRequest.tstp BaRS_ValidationRequest.tstp'
+	TSTP_FILES+=' BaRS_Capability.tstp BaRS_SearchForFreeSlots.tstp BaRS_BookAppointment.tstp BaRS_CancelAppointment.tstp BaRS_ReferralRequest.tstp BaRS_ValidationRequest.tstp BaRS_ReferralResponse.tstp BaRS_ValidationResponse.tstp'
 else
 	for t in $*
 	do
