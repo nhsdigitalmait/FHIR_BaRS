@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet xmlns:fhir="http://hl7.org/fhir" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:math="http://exslt.org/math" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:uuid="http://www.uuid.org" version="2.0" exclude-result-prefixes="math xs uuid fhir">
     <xsl:output method="xml" indent="yes" omit-xml-declaration="yes"/>
-    <xsl:template match="//fhir:entry/fhir:resource">
+    <xsl:template match="//fhir:entry/fhir:resource/*">
         <xsl:variable name="uuid" select="uuid:get-uuid(.)"/>
         <xsl:copy>
             <id xmlns="http://hl7.org/fhir" value="{$uuid}"/>
