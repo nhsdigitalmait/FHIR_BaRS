@@ -4,8 +4,11 @@
 # With these exceptions:
 !/simulator_config/**
 !/validator_config/**
+!/autotest_config/**
 !/tkw-x_provider_simulator.properties
 !/set-all-configurations.sh
 !/runtkwfhirvalidator.sh
 !/tkwoutputstructure.tar
 !/version_string.txt
+!/ITK_Autotest/test_tks_rule_config.txt
+!/ITK_Autotest/validator.conf

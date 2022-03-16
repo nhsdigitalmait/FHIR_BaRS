@@ -103,7 +103,6 @@ __PARTICIPANT_NODE__	Class uk.nhs.digital.mait.tkwx.tk.internalservices.rules.Xm
 __DESCRIPTION_VALUE__	Xpath //fhir:Appointment/fhir:description/@value
 __VALIDATEBUNDLEREQUEST_NODE__	Class uk.nhs.digital.mait.tkwx.tk.internalservices.rules.XmlFragmentSubstitution "/fhir:Bundle TKW_ROOT/config/FHIR_BaRS/simulator_config/transforms/bundle_insert_uuid_id.xsl"
 __VALIDATEBUNDLERESPONSE_NODE__	Class uk.nhs.digital.mait.tkwx.tk.internalservices.rules.XmlFragmentSubstitution "/fhir:Bundle"
-__RESPONSE_IMPORTER__	Class uk.nhs.digital.mait.tkwx.tk.internalservices.rules.ProcessRunnerSubstitution "(?s)^.*code\s+value=\"servicerequest-request\".*$ java -cp TKW_ROOT/TKW-x.jar uk.nhs.digital.mait.tkwx.tk.boot.ResponseImporter FHIR_BaRS 127.0.0.1"
 END SUBSTITUTIONS
 
 # all the "match/contains" rules apply to the content by default to use eg the context path it must be specified as context_path

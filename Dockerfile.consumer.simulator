@@ -1,13 +1,14 @@
 #
 #  Docker file for building FHIR_BaRS emergency booking consumer simulator docker image
 #
-FROM nhsdigitalmait/tkw-x:a558e32
+FROM nhsdigitalmait/tkw-x:b317116
 
 ARG USER_ID
 
-RUN useradd -rm -u $USER_ID service && apt-get update && apt-get install zip && apt-get install dos2unix
+RUN useradd -rm -u $USER_ID service && apt-get update && apt-get install zip && apt-get install dos2unix && apt-get install coreutils
 
 ENV TKWROOT=/home/service/TKW
+ENV FHIR_ASSETS_NPMTAR_ROOT=/home/service/TKW/config/FHIR_BaRS/validator_config/fhir_assets
 
 WORKDIR $TKWROOT/config/FHIR_BaRS
 

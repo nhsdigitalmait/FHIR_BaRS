@@ -1,8 +1,19 @@
 version: '2.0'
 services:
     tkw_bars_provider_simulator:
+        environment:
+          - FHIR_ASSETS_NPMTAR_ROOT=/home/service/TKW/config/FHIR_BaRS/validator_config/fhir_assets
+        network_mode : "host"
         ports:
-            - '4434:4434'
+            - '4848:4848'
         volumes:
             - '${TKWROOT}/config/FHIR_BaRS:/home/service/data'
+            - '${TKWROOT}/config/FHIR_BaRS/all_evidence:/home/service/TKW/config/FHIR_BaRS/all_evidence'
+            - '${TKWROOT}/config/FHIR_BaRS/logs:/home/service/TKW/config/FHIR_BaRS/logs'
+            # auto_tests folder
+            - ${TKWROOT}/config/FHIR_BaRS/autotest_config/auto_tests:/home/service/TKW/config/FHIR_BaRS/autotest_config/auto_tests
+            # endpoint_configs folder
+            - ${TKWROOT}/config/FHIR_BaRS/autotest_config/endpoint_configs:/home/service/TKW/config/FHIR_BaRS/autotest_config/endpoint_configs
+            # autotest logs folder
+            - ${TKWROOT}/config/FHIR_BaRS/autotest_config/autotest_logs:/home/service/TKW/config/FHIR_BaRS/autotest_config/autotest_logs
         image: 'nhsdigitalmait/tkw_bars_provider_simulator:0.1'
