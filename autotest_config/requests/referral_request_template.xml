@@ -33,7 +33,7 @@
                   <system value="phone"/>
                   <value value="+44 (0113) 123 4567"/>
                </contact>
-               <endpoint value="http://fhir.nhs.uk/Id/dos-service-id:TKW0004"/>
+               <endpoint value="http://fhir.nhs.uk/Id/dos-service-id:__FROM_SERVICE__"/>
             </source>
             <reason>
                <coding>

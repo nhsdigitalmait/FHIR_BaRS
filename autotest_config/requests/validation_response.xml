@@ -28,7 +28,7 @@
           <code value="servicerequest-response" />
         </eventCoding>
         <destination>
-          <endpoint value="https://fhir.nhs.uk/Id/ods-organization-code:111111111" />
+          <endpoint value="http://fhir.nhs.uk/Id/dos-service-id:local" />
           <!--    Sender to populate with the system (of the DoS used) and Service Identity value    -->
           <receiver>
             <!--    Organization    -->
@@ -47,7 +47,7 @@
             <system value="phone" />
             <value value="+44 (0113) 123 4567" />
           </contact>
-          <endpoint value="https://fhir.nhs.uk/Id/ods-organization-code:2222222222" />
+          <endpoint value="http://fhir.nhs.uk/Id/dos-service-id:TKW0004" />
           <!--    The Sender must populate the 'NHSD-Target-Identifier' header value a Receiver needs to populate in order to send a response to them via the BaRS API e.g. 'system value(URL):Service-TargetIdentifer'   -->
         </source>
         <reason>

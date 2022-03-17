@@ -19,7 +19,7 @@ fi
 
 # endpoint defaults
 toservice=NHS0001
-fromservice=NHS0001
+fromservice=TKW0004
 sendtls=No
 truststore=NONE
 keystore=NONE
@@ -90,6 +90,15 @@ sed -e s!__TKWROOT__!$TKWROOT!g \
 	-e s!__TODAY4__!$today4!g \
 	-e s!__TODAYl1__!$todayl1!g \
 	< $tstfile  > $tst/$prefix'.tst'
+
+echo "writing transformed requests"
+for f in book_appt referral_request referral_response validation_request validation_response
+do
+	echo $f 
+	sed -e s!__FROM_SERVICE__!$fromservice!g \
+		-e s!__TO_SERVICE__!$toservice!g \
+		< $autotest/requests/$f'_template.xml' > $autotest/requests/$f.xml
+done
 
 if [[ "$TKW_BROWSER" != "" ]]
 then
