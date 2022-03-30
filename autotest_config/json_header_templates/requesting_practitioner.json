@@ -1,0 +1,18 @@
+{
+  "requesting_Practitioner": {
+    "resourceType": "Practitioner",
+    "identifier": [
+      {
+        "value": "__VALUE__",
+        "system": "__SYSTEM__"
+      }
+    ],
+    "code": [
+      {
+        "code": "62247001",
+        "system": "http://snomed.info/sct",
+        "display": "General Practitioner"
+      }
+    ]
+  }
+}

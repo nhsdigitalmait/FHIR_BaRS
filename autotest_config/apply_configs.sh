@@ -24,10 +24,10 @@ sendtls=No
 truststore=NONE
 keystore=NONE
 
-enduserorganization=org1
-requestingpractitioner=prac1
-requestingperson=person1
-requestingsoftware=software1
+enduserorganization=A1001
+requestingpractitioner=100334993514
+requestingperson=12345
+requestingsoftware=SUPP-APP-1
 
 # not required for EB since it relates to async but is required for TKW
 from_ep=http://127.0.0.1
@@ -62,12 +62,14 @@ fi
 
 prefix=`basename $tstfile .tstp`
 prefix=$prefix'_'`date +%Y%m%d%H%M%S`
+
+template_root=$TKWROOT/config/FHIR_BaRS/autotest_config/json_header_templates
 # base 64 headers
-toserviceb64=`cat $TKWROOT/config/FHIR_BaRS/autotest_config/target_identifier.json | sed -e s!__VALUE__!$toservice! -e s!__SYSTEM__!http://directoryofservices.nhs.uk! | base64 -w 0`
-enduserorganizationb64=`cat $TKWROOT/config/FHIR_BaRS/autotest_config/target_identifier.json | sed -e s!__VALUE__!$enduserorganization!  -e s!__SYSTEM__!s2! | base64 -w 0`
-requestingpractitionerb64=`cat $TKWROOT/config/FHIR_BaRS/autotest_config/target_identifier.json | sed -e s!__VALUE__!$requestingpractitioner!  -e s!__SYSTEM__!s3! | base64 -w 0`
-requestingpersonb64=`cat $TKWROOT/config/FHIR_BaRS/autotest_config/target_identifier.json | sed -e s!__VALUE__!$requestingperson!  -e s!__SYSTEM__!s4! | base64 -w 0`
-requestingsoftwareb64=`cat $TKWROOT/config/FHIR_BaRS/autotest_config/target_identifier.json | sed -e s!__VALUE__!$requestingsoftware!  -e s!__SYSTEM__!s5! | base64 -w 0`
+toserviceb64=`cat $template_root/target_identifier.json | sed -e s!__VALUE__!$toservice! -e s!__SYSTEM__!https://fhir.nhs.uk/Id/dos-service-id! | base64 -w 0`
+enduserorganizationb64=`cat $template_root/enduser_organisation.json | sed -e s!__VALUE__!$enduserorganization!  -e s!__SYSTEM__!https://fhir.nhs.uk/Id/ods-organization-code! | base64 -w 0`
+requestingpractitionerb64=`cat $template_root/requesting_practitioner.json | sed -e s!__VALUE__!$requestingpractitioner!  -e s!__SYSTEM__!https://fhir.nhs.uk/Id/sds-role-profile-id! | base64 -w 0`
+requestingpersonb64=`cat $template_root/requesting_person.json | sed -e s!__VALUE__!$requestingperson!  -e s!__SYSTEM__!urn:oid:1.2.36.146.595.217.0.1! | base64 -w 0`
+requestingsoftwareb64=`cat $template_root/requesting_software.json | sed -e s!__VALUE__!$requestingsoftware!  -e s!__SYSTEM__!urn:oid:1.2.36.146.595.217.0.1! | base64 -w 0`
 
 echo Writing transformed $tstfile to $tst/$prefix'.tst'
 

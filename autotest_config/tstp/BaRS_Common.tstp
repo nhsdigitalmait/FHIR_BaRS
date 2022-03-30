@@ -157,7 +157,7 @@ credentials
 	NHSD-Requesting-Software __REQUESTING_SOFTWARE_B64__
 
 Oauth2AccessToken 
-	Authorization function:uk.nhs.digital.mait.jwttools.OauthUtils.oauthGetAccessToken_ClientCredentials __TKWROOT__/config/FHIR_BaRS/autotest_config/endpoint_configs/__TO_SERVICE__.sh
+	Authorization function:uk.nhs.digital.mait.jwttools.OauthUtils.oauthGetAccessToken_ClientCredentials __TKWROOT__/config/FHIR_BaRS/autotest_config/endpoint_configs/oauth_credentials.sh
 
 unsupported_content
 	Content-type "application/xml"
