@@ -1,0 +1,50 @@
+<ServiceRequest>
+  <id value="79120f41-a431-4f08-bcc5-1e67006fcae0" />
+  <meta>
+    <lastUpdated value="__YESTERDAY__T12:00:00+00:00" />
+    <profile value="https://fhir.nhs.uk/StructureDefinition/BARSServiceRequest-request-referral" />
+  </meta>
+  <basedOn>
+    <!--     Always CarePlan-->
+    <reference value="urn:uuid:38e9c018-adbb-4579-9cd8-45f4f890b93b" />
+  </basedOn>
+  <!--     used to drive workflow e.g. cancel/remove-->
+  <status value="active" />
+  <!--      required and always set to 'plan'-->
+  <intent value="plan" />
+  <category>
+    <coding>
+      <system value="https://fhir.nhs.uk/CodeSystem/message-category-servicerequest" />
+      <code value="referral" />
+      <!--   Important for driving workflow, determining the type of referral being requested   -->
+      <display value="Transfer of Care" />
+    </coding>
+  </category>
+  <subject>
+    <reference value="urn:uuid:9589fb37-87a2-48d8-968f-b371429208a8" />
+  </subject>
+  <encounter>
+    <reference value="urn:uuid:8c63d621-4d86-4f57-8699-e8e22d49935d" />
+  </encounter>
+  <occurrencePeriod>
+    <start value="__YESTERDAY__T12:00:00+00:00" />
+  </occurrencePeriod>
+  <authoredOn value="__YESTERDAY__T12:10:00+00:00" />
+  <requester>
+    <!--     Sending Practitioner -->
+    <reference value="urn:uuid:7d948662-bade-450e-b6c5-9bb6ee39cb56" />
+  </requester>
+  <performer>
+    <!--      Receiving/performing Organization/HealthcareService -->
+    <reference value="urn:uuid:d5ffd0cd-ec7e-48a1-84f1-91f4c0eb8fc5" />
+  </performer>
+  <supportingInfo>
+    <reference value="urn:uuid:65508934-c9e6-46d2-a393-af096b502daf" />
+    <display value="Rejected Services - Patient Choice in Service Selection - Details" />
+  </supportingInfo>
+  <supportingInfo>
+    <reference value="urn:uuid:41e591ab-d333-4fb8-87b4-d35f740b6bfc" />
+    <display value="Rejected Services - Patient Choice in Service Selection - Flag" />
+  </supportingInfo>
+  <patientInstruction value="ADVICE GIVEN: If there are any new symptoms, or if the condition gets worse, changes or you have any other concerns, call us back." />
+</ServiceRequest>

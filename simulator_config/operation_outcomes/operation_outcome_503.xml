@@ -8,9 +8,9 @@
       <details>
          <coding>
             <system value="https://fhir.nhs.uk/Codesystem/http-error-codes"/>
-            <code value="REC_CONFLICT"/>
+            <code value="REC_UNAVAILABLE"/>
          </coding>
       </details>
-      <diagnostics value="__MY_ODS__ encountered a conflict: Sender is trying to Book an appointment in a slot that doesn't allow booking."/>
+      <diagnostics value="__MY_ODS__ : The Receiver was unavailable to service the request."/>
    </issue>
 </OperationOutcome>

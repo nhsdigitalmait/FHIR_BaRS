@@ -1,21 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet xmlns:fhir="http://hl7.org/fhir" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:math="http://exslt.org/math" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:uuid="http://www.uuid.org" version="2.0" exclude-result-prefixes="math xs uuid fhir">
-    <xsl:output method="xml" indent="yes" omit-xml-declaration="yes"/>
-    <xsl:template match="//fhir:entry/fhir:resource/*">
-        <xsl:variable name="uuid" select="uuid:get-uuid(.)"/>
-        <xsl:copy>
-            <id xmlns="http://hl7.org/fhir" value="{$uuid}"/>
-            <xsl:apply-templates select="@*|node()"/>
-        </xsl:copy>
-    </xsl:template>
-    <!-- match all atts all nodes -->
-    <xsl:template match="@*|node()">
-        <xsl:copy>
-            <xsl:apply-templates select="@*|node()"/>
-        </xsl:copy>
-    </xsl:template>
-	
-	
     <!-- Functions From: https://medium.com/@azinneera/generating-multiple-uuids-during-xslt-transformation-in-wso2-esb-f1c5747242f8-->
     <!-- Functions in the uuid: namespace are used to calculate a UUID The method used is a derived timestamp method, which 
     is explained here: http://www.famkruithof.net/guid-uuid-timebased.html and here: http://www.ietf.org/rfc/rfc4122.txt -->

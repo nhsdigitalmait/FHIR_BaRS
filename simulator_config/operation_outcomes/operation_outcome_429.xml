@@ -8,9 +8,9 @@
       <details>
          <coding>
             <system value="https://fhir.nhs.uk/Codesystem/http-error-codes"/>
-            <code value="REC_CONFLICT"/>
+            <code value="REC_TOO_MANY_REQUESTS"/>
          </coding>
       </details>
-      <diagnostics value="__MY_ODS__ encountered a conflict: Sender is trying to Book an appointment in a slot that doesn't allow booking."/>
+      <diagnostics value="__MY_ODS__ : The user has sent too many requests in a given amount of time"/>
    </issue>
 </OperationOutcome>
