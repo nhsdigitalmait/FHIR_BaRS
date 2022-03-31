@@ -15,7 +15,7 @@
             </meta>
             <eventCoding>
                <system value="https://fhir.nhs.uk/CodeSystem/message-event"/>
-               <code value="admin-notify"/>
+               <code value="servicerequest-request"/>
             </eventCoding>
             <destination>
                <receiver>
