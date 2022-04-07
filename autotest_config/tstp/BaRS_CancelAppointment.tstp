@@ -153,14 +153,14 @@ BEGIN PASSFAIL
 #
 # Response checks
 #
-response_is_appt synchronousxpath /fhir:Appointment exists
-response_is_appt_extracting13 synchronousxpath /fhir:Appointment exists EXTRACTOR slots_free13_extractor
-response_is_appt_extracting14 synchronousxpath /fhir:Appointment exists EXTRACTOR slots_free14_extractor
-response_is_appt_extracting15 synchronousxpath /fhir:Appointment exists EXTRACTOR slots_free15_extractor
-response_is_appt_extracting16 synchronousxpath /fhir:Appointment exists EXTRACTOR slots_free16_extractor
-response_is_appt_extracting17 synchronousxpath /fhir:Appointment exists EXTRACTOR slots_free17_extractor
-response_is_appt_extracting18 synchronousxpath /fhir:Appointment exists EXTRACTOR slots_free18_extractor
-response_is_appt_extracting19 synchronousxpath /fhir:Appointment exists EXTRACTOR slots_free19_extractor
+response_is_appt synchronousxpath /fhir:Bundle/fhir:entry/fhir:resource/fhir:Appointment exists
+response_is_appt_extracting13 synchronousxpath /fhir:Bundle/fhir:entry/fhir:resource/fhir:Appointment exists EXTRACTOR slots_free13_extractor
+response_is_appt_extracting14 synchronousxpath /fhir:Bundle/fhir:entry/fhir:resource/fhir:Appointment exists EXTRACTOR slots_free14_extractor
+response_is_appt_extracting15 synchronousxpath /fhir:Bundle/fhir:entry/fhir:resource/fhir:Appointment exists EXTRACTOR slots_free15_extractor
+response_is_appt_extracting16 synchronousxpath /fhir:Bundle/fhir:entry/fhir:resource/fhir:Appointment exists EXTRACTOR slots_free16_extractor
+response_is_appt_extracting17 synchronousxpath /fhir:Bundle/fhir:entry/fhir:resource/fhir:Appointment exists EXTRACTOR slots_free17_extractor
+response_is_appt_extracting18 synchronousxpath /fhir:Bundle/fhir:entry/fhir:resource/fhir:Appointment exists EXTRACTOR slots_free18_extractor
+response_is_appt_extracting19 synchronousxpath /fhir:Bundle/fhir:entry/fhir:resource/fhir:Appointment exists EXTRACTOR slots_free19_extractor
 
 httpheadercheckcontentlengthexists httpheadercheck Content-Length exists
 last_modified_header_is_present httpheadercheck Last-Modified exists

@@ -18,7 +18,7 @@ SFFSWithValidParameters_3_days SEND_TKW empty_file TO __TO_ENDPOINT__/Slot?sched
 SFFSWithValidParameters_3_days_5 SEND_TKW empty_file5 TO __TO_ENDPOINT__/Slot?schedule.actor%3Ahealthcareservice=__HCS__&start=ge__START_SLOT_TIME__&start=le__END_SLOT_TIME__&status=free&_include=Slot%3Aschedule&_include=Schedule%3Aactor%3APractitioner&_include=Schedule%3Aactor%3APractitionerRole&_include=Schedule%3Aactor%3AHealthcareService&_include=HealthcareService.location&_include=HealthcareService.providedBy FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ SYNC ok WITH_PROPERTYSET base+webservices+get WITH_HTTPHEADERS credentials+default_accept+Oauth2AccessToken TEXT "HTTP Response must be HTTP 200"
 
 # happy path
-BookAppointment SEND_TKW book_appointment_slot5 TO __TO_ENDPOINT__/$process-message FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ PRETRANSFORM __TKWROOT__/config/FHIR_BaRS/autotest_config/transforms/remove_appt_id.xslt APPLYPRETRANSFORMTO data SYNC httpstatuscheck201 WITH_PROPERTYSET base+webservices+post WITH_HTTPHEADERS credentials+Oauth2AccessToken+default_content+default_accept+integrity TEXT "HTTP Response must be HTTP 201"
+BookAppointment SEND_TKW book_appointment_slot5 TO __TO_ENDPOINT__/$process-message FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ PRETRANSFORM __TKWROOT__/config/FHIR_BaRS/autotest_config/transforms/remove_appt_id.xslt APPLYPRETRANSFORMTO data SYNC ok WITH_PROPERTYSET base+webservices+post WITH_HTTPHEADERS credentials+Oauth2AccessToken+default_content+default_accept+integrity TEXT "HTTP Response must be HTTP 200"
 
 ResponseIsOperationOutcome CHAIN SYNC operation_outcome TEXT "Response contains a root fhir:OperationOutcome element"
 OperationOutcomeSystemCodeIsSpine CHAIN SYNC operation_outcome_system_code_is_spine TEXT "OperationOutcome System code is https://fhir.nhs.uk/STU3/CodeSystem/Spine-ErrorOrWarningCode-1"
@@ -35,8 +35,8 @@ MissingOrInvalidHeader CHAIN SYNC missing_or_invalid_header TEXT "Response conta
 BadRequest CHAIN SYNC bad_request TEXT "Response contains a root fhir:OperationOutcome reporting an BAD_REQUEST code"
 
 
-ResponseIsAppointmentExtracting5 CHAIN SYNC response_is_appt_extracting5 TEXT "Response contains a root fhir:Appointment element"
-ResponseIsAppointmentExtracting20 CHAIN SYNC response_is_appt_extracting20 TEXT "Response contains a root fhir:Appointment element"
+ResponseIsAppointmentExtracting5 CHAIN SYNC response_is_appt_extracting5 TEXT "Response Bundle contains a fhir:Appointment element"
+ResponseIsAppointmentExtracting20 CHAIN SYNC response_is_appt_extracting20 TEXT "Response Bundle contains a fhir:Appointment element"
 
 ResponseIsBundle CHAIN SYNC response_is_bundle TEXT "Response contains a root fhir:Bundle element"
 
@@ -149,7 +149,6 @@ END PROPERTYSETS
 
 BEGIN HTTPHEADERS
 credentials
-	NHSD-Service __TO_SERVICE__
 	NHSD-Target-Identifier __TO_SERVICE_B64__
 	NHSD-End-User-Organisation __END_USER_ORGANIZATION_B64__
 	NHSD-Requesting-Practitioner __REQUESTING_PRACTITIONER_B64__
@@ -183,6 +182,7 @@ accept_gzip
 
 integrity
 	X-Request-ID function:uk.nhs.digital.mait.tkwx.tk.internalservices.testautomation.PropertySetFunctions.getuuid
+	X-Correlation-ID function:uk.nhs.digital.mait.tkwx.tk.internalservices.testautomation.PropertySetFunctions.getuuid
 resent_rq_id
 	X-Request-ID __CORRELATION_ID__
 END HTTPHEADERS
@@ -240,8 +240,8 @@ BEGIN PASSFAIL
 ok httpok
 response_is_bundle synchronousxpath /fhir:Bundle exists
 
-response_is_appt_extracting5 synchronousxpath /fhir:Appointment exists EXTRACTOR slots_free5_extractor
-response_is_appt_extracting20 synchronousxpath /fhir:Appointment exists EXTRACTOR slots_free20_extractor
+response_is_appt_extracting5 synchronousxpath /fhir:Bundle/fhir:entry/fhir:resource/fhir:Appointment exists EXTRACTOR slots_free5_extractor
+response_is_appt_extracting20 synchronousxpath /fhir:Bundle/fhir:entry/fhir:resource/fhir:Appointment exists EXTRACTOR slots_free20_extractor
 
 response_is_empty_payload_extracting5 synchronousxpath / doesnotexist EXTRACTOR slots_free5_extractor
 
@@ -324,7 +324,7 @@ httpheadercheckcontenttypeisjson  httpheadercheck Content-Type matches "^applica
 httpheadercheckchunking  httpheadercheck X-was-Transfer-Encoding matches  "^.*chunked.*$"
 
 location_is_returned httpheadercheck Location exists
-appt_is_booked  synchronousxpath /fhir:Appointment/fhir:status/@value matches "^booked$"
+appt_is_booked  synchronousxpath /fhir:Bundle/fhir:entry/fhir:resource/fhir:Appointment/fhir:status/@value matches "^booked$"
 
 response_has_correlation_id_header httpheadercheck X-Correlation-ID exists
 integrity_headers_match httpheadercorrelationcheck X-Request-ID X-Correlation-ID

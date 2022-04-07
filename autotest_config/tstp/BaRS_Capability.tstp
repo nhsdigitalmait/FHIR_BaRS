@@ -16,6 +16,13 @@ Capability_json_parameter_xml_accept TESTS CapabilityTest_json_parameter_xml_acc
 # UECABS-153
 Capability_xml_accept_gzip TESTS CapabilityTest_xml_accept_gzip ResponseIsCapabilityStatement ResponseIsXml ResponseWasGzip
 
+GetMessageDefinition_xml_accept TESTS MessageDefinitionTest_xml_accept ResponseIsMessageDefinition ResponseIsXml
+GetMessageDefinition_json_accept TESTS MessageDefinitionTest_json_accept ResponseIsMessageDefinition ResponseIsJson
+
+GetMessageDefinition_servicerequest-request-referral TESTS MessageDefinitionTest_sr_req_ref ResponseIsMessageDefinition ResponseIsJson
+GetMessageDefinition_servicerequest-response-referral TESTS MessageDefinitionTest_sr_res_ref ResponseIsMessageDefinition ResponseIsJson
+GetMessageDefinition_booking-request TESTS MessageDefinitionTest_booking_req ResponseIsMessageDefinition ResponseIsJson
+
 END SCHEDULES
 
 BEGIN TESTS
@@ -31,6 +38,15 @@ CapabilityTest_json_parameter_xml_accept SEND_TKW empty_file TO __TO_ENDPOINT__/
 ResponseIsCapabilityStatement CHAIN SYNC response_is_capability_statement TEXT "Response must be a CapabilityStatement"
 
 CapabilityTest_xml_accept_gzip SEND_TKW empty_file TO __TO_ENDPOINT__/metadata FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ SYNC ok WITH_PROPERTYSET base+webservices+get WITH_HTTPHEADERS credentials+Oauth2AccessToken+xml_accept+accept_gzip TEXT "HTTP Response must be HTTP 200"
+
+MessageDefinitionTest_xml_accept SEND_TKW empty_file TO __TO_ENDPOINT__/MessageDefinition/bars-message-servicerequest-request-validation FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ SYNC ok WITH_PROPERTYSET base+webservices+get WITH_HTTPHEADERS credentials+Oauth2AccessToken+xml_accept TEXT "HTTP Response must be HTTP 200"
+MessageDefinitionTest_json_accept SEND_TKW empty_file TO __TO_ENDPOINT__/MessageDefinition/bars-message-servicerequest-response-validation FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ SYNC ok WITH_PROPERTYSET base+webservices+get WITH_HTTPHEADERS credentials+Oauth2AccessToken+json_accept TEXT "HTTP Response must be HTTP 200"
+
+MessageDefinitionTest_sr_req_ref SEND_TKW empty_file TO __TO_ENDPOINT__/MessageDefinition/bars-message-servicerequest-request-referral FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ SYNC ok WITH_PROPERTYSET base+webservices+get WITH_HTTPHEADERS credentials+Oauth2AccessToken+default_accept TEXT "HTTP Response must be HTTP 200"
+MessageDefinitionTest_sr_res_ref SEND_TKW empty_file TO __TO_ENDPOINT__/MessageDefinition/bars-message-servicerequest-response-referral FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ SYNC ok WITH_PROPERTYSET base+webservices+get WITH_HTTPHEADERS credentials+Oauth2AccessToken+default_accept TEXT "HTTP Response must be HTTP 200"
+MessageDefinitionTest_booking_req SEND_TKW empty_file TO __TO_ENDPOINT__/MessageDefinition/bars-message-booking-request FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ SYNC ok WITH_PROPERTYSET base+webservices+get WITH_HTTPHEADERS credentials+Oauth2AccessToken+default_accept TEXT "HTTP Response must be HTTP 200"
+
+ResponseIsMessageDefinition CHAIN SYNC response_is_message_definition TEXT "Response must be a MessageDefinition"
 END TESTS
 
 BEGIN PASSFAIL
@@ -40,4 +56,6 @@ capability_format_json synchronousxpath /fhir:CapabilityStatement/fhir:format[ma
 
 capability_software_name synchronousxpath /fhir:CapabilityStatement/fhir:software/fhir:name exists
 capability_software_version synchronousxpath /fhir:CapabilityStatement/fhir:software/fhir:version exists
+
+response_is_message_definition synchronousxpath /fhir:MessageDefinition exists
 END PASSFAIL

@@ -46,6 +46,10 @@ BookAppointment_HappyPathWithGzip TESTS SFFSWithValidParameters_3_days_5 Respons
 BookAppointment_HappyPathWithResentRequestID TESTS SFFSWithValidParameters_3_days_5 ResponseIsBundleExtracting5 BookAppointment ResponseIsAppointmentExtracting5 BookAppointment_resend_rq_id ResponseIsOperationOutcome 
 #OperationOutcomeSystemCodeIsSpine
 
+# May not be required
+# GetBookingsForAPatient
+#GetBookingsForAPatient TESTS GetBookingsForAPatient ResponseIsBundle
+
 END SCHEDULES
 
 BEGIN TESTS
@@ -111,10 +115,12 @@ BookAppointment_gzip SEND_TKW book_appointment_slot5 TO __TO_ENDPOINT__/$process
 
 BookAppointment_resend_rq_id SEND_TKW book_appointment_slot5 TO __TO_ENDPOINT__/$process-message FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ PRETRANSFORM __TKWROOT__/config/FHIR_BaRS/autotest_config/transforms/remove_appt_id.xslt APPLYPRETRANSFORMTO data SYNC httpstatuscheck409 WITH_PROPERTYSET base+webservices+post WITH_HTTPHEADERS credentials+Oauth2AccessToken+default_content+default_accept+content_gzip+resent_rq_id TEXT "HTTP Response must be HTTP 409"
 
+# search bookins for a patient
+GetBookingsForAPatient SEND_TKW empty_file TO __TO_ENDPOINT__/Appointment?https%3A%2F%2Ffhir.nhs.uk%2FId%2Fnhs-number%3A9999999999 FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ SYNC ok WITH_PROPERTYSET base+webservices+get WITH_HTTPHEADERS credentials+Oauth2AccessToken+default_accept TEXT "HTTP Response must be HTTP 200"
 END TESTS
 
 BEGIN PASSFAIL
-appt_has_id synchronousxpath /fhir:Appointment/fhir:id/@value exists
+appt_has_id synchronousxpath /fhir:Bundle/fhir:entry/fhir:resource/fhir:Appointment/fhir:id/@value exists
 location_is_well_formed httpheadercheck Location matches "^https://.+/Appointment/.+$"
 
 severity_is_error synchronousxpath /fhir:OperationOutcome/fhir:issue/fhir:severity/@value matches "^error$"

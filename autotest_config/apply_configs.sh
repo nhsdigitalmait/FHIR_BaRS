@@ -99,7 +99,7 @@ do
 	echo $f 
 	sed -e s!__FROM_SERVICE__!$fromservice!g \
 		-e s!__TO_SERVICE__!$toservice!g \
-		< $autotest/requests/$f'_template.xml' > $autotest/requests/$f.xml
+		< $autotest/requests/request_templates/$f'_template.xml' > $autotest/requests/$f.xml
 done
 
 if [[ "$TKW_BROWSER" != "" ]]

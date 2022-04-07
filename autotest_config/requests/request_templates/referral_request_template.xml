@@ -14,7 +14,7 @@
                <profile value="https://fhir.nhs.uk/StructureDefinition/BARSUKCoreMessageHeader"/>
             </meta>
             <eventCoding>
-               <system value="https://fhir.nhs.uk/CodeSystem/message-event"/>
+               <system value="https://fhir.nhs.uk/CodeSystem/message-events-bars"/>
                <code value="servicerequest-request"/>
             </eventCoding>
             <destination>
@@ -33,11 +33,11 @@
                   <system value="phone"/>
                   <value value="+44 (0113) 123 4567"/>
                </contact>
-               <endpoint value="http://fhir.nhs.uk/Id/dos-service-id:local"/>
+               <endpoint value="http://fhir.nhs.uk/Id/dos-service-id:__FROM_SERVICE__"/>
             </source>
             <reason>
                <coding>
-                  <system value="https://fhir.nhs.uk/CodeSystem/message-reasons"/>
+                  <system value="https://fhir.nhs.uk/CodeSystem/message-reasons-bars"/>
                   <code value="new"/>
                </coding>
             </reason>
