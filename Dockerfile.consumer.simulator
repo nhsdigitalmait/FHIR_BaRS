@@ -19,11 +19,7 @@ COPY --chown=service:service simulator_config simulator_config
 
 COPY --chown=service:service version_string.txt .
 
-WORKDIR $TKWROOT/config/ITK_Autotest
 RUN mkdir -p transmitter_source simulator_config transmitter_sent_messages messages_for_validation validator_reports validator_config autotest_config/tst && chown -R service:service .
-
-COPY --chown=service:service ITK_Autotest/test_tks_rule_config.txt simulator_config/
-COPY --chown=service:service ITK_Autotest/validator.conf validator_config/
 
 # show all the folders created
 #RUN sh -c 'find /home/service/TKW/config/FHIR_BaRS -type f'
