@@ -112,7 +112,8 @@
           <lastUpdated value="2021-10-11T15:23:30+00:00" />
           <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-Encounter" />
         </meta>
-        <status value="triaged" />
+		<!-- example in simplifier does not have this, it has triaged -->
+        <status value="cancelled" />
         <class>
           <system value="http://terminology.hl7.org/CodeSystem/v3-ActCode" />
           <code value="EMER" />

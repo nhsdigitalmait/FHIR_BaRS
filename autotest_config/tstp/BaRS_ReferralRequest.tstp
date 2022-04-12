@@ -4,17 +4,30 @@
 SCRIPT BaRS_ReferralRequest
 
 BEGIN SCHEDULES
-ReferralRequest_xml_accept TESTS ReferralRequestTest_xml_accept ResponseIsXml
-ReferralRequest_json_accept TESTS ReferralRequestTest_json_accept ResponseIsJson
+ReferralRequest_xml_accept TESTS ReferralRequestTest_xml_accept ResponseIsXml ResponseIsBundle_ExtractingReferralServiceID
+ReferralRequest_json_accept TESTS ReferralRequestTest_json_accept ResponseIsJson ResponseIsBundle_ExtractingReferralServiceID
+ReferralRequestUpdate TESTS ReferralRequestUpdateTest ResponseIsJson 
+ReferralRequestCancel TESTS ReferralRequestCancelTest ResponseIsJson
 END SCHEDULES
 
 BEGIN TESTS
-ReferralRequestTest_xml_accept SEND_TKW referral_request TO __TO_ENDPOINT__/$process-message FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ SYNC ok WITH_PROPERTYSET base+webservices+post WITH_HTTPHEADERS credentials+Oauth2AccessToken+xml_accept+xml_content+integrity TEXT "HTTP Response must be HTTP 200"
-ReferralRequestTest_json_accept SEND_TKW referral_request TO __TO_ENDPOINT__/$process-message FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ SYNC ok WITH_PROPERTYSET base+webservices+post WITH_HTTPHEADERS credentials+Oauth2AccessToken+json_accept+json_content+integrity TEXT "HTTP Response must be HTTP 200"
+# new SR status = active, SR Category = referral, Encounter Status = traiged/completed
+ReferralRequestTest_xml_accept SEND_TKW referral_request TO __TO_ENDPOINT__/$process-message FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ PRETRANSFORM __TKWROOT__/config/FHIR_BaRS/autotest_config/transforms/create_service_request.xslt APPLYPRETRANSFORMTO data SYNC ok WITH_PROPERTYSET base+webservices+post WITH_HTTPHEADERS credentials+Oauth2AccessToken+xml_accept+xml_content+integrity TEXT "HTTP Response must be HTTP 200"
+ReferralRequestTest_json_accept SEND_TKW referral_request TO __TO_ENDPOINT__/$process-message FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ PRETRANSFORM __TKWROOT__/config/FHIR_BaRS/autotest_config/transforms/create_service_request.xslt APPLYPRETRANSFORMTO data SYNC ok WITH_PROPERTYSET base+webservices+post WITH_HTTPHEADERS credentials+Oauth2AccessToken+json_accept+json_content+integrity TEXT "HTTP Response must be HTTP 200"
+
+# update, ReasonCode = update, SR status = active, Encounter status = triaged
+ReferralRequestUpdateTest SEND_TKW referral_request_extracted TO __TO_ENDPOINT__/$process-message FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ PRETRANSFORM __TKWROOT__/config/FHIR_BaRS/autotest_config/transforms/update_service_request.xslt APPLYPRETRANSFORMTO data SYNC ok WITH_PROPERTYSET base+webservices+post WITH_HTTPHEADERS credentials+Oauth2AccessToken+default_accept+json_content+integrity TEXT "HTTP Response must be HTTP 200"
+
+# cancel, ReasonCode = update, SR status = revoked, Encounter status = triaged
+ReferralRequestCancelTest SEND_TKW referral_request_extracted TO __TO_ENDPOINT__/$process-message FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ PRETRANSFORM __TKWROOT__/config/FHIR_BaRS/autotest_config/transforms/cancel_service_request.xslt APPLYPRETRANSFORMTO data SYNC ok WITH_PROPERTYSET base+webservices+post WITH_HTTPHEADERS credentials+Oauth2AccessToken+default_accept+json_content+integrity TEXT "HTTP Response must be HTTP 200"
+
+ResponseIsBundle_ExtractingReferralServiceID CHAIN SYNC responseisbundle_extracting_referral_serviceid TEXT "Response is a bundle"
+
 END TESTS
 
 BEGIN MESSAGES
-referral_request USING referral_request_template WITH NULL
+referral_request USING referral_request_template WITH referral_service_request
+referral_request_extracted USING referral_request_template WITH referral_service_request ID sid1
 END MESSAGES
 
 BEGIN TEMPLATES
@@ -22,4 +35,13 @@ referral_request_template __TKWROOT__/config/FHIR_BaRS/autotest_config/requests/
 END TEMPLATES
 
 BEGIN PASSFAIL
+responseisbundle_extracting_referral_serviceid synchronousxpath /fhir:Bundle exists EXTRACTOR referral_service_request_extractor 
 END PASSFAIL
+
+BEGIN EXTRACTORS
+referral_service_request_extractor xpathextractor __TKWROOT__/config/FHIR_BaRS/autotest_config/extractor_configs/referral_service_request.cfg
+END EXTRACTORS
+
+BEGIN DATASOURCES
+referral_service_request circularwritabletdv __TKWROOT__/config/FHIR_BaRS/autotest_config/extractor_configs/referral_service_request.tdv
+END DATASOURCES

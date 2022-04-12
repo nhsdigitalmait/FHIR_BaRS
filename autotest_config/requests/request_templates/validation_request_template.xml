@@ -69,7 +69,8 @@
         <meta>
           <lastUpdated value="2021-11-26T15:00:00+00:00" />
           <profile value="https://fhir.nhs.uk/StructureDefinition/BARSServiceRequest-request-validation" />
-        </meta>
+	  </meta>
+		<id value="__SERVICE_REQUEST_ID__"/>
         <basedOn>
           <!--   Always CarePlan  -->
           <reference value="urn:uuid:68d3c42e-f76e-4f66-9498-d96e1040c81c" />
@@ -121,6 +122,7 @@
           <lastUpdated value="2021-11-26T15:00:00+00:00" />
           <profile value="http://hl7.org/fhir/StructureDefinition/HealthcareService" />
         </meta>
+		<id value="__HEALTHCARE_SERVICE_ID__"/>
         <identifier>
           <system value="http://example.org/shared-ids" />
           <value value="HS-12" />
@@ -141,6 +143,7 @@
           <lastUpdated value="2021-11-26T15:00:00+00:00" />
           <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-Encounter" />
         </meta>
+		<id value="__ENCOUNTER_ID__"/>
         <status value="triaged" />
         <class>
           <!--  New value required here for BaRS  -->
@@ -169,6 +172,7 @@
           <lastUpdated value="2021-11-26T15:15:15+00:00" />
           <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-CarePlan" />
         </meta>
+		<id value="__CAREPLAN_ID__"/>
         <status value="active" />
         <intent value="plan" />
         <subject>
@@ -216,6 +220,7 @@
           <lastUpdated value="2021-11-26T15:00:00+00:00" />
           <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-Patient" />
         </meta>
+		<id value="__PATIENT_ID__"/>
         <!--  added birthSex extension  -->
         <extension url="https://fhir.hl7.org.uk/StructureDefinition/Extension-UKCore-BirthSex">
           <valueCode value="F" />
@@ -345,6 +350,7 @@
           <lastUpdated value="2021-11-26T15:00:00+00:00" />
           <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-Organization" />
         </meta>
+		<id value="__ORG1_ID__"/>
         <name value="Practitioner Org" />
       </Organization>
     </resource>
@@ -357,6 +363,7 @@
           <lastUpdated value="2021-11-26T15:00:00+00:00" />
           <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-Organization" />
         </meta>
+		<id value="__ORG2_ID__"/>
         <identifier>
           <system value="https://fhir.nhs.uk/id/ods-organization-code" />
           <value value="RYE" />
@@ -373,6 +380,7 @@
           <lastUpdated value="2021-11-26T15:00:00+00:00" />
           <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-Organization" />
         </meta>
+		<id value="__ORG3_ID__"/>
         <name value="Receiver Organization" />
       </Organization>
     </resource>
@@ -385,6 +393,7 @@
           <lastUpdated value="2021-11-26T15:00:00+00:00" />
           <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-Organization" />
         </meta>
+		<id value="__ORG4_ID__"/>
         <identifier>
           <system value="https://fhir.nhs.uk/id/ods-organization-code" />
           <value value="RND" />
@@ -402,6 +411,7 @@
           <lastUpdated value="2021-11-26T15:00:00+00:00" />
           <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-Location" />
         </meta>
+		<id value="__LOCATION_ID__"/>
         <extension url="https://fhir.nhs.uk/StructureDefinition/LocationExtension">
           <extension url="UPRN">
             <valueString value="0008755622" />
@@ -436,6 +446,7 @@
           <lastUpdated value="2021-11-26T15:00:00+00:00" />
           <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-Practitioner" />
         </meta>
+		<id value="__PRACTITIONER_ID__"/>
         <identifier>
           <system value="https://fhir.nhs.uk/Id/sds-role-profile-id" />
           <value value="PT2489" />
@@ -460,6 +471,7 @@
           <lastUpdated value="2021-11-26T15:00:00+00:00" />
           <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-PractitionerRole" />
         </meta>
+		<id value="__PRACTITIONER_ROLE_ID__"/>
         <practitioner>
           <reference value="urn:uuid:7d948662-bade-450e-b6c5-9bb6ee39cb56" />
         </practitioner>
@@ -492,6 +504,7 @@
           <lastUpdated value="2021-11-26T15:00:00+00:00" />
           <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-Observation" />
         </meta>
+		<id value="__OBSERVATION_ID__"/>
         <status value="final" />
         <code>
           <coding>
@@ -515,6 +528,7 @@
           <lastUpdated value="2021-11-26T15:00:00+00:00" />
           <profile value="http://hl7.org/fhir/StructureDefinition/Flag" />
         </meta>
+		<id value="__FLAG_ID__"/>
         <status value="active" />
         <category>
           <!--  Can we add a coded valueSet entry here?  -->
@@ -540,6 +554,7 @@
           <lastUpdated value="2021-11-26T15:00:00+00:00" />
           <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-Consent" />
         </meta>
+		<id value="__CONSENT_ID__"/>
         <status value="active" />
         <scope>
           <coding>

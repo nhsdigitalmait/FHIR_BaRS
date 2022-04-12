@@ -7,6 +7,7 @@ NOW=`date`
 for f in {5..20}
 do
 	echo $f
+	chmod +w $TARGET/slots_free$f.cfg
 	# configure each extractor config file file with correct indices
 	sed -e s/__SLOT_NO__/s$f/ \
 		-e s/__POSITION__/$(($f-4))/ \
@@ -24,4 +25,5 @@ do
 	#  append 1 field title and underscore for field data item to the associated tdv
 	#sed -i -e "/__ID__/s/$/	__CORRELATION_ID__/" $TARGET/slot_$f.tdv
 	#sed -i -e "/^s/s/$/	_/" $TARGET/slot_$f.tdv
+	chmod -w $TARGET/slots_free$f.cfg
 done
