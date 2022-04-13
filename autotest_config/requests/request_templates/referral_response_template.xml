@@ -1,4 +1,5 @@
 <Bundle xmlns="http://hl7.org/fhir">
+   <!-- this message is based on REFRESP01 ED to 111 Safeguarding DNA
   <id value="bc040878-cf51-4acf-9ede-7448fbb5be7c" />
   <meta>
     <lastUpdated value="2021-10-11T15:23:30+00:00" />
@@ -10,6 +11,7 @@
     <fullUrl value="urn:uuid:1cbdfb97-5859-48a4-8301-d54eab818d68" />
     <resource>
       <MessageHeader>
+        <id value="1cbdfb97-5859-48a4-8301-d54eab818d68" />
         <meta>
           <lastUpdated value="2021-10-11T15:23:30+00:00" />
           <profile value="https://fhir.nhs.uk/StructureDefinition/BARSMessageHeader-servicerequest-response" />
@@ -79,7 +81,7 @@
           <coding>
             <system value="https://fhir.nhs.uk/CodeSystem/message-category-servicerequest" />
             <code value="referral" />
-            <!--  Important for driving workflow, determining the type of referral being requested  -->
+            <!--   Important for driving workflow, determining the type of referral being requested   -->
             <display value="Transfer of Care" />
           </coding>
         </category>
@@ -161,7 +163,7 @@
           <reference value="urn:uuid:9589fb37-87a2-48d8-968f-b371429208a8" />
         </subject>
         <encounter>
-          <reference value="urn:8c63d621-4d86-4f57-8699-e8e22d49935d" />
+          <reference value="urn:uuid:8c63d621-4d86-4f57-8699-e8e22d49935d" />
         </encounter>
         <supportingInfo>
           <reference value="urn:uuid:e53b2595-7875-4687-80e9-23a0c8cb8ea0" />
@@ -237,15 +239,15 @@
           <reference value="Slot/c3f6145e-1a26-4345-b3f2-dccbcba62049" />
         </slot>
         <created value="2021-10-11T15:01:30+00:00" />
+        <basedOn>
+          <reference value="ServiceRequest/236bb75d-90ef-461f-b71e-fde7f899802c" />
+          <type value="serviceRequest" />
+        </basedOn>
         <participant>
           <actor>
             <reference value="Patient/9476719931" />
           </actor>
         </participant>
-        <basedOn>
-          <reference value="ServiceRequest/236bb75d-90ef-461f-b71e-fde7f899802c" />
-          <type value="serviceRequest" />
-        </basedOn>
       </Appointment>
     </resource>
   </entry>
@@ -258,11 +260,11 @@
           <lastUpdated value="2021-11-26T15:00:00+00:00" />
           <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-Patient" />
         </meta>
-        <!--  added birthSex extension  -->
+        <!--   added birthSex extension   -->
         <extension url="https://fhir.hl7.org.uk/StructureDefinition/Extension-UKCore-BirthSex">
           <valueCode value="F" />
         </extension>
-        <!--  added EthnicCategory extension  -->
+        <!--   added EthnicCategory extension   -->
         <extension url="https://fhir.hl7.org.uk/StructureDefinition/Extension-UKCore-EthnicCategory">
           <valueCodeableConcept>
             <coding>
@@ -272,7 +274,7 @@
             </coding>
           </valueCodeableConcept>
         </extension>
-        <!--  added Religion extension  -->
+        <!--   added Religion extension   -->
         <extension url="http://hl7.org/fhir/StructureDefinition/patient-religion">
           <valueCodeableConcept>
             <coding>
@@ -350,7 +352,7 @@
         <contact>
           <relationship>
             <coding>
-              <!--   Emergency contact person  -->
+              <!--    Emergency contact person   -->
               <system value="https://fhir.hl7.org.uk/ValueSet/UKCore-PersonRelationshipType" />
               <code value="EP" />
             </coding>
@@ -442,7 +444,7 @@
           <system value="https://fhir.nhs.uk/id/ods-organization-code" />
           <value value="RYE" />
         </identifier>
-        <!-- original Receiver -->
+        <!--  original Receiver  -->
         <name value="Receiving/performing Organization" />
       </Organization>
     </resource>
@@ -460,7 +462,7 @@
           <system value="https://fhir.nhs.uk/id/ods-organization-code" />
           <value value="RND" />
         </identifier>
-        <!-- original Sender -->
+        <!--  original Sender  -->
         <name value="Sender Organization" />
       </Organization>
     </resource>
