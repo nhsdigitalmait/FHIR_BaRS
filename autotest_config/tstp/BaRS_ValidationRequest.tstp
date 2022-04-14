@@ -11,14 +11,14 @@ ValidationRequestCancel TESTS ValidationRequestCancelTest ResponseIsJson
 END SCHEDULES
 
 BEGIN TESTS
-# new, SR status = active SR Category = validation, Encounter status = triaged
+# new, ReasonCode = new, SR status = active,  SR Category = validation, Encounter status = triaged
 ValidationRequestTest_xml_accept SEND_TKW validation_request TO __TO_ENDPOINT__/$process-message FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ PRETRANSFORM __TKWROOT__/config/FHIR_BaRS/autotest_config/transforms/create_service_request.xslt APPLYPRETRANSFORMTO data SYNC ok WITH_PROPERTYSET base+webservices+post WITH_HTTPHEADERS credentials+Oauth2AccessToken+xml_accept+xml_content+integrity TEXT "HTTP Response must be HTTP 200"
 ValidationRequestTest_json_accept SEND_TKW validation_request TO __TO_ENDPOINT__/$process-message FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ PRETRANSFORM __TKWROOT__/config/FHIR_BaRS/autotest_config/transforms/create_service_request.xslt APPLYPRETRANSFORMTO data SYNC ok WITH_PROPERTYSET base+webservices+post WITH_HTTPHEADERS credentials+Oauth2AccessToken+json_accept+json_content+integrity TEXT "HTTP Response must be HTTP 200"
 
-# update, ReasonCode = update, SR status = active, Encounter status = triaged
+# update, ReasonCode = update, SR status = active,  SR Category = validation, Encounter status = triaged
 ValidationRequestUpdateTest SEND_TKW validation_request_extracted TO __TO_ENDPOINT__/$process-message FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ PRETRANSFORM __TKWROOT__/config/FHIR_BaRS/autotest_config/transforms/update_service_request.xslt APPLYPRETRANSFORMTO data SYNC ok WITH_PROPERTYSET base+webservices+post WITH_HTTPHEADERS credentials+Oauth2AccessToken+default_accept+json_content+integrity TEXT "HTTP Response must be HTTP 200"
 
-# cancel, ReasonCode = update, SR status = revoked, Encounter status = triaged
+# cancel, ReasonCode = update, SR status = revoked,  SR Category = validation, Encounter status = triaged
 ValidationRequestCancelTest SEND_TKW validation_request_extracted TO __TO_ENDPOINT__/$process-message FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ PRETRANSFORM __TKWROOT__/config/FHIR_BaRS/autotest_config/transforms/cancel_service_request.xslt APPLYPRETRANSFORMTO data SYNC ok WITH_PROPERTYSET base+webservices+post WITH_HTTPHEADERS credentials+Oauth2AccessToken+default_accept+json_content+integrity TEXT "HTTP Response must be HTTP 200"
 
 ResponseIsBundle_ExtractingValidationServiceID CHAIN SYNC responseisbundle_extracting_validation_serviceid TEXT "Response is a bundle"

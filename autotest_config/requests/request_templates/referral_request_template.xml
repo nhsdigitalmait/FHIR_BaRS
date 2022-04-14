@@ -1,5 +1,5 @@
 <Bundle xmlns="http://hl7.org/fhir">
-  <!-- this is based on simplifier example REFREQ02 999 to CAS
+	<!-- this is based on simplifier example REFREQ02 999 to CAS -->
   <id value="79120f41-a431-4f08-bcc5-1e67006fcae0" />
   <meta>
     <lastUpdated value="2021-11-26T15:00:00+00:00" />
@@ -29,7 +29,7 @@
         </eventCoding>
         <destination>
           <endpoint value="http://fhir.nhs.uk/Id/dos-service-id:__TO_SERVICE__" />
-          <!--    Sender to populate with the system (of the DoS used) and Service Identity value    -->
+		  <!--    Sender to populate with the system (of the DoS used) and Service Identity value  -->
           <receiver>
             <!--    Organization    -->
             <reference value="urn:uuid:10397afd-479c-42ea-9d5d-e4024481e0f8" />
