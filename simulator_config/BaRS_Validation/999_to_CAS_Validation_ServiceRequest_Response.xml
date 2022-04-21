@@ -1,12 +1,12 @@
 <ServiceRequest>
-  <id value="86e3371d-1c15-4862-9552-d9560f8292ba" />
+  <id value="0b42eac3-0175-43c8-bbab-efaa8ca31ccf" />
   <meta>
     <lastUpdated value="__YESTERDAY__T12:00:00+00:00" />
     <profile value="https://fhir.nhs.uk/StructureDefinition/BARSServiceRequest-request-validation" />
   </meta>
   <basedOn>
     <!--    Always CarePlan   -->
-    <reference value="urn:uuid:68d3c42e-f76e-4f66-9498-d96e1040c81c" />
+    <reference value="urn:uuid:__UUID1__" />
   </basedOn>
   <status value="active" />
   <!--   used to drive workflow e.g. cancel/remove   -->
@@ -21,10 +21,10 @@
     </coding>
   </category>
   <subject>
-    <reference value="urn:uuid:9589fb37-87a2-48d8-968f-b371429208a8" />
+    <reference value="urn:uuid:__UUID2__" />
   </subject>
   <encounter>
-    <reference value="urn:uuid:8c63d621-4d86-4f57-8699-e8e22d49935d" />
+    <reference value="urn:uuid:__UUID3__" />
   </encounter>
   <occurrencePeriod>
     <start value="__YESTERDAY__T15:00:00+00:00" />
@@ -34,14 +34,14 @@
   <authoredOn value="__YESTERDAY__T15:00:00+00:00" />
   <requester>
     <!--    Sending Practitioner    -->
-    <reference value="urn:uuid:7d948662-bade-450e-b6c5-9bb6ee39cb56" />
+    <reference value="urn:uuid:__UUID4__" />
   </requester>
   <performer>
     <!--    Receiving/performing Organization/HealthcareService    -->
-    <reference value="urn:uuid:d482d092-6efc-4eef-b4a0-730718b1fbfd" />
+    <reference value="urn:uuid:__UUID5__" />
   </performer>
   <locationReference>
     <!--    Location    -->
-    <reference value="urn:uuid:2ec99e82-a0af-4b70-bd53-1869d84b2ad1" />
+    <reference value="urn:uuid:__UUID6__" />
   </locationReference>
 </ServiceRequest>

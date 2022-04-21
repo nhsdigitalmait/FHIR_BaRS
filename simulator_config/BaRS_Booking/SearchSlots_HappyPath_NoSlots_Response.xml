@@ -1,12 +1,15 @@
 <Bundle xmlns="http://hl7.org/fhir">
-   <id value="__MESSAGEID__"/>
-   <meta>
-      <lastUpdated value="__TIMESTAMP__"/>
-   </meta>
-   <type value="searchset"/>
-   <total value="0"/>
-   <link>
-      <relation value="self"/>
-      <url value="https://__HOST____FULL_CONTEXT_PATH__"/>
-   </link>
+<!--     BOOKREQRESP01  git commit 1458db7    -->
+  <id value="__MESSAGEID__" />
+  <meta>
+    <lastUpdated value="__TIMESTAMP__" />
+    <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-Bundle" />
+  </meta>
+  <type value="searchset" />
+  <total value="0" />
+  <timestamp value="__TIMESTAMP__" />
+  <link>
+    <relation value="self" />
+    <url value="https://__HOST____FULL_CONTEXT_PATH__" />
+  </link>
 </Bundle>
