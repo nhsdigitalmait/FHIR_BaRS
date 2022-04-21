@@ -105,7 +105,6 @@
           <end value="2021-11-26T15:20:00+00:00" />
           <!--   'end' used a breach time for ambulance despatch   -->
         </occurrencePeriod>
-        <authoredOn value="2021-11-26T15:00:00+00:00" />
         <requester>
           <!--    Sending Practitioner    -->
           <reference value="urn:uuid:7d948662-bade-450e-b6c5-9bb6ee39cb56" />
@@ -219,7 +218,10 @@
         <intent value="plan" />
         <subject>
           <reference value="urn:uuid:9589fb37-87a2-48d8-968f-b371429208a8" />
-        </subject>
+	    </subject>
+        <period>
+          <start value="2021-11-26T15:00:00+00:00" />
+	    </period>
         <encounter>
           <!--    New Encounter    -->
           <reference value="urn:uuid:b83d13e2-8c2e-422c-88ac-63b8e86a4413" />

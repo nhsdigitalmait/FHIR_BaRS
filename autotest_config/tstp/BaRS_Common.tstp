@@ -84,9 +84,13 @@ AppointmentIsBooked CHAIN SYNC appt_is_booked TEXT "Appointment status must be b
 #
 ResponseIsXml CHAIN SYNC httpheadercheckcontenttypeisxml TEXT "Response has fhir xml Content-type"
 ResponseIsJson CHAIN SYNC httpheadercheckcontenttypeisjson TEXT "Response has fhir json Content-type"
+ResponseIsDefaultFormat CHAIN SYNC httpheadercheckcontenttypeisjson TEXT "Response has fhir json Content-type"
 
 IntegrityCorrelationIDHeaderIsPresent CHAIN SYNC response_has_correlation_id_header TEXT "Response contains a X-Correlation-ID header"
-IntegrityHeadersMatch CHAIN SYNC integrity_headers_match TEXT "Request httpheader X-Request-ID matches response httpHeader X-Correlation-ID"
+IntegrityCorrelationIDHeadersMatch CHAIN SYNC integrity_correlation_id_headers_match TEXT "Request httpheader X-Correlation-ID matches response httpHeader X-Correlation-ID"
+
+IntegrityRequestIDHeaderIsPresent CHAIN SYNC response_has_request_id_header TEXT "Response contains a X-Request-ID header"
+IntegrityRequestIDHeadersMatch CHAIN SYNC integrity_request_id_headers_match TEXT "Request httpheader X-Request-ID matches response httpHeader X-Request-ID"
 
 ResponseWasGzip CHAIN SYNC response_has_was_gzip_header TEXT "Response was returned with a Content-encoding http header value of gzip"
 
@@ -123,7 +127,7 @@ END MESSAGES
 BEGIN TEMPLATES
 # for GET
 empty_file_template __TKWROOT__/config/FHIR_BaRS/autotest_config/requests/emptyfile.txt
-book_appt_template __TKWROOT__/config/FHIR_BaRS/autotest_config/requests/book_appt.xml
+book_appt_template __TKWROOT__/config/FHIR_BaRS/autotest_config/requests/book_appt___TO_SERVICE__.xml
 END TEMPLATES
 
 # if chunking required
@@ -327,7 +331,11 @@ location_is_returned httpheadercheck Location exists
 appt_is_booked  synchronousxpath /fhir:Bundle/fhir:entry/fhir:resource/fhir:Appointment/fhir:status/@value matches "^booked$"
 
 response_has_correlation_id_header httpheadercheck X-Correlation-ID exists
-integrity_headers_match httpheadercorrelationcheck X-Request-ID X-Correlation-ID
+response_has_request_id_header httpheadercheck X-Request-ID exists
+
+integrity_correlation_id_headers_match httpheadercorrelationcheck X-Correlation-ID X-Correlation-ID
+integrity_request_id_headers_match httpheadercorrelationcheck X-Request-ID X-Request-ID
+
 response_has_was_gzip_header httpheadercheck X-was-Content-Encoding matches "^gzip$"
 END PASSFAIL
 

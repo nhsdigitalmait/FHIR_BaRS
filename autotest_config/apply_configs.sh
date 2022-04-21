@@ -10,10 +10,11 @@ tst=$autotest/tst
 
 if [[ $# == 2 ]]
 then
+	# this refers to the name of an endpoint config file
 	dest_service=$1
 	tstfile=$2
 else
-	echo usage $0 '<destination asid> <tst filename>'
+	echo usage $0 '<destination endpoint service id> <tst filename>'
 	exit 1
 fi
 
@@ -42,14 +43,18 @@ today1=`date $date_format --date='+ 1 days'`
 today4=`date $date_format --date='+ 4 days'`
 todayl1=`date $date_format --date='- 1 days'`
 
-# read in the endpoint config
+# read in the endpoint config this is the dest service id with .sh appended
 if [[ -e $autotest/endpoint_configs/$dest_service.sh ]]
 then
 	# The script does not expect dos format files
-	dos2unix -n $autotest/endpoint_configs/$dest_service.sh $autotest/endpoint_configs/temp.sh
-	. $autotest/endpoint_configs/temp.sh
-	rm $autotest/endpoint_configs/temp.sh
-	#. $autotest/endpoint_configs/$dest_service.sh
+	temp=`mktemp`
+	dos2unix -n $autotest/endpoint_configs/$dest_service.sh $temp
+
+	# apply the settings from the endpoint config file
+	# this line sets the two env vars fromservice and toservice amongst others
+	# typically toservice will be the same as dest service
+	. $temp
+	rm $temp
 else
 	echo "Unrecognised endpoint $dest_service"
 	if [[ "$TKW_BROWSER" != "" ]]
@@ -61,7 +66,6 @@ else
 fi
 
 prefix=`basename $tstfile .tstp`
-prefix=$prefix'_'`date +%Y%m%d%H%M%S`
 
 template_root=$TKWROOT/config/FHIR_BaRS/autotest_config/json_header_templates
 # base 64 headers
@@ -94,12 +98,14 @@ sed -e s!__TKWROOT__!$TKWROOT!g \
 	< $tstfile  > $tst/$prefix'.tst'
 
 echo "writing transformed requests"
+# name templates for dest id for reentrancy
 for f in book_appt referral_request referral_response validation_request validation_response
 do
 	echo $f 
 	sed -e s!__FROM_SERVICE__!$fromservice!g \
 		-e s!__TO_SERVICE__!$toservice!g \
-		< $autotest/requests/request_templates/$f'_template.xml' > $autotest/requests/$f.xml
+		-e "/<!--.*-->/d" \
+		< $autotest/requests/request_templates/$f'_template.xml' > $autotest/requests/$f'_'$toservice.xml
 done
 
 if [[ "$TKW_BROWSER" != "" ]]
@@ -111,31 +117,32 @@ fi
 # run the tests
 $autotest/run_tst.sh $tst/$prefix'.tst'
 
-# copy the tst file to the latest autotests folder
-latest_autotest_folder=`ls -t $autotest/auto_tests | head -n 1`
-cp $tst/$prefix'.tst' $autotest/auto_tests/$latest_autotest_folder/
+# copy the tst file to the target autotests folder
+target_autotest_folder=`echo $prefix | sed -e "s/^mergedfile/BaRS/" -e "s/\.tst$//"`
+cp $tst/$prefix'.tst' $autotest/auto_tests/$target_autotest_folder/
 # copy a statically named version for ease of debugging
 cp $tst/$prefix'.tst' $autotest/tst/mergedfile.tst
 
-# move the folder into a folder named for the target service id
 if [[ ! -e $autotest/auto_tests/$dest_service ]]
 then
 	mkdir $autotest/auto_tests/$dest_service
 fi
 
-mv $autotest/auto_tests/$latest_autotest_folder $autotest/auto_tests/$dest_service/
+# move the folder into a folder named for the target service id
+mv $autotest/auto_tests/$target_autotest_folder $autotest/auto_tests/$dest_service/
 
+# create a zip file in the target service id sub folder
 cd $autotest/auto_tests/$dest_service/
-zip -qr $latest_autotest_folder'.zip'  $latest_autotest_folder/
+zip -qr $target_autotest_folder'.zip'  $target_autotest_folder/
 cd -
 
 # if there's a browser configured display the results
 if [[ "$TKW_BROWSER" != "" ]]
 then
-	if [[ -e $autotest/auto_tests/$dest_service/$latest_autotest_folder/test_log.html ]]
+	if [[ -e $autotest/auto_tests/$dest_service/$target_autotest_folder/test_log.html ]]
 	then
-		$TKW_BROWSER $autotest/auto_tests/$dest_service/$latest_autotest_folder/test_log.html
+		$TKW_BROWSER $autotest/auto_tests/$dest_service/$target_autotest_folder/test_log.html
 	else
-		echo Test log file $autotest/auto_tests/$dest_service/$latest_autotest_folder/test_log.html not found
+		echo Test log file $autotest/auto_tests/$dest_service/$target_autotest_folder/test_log.html not found
 	fi
 fi

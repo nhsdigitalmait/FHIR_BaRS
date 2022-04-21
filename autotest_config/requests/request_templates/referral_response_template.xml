@@ -70,7 +70,7 @@
     <fullUrl value="urn:uuid:236bb75d-90ef-461f-b71e-fde7f899802c" />
     <resource>
       <ServiceRequest>
-        <id value="57689321-0350-4825-a91e-796a93660d75" />
+        <id value="236bb75d-90ef-461f-b71e-fde7f899802c" />
         <meta>
           <lastUpdated value="2021-10-11T15:23:30+00:00" />
           <profile value="https://fhir.nhs.uk/StructureDefinition/BARSServiceRequest-request-referral" />
@@ -94,7 +94,6 @@
         <occurrencePeriod>
           <start value="2021-10-13T16:20:27+07:00" />
         </occurrencePeriod>
-        <authoredOn value="2021-10-13T16:28:00+07:00" />
         <requester>
           <reference value="urn:uuid:7d948662-bade-450e-b6c5-9bb6ee39cb56" />
         </requester>
@@ -156,9 +155,6 @@
         </meta>
         <status value="completed" />
         <intent value="plan" />
-        <category>
-          <text value="Encounter Outcome" />
-        </category>
         <subject>
           <reference value="urn:uuid:9589fb37-87a2-48d8-968f-b371429208a8" />
         </subject>
@@ -172,10 +168,6 @@
         <supportingInfo>
           <reference value="urn:uuid:ea37a499-245c-40e9-b0fa-df4383c4d413" />
           <display value="Safeguarding Concerns Flag" />
-        </supportingInfo>
-        <supportingInfo>
-          <reference value="urn:uuid:75f0e2c7-79db-4518-8a03-edcf096fccbb" />
-          <display value="Additional Information Sources" />
         </supportingInfo>
         <activity>
           <outcomeCodeableConcept>
@@ -229,7 +221,7 @@
         <id value="3713c8fc-dbcf-4f90-bacf-89d99e434e9b" />
         <meta>
           <lastUpdated value="2021-10-11T15:23:30+00:00" />
-          <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-Appointment" />
+		  <profile value="http://hl7.org/fhir/StructureDefinition/Appointment" />
         </meta>
         <status value="noshow" />
         <description value="Reason for calling" />
@@ -239,14 +231,11 @@
           <reference value="Slot/c3f6145e-1a26-4345-b3f2-dccbcba62049" />
         </slot>
         <created value="2021-10-11T15:01:30+00:00" />
-        <basedOn>
-          <reference value="ServiceRequest/236bb75d-90ef-461f-b71e-fde7f899802c" />
-          <type value="serviceRequest" />
-        </basedOn>
         <participant>
           <actor>
-            <reference value="Patient/9476719931" />
-          </actor>
+            <reference value="urn:uuid:9589fb37-87a2-48d8-968f-b371429208a8" />
+		</actor>
+		<status value="accepted"/>
         </participant>
       </Appointment>
     </resource>
@@ -595,7 +584,7 @@
         </meta>
         <identifier>
           <system value="https://tools.ietf.org/html/rfc4122" />
-          <value value="2af46949-4938-4c57-bad4-c4363e1965d5" />
+		  <value value="2af46949-4938-4c57-bad4-c4363e1965d5" />
         </identifier>
         <status value="final" />
         <category>
@@ -613,11 +602,8 @@
           </coding>
         </code>
         <subject>
-          <reference value="urn:uuid:41e591ab-d333-4fb8-87b4-d35f740b6bfc" />
+          <reference value="urn:uuid:9589fb37-87a2-48d8-968f-b371429208a8" />
         </subject>
-        <encounter>
-          <reference value="urn:uuid:8c63d621-4d86-4f57-8699-e8e22d49935d" />
-        </encounter>
         <performer>
           <reference value="urn:uuid:7d948662-bade-450e-b6c5-9bb6ee39cb56" />
         </performer>
@@ -648,9 +634,6 @@
             <display value="Lives Alone" />
           </coding>
         </code>
-        <encounter>
-          <reference value="urn:uuid:8c63d621-4d86-4f57-8699-e8e22d49935d" />
-        </encounter>
         <effectiveDateTime value="2021-10-23" />
         <performer>
           <reference value="urn:uuid:7d948662-bade-450e-b6c5-9bb6ee39cb56" />
@@ -678,9 +661,6 @@
             <display value="Nursing Home" />
           </coding>
         </code>
-        <encounter>
-          <reference value="urn:uuid:8c63d621-4d86-4f57-8699-e8e22d49935d" />
-        </encounter>
         <effectiveDateTime value="2021-10-23" />
         <performer>
           <reference value="urn:uuid:7d948662-bade-450e-b6c5-9bb6ee39cb56" />
@@ -708,9 +688,6 @@
             <display value="Patient Reported Symptoms" />
           </coding>
         </code>
-        <encounter>
-          <reference value="urn:uuid:8c63d621-4d86-4f57-8699-e8e22d49935d" />
-        </encounter>
         <effectiveDateTime value="2021-10-23" />
         <performer>
           <reference value="urn:uuid:9589fb37-87a2-48d8-968f-b371429208a8" />
@@ -743,11 +720,8 @@
           </coding>
         </code>
         <subject>
-          <reference value="urn:uuid:41e591ab-d333-4fb8-87b4-d35f740b6bfc" />
+          <reference value="urn:uuid:9589fb37-87a2-48d8-968f-b371429208a8" />
         </subject>
-        <encounter>
-          <reference value="urn:uuid:8c63d621-4d86-4f57-8699-e8e22d49935d" />
-        </encounter>
         <effectiveDateTime value="2021-10-23" />
         <performer>
           <reference value="urn:uuid:7d948662-bade-450e-b6c5-9bb6ee39cb56" />
@@ -757,40 +731,6 @@
           <text value="The patient wishes to not be admitted to hospital unless deemed completely necessary. They have long term conditions which are better managed at home" />
         </note>
       </Observation>
-    </resource>
-  </entry>
-  <entry>
-    <fullUrl value="urn:uuid:1e91008e-96d0-438b-873c-c6d2c007fc29" />
-    <resource>
-      <Consent>
-        <id value="52b2faeb-08eb-4489-bc50-8e12fdb6d293" />
-        <meta>
-          <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-Consent" />
-        </meta>
-        <status value="active" />
-        <scope>
-          <coding>
-            <system value="http://terminology.hl7.org/CodeSystem/consentscope" />
-            <code value="patient-privacy" />
-          </coding>
-        </scope>
-        <category>
-          <coding>
-            <system value="http://loinc.org" />
-            <code value="59284-0" />
-          </coding>
-        </category>
-        <patient>
-          <reference value="urn:uuid:9589fb37-87a2-48d8-968f-b371429208a8" />
-        </patient>
-        <dateTime value="2020-01-13" />
-        <policyRule>
-          <coding>
-            <system value="http://hl7.org/fhir/ValueSet/consent-policy" />
-            <code value="cric" />
-          </coding>
-        </policyRule>
-      </Consent>
     </resource>
   </entry>
 </Bundle>

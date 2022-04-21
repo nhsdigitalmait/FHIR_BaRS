@@ -2,7 +2,7 @@
 #
 #  Script for TKWATM test script generation and execution for Booking and referral system
 #
-#  usage ./run_autotest.sh --version | ( -s  <environment> [<testname> *]) |  ( [<environment> <A|S|B|C|>*] )
+#  usage ./run_autotest.sh --version | ( -s  <endpoint id> [<testname> *]) |  ( [endpoint id> <A|S|B|C|>*] )
 #
 #  A => Capability
 #  S => Search for free slots
@@ -13,7 +13,7 @@
 
 usage() 
 {
-	echo usage: $0 '--version |  ( -s  <environment> [<testname> *]) |  ( [<environment> <A|S|B|C|>*] )'
+	echo usage: $0 '--version |  ( -s  <endpoint id> [<testname> *]) |  ( [<endpoint id> <A|S|B|C|>*] )'
 	exit 1
 }
 
@@ -37,16 +37,24 @@ then
 fi
 
 # local
-ENVIRONMENT=NHS0001   # acts as a label for an endpoint config in endpoint_configs
+ENDPOINT_ID=NHS0001   # acts as a label for an endpoint config in endpoint_configs
 if [[ $# != 0 ]]
 then
-	ENVIRONMENT=$1
+	ENDPOINT_ID=$1
 	shift
 fi
 
 if [[ "$OPTION" == '-s' || $# == 0 ]]
 then
-	TSTP_FILES+=' BaRS_Capability.tstp BaRS_SearchForFreeSlots.tstp BaRS_BookAppointment.tstp BaRS_CancelAppointment.tstp BaRS_ReferralRequest.tstp BaRS_ValidationRequest.tstp BaRS_ReferralResponse.tstp BaRS_ValidationResponse.tstp'
+	TSTP_FILES+=" BaRS_Capability.tstp \
+		BaRS_SearchForFreeSlots.tstp \
+		BaRS_BookAppointment.tstp \
+		BaRS_CancelAppointment.tstp \
+		BaRS_ReferralRequest.tstp \
+		BaRS_ValidationRequest.tstp \
+		BaRS_ReferralResponse.tstp \
+		BaRS_ValidationResponse.tstp"
+
 else
 	for t in $*
 	do
@@ -95,7 +103,8 @@ fi
 SCRIPT_NAME=BaRS
 
 ROOT=$TKWROOT/config/FHIR_BaRS/autotest_config
-MERGED_TSTP_FILE=$ROOT/mergedfile.tstp
+# 17 digit timestamp
+MERGED_TSTP_FILE=$ROOT/mergedfile_"$ENDPOINT_ID"_`date +%Y%m%d%H%M%S%N | cut -b -17`.tstp
 TSTP_FOLDER=$ROOT/tstp/
 
 # merge the tstp files into a single file
@@ -103,12 +112,12 @@ TSTP_FOLDER=$ROOT/tstp/
 java -cp $TKWROOT/TKWAutotestManager.jar TKWAutotestManager.TestFileMerger $TSTP_FOLDER $MERGED_TSTP_FILE $SCRIPT_NAME $TSTP_FILES
 
 # change title of merged tstp script
-sed -i $MERGED_TSTP_FILE -r -e 's/SCRIPT .+/SCRIPT '$SCRIPT_NAME'_'$ENVIRONMENT'/'
+sed -i $MERGED_TSTP_FILE -r -e 's/SCRIPT .+/SCRIPT '$SCRIPT_NAME'_'$ENDPOINT_ID'/'
 
 
 if [[ "$OPTION" == '-s' ]]
 then
-	# create an exclamation mark separated string containging all the tests
+	# create an exclamation mark separated string containing all the tests
 	valid_tests=`sed -r -e '1,/BEGIN SCHEDULES/d' -e '/END SCHEDULES/,$d' -e 's/\s+.*$/!/' <  $MERGED_TSTP_FILE`
 	valid_tests=`echo $valid_tests | sed -e 's/\s*//g'`
 	#
@@ -130,4 +139,6 @@ fi
 
 
 # transform the merged file into a tst file to resolve substitution tags and then runs the script
-$ROOT/apply_configs.sh $ENVIRONMENT $MERGED_TSTP_FILE
+$ROOT/apply_configs.sh $ENDPOINT_ID $MERGED_TSTP_FILE
+
+rm -f $MERGED_TSTP_FILE

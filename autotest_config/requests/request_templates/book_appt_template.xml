@@ -8,7 +8,7 @@
   <type value="message" />
   <timestamp value="2021-10-11T12:15:10+00:00" />
   <entry>
-   <fullUrl value="urn:uuid:1cbdfb97-5859-48a4-8301-d54eab818d68" />
+   <fullUrl value="urn:uuid:c5957fdd-097b-409d-a406-49c52ceef2cd" />
    <resource>
     <MessageHeader>
      <meta>
@@ -96,7 +96,6 @@
         </coding>
        </valueCodeableConcept>
       </extension>
-      <use value="official" />
       <system value="https://fhir.nhs.uk/Id/nhs-number" />
       <value value="9476719931" />
      </identifier>
@@ -147,10 +146,6 @@
        <display value="Emergency appointment" />
       </coding>
      </appointmentType>
-     <identifier>
-      <system value="__IDENTIFIER_SYSTEM____APPT_IDENTIFIER_SYSTEM__" />
-      <value value="__IDENTIFIER_VALUE____APPT_IDENTIFIER_VALUE__" />
-     </identifier>
      <schedule>
        <reference value="urn:uuid:3a62607b-df65-4932-940c-14262787f62d" />
      </schedule>

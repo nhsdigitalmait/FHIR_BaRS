@@ -100,7 +100,6 @@
           <end value="2021-11-26T15:20:00+00:00" />
           <!--   'end' used to determine a timeframe of a case, disposition timeframe.  @@@ -->
         </occurrencePeriod>
-        <authoredOn value="2021-11-26T15:00:00+00:00" />
         <requester>
           <!--    Sending Practitioner    -->
           <reference value="urn:uuid:7d948662-bade-450e-b6c5-9bb6ee39cb56" />
