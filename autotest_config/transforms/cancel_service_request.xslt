@@ -14,6 +14,8 @@
 		<xsl:attribute name="value">revoked</xsl:attribute>
 	</xsl:template>
 
+	<xsl:include href="transforms/patient_not_traced.xslt"/>
+
 	<!-- match all atts all nodes -->
 	<xsl:template match="@*|node()">
 		<xsl:copy>

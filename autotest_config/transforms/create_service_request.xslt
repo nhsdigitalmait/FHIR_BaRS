@@ -6,6 +6,8 @@
 
 	<xsl:output method="xml" indent="yes" omit-xml-declaration="yes"/>
 
+	<xsl:include href="transforms/patient_not_traced.xslt"/>
+
 	<!-- remove the id element from the ServiceRequest -->
 	<xsl:template match="fhir:ServiceRequest/fhir:id"/>
 	<xsl:template match="fhir:HealthcareService/fhir:id"/>

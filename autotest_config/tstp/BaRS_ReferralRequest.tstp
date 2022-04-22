@@ -1,4 +1,5 @@
 #
+# Use Case 999 to CAS and 111 to ED
 # BaRS_ReferralRequest tstp file
 #
 SCRIPT BaRS_ReferralRequest

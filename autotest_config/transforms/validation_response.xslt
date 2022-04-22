@@ -106,5 +106,7 @@
 		</xsl:copy>
 	</xsl:template>
 
+	<xsl:include href="transforms/patient_not_traced.xslt"/>
+
 </xsl:stylesheet>
 

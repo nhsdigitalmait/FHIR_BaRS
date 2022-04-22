@@ -38,6 +38,8 @@
 		<xsl:attribute name="value">1959-05-04</xsl:attribute>
 	</xsl:template>
 
+	<xsl:include href="transforms/patient_not_traced.xslt"/>
+
 	<!-- match all atts all nodes -->
 	<xsl:template match="@*|node()">
 		<xsl:copy>

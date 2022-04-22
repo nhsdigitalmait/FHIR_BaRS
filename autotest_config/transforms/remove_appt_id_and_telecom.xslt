@@ -13,6 +13,8 @@
 		<xsl:attribute name="value"><xsl:value-of select="format-dateTime(current-dateTime(),'[Y0001]-[M01]-[D01]T[H01]:[m01]:[s01][Z]')"/></xsl:attribute>
 	</xsl:template>
 
+	<xsl:include href="transforms/patient_not_traced.xslt"/>
+
 	<!-- change contact telecom rank to 1-->
 	<xsl:template match="fhir:Appointment/fhir:contained/fhir:Patient/fhir:contact/fhir:telecom/fhir:rank/@value">
 		<xsl:attribute name="value"><xsl:value-of select="'1'"/></xsl:attribute>

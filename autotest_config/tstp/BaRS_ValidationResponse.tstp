@@ -1,5 +1,6 @@
 #
 # BaRS_ValidationResponse tstp file
+# Use Case 999 to CAS
 #
 SCRIPT BaRS_ValidationResponse
 

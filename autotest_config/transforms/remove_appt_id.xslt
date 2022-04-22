@@ -12,6 +12,8 @@
 		<xsl:attribute name="value"><xsl:value-of select="format-dateTime(current-dateTime(),'[Y0001]-[M01]-[D01]T[H01]:[m01]:[s01][Z]')"/></xsl:attribute>
 	</xsl:template>
 
+	<xsl:include href="transforms/patient_not_traced.xslt"/>
+
 	<!-- match all atts all nodes -->
 	<xsl:template match="@*|node()">
 		<xsl:copy>
