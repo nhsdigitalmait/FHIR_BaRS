@@ -1168,7 +1168,7 @@
 					"response": []
 				},
 				{
-					"name": "MessageDefinition_Req_Val_HappyPath",
+					"name": "MessageDefinition_HappyPath",
 					"protocolProfileBehavior": {
 						"disabledSystemHeaders": {
 							"accept": true,
@@ -1200,21 +1200,26 @@
 							}
 						],
 						"url": {
-							"raw": "{{url}}/R4/MessageDefinition/bars-message-servicerequest-request-validation",
+							"raw": "{{url}}/R4/MessageDefinition?context=https%3A%2F%2Ffhir.nhs.uk%2FId%2Fdos-service-id%7CTKW0004",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
 								"R4",
-								"MessageDefinition",
-								"bars-message-servicerequest-request-validation"
+								"MessageDefinition"
+							],
+							"query": [
+								{
+									"key": "context",
+									"value": "https%3A%2F%2Ffhir.nhs.uk%2FId%2Fdos-service-id%7CTKW0004"
+								}
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "MessageDefinition_Resp_Val_HappyPath",
+					"name": "MessageDefinition_401",
 					"protocolProfileBehavior": {
 						"disabledSystemHeaders": {
 							"accept": true,
@@ -1246,152 +1251,19 @@
 							}
 						],
 						"url": {
-							"raw": "{{url}}/R4/MessageDefinition/bars-message-servicerequest-response-validation",
+							"raw": "{{url}}/R4/MessageDefinition?context=https%3A%2F%2Ffhir.nhs.uk%2FId%2Fdos-service-id%7CFAIL0401",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
 								"R4",
-								"MessageDefinition",
-								"bars-message-servicerequest-response-validation"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "MessageDefinition_Req_Ref_HappyPath",
-					"protocolProfileBehavior": {
-						"disabledSystemHeaders": {
-							"accept": true,
-							"accept-encoding": true
-						}
-					},
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Ssp-InteractionID",
-								"type": "text",
-								"value": "urn:nhs:names:services:careconnect:fhir:rest:read:metadata"
-							},
-							{
-								"key": "Content-type",
-								"type": "text",
-								"value": "{{contentType}}"
-							},
-							{
-								"key": "Accept",
-								"type": "text",
-								"value": "{{accept}}"
-							},
-							{
-								"key": "NHSD-Service",
-								"value": "{{NHSD-Service}}",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "{{url}}/R4/MessageDefinition/bars-message-servicerequest-request-referral",
-							"host": [
-								"{{url}}"
+								"MessageDefinition"
 							],
-							"path": [
-								"R4",
-								"MessageDefinition",
-								"bars-message-servicerequest-request-referral"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "MessageDefinition_Resp_Ref_HappyPath",
-					"protocolProfileBehavior": {
-						"disabledSystemHeaders": {
-							"accept": true,
-							"accept-encoding": true
-						}
-					},
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Ssp-InteractionID",
-								"type": "text",
-								"value": "urn:nhs:names:services:careconnect:fhir:rest:read:metadata"
-							},
-							{
-								"key": "Content-type",
-								"type": "text",
-								"value": "{{contentType}}"
-							},
-							{
-								"key": "Accept",
-								"type": "text",
-								"value": "{{accept}}"
-							},
-							{
-								"key": "NHSD-Service",
-								"value": "{{NHSD-Service}}",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "{{url}}/R4/MessageDefinition/bars-message-servicerequest-response-referral",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"R4",
-								"MessageDefinition",
-								"bars-message-servicerequest-response-referral"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "MessageDefinition_Book_Req_HappyPath",
-					"protocolProfileBehavior": {
-						"disabledSystemHeaders": {
-							"accept": true,
-							"accept-encoding": true
-						}
-					},
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Ssp-InteractionID",
-								"type": "text",
-								"value": "urn:nhs:names:services:careconnect:fhir:rest:read:metadata"
-							},
-							{
-								"key": "Content-type",
-								"type": "text",
-								"value": "{{contentType}}"
-							},
-							{
-								"key": "Accept",
-								"type": "text",
-								"value": "{{accept}}"
-							},
-							{
-								"key": "NHSD-Service",
-								"value": "{{NHSD-Service}}",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "{{url}}/R4/MessageDefinition/bars-message-booking-request",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"R4",
-								"MessageDefinition",
-								"bars-message-booking-request"
+							"query": [
+								{
+									"key": "context",
+									"value": "https%3A%2F%2Ffhir.nhs.uk%2FId%2Fdos-service-id%7CFAIL0401"
+								}
 							]
 						}
 					},

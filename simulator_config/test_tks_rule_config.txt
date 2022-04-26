@@ -8,7 +8,6 @@ BEGIN RESPONSES
 #NEW
 #Search
 notFound_Response						TKW_ROOT/config/FHIR_BaRS/simulator_config/successful_responses/NotFound_Trigger_NEMS.xml "200 OK"
-Conversion_Error_Response				TKW_ROOT/config/FHIR_BaRS/simulator_config/operation_outcomes/operation_outcome_200_IVP.xml "400 Bad Request"
 
 Operation_Outcome_400					TKW_ROOT/config/FHIR_BaRS/simulator_config/operation_outcomes/operation_outcome_400.xml "400 Bad Request"
 Operation_Outcome_401					TKW_ROOT/config/FHIR_BaRS/simulator_config/operation_outcomes/operation_outcome_401.xml "401 Unauthorized"
@@ -53,11 +52,7 @@ ReferralServiceRequest_HappyPath_Response TKW_ROOT/config/FHIR_BaRS/simulator_co
 
 BookingAppointment_HappyPath_Response TKW_ROOT/config/FHIR_BaRS/simulator_config/BaRS_Booking/Booking_Appointment_Response.xml "200 OK" WITH_HTTP_HEADERS ( X-Request-Id : "__XREQID_ECHO__" X-Correlation-Id : "__XCORRID_ECHO__" )
 
-MessageDefinition_Req_Val_HappyPath_Response TKW_ROOT/config/FHIR_BaRS/simulator_config/BaRS_MessageDefinition/MessageDefinition_Req_Val.xml "200 OK" WITH_HTTP_HEADERS ( X-Request-Id : "__XREQID_ECHO__" X-Correlation-Id : "__XCORRID_ECHO__" )
-MessageDefinition_Resp_Val_HappyPath_Response TKW_ROOT/config/FHIR_BaRS/simulator_config/BaRS_MessageDefinition/MessageDefinition_Resp_Val.xml "200 OK" WITH_HTTP_HEADERS ( X-Request-Id : "__XREQID_ECHO__" X-Correlation-Id : "__XCORRID_ECHO__" )
-MessageDefinition_Req_Ref_HappyPath_Response TKW_ROOT/config/FHIR_BaRS/simulator_config/BaRS_MessageDefinition/MessageDefinition_Req_Ref.xml "200 OK" WITH_HTTP_HEADERS ( X-Request-Id : "__XREQID_ECHO__" X-Correlation-Id : "__XCORRID_ECHO__" )
-MessageDefinition_Resp_Ref_HappyPath_Response TKW_ROOT/config/FHIR_BaRS/simulator_config/BaRS_MessageDefinition/MessageDefinition_Resp_Ref.xml "200 OK" WITH_HTTP_HEADERS ( X-Request-Id : "__XREQID_ECHO__" X-Correlation-Id : "__XCORRID_ECHO__" )
-MessageDefinition_Book_Req_HappyPath_Response TKW_ROOT/config/FHIR_BaRS/simulator_config/BaRS_MessageDefinition/MessageDefinition_Book_Req.xml "200 OK" WITH_HTTP_HEADERS ( X-Request-Id : "__XREQID_ECHO__" X-Correlation-Id : "__XCORRID_ECHO__" )
+MessageDefinition_HappyPath_Response TKW_ROOT/config/FHIR_BaRS/simulator_config/BaRS_MessageDefinition/MessageDefinition.xml "200 OK" WITH_HTTP_HEADERS ( X-Request-Id : "__XREQID_ECHO__" X-Correlation-Id : "__XCORRID_ECHO__" )
 
 
 do_process	NONE	0
@@ -147,6 +142,8 @@ INVALID_ACCEPT					http_header accept notmatches ^.*application/fhir\+(xml|json)
 SLOT						context_path matches ^.*/R4/Slot.*$
 METADATA					context_path matches ^.*/R4/metadata.*$
 APPOINTMENT					context_path matches ^.*/R4/Appointment.*$
+MESSAGEDEFINITION			context_path matches ^.*/R4/MessageDefinition\?context=https%3A%2F%2Ffhir.nhs.uk%2FId%2Fdos-service-id.*$
+DOSSERVICEID401				context_path matches ^.*FAIL0401.*$
 
 VALIDATIONSERVICEREQUEST001				context_path matches ^.*/R4/ServiceRequest/0b42eac3-0175-43c8-bbab-efaa8ca31ccf.*$
 VALIDATIONSERVICEREQUEST408				context_path matches ^.*/R4/ServiceRequest/9e595424-9d67-45db-9a90-03259653cd37.*$
@@ -159,12 +156,6 @@ REFERRALSERVICEREQUEST503				context_path matches ^.*/R4/ServiceRequest/4d65ddaa
 
 BOOKINGAPPOINTMENT001					context_path matches ^.*/R4/Appointment/ce1c4ced-2a84-4198-9982-9caf894d0bb7.*$
 BOOKINGAPPOINTMENT501				context_path matches ^.*/R4/Appointment/0d440c22-7f25-4c6c-905d-2213d197d02a.*$
-
-MESSAGEDEFINITION_REQ_VAL				context_path matches ^.*/R4/MessageDefinition/bars-message-servicerequest-request-validation*$
-MESSAGEDEFINITION_RESP_VAL				context_path matches ^.*/R4/MessageDefinition/bars-message-servicerequest-response-validation*$
-MESSAGEDEFINITION_REQ_REF				context_path matches ^.*/R4/MessageDefinition/bars-message-servicerequest-request-referral*$
-MESSAGEDEFINITION_RESP_REF				context_path matches ^.*/R4/MessageDefinition/bars-message-servicerequest-response-referral*$
-MESSAGEDEFINITION_BOOK_REQ				context_path matches ^.*/R4/MessageDefinition/bars-message-booking-request*$
 
 HEALTHCARESERVICE999999999		context_path matches ^.*Schedule.actor%3AHealthcareService=999999999.*$
 HEALTHCARESERVICE999999998		context_path matches ^.*Schedule.actor%3AHealthcareService=999999998.*$
@@ -185,17 +176,18 @@ APPOINTMENT_STATUS_CANCELLED xpathmatches //fhir:Bundle/fhir:entry/fhir:resource
 
 #NHS Number
 #PATIENT001	xpathmatches //fhir:Bundle/fhir:entry/fhir:resource/fhir:Patient/fhir:identifier/fhir:value/@value 3478526985
-PATIENT400			xpathmatches //fhir:Bundle/fhir:entry/fhir:resource/fhir:Patient/fhir:identifier/fhir:value/@value 9999999400
-PATIENT401			xpathmatches //fhir:Bundle/fhir:entry/fhir:resource/fhir:Patient/fhir:identifier/fhir:value/@value 9999999401
-PATIENT404			xpathmatches //fhir:Bundle/fhir:entry/fhir:resource/fhir:Patient/fhir:identifier/fhir:value/@value 9999999404
-PATIENT405			xpathmatches //fhir:Bundle/fhir:entry/fhir:resource/fhir:Patient/fhir:identifier/fhir:value/@value 9999999405
-PATIENT408			xpathmatches //fhir:Bundle/fhir:entry/fhir:resource/fhir:Patient/fhir:identifier/fhir:value/@value 9999999408
-PATIENT409			xpathmatches //fhir:Bundle/fhir:entry/fhir:resource/fhir:Patient/fhir:identifier/fhir:value/@value 9999999409
-PATIENT422			xpathmatches //fhir:Bundle/fhir:entry/fhir:resource/fhir:Patient/fhir:identifier/fhir:value/@value 9999999422
-PATIENT429			xpathmatches //fhir:Bundle/fhir:entry/fhir:resource/fhir:Patient/fhir:identifier/fhir:value/@value 9999999429
-PATIENT500			xpathmatches //fhir:Bundle/fhir:entry/fhir:resource/fhir:Patient/fhir:identifier/fhir:value/@value 9999999500
-PATIENT501			xpathmatches //fhir:Bundle/fhir:entry/fhir:resource/fhir:Patient/fhir:identifier/fhir:value/@value 9999999501
-PATIENT503			xpathmatches //fhir:Bundle/fhir:entry/fhir:resource/fhir:Patient/fhir:identifier/fhir:value/@value 9999999503
+PATIENT400			xpathmatches //fhir:Bundle/fhir:entry/fhir:resource/fhir:Patient/fhir:identifier/fhir:value/@value 9618388816
+PATIENT401			xpathmatches //fhir:Bundle/fhir:entry/fhir:resource/fhir:Patient/fhir:identifier/fhir:value/@value 9383924314
+PATIENT404			xpathmatches //fhir:Bundle/fhir:entry/fhir:resource/fhir:Patient/fhir:identifier/fhir:value/@value 9976150288
+PATIENT405			xpathmatches //fhir:Bundle/fhir:entry/fhir:resource/fhir:Patient/fhir:identifier/fhir:value/@value 9675199962
+PATIENT408			xpathmatches //fhir:Bundle/fhir:entry/fhir:resource/fhir:Patient/fhir:identifier/fhir:value/@value 9945210394
+PATIENT409			xpathmatches //fhir:Bundle/fhir:entry/fhir:resource/fhir:Patient/fhir:identifier/fhir:value/@value 9933902830
+PATIENT422			xpathmatches //fhir:Bundle/fhir:entry/fhir:resource/fhir:Patient/fhir:identifier/fhir:value/@value 9818556143
+PATIENT429			xpathmatches //fhir:Bundle/fhir:entry/fhir:resource/fhir:Patient/fhir:identifier/fhir:value/@value 9657562376
+PATIENT500			xpathmatches //fhir:Bundle/fhir:entry/fhir:resource/fhir:Patient/fhir:identifier/fhir:value/@value 9853944189
+PATIENT501			xpathmatches //fhir:Bundle/fhir:entry/fhir:resource/fhir:Patient/fhir:identifier/fhir:value/@value 9010223337
+PATIENT503			xpathmatches //fhir:Bundle/fhir:entry/fhir:resource/fhir:Patient/fhir:identifier/fhir:value/@value 9999960529
+
 #PATIENTBOOKANDREF	xpathmatches //fhir:Bundle/fhir:entry/fhir:resource/fhir:Patient/fhir:identifier/fhir:value/@value 9054613556
 
 
@@ -211,40 +203,42 @@ END EXPRESSIONS
 
 BEGIN RULE
 POST+urn:nhs:names:services:bars:fhir:messaging:new:servicerequest-request
-IF	SR_CATEGORY_VALIDATION	AND	PATIENT408	AND SR_STATUS_ACTIVE		THEN	ValidationRequest_HappyPath_for_408_Response ELSE NEXT
-IF	SR_CATEGORY_VALIDATION	AND	PATIENT501	AND SR_STATUS_ACTIVE		THEN	ValidationRequest_HappyPath_for_501_Response ELSE NEXT
-IF	SR_CATEGORY_VALIDATION	AND	PATIENT404	AND SR_STATUS_ACTIVE		THEN	Operation_Outcome_404 ELSE NEXT
-IF	SR_CATEGORY_VALIDATION	AND	PATIENT409	AND SR_STATUS_ACTIVE		THEN	Operation_Outcome_409 ELSE NEXT
-IF	SR_CATEGORY_VALIDATION	AND	PATIENT422	AND SR_STATUS_ACTIVE		THEN	Operation_Outcome_422 ELSE NEXT
-IF	SR_CATEGORY_VALIDATION	AND SR_STATUS_ACTIVE						THEN	ValidationRequest_HappyPath_Response ELSE NEXT
-IF	SR_CATEGORY_REFERRAL	AND	PATIENT400	AND SR_STATUS_ACTIVE		THEN	Operation_Outcome_400 ELSE NEXT
-IF	SR_CATEGORY_REFERRAL	AND	PATIENT405	AND SR_STATUS_ACTIVE		THEN	ReferralRequest_HappyPath_for_405_Response ELSE NEXT
-IF	SR_CATEGORY_REFERRAL	AND	PATIENT429	AND SR_STATUS_ACTIVE		THEN	ReferralRequest_HappyPath_for_429_Response ELSE NEXT
-IF	SR_CATEGORY_REFERRAL	AND	PATIENT500	AND SR_STATUS_ACTIVE		THEN	Operation_Outcome_500 ELSE NEXT
-IF	SR_CATEGORY_REFERRAL	AND	PATIENT503	AND SR_STATUS_ACTIVE		THEN	ReferralRequest_HappyPath_for_503_Response ELSE NEXT
-IF	SR_CATEGORY_REFERRAL	AND SR_STATUS_ACTIVE						THEN	ReferralRequest_HappyPath_Response ELSE NEXT
+IF	SR_CATEGORY_VALIDATION	AND	PATIENT408	THEN	ValidationRequest_HappyPath_for_408_Response ELSE NEXT
+IF	SR_CATEGORY_VALIDATION	AND	PATIENT501	THEN	ValidationRequest_HappyPath_for_501_Response ELSE NEXT
+IF	SR_CATEGORY_VALIDATION	AND	PATIENT404	THEN	Operation_Outcome_404 ELSE NEXT
+IF	SR_CATEGORY_VALIDATION	AND	PATIENT409	THEN	Operation_Outcome_409 ELSE NEXT
+IF	SR_CATEGORY_VALIDATION	AND	PATIENT422	THEN	Operation_Outcome_422 ELSE NEXT
+IF	SR_CATEGORY_VALIDATION					THEN	ValidationRequest_HappyPath_Response ELSE NEXT
+IF	SR_CATEGORY_REFERRAL	AND	PATIENT400	THEN	Operation_Outcome_400 ELSE NEXT
+IF	SR_CATEGORY_REFERRAL	AND	PATIENT405	THEN	ReferralRequest_HappyPath_for_405_Response ELSE NEXT
+IF	SR_CATEGORY_REFERRAL	AND	PATIENT429	THEN	ReferralRequest_HappyPath_for_429_Response ELSE NEXT
+IF	SR_CATEGORY_REFERRAL	AND	PATIENT500	THEN	Operation_Outcome_500 ELSE NEXT
+IF	SR_CATEGORY_REFERRAL	AND	PATIENT503	THEN	ReferralRequest_HappyPath_for_503_Response ELSE NEXT
+IF	SR_CATEGORY_REFERRAL					THEN	ReferralRequest_HappyPath_Response ELSE NEXT
 IF passthrough THEN notFound_Response
 END RULE
 
 BEGIN RULE
 POST+urn:nhs:names:services:bars:fhir:messaging:update:servicerequest-request
-IF	SR_CATEGORY_VALIDATION	AND SR_STATUS_ACTIVE		THEN	ValidationRequest_HappyPath_Response ELSE NEXT
-IF	SR_CATEGORY_VALIDATION	AND SR_STATUS_REVOKED		THEN	ValidationRequest_HappyPath_Response ELSE NEXT
-IF	SR_CATEGORY_REFERRAL	AND SR_STATUS_ACTIVE		THEN	ReferralRequest_HappyPath_Response ELSE NEXT
-IF	SR_CATEGORY_REFERRAL	AND SR_STATUS_REVOKED		THEN	ReferralRequest_HappyPath_Response ELSE NEXT
-IF	SR_CATEGORY_REFERRAL	AND SR_STATUS_ENTERED-IN-ERROR		THEN	ReferralRequest_HappyPath_Response ELSE NEXT
-IF	SR_CATEGORY_VALIDATION	AND SR_STATUS_ENTERED-IN-ERROR		THEN	ValidationRequest_HappyPath_Response ELSE NEXT
+IF	SR_CATEGORY_VALIDATION	THEN	ValidationRequest_HappyPath_Response ELSE NEXT
+IF	SR_CATEGORY_REFERRAL	THEN	ReferralRequest_HappyPath_Response ELSE NEXT
 IF passthrough THEN notFound_Response
 END RULE
 
 
 BEGIN RULE
 POST+urn:nhs:names:services:bars:fhir:messaging:new:servicerequest-response
-IF	SR_CATEGORY_VALIDATION	AND	PATIENT401	AND SR_STATUS_COMPLETED		THEN	Operation_Outcome_401 ELSE NEXT
-IF	SR_CATEGORY_VALIDATION	AND SR_STATUS_ACTIVE						THEN	ValidationResponse_HappyPath_Response ELSE NEXT
-IF	SR_CATEGORY_VALIDATION	AND SR_STATUS_COMPLETED						THEN	ValidationResponse_HappyPath_Response ELSE NEXT
-IF	SR_CATEGORY_REFERRAL	AND	PATIENT401	AND SR_STATUS_REVOKED		THEN	Operation_Outcome_401 ELSE NEXT
-IF	SR_CATEGORY_REFERRAL	AND SR_STATUS_REVOKED						THEN	ReferralResponse_HappyPath_Response ELSE NEXT
+IF	SR_CATEGORY_VALIDATION	AND	PATIENT401	THEN	Operation_Outcome_401 ELSE NEXT
+IF	SR_CATEGORY_VALIDATION					THEN	ValidationResponse_HappyPath_Response ELSE NEXT
+IF	SR_CATEGORY_REFERRAL	AND	PATIENT401	THEN	Operation_Outcome_401 ELSE NEXT
+IF	SR_CATEGORY_REFERRAL					THEN	ReferralResponse_HappyPath_Response ELSE NEXT
+IF passthrough THEN notFound_Response
+END RULE
+
+BEGIN RULE
+POST+urn:nhs:names:services:bars:fhir:messaging:update:servicerequest-response
+IF	SR_CATEGORY_VALIDATION	THEN	ValidationResponse_HappyPath_Response ELSE NEXT
+IF	SR_CATEGORY_REFERRAL	THEN	ReferralResponse_HappyPath_Response ELSE NEXT
 IF passthrough THEN notFound_Response
 END RULE
 
@@ -261,7 +255,7 @@ END RULE
 BEGIN RULE
 POST+urn:nhs:names:services:bars:fhir:messaging:update:booking-request
 IF	APPOINTMENT_STATUS_BOOKED						THEN	BookingRequest_HappyPath_Response ELSE NEXT
-IF	APPOINTMENT_STATUS_CANCELLED						THEN	BookingRequest_HappyPath_Response ELSE NEXT
+IF	APPOINTMENT_STATUS_CANCELLED					THEN	BookingRequest_HappyPath_Response ELSE NEXT
 IF passthrough THEN notFound_Response
 END RULE
 BEGIN RULE
@@ -282,13 +276,10 @@ IF	REFERRALSERVICEREQUEST001						THEN	ReferralServiceRequest_HappyPath_Response
 IF	REFERRALSERVICEREQUEST405						THEN	Operation_Outcome_405						ELSE	NEXT
 IF	REFERRALSERVICEREQUEST429						THEN	Operation_Outcome_429						ELSE	NEXT
 IF	REFERRALSERVICEREQUEST503						THEN	Operation_Outcome_503						ELSE	NEXT
-IF	BOOKINGAPPOINTMENT001							THEN	BookingAppointment_HappyPath_Response			ELSE	NEXT
-IF	BOOKINGAPPOINTMENT501						THEN	Operation_Outcome_501						ELSE	NEXT
-IF	MESSAGEDEFINITION_REQ_VAL						THEN	MessageDefinition_Req_Val_HappyPath_Response	ELSE	NEXT
-IF	MESSAGEDEFINITION_RESP_VAL						THEN	MessageDefinition_Resp_Val_HappyPath_Response	ELSE	NEXT
-IF	MESSAGEDEFINITION_REQ_REF						THEN	MessageDefinition_Req_Ref_HappyPath_Response	ELSE	NEXT
-IF	MESSAGEDEFINITION_RESP_REF						THEN	MessageDefinition_Resp_Ref_HappyPath_Response	ELSE	NEXT
-IF	MESSAGEDEFINITION_BOOK_REQ						THEN	MessageDefinition_Book_Req_HappyPath_Response	ELSE	NEXT
+IF	BOOKINGAPPOINTMENT001							THEN	BookingAppointment_HappyPath_Response		ELSE	NEXT
+IF	BOOKINGAPPOINTMENT501							THEN	Operation_Outcome_501						ELSE	NEXT
+IF	MESSAGEDEFINITION	AND	DOSSERVICEID401			THEN	Operation_Outcome_401						ELSE	NEXT
+IF	MESSAGEDEFINITION								THEN	MessageDefinition_HappyPath_Response		ELSE	NEXT
 IF 	HEALTHCARESERVICE_MISSING						THEN	Operation_Outcome_400						ELSE	NEXT
 IF	SLOT	AND FREEANDBUSY	AND	HEALTHCARESERVICE999999999		THEN	SearchSlots_HappyPath_FreeBusy_Response		ELSE	NEXT
 IF	SLOT	AND FREEONLY	AND	HEALTHCARESERVICE999999999		THEN	SearchSlots_HappyPath_Response				ELSE	NEXT
