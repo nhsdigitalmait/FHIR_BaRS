@@ -1,7 +1,5 @@
 <?xml version="1.0"?>
 
-<!-- sets the message header reason code to update and service request status to active -->
-
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fhir="http://hl7.org/fhir" version="1.0">
 
 	<xsl:output method="xml" indent="yes" omit-xml-declaration="yes"/>

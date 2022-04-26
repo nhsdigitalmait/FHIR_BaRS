@@ -46,10 +46,7 @@ ResponseIsBundleExtracting5 CHAIN SYNC response_is_bundle_extracting5 TEXT "Resp
 ResponseIsBundleExtracting6 CHAIN SYNC response_is_bundle_extracting6 TEXT "Response contains a root fhir:Bundle element"
 ResponseIsBundleExtracting7 CHAIN SYNC response_is_bundle_extracting7 TEXT "Response contains a root fhir:Bundle element"
 ResponseIsBundleExtracting8 CHAIN SYNC response_is_bundle_extracting8 TEXT "Response contains a root fhir:Bundle element"
-ResponseIsBundleExtracting9 CHAIN SYNC response_is_bundle_extracting9 TEXT "Response contains a root fhir:Bundle element"
-ResponseIsBundleExtracting10 CHAIN SYNC response_is_bundle_extracting10 TEXT "Response contains a root fhir:Bundle element"
 ResponseIsBundleExtracting11 CHAIN SYNC response_is_bundle_extracting11 TEXT "Response contains a root fhir:Bundle element"
-ResponseIsBundleExtracting12 CHAIN SYNC response_is_bundle_extracting12 TEXT "Response contains a root fhir:Bundle element"
 
 ResponseIsBundleExtracting13 CHAIN SYNC response_is_bundle_extracting13 TEXT "Response contains a root fhir:Bundle element"
 ResponseIsEmptyPayloadExtracting13 CHAIN SYNC response_is_empty_payload_extracting13 TEXT "Response payload is empty"
@@ -60,17 +57,6 @@ ResponseIsEmptyPayloadExtracting14 CHAIN SYNC response_is_empty_payload_extracti
 ResponseIsBundleExtracting15 CHAIN SYNC response_is_bundle_extracting15 TEXT "Response contains a root fhir:Bundle element"
 ResponseIsEmptyPayloadExtracting15 CHAIN SYNC response_is_empty_payload_extracting15 TEXT "Response payload is empty"
 
-ResponseIsBundleExtracting16 CHAIN SYNC response_is_bundle_extracting16 TEXT "Response contains a root fhir:Bundle element"
-ResponseIsEmptyPayloadExtracting16 CHAIN SYNC response_is_empty_payload_extracting16 TEXT "Response payload is empty"
-
-ResponseIsBundleExtracting17 CHAIN SYNC response_is_bundle_extracting17 TEXT "Response contains a root fhir:Bundle element"
-ResponseIsEmptyPayloadExtracting17 CHAIN SYNC response_is_empty_payload_extracting17 TEXT "Response payload is empty"
-
-ResponseIsBundleExtracting18 CHAIN SYNC response_is_bundle_extracting18 TEXT "Response contains a root fhir:Bundle element"
-ResponseIsEmptyPayloadExtracting18 CHAIN SYNC response_is_empty_payload_extracting18 TEXT "Response payload is empty"
-
-ResponseIsBundleExtracting19 CHAIN SYNC response_is_bundle_extracting19 TEXT "Response contains a root fhir:Bundle element"
-ResponseIsEmptyPayloadExtracting19 CHAIN SYNC response_is_empty_payload_extracting19 TEXT "Response payload is empty"
 
 ResponseIsBundleExtracting20 CHAIN SYNC response_is_bundle_extracting20 TEXT "Response contains a root fhir:Bundle element"
 ResponseIsEmptyPayloadExtracting20 CHAIN SYNC response_is_empty_payload_extracting20 TEXT "Response payload is empty"
@@ -106,17 +92,10 @@ empty_file5 USING empty_file_template WITH slots5 ID s5
 empty_file6 USING empty_file_template WITH slots6 ID s6
 empty_file7 USING empty_file_template WITH slots7 ID s7
 empty_file8 USING empty_file_template WITH slots8 ID s8
-empty_file9 USING empty_file_template WITH slots9 ID s9
-empty_file10 USING empty_file_template WITH slots10 ID s10
 empty_file11 USING empty_file_template WITH slots11 ID s11
-empty_file12 USING empty_file_template WITH slots12 ID s12
 empty_file13 USING empty_file_template WITH slots13 ID s13
 empty_file14 USING empty_file_template WITH slots14 ID s14
 empty_file15 USING empty_file_template WITH slots15 ID s15
-empty_file16 USING empty_file_template WITH slots16 ID s16
-empty_file17 USING empty_file_template WITH slots17 ID s17
-empty_file18 USING empty_file_template WITH slots18 ID s18
-empty_file19 USING empty_file_template WITH slots19 ID s19
 
 empty_file20 USING empty_file_template WITH slots20 ID s20
 
@@ -128,6 +107,7 @@ BEGIN TEMPLATES
 # for GET
 empty_file_template __TKWROOT__/config/FHIR_BaRS/autotest_config/requests/emptyfile.txt
 book_appt_template __TKWROOT__/config/FHIR_BaRS/autotest_config/requests/book_appt___TO_SERVICE__.xml
+cancel_appt_template __TKWROOT__/config/FHIR_BaRS/autotest_config/requests/book_appt___TO_SERVICE__.xml
 END TEMPLATES
 
 # if chunking required
@@ -150,6 +130,7 @@ post
 put
 	SET tks.transmitter.http.method PUT
 END PROPERTYSETS
+
 
 BEGIN HTTPHEADERS
 credentials
@@ -197,18 +178,11 @@ slots_free5_extractor xpathextractor __TKWROOT__/config/FHIR_BaRS/autotest_confi
 slots_free6_extractor xpathextractor __TKWROOT__/config/FHIR_BaRS/autotest_config/extractor_configs/slots_free6.cfg
 slots_free7_extractor xpathextractor __TKWROOT__/config/FHIR_BaRS/autotest_config/extractor_configs/slots_free7.cfg
 slots_free8_extractor xpathextractor __TKWROOT__/config/FHIR_BaRS/autotest_config/extractor_configs/slots_free8.cfg
-slots_free9_extractor xpathextractor __TKWROOT__/config/FHIR_BaRS/autotest_config/extractor_configs/slots_free9.cfg
-slots_free10_extractor xpathextractor __TKWROOT__/config/FHIR_BaRS/autotest_config/extractor_configs/slots_free10.cfg
 slots_free11_extractor xpathextractor __TKWROOT__/config/FHIR_BaRS/autotest_config/extractor_configs/slots_free11.cfg
-slots_free12_extractor xpathextractor __TKWROOT__/config/FHIR_BaRS/autotest_config/extractor_configs/slots_free12.cfg
 
 slots_free13_extractor xpathextractor __TKWROOT__/config/FHIR_BaRS/autotest_config/extractor_configs/slots_free13.cfg
 slots_free14_extractor xpathextractor __TKWROOT__/config/FHIR_BaRS/autotest_config/extractor_configs/slots_free14.cfg
 slots_free15_extractor xpathextractor __TKWROOT__/config/FHIR_BaRS/autotest_config/extractor_configs/slots_free15.cfg
-slots_free16_extractor xpathextractor __TKWROOT__/config/FHIR_BaRS/autotest_config/extractor_configs/slots_free16.cfg
-slots_free17_extractor xpathextractor __TKWROOT__/config/FHIR_BaRS/autotest_config/extractor_configs/slots_free17.cfg
-slots_free18_extractor xpathextractor __TKWROOT__/config/FHIR_BaRS/autotest_config/extractor_configs/slots_free18.cfg
-slots_free19_extractor xpathextractor __TKWROOT__/config/FHIR_BaRS/autotest_config/extractor_configs/slots_free19.cfg
 
 slots_free20_extractor xpathextractor __TKWROOT__/config/FHIR_BaRS/autotest_config/extractor_configs/slots_free20.cfg
 END EXTRACTORS
@@ -221,18 +195,11 @@ slots5 circularwritabletdv __TKWROOT__/config/FHIR_BaRS/autotest_config/extracto
 slots6 circularwritabletdv __TKWROOT__/config/FHIR_BaRS/autotest_config/extractor_configs/slot_6.tdv
 slots7 circularwritabletdv __TKWROOT__/config/FHIR_BaRS/autotest_config/extractor_configs/slot_7.tdv
 slots8 circularwritabletdv __TKWROOT__/config/FHIR_BaRS/autotest_config/extractor_configs/slot_8.tdv
-slots9 circularwritabletdv __TKWROOT__/config/FHIR_BaRS/autotest_config/extractor_configs/slot_9.tdv
-slots10 circularwritabletdv __TKWROOT__/config/FHIR_BaRS/autotest_config/extractor_configs/slot_10.tdv
 slots11 circularwritabletdv __TKWROOT__/config/FHIR_BaRS/autotest_config/extractor_configs/slot_11.tdv
-slots12 circularwritabletdv __TKWROOT__/config/FHIR_BaRS/autotest_config/extractor_configs/slot_12.tdv
 
 slots13 circularwritabletdv __TKWROOT__/config/FHIR_BaRS/autotest_config/extractor_configs/slot_13.tdv
 slots14 circularwritabletdv __TKWROOT__/config/FHIR_BaRS/autotest_config/extractor_configs/slot_14.tdv
 slots15 circularwritabletdv __TKWROOT__/config/FHIR_BaRS/autotest_config/extractor_configs/slot_15.tdv
-slots16 circularwritabletdv __TKWROOT__/config/FHIR_BaRS/autotest_config/extractor_configs/slot_16.tdv
-slots17 circularwritabletdv __TKWROOT__/config/FHIR_BaRS/autotest_config/extractor_configs/slot_17.tdv
-slots18 circularwritabletdv __TKWROOT__/config/FHIR_BaRS/autotest_config/extractor_configs/slot_18.tdv
-slots19 circularwritabletdv __TKWROOT__/config/FHIR_BaRS/autotest_config/extractor_configs/slot_19.tdv
 
 slots20 circularwritabletdv __TKWROOT__/config/FHIR_BaRS/autotest_config/extractor_configs/slot_20.tdv
 END DATASOURCES
@@ -252,27 +219,16 @@ response_is_empty_payload_extracting5 synchronousxpath / doesnotexist EXTRACTOR 
 response_is_empty_payload_extracting13 synchronousxpath / doesnotexist EXTRACTOR slots_free13_extractor
 response_is_empty_payload_extracting14 synchronousxpath / doesnotexist EXTRACTOR slots_free14_extractor
 response_is_empty_payload_extracting15 synchronousxpath / doesnotexist EXTRACTOR slots_free15_extractor
-response_is_empty_payload_extracting16 synchronousxpath / doesnotexist EXTRACTOR slots_free16_extractor
-response_is_empty_payload_extracting17 synchronousxpath / doesnotexist EXTRACTOR slots_free17_extractor
-response_is_empty_payload_extracting18 synchronousxpath / doesnotexist EXTRACTOR slots_free18_extractor
-response_is_empty_payload_extracting19 synchronousxpath / doesnotexist EXTRACTOR slots_free19_extractor
 
 response_is_bundle_extracting5 synchronousxpath /fhir:Bundle exists EXTRACTOR slots_free5_extractor
 response_is_bundle_extracting6 synchronousxpath /fhir:Bundle exists EXTRACTOR slots_free6_extractor
 response_is_bundle_extracting7 synchronousxpath /fhir:Bundle exists EXTRACTOR slots_free7_extractor
 response_is_bundle_extracting8 synchronousxpath /fhir:Bundle exists EXTRACTOR slots_free8_extractor
-response_is_bundle_extracting9 synchronousxpath /fhir:Bundle exists EXTRACTOR slots_free9_extractor
-response_is_bundle_extracting10 synchronousxpath /fhir:Bundle exists EXTRACTOR slots_free10_extractor
 response_is_bundle_extracting11 synchronousxpath /fhir:Bundle exists EXTRACTOR slots_free11_extractor
-response_is_bundle_extracting12 synchronousxpath /fhir:Bundle exists EXTRACTOR slots_free12_extractor
 
 response_is_bundle_extracting13 synchronousxpath /fhir:Bundle exists EXTRACTOR slots_free13_extractor
 response_is_bundle_extracting14 synchronousxpath /fhir:Bundle exists EXTRACTOR slots_free14_extractor
 response_is_bundle_extracting15 synchronousxpath /fhir:Bundle exists EXTRACTOR slots_free15_extractor
-response_is_bundle_extracting16 synchronousxpath /fhir:Bundle exists EXTRACTOR slots_free16_extractor
-response_is_bundle_extracting17 synchronousxpath /fhir:Bundle exists EXTRACTOR slots_free17_extractor
-response_is_bundle_extracting18 synchronousxpath /fhir:Bundle exists EXTRACTOR slots_free18_extractor
-response_is_bundle_extracting19 synchronousxpath /fhir:Bundle exists EXTRACTOR slots_free19_extractor
 
 response_is_bundle_extracting20 synchronousxpath /fhir:Bundle exists EXTRACTOR slots_free20_extractor
 

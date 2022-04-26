@@ -92,6 +92,10 @@ else
 			TSTP_FILES+=' BaRS_ValidationResponse.tstp'
 			;;
 
+			SIM|sim)
+			TSTP_FILES+=' BaRS_SimulatorTests.tstp'
+			;;
+
 			*)
 			echo "unrecognised group parameter $t"
 			exit 1
