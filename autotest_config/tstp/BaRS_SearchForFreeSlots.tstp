@@ -151,8 +151,6 @@ SFFSHealthcareOrgsReturned CHAIN SYNC healthcare_returned TEXT "Referenced Healt
 SFFSSlotsTooEarly CHAIN SYNC slots_too_early TEXT "No slots that start before the search start should be returned SCAL Requirement P-CRT-RES-SLOT-RET-MEET-TIME"
 SFFSSlotsTooLate CHAIN SYNC slots_too_late TEXT "No slots that start after the search end should be returned SCAL Requirement P-CRT-RES-SLOT-RET-MEET-TIME"
 
-SearchCountIsZero CHAIN SYNC search_count_is_zero TEXT "Search count must be zero"
-SearchCountIsGreaterThanZero CHAIN SYNC search_count_is_greater_than_zero TEXT "Search count must be greater than zero"
 # 
 # xml format header free busy slots
 SFFSWithValidParameters_search_for_free_and_busy_slots SEND_TKW empty_file TO __TO_ENDPOINT__/Slot?Schedule.actor%3AHealthcareService=__HCS__&start=ge__START_SLOT_TIME__&start=le__END_SLOT_TIME__&status=free%2Cbusy&_include=Slot%3Aschedule&_include=Schedule%3Aactor%3APractitioner&_include=Schedule%3Aactor%3APractitionerRole&_include=Schedule%3Aactor%3AHealthcareService&_include=HealthcareService.location&_include=HealthcareService.providedBy FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ SYNC ok WITH_PROPERTYSET base+webservices+get WITH_HTTPHEADERS credentials+default_accept+Oauth2AccessToken TEXT "HTTP Response must be HTTP 200"
@@ -193,8 +191,5 @@ orgs_returned synchronousxpath boolean(count(for $r in /fhir:Bundle/fhir:entry/f
 # SCAL P22 for each reference to an HealthcareService that HealthcareService should be present in the response
 healthcare_returned synchronousxpath boolean(count(for $r in /fhir:Bundle/fhir:entry/fhir:resource/fhir:Schedule/fhir:actor/fhir:reference/@value[starts-with(.,'HealthcareService/')] return /fhir:Bundle/fhir:entry/fhir:resource/fhir:HealthcareService[fhir:id/@value=substring($r,19)]) = count(/fhir:Bundle/fhir:entry/fhir:resource/fhir:Schedule)) matches "^true$"
 
-# Bundle search count must be zero
-search_count_is_zero synchronousxpath /fhir:Bundle/fhir:total/@value matches "^0$"
-search_count_is_greater_than_zero synchronousxpath boolean(/fhir:Bundle/fhir:total/@value > 0) matches "^true$"
 
 END PASSFAIL

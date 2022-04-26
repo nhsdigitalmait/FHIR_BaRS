@@ -17,6 +17,9 @@ SFFSWithValidParameters_3_days SEND_TKW empty_file TO __TO_ENDPOINT__/Slot?Sched
 
 SFFSWithValidParameters_3_days_5 SEND_TKW empty_file5 TO __TO_ENDPOINT__/Slot?Schedule.actor%3AHealthcareService=__HCS__&start=ge__START_SLOT_TIME__&start=le__END_SLOT_TIME__&status=free&_include=Slot%3Aschedule&_include=Schedule%3Aactor%3APractitioner&_include=Schedule%3Aactor%3APractitionerRole&_include=Schedule%3Aactor%3AHealthcareService&_include=HealthcareService.location&_include=HealthcareService.providedBy FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ SYNC ok WITH_PROPERTYSET base+webservices+get WITH_HTTPHEADERS credentials+default_accept+Oauth2AccessToken TEXT "HTTP Response must be HTTP 200"
 
+SearchCountIsZero CHAIN SYNC search_count_is_zero TEXT "Search count must be zero"
+SearchCountIsGreaterThanZero CHAIN SYNC search_count_is_greater_than_zero TEXT "Search count must be greater than zero"
+
 # happy path
 BookAppointment SEND_TKW book_appointment_slot5 TO __TO_ENDPOINT__/$process-message FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ PRETRANSFORM __TKWROOT__/config/FHIR_BaRS/autotest_config/transforms/remove_appt_id.xslt APPLYPRETRANSFORMTO data SYNC ok WITH_PROPERTYSET base+webservices+post WITH_HTTPHEADERS credentials+Oauth2AccessToken+default_content+default_accept+integrity TEXT "HTTP Response must be HTTP 200"
 
@@ -293,6 +296,10 @@ integrity_correlation_id_headers_match httpheadercorrelationcheck X-Correlation-
 integrity_request_id_headers_match httpheadercorrelationcheck X-Request-ID X-Request-ID
 
 response_has_was_gzip_header httpheadercheck X-was-Content-Encoding matches "^gzip$"
+#
+# Bundle search count must be zero
+search_count_is_zero synchronousxpath /fhir:Bundle/fhir:total/@value matches "^0$"
+search_count_is_greater_than_zero synchronousxpath boolean(/fhir:Bundle/fhir:total/@value > 0) matches "^true$"
 END PASSFAIL
 
 #
