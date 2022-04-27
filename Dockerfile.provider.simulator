@@ -1,7 +1,7 @@
 #
 #  Docker file for building FHIR_BaRS emergency booking provider simulator docker image
 #
-FROM nhsdigitalmait/tkw-x:607d0e1
+FROM nhsdigitalmait/tkw-x:ecee749
 
 ARG USER_ID
 
@@ -19,12 +19,16 @@ COPY --chown=service:service simulator_config simulator_config
 
 COPY --chown=service:service version_string.txt .
 
+WORKDIR $TKWROOT/config/ITK_Autotest
 RUN mkdir -p transmitter_source simulator_config transmitter_sent_messages messages_for_validation validator_reports validator_config autotest_config/tst && chown -R service:service .
+
+COPY --chown=service:service ITK_Autotest/test_tks_rule_config.txt simulator_config/
+COPY --chown=service:service ITK_Autotest/validator.conf validator_config/
 
 RUN mkdir /home/service/data/ && chown service:service /home/service/data/
 COPY . /home/service/TKW/config/FHIR_BaRS
 WORKDIR /home/service/TKW/config/FHIR_BaRS
-RUN mkdir simulator_saved_messages messages_for_validation transmitter_sent_messages && chown -R service:service .
+RUN mkdir simulator_saved_messages && chown -R service:service .
 RUN sh set-all-configurations.sh
 
 ENV trustStore=default

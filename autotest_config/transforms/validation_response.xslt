@@ -106,7 +106,14 @@
 		</xsl:copy>
 	</xsl:template>
 
-	<xsl:include href="transforms/patient_not_traced.xslt"/>
+		<!-- mark the nnn as not traced so we don't have to align with PDS yet -->
+	<xsl:template match="fhir:Patient/fhir:identifier/fhir:extension[@url='https://fhir.hl7.org.uk/StructureDefinition/Extension-UKCore-NHSNumberVerificationStatus']/fhir:valueCodeableConcept/fhir:coding[fhir:system/@value='https://fhir.hl7.org.uk/CodeSystem/UKCore-NHSNumberVerificationStatus']/fhir:code/@value">
+		<xsl:attribute name="value">number-present-but-not-traced</xsl:attribute>
+	</xsl:template>
+
+	<xsl:template match="fhir:Patient/fhir:identifier/fhir:extension[@url='https://fhir.hl7.org.uk/StructureDefinition/Extension-UKCore-NHSNumberVerificationStatus']/fhir:valueCodeableConcept/fhir:coding[fhir:system/@value='https://fhir.hl7.org.uk/CodeSystem/UKCore-NHSNumberVerificationStatus']/fhir:display/@value">
+		<xsl:attribute name="value">Number present but not traced</xsl:attribute>
+	</xsl:template>
 
 </xsl:stylesheet>
 
