@@ -19,6 +19,13 @@ echo "trustStorePassword = " $trustStorePassword
 echo "keyStore = " $keyStore
 echo "keyStorePassword = " $keyStorePassword
 
+# set the external properties folder
+export TKWROOT="/home/service/TKW"
+echo TKWROOT: $TKWROOT
+export FHIR_ASSETS_NPMTAR_ROOT="/home/service/TKW/config/FHIR_BaRS/validator_config/fhir_assets/npm_tars"
+echo FHIR Assets NPM tars directory: $FHIR_ASSETS_NPMTAR_ROOT
+
+
 cd /home/service
 
 java -cp $TKWROOT/TKW-x.jar uk.nhs.digital.mait.tkwx.tk.boot.BARSResponseImporter $PROJECT &
@@ -28,9 +35,9 @@ if [ "$trustStore" == 'default' ]
 then
 	#ClearText
 	java -version
-	java -XX:+UseContainerSupport -XX:MaxRAMPercentage=80.0 -jar /home/service/TKW/TKW-x.jar -httpinterceptor /home/service/TKW/config/$PROJECT/tkw-x_provider_simulator.properties
+	java -Djava.net.preferIPv4Stack=true -XX:+UseContainerSupport -XX:MaxRAMPercentage=80.0 -jar /home/service/TKW/TKW-x.jar -httpinterceptor /home/service/TKW/config/$PROJECT/tkw-x_provider_simulator.properties
 else
 	#TLSMA
-	java -Djavax.net.ssl.trustStore=$trustStore -Djavax.net.ssl.trustStorePassword=$trustStorePassword -Djavax.net.ssl.keyStore=$keyStore -Djavax.net.ssl.keyStorePassword=$keyStorePassword -jar /home/service/TKW/TKW-x.jar -httpinterceptor /home/service/TKW/config/$PROJECT/tkw-x_provider_simulator.properties
+	java -Djava.net.preferIPv4Stack=true -Djavax.net.ssl.trustStore=$trustStore -Djavax.net.ssl.trustStorePassword=$trustStorePassword -Djavax.net.ssl.keyStore=$keyStore -Djavax.net.ssl.keyStorePassword=$keyStorePassword -jar /home/service/TKW/TKW-x.jar -httpinterceptor /home/service/TKW/config/$PROJECT/tkw-x_provider_simulator.properties
 fi
 
