@@ -8,7 +8,7 @@ ARG USER_ID
 RUN useradd -rm -u $USER_ID service && apt-get update && apt-get install zip && apt-get install dos2unix && apt-get install coreutils
 
 ENV TKWROOT=/home/service/TKW
-ENV FHIR_ASSETS_NPMTAR_ROOT=/home/service/TKW/config/FHIR_BaRS/validator_config/fhir_assets
+ENV FHIR_ASSETS_NPMTAR_ROOT=/home/service/TKW/config/FHIR_BaRS/validator_config/fhir_assets/npm_tars
 
 WORKDIR $TKWROOT/config/FHIR_BaRS
 
