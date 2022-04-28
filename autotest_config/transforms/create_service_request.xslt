@@ -4,6 +4,14 @@
 
 	<xsl:output method="xml" indent="yes" omit-xml-declaration="yes"/>
 
+	<xsl:variable name="newbundleid" select="document('http://localhost:8001/getuuid?bundleid')/uuid/text()"/>
+
+	<xsl:template match="fhir:Bundle/fhir:id/@value">
+		<xsl:attribute name="value">
+			<xsl:value-of select="$newbundleid"/>
+		</xsl:attribute>
+	</xsl:template>
+
 		<!-- mark the nnn as not traced so we don't have to align with PDS yet -->
 	<xsl:template match="fhir:Patient/fhir:identifier/fhir:extension[@url='https://fhir.hl7.org.uk/StructureDefinition/Extension-UKCore-NHSNumberVerificationStatus']/fhir:valueCodeableConcept/fhir:coding[fhir:system/@value='https://fhir.hl7.org.uk/CodeSystem/UKCore-NHSNumberVerificationStatus']/fhir:code/@value">
 		<xsl:attribute name="value">number-present-but-not-traced</xsl:attribute>
