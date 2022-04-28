@@ -19,13 +19,6 @@ echo "trustStorePassword = " $trustStorePassword
 echo "keyStore = " $keyStore
 echo "keyStorePassword = " $keyStorePassword
 
-# set the external properties folder
-export TKWROOT="/home/service/TKW"
-echo TKWROOT: $TKWROOT
-export FHIR_ASSETS_NPMTAR_ROOT="/home/service/TKW/config/FHIR_BaRS/validator_config/fhir_assets/npm_tars"
-echo FHIR Assets NPM tars directory: $FHIR_ASSETS_NPMTAR_ROOT
-
-
 cd /home/service
 
 java -cp $TKWROOT/TKW-x.jar uk.nhs.digital.mait.tkwx.tk.boot.BARSResponseImporter $PROJECT &

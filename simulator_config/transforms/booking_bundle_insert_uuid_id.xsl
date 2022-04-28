@@ -5,7 +5,7 @@
   <xsl:param name ="slot_uuid" select="'11111111-1111-1111-1111-111111111111'" />
   <xsl:output method="xml" indent="yes" omit-xml-declaration="yes" />
   <!-- Add a generated UUID to each resource if not already present -->
-  <xsl:template match="//fhir:entry/fhir:resource/*">
+  <xsl:template match="//fhir:entry/fhir:resource[not(fhir:Appointment) and not(fhir:Slot)]/*">
     <xsl:copy>
       <xsl:if test="not(fhir:id)">
         <xsl:variable name="uuid" select="lower-case(uuid:get-uuid(.))" />

@@ -1,8 +1,6 @@
 version: '2.0'
 services:
     tkw_bars_provider_simulator:
-        environment:
-          - FHIR_ASSETS_NPMTAR_ROOT=/home/service/TKW/config/FHIR_BaRS/validator_config/fhir_assets
         network_mode : "host"
         ports:
             - '4848:4848'
