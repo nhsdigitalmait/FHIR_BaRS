@@ -2,6 +2,7 @@
 	<!-- this file is based on VALREQ01 999 to CAS -->
   <id value="86e3371d-1c15-4862-9552-d9560f8292ba" />
   <meta>
+    <versionId value="1.0.0-alpha" />
     <lastUpdated value="2021-11-26T15:00:00+00:00" />
     <profile value="https://fhir.nhs.uk/StructureDefinition/BARSBundleMessage" />
   </meta>
@@ -70,7 +71,7 @@
         <meta>
           <lastUpdated value="2021-11-26T15:00:00+00:00" />
           <profile value="https://fhir.nhs.uk/StructureDefinition/BARSServiceRequest-request-validation" />
-	  </meta>
+        </meta>
 	<id value="__SERVICE_REQUEST_ID__"/>
         <basedOn>
           <!--     Always CarePlan    -->
@@ -122,7 +123,7 @@
           <lastUpdated value="2021-11-26T15:00:00+00:00" />
           <profile value="http://hl7.org/fhir/StructureDefinition/HealthcareService" />
         </meta>
-		<id value="__HEALTHCARE_SERVICE_ID__"/>
+        <id value="__HEALTHCARE_SERVICE_ID__"/>
         <identifier>
           <system value="http://fhir.nhs.uk/Id/dos-service-id" />
           <value value="111111111" />
@@ -176,8 +177,8 @@
         <intent value="plan" />
         <subject>
           <reference value="urn:uuid:9589fb37-87a2-48d8-968f-b371429208a8" />
-	  </subject>
-	    <period>
+        </subject>
+        <period>
           <start value="2021-11-26T15:00:00+00:00" />
         </period>
         <encounter>
@@ -229,7 +230,7 @@
           <lastUpdated value="2021-11-26T15:00:00+00:00" />
           <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-Patient" />
         </meta>
-	<id value="__PATIENT_ID__"/>
+        <id value="__PATIENT_ID__"/>
         <!--    added birthSex extension    -->
         <extension url="https://fhir.hl7.org.uk/StructureDefinition/Extension-UKCore-BirthSex">
           <valueCode value="F" />
@@ -290,9 +291,9 @@
             <extension url="PreferredContactMethod">
               <valueCodeableConcept>
                 <coding>
-                  <system value="http://hl7.org/fhir/ValueSet/contact-point-system" />
-                  <code value="phone" />
-                  <display value="Phone" />
+                  <system value="https://fhir.hl7.org.uk/CodeSystem/UKCore-PreferredContactMethod" />
+                  <code value="3" />
+                  <display value="Telephone" />
                 </coding>
               </valueCodeableConcept>
             </extension>
@@ -362,7 +363,7 @@
           <lastUpdated value="2021-10-11T15:23:30+00:00" />
           <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-Organization" />
         </meta>
-	<id value="__ORG1_ID__"/>
+        <id value="__ORG1_ID__"/>
         <identifier>
           <system value="https://fhir.nhs.uk/id/ods-organization-code" />
           <value value="G82080" />

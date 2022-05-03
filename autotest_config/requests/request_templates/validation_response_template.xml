@@ -2,6 +2,7 @@
   <!-- Based on VALRESP02 CAS to 999 finished-->
   <id value="76a303c5-3260-4a80-96b9-5c7995514bc1" />
   <meta>
+    <versionId value="1.0.0-alpha" />
     <lastUpdated value="2021-11-26T15:15:00+00:00" />
     <profile value="https://fhir.nhs.uk/StructureDefinition/BARSBundleMessage" />
   </meta>
@@ -218,10 +219,10 @@
         <intent value="plan" />
         <subject>
           <reference value="urn:uuid:9589fb37-87a2-48d8-968f-b371429208a8" />
-	    </subject>
+        </subject>
         <period>
           <start value="2021-11-26T15:00:00+00:00" />
-	    </period>
+        </period>
         <encounter>
           <!--    New Encounter    -->
           <reference value="urn:uuid:b83d13e2-8c2e-422c-88ac-63b8e86a4413" />
@@ -324,9 +325,9 @@
             <extension url="PreferredContactMethod">
               <valueCodeableConcept>
                 <coding>
-                  <system value="http://hl7.org/fhir/ValueSet/contact-point-system" />
-                  <code value="phone" />
-                  <display value="Phone" />
+                  <system value="https://fhir.hl7.org.uk/CodeSystem/UKCore-PreferredContactMethod" />
+                  <code value="3" />
+                  <display value="Telephone" />
                 </coding>
               </valueCodeableConcept>
             </extension>

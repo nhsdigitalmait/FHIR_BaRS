@@ -2,6 +2,7 @@
 	<!-- this is based on simplifier example REFREQ02 999 to CAS -->
   <id value="79120f41-a431-4f08-bcc5-1e67006fcae0" />
   <meta>
+    <versionId value="1.0.0-alpha" />
     <lastUpdated value="2021-11-26T15:00:00+00:00" />
     <profile value="https://fhir.nhs.uk/StructureDefinition/BARSBundleMessage" />
   </meta>
@@ -285,9 +286,9 @@
             <extension url="PreferredContactMethod">
               <valueCodeableConcept>
                 <coding>
-                  <system value="http://hl7.org/fhir/ValueSet/contact-point-system" />
-                  <code value="phone" />
-                  <display value="Phone" />
+                  <system value="https://fhir.hl7.org.uk/CodeSystem/UKCore-PreferredContactMethod" />
+                  <code value="3" />
+                  <display value="Telephone" />
                 </coding>
               </valueCodeableConcept>
             </extension>

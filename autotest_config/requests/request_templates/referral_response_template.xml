@@ -2,6 +2,7 @@
 	<!-- this message is based on REFRESP01 ED to 111 Safeguarding DNA -->
   <id value="bc040878-cf51-4acf-9ede-7448fbb5be7c" />
   <meta>
+    <versionId value="1.0.0-alpha" />
     <lastUpdated value="2021-10-11T15:23:30+00:00" />
     <profile value="https://fhir.nhs.uk/StructureDefinition/BARSBundleMessage" />
   </meta>
@@ -221,7 +222,7 @@
         <id value="3713c8fc-dbcf-4f90-bacf-89d99e434e9b" />
         <meta>
           <lastUpdated value="2021-10-11T15:23:30+00:00" />
-		  <profile value="http://hl7.org/fhir/StructureDefinition/Appointment" />
+          <profile value="http://hl7.org/fhir/StructureDefinition/Appointment" />
         </meta>
         <status value="noshow" />
         <description value="Reason for calling" />
@@ -234,8 +235,8 @@
         <participant>
           <actor>
             <reference value="urn:uuid:9589fb37-87a2-48d8-968f-b371429208a8" />
-		</actor>
-		<status value="accepted"/>
+          </actor>
+          <status value="accepted" />
         </participant>
       </Appointment>
     </resource>
@@ -309,9 +310,9 @@
             <extension url="PreferredContactMethod">
               <valueCodeableConcept>
                 <coding>
-                  <system value="http://hl7.org/fhir/ValueSet/contact-point-system" />
-                  <code value="phone" />
-                  <display value="Phone" />
+                  <system value="https://fhir.hl7.org.uk/CodeSystem/UKCore-PreferredContactMethod" />
+                  <code value="3" />
+                  <display value="Telephone" />
                 </coding>
               </valueCodeableConcept>
             </extension>
@@ -584,7 +585,7 @@
         </meta>
         <identifier>
           <system value="https://tools.ietf.org/html/rfc4122" />
-		  <value value="2af46949-4938-4c57-bad4-c4363e1965d5" />
+          <value value="2af46949-4938-4c57-bad4-c4363e1965d5" />
         </identifier>
         <status value="final" />
         <category>
