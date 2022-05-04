@@ -2,6 +2,7 @@
 #**
 # file types
 .git
+autotest_config/endpoint_configs/.git
 **/*.log
 autotest_config/extractor_configs/*.backup
 #
