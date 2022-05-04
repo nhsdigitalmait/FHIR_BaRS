@@ -19,7 +19,7 @@ else
 fi
 
 # endpoint defaults
-toservice=NHS0001
+toservice=TKW0004
 fromservice=TKW0004
 sendtls=No
 truststore=NONE

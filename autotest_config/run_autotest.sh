@@ -8,14 +8,29 @@
 #  S => Search for free slots
 #  B => Book appointment
 #  C => Cancel appointment
+#  VALRQ => Validation Request
+#  VALRP => Validation Response
+#  REFRQ => Referral Request
+#  REFRP => Referral Response
 #  No Parameter => All
 #
 
 usage() 
 {
-	echo usage: $0 '--version |  ( -s  <endpoint id> [<testname> *]) |  ( [<endpoint id> <A|S|B|C|>*] )'
+	echo usage: $0 '--version |  ( -s  <endpoint name> [<testname> *]) |  ( [<endpoint name> <A|S|B|C|>*] )'
 	exit 1
 }
+
+tidy()
+{
+	if [[ -e "$MERGED_TSTP_FILE" ]]
+	then
+		rm -f $MERGED_TSTP_FILE
+		exit 1
+	fi
+}
+
+trap 'tidy' SIGINT
 
 VERSION_FILE=$TKWROOT/config/FHIR_BaRS/version_string.txt
 if [[ "$1" == "--version" ]]
@@ -30,6 +45,7 @@ fi
 
 TSTP_FILES=BaRS_Common.tstp
 
+# arg list individual test names not test groups
 if [[ "$1" == '-s' ]]
 then
 	OPTION=$1
@@ -37,10 +53,10 @@ then
 fi
 
 # local
-ENDPOINT_ID=NHS0001   # acts as a label for an endpoint config in endpoint_configs
+ENDPOINT_NAME=TKW0004   # acts as a label (endpoint name) for an endpoint config in endpoint_configs
 if [[ $# != 0 ]]
 then
-	ENDPOINT_ID=$1
+	ENDPOINT_NAME=$1
 	shift
 fi
 
@@ -92,6 +108,7 @@ else
 			TSTP_FILES+=' BaRS_ValidationResponse.tstp'
 			;;
 
+		#   Simulator Tests only not of use against real systems
 		#	SIM|sim)
 		#	TSTP_FILES+=' BaRS_SimulatorTests.tstp'
 		#	;;
@@ -108,7 +125,7 @@ SCRIPT_NAME=BaRS
 
 ROOT=$TKWROOT/config/FHIR_BaRS/autotest_config
 # 17 digit timestamp
-MERGED_TSTP_FILE=$ROOT/mergedfile_"$ENDPOINT_ID"_`date +%Y%m%d%H%M%S%N | cut -b -17`.tstp
+MERGED_TSTP_FILE=$ROOT/mergedfile_"$ENDPOINT_NAME"_`date +%Y%m%d%H%M%S%N | cut -b -17`.tstp
 TSTP_FOLDER=$ROOT/tstp/
 
 # merge the tstp files into a single file
@@ -116,7 +133,7 @@ TSTP_FOLDER=$ROOT/tstp/
 java -cp $TKWROOT/TKWAutotestManager.jar TKWAutotestManager.TestFileMerger $TSTP_FOLDER $MERGED_TSTP_FILE $SCRIPT_NAME $TSTP_FILES
 
 # change title of merged tstp script
-sed -i $MERGED_TSTP_FILE -r -e 's/SCRIPT .+/SCRIPT '$SCRIPT_NAME'_'$ENDPOINT_ID'/'
+sed -i $MERGED_TSTP_FILE -r -e 's/SCRIPT .+/SCRIPT '$SCRIPT_NAME'_'$ENDPOINT_NAME'/'
 
 
 if [[ "$OPTION" == '-s' ]]
@@ -143,6 +160,6 @@ fi
 
 
 # transform the merged file into a tst file to resolve substitution tags and then runs the script
-$ROOT/apply_configs.sh $ENDPOINT_ID $MERGED_TSTP_FILE
+$ROOT/apply_configs.sh $ENDPOINT_NAME $MERGED_TSTP_FILE
 
 rm -f $MERGED_TSTP_FILE
