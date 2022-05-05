@@ -227,8 +227,7 @@
         </meta>
         <code>
           <coding>
-            <system value="https://fhir.hl7.org.uk/ValueSet/UKCore-PractitionerRoleCode" />
-            <version value="4.0.1" />
+            <system value="http://terminology.hl7.org/CodeSystem/practitioner-role" />
             <code value="doctor" />
             <display value="Doctor" />
           </coding>

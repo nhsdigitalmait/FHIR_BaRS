@@ -343,7 +343,7 @@
           <relationship>
             <coding>
               <!--    Emergency contact person   -->
-              <system value="https://fhir.hl7.org.uk/ValueSet/UKCore-PersonRelationshipType" />
+              <system value="http://terminology.hl7.org/CodeSystem/v2-0131" />
               <code value="EP" />
             </coding>
           </relationship>
@@ -497,7 +497,7 @@
         </organization>
         <code>
           <coding>
-            <system value="https://fhir.hl7.org.uk/ValueSet/UKCore-PractitionerRoleCode" />
+            <system value="http://snomed.info/sct" />
             <code value="224608005" />
             <display value="Administrative healthcare staff" />
           </coding>
