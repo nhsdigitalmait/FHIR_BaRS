@@ -95,6 +95,7 @@
         <occurrencePeriod>
           <start value="2021-10-13T16:20:27+07:00" />
         </occurrencePeriod>
+        <authoredOn value="2021-10-11T15:23:30+00:00" />
         <requester>
           <reference value="urn:uuid:7d948662-bade-450e-b6c5-9bb6ee39cb56" />
         </requester>
