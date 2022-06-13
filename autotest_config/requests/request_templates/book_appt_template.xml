@@ -2,9 +2,9 @@
   <!-- Based on BOOKREQ01 (compare with csdiff) -->
   <id value="777a156c-af3c-4748-a8a3-7e95e4b0df9a" />
   <meta>
+    <versionId value="1.0.0-alpha" />
     <lastUpdated value="2021-10-11T15:01:30+00:00" />
     <profile value="https://fhir.nhs.uk/StructureDefinition/BARSBundleMessage" />
-    <versionId value="1.0.0-alpha" />
   </meta>
   <type value="message" />
   <timestamp value="2021-10-11T12:15:10+00:00" />
@@ -21,7 +21,7 @@
           <code value="booking-request" />
         </eventCoding>
         <destination>
-          <endpoint value="https://fhir.nhs.uk/Id/ods-organization-code|__TO_SERVICE__" />
+          <endpoint value="http://fhir.nhs.uk/Id/dos-service-id|111111111" />
           <receiver>
             <reference value="urn:uuid:43a42f7a-a6f2-42a5-a8f0-fc85abf8c3fa" />
           </receiver>
@@ -32,6 +32,11 @@
         <source>
           <name value="Emergency service" />
           <software value="Anon Patient Manager" />
+          <version value="2.1.45" />
+          <contact>
+            <system value="phone" />
+            <value value="+44 (0113) 123 4567" />
+          </contact>
           <endpoint value="http://fhir.nhs.uk/Id/dos-service-id|__FROM_SERVICE__" />
         </source>
         <reason>
@@ -41,7 +46,7 @@
           </coding>
         </reason>
         <focus>
-          <!--    Appointment    -->
+          <!--     Appointment     -->
           <reference value="urn:uuid:aca94bdb-2e38-4399-9ece-2ba083ce65b5" />
         </focus>
       </MessageHeader>
@@ -63,10 +68,6 @@
           <reference value="urn:uuid:deb4c4b3-870b-4599-84df-5e54cef7afda" />
         </slot>
         <created value="__APPT_CREATED__" />
-        <basedOn>
-          <reference value="ServiceRequest/236bb75d-90ef-461f-b71e-fde7f899802c" />
-          <type value="serviceRequest" />
-        </basedOn>
         <participant>
           <actor>
             <reference value="urn:uuid:788660eb-d2c9-4773-abd4-318484673fb2" />
@@ -86,6 +87,26 @@
           <lastUpdated value="2021-10-11T15:01:30+00:00" />
           <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-Patient" />
         </meta>
+        <!--       added EthnicCategory extension       -->
+        <extension url="https://fhir.hl7.org.uk/StructureDefinition/Extension-UKCore-EthnicCategory">
+          <valueCodeableConcept>
+            <coding>
+              <system value="https://fhir.hl7.org.uk/CodeSystem/UKCore-EthnicCategory" />
+              <code value="A" />
+              <display value="British, Mixed British" />
+            </coding>
+          </valueCodeableConcept>
+        </extension>
+        <!--       added Religion extension       -->
+        <extension url="http://hl7.org/fhir/StructureDefinition/patient-religion">
+          <valueCodeableConcept>
+            <coding>
+              <system value="http://terminology.hl7.org/CodeSystem/v3-ReligiousAffiliation" />
+              <code value="1041" />
+              <display value="Roman Catholic Church" />
+            </coding>
+          </valueCodeableConcept>
+        </extension>
         <identifier>
           <extension url="https://fhir.hl7.org.uk/StructureDefinition/Extension-UKCore-NHSNumberVerificationStatus">
             <valueCodeableConcept>
@@ -106,12 +127,6 @@
           <given value="Peter" />
           <prefix value="Mr" />
         </name>
-        <telecom>
-          <system value="phone" />
-          <value value="01234 567 890" />
-          <use value="home" />
-          <rank value="1" />
-        </telecom>
         <gender value="male" />
         <birthDate value="1974-12-25" />
         <address>
@@ -122,7 +137,108 @@
           <city value="Leeds" />
           <postalCode value="LS1 4HR" />
         </address>
+        <contact>
+          <extension url="https://fhir.hl7.org.uk/StructureDefinition/Extension-UKCore-ContactPreference">
+            <extension url="PreferredContactMethod">
+              <valueCodeableConcept>
+                <coding>
+                  <system value="https://fhir.hl7.org.uk/CodeSystem/UKCore-PreferredContactMethod" />
+                  <code value="3" />
+                  <display value="Telephone" />
+                </coding>
+              </valueCodeableConcept>
+            </extension>
+          </extension>
+          <extension url="https://fhir.hl7.org.uk/StructureDefinition/Extension-UKCore-ContactRank">
+            <valuePositiveInt value="1" />
+          </extension>
+          <relationship>
+            <coding>
+              <system value="https://fhir.hl7.org.uk/ValueSet/UKCore-PersonRelationshipType" />
+              <code value="ONESELF" />
+            </coding>
+          </relationship>
+          <telecom>
+            <system value="phone" />
+            <value value="01138698975" />
+            <use value="home" />
+            <rank value="2" />
+          </telecom>
+          <telecom>
+            <system value="phone" />
+            <value value="07736312544" />
+            <use value="mobile" />
+            <rank value="1" />
+          </telecom>
+          <telecom>
+            <system value="email" />
+            <value value="jjones@hotmail.co.uk" />
+            <use value="home" />
+            <rank value="1" />
+          </telecom>
+        </contact>
+        <contact>
+          <extension url="https://fhir.hl7.org.uk/StructureDefinition/Extension-UKCore-ContactPreference">
+            <extension url="PreferredContactMethod">
+              <valueCodeableConcept>
+                <coding>
+                  <system value="https://fhir.hl7.org.uk/CodeSystem/UKCore-PreferredContactMethod" />
+                  <code value="3" />
+                  <display value="Telephone" />
+                </coding>
+              </valueCodeableConcept>
+            </extension>
+          </extension>
+          <extension url="https://fhir.hl7.org.uk/StructureDefinition/Extension-UKCore-ContactRank">
+            <valuePositiveInt value="2" />
+          </extension>
+          <relationship>
+            <coding>
+              <system value="https://fhir.hl7.org.uk/ValueSet/UKCore-PersonRelationshipType" />
+              <code value="NEPHEW" />
+            </coding>
+          </relationship>
+          <name>
+            <family value="Grayson" />
+            <given value="Jack" />
+          </name>
+          <telecom>
+            <system value="phone" />
+            <value value="0789 1234567" />
+            <rank value="1" />
+          </telecom>
+          <gender value="male" />
+        </contact>
+        <communication>
+          <language>
+            <coding>
+              <system value="https://fhir.hl7.org.uk/CodeSystem/UKCore-HumanLanguage" />
+              <code value="en" />
+              <display value="English" />
+            </coding>
+          </language>
+          <preferred value="true" />
+        </communication>
+        <generalPractitioner>
+          <reference value="urn:uuid:c8c21609-cb27-4958-8eb2-37c76f3def85" />
+        </generalPractitioner>
       </Patient>
+    </resource>
+  </entry>
+  <entry>
+    <fullUrl value="urn:uuid:c8c21609-cb27-4958-8eb2-37c76f3def85" />
+    <resource>
+      <Organization>
+        <meta>
+          <lastUpdated value="2021-10-11T15:23:30+00:00" />
+          <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-Organization" />
+        </meta>
+        <identifier>
+          <system value="https://fhir.nhs.uk/id/ods-organization-code" />
+          <value value="G82080" />
+        </identifier>
+        <name value="Patient's Surgery" />
+      </Organization>
     </resource>
   </entry>
   <entry>
@@ -168,15 +284,15 @@
           <value value="8622dfdb-dc6a-47b6-b3a7-2eb2829db287" />
         </identifier>
         <actor>
-          <!-- HealthcareService -->
+          <!--  HealthcareService  -->
           <reference value="urn:uuid:e5fd53eb-7b1d-496d-bbf8-5c9dc7bd761b" />
         </actor>
         <actor>
-          <!-- PractitionerRole -->
+          <!--  PractitionerRole  -->
           <reference value="urn:uuid:52428e73-0a5c-455d-8ff5-cd080e557082" />
         </actor>
         <actor>
-          <!-- Practitioner -->
+          <!--  Practitioner  -->
           <reference value="urn:uuid:6daaadd8-56e0-4d74-8350-1632331c5452" />
         </actor>
       </Schedule>

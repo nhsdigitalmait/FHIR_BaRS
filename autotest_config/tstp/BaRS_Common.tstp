@@ -140,7 +140,6 @@ credentials
 	NHSD-Target-Identifier __TO_SERVICE_B64__
 	NHSD-End-User-Organisation __END_USER_ORGANIZATION_B64__
 	NHSD-Requesting-Practitioner __REQUESTING_PRACTITIONER_B64__
-	NHSD-Requesting-Person __REQUESTING_PERSON_B64__
 	NHSD-Requesting-Software __REQUESTING_SOFTWARE_B64__
 
 Oauth2AccessToken 

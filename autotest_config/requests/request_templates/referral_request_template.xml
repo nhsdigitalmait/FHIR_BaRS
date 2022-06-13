@@ -30,7 +30,7 @@
         </eventCoding>
         <destination>
           <endpoint value="http://fhir.nhs.uk/Id/dos-service-id|__TO_SERVICE__" />
-		  <!--    Sender to populate with the system (of the DoS used) and Service Identity value  -->
+          <!--    Sender to populate with the system (of the DoS used) and Service Identity value    -->
           <receiver>
             <!--    Organization    -->
             <reference value="urn:uuid:10397afd-479c-42ea-9d5d-e4024481e0f8" />
@@ -48,7 +48,7 @@
             <system value="phone" />
             <value value="+44 (0113) 123 4567" />
           </contact>
-		  <endpoint value="http://fhir.nhs.uk/Id/dos-service-id|__FROM_SERVICE__" />
+	  <endpoint value="http://fhir.nhs.uk/Id/dos-service-id|__FROM_SERVICE__" />
           <!--    The Sender must populate the 'NHSD-Target-Identifier' header value a Receiver needs to populate in order to send a response to them via the BaRS API e.g. 'system value(URL):Service-TargetIdentifer'   -->
         </source>
         <reason>
@@ -72,7 +72,7 @@
           <lastUpdated value="2021-11-26T15:00:00+00:00" />
           <profile value="https://fhir.nhs.uk/StructureDefinition/BARSServiceRequest-request-referral" />
           <!-- @@ -->
-	</meta>
+        </meta>
 	<id value="__SERVICE_REQUEST_ID__"/>
         <basedOn>
           <!--    Always CarePlan   -->
@@ -147,6 +147,11 @@
           <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-Encounter" />
         </meta>
 	<id value="__ENCOUNTER_ID__"/>
+        <identifier>
+          <system value="https://sender.url/Id/case-number" />
+          <!-- Set by the sender who is passing the business case number value -->
+          <value value="sender1234" />
+        </identifier>
         <status value="finished" />
         <class>
           <system value="http://terminology.hl7.org/CodeSystem/v3-ActCode" />

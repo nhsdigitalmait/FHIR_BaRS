@@ -69,6 +69,11 @@
 					  <lastUpdated value="2021-11-26T15:15:15+00:00" />
 					  <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-Encounter" />
 					</meta>
+					<identifier>
+						<system value="https://receiver.url/Id/case-number" />
+						<!-- Set by the receiver who is passing the business case number value -->
+						<value value="receiver1234" />
+					</identifier>
 					<status value="finished" />
 					<class>
 					  <system value="http://terminology.hl7.org/CodeSystem/v3-ActCode" />

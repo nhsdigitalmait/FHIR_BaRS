@@ -2,8 +2,8 @@
 	<!-- this file is based on VALREQ01 999 to CAS -->
   <id value="86e3371d-1c15-4862-9552-d9560f8292ba" />
   <meta>
-    <versionId value="1.0.0-alpha" />
-    <lastUpdated value="2021-11-26T15:00:00+00:00" />
+    <versionId value="1.1.0-alpha" />
+    <lastUpdated value="2022-06-01T15:00:00+00:00" />
     <profile value="https://fhir.nhs.uk/StructureDefinition/BARSBundleMessage" />
   </meta>
   <type value="message" />
@@ -30,7 +30,7 @@
         </eventCoding>
         <destination>
           <endpoint value="http://fhir.nhs.uk/Id/dos-service-id|__TO_SERVICE__" />
-          <!--   Sender to populate with the system (of the DoS used) and Service Identity value   -->
+          <!--     Sender to populate with the system (of the DoS used) and Service Identity value     -->
           <receiver>
             <!--     Organization     -->
             <reference value="urn:uuid:10397afd-479c-42ea-9d5d-e4024481e0f8" />
@@ -49,7 +49,7 @@
             <value value="+44 (0113) 123 4567" />
           </contact>
           <endpoint value="http://fhir.nhs.uk/Id/dos-service-id|__FROM_SERVICE__" />
-          <!--   The Sender must populate the 'NHSD-Target-Identifier' header value a Receiver needs to populate in order to send a response to them via the BaRS API e.g. 'system value(URL):Service-TargetIdentifer'  -->
+          <!--     The Sender must populate the 'NHSD-Target-Identifier' header value a Receiver needs to populate in order to send a response to them via the BaRS API e.g. 'system value(URL):Service-TargetIdentifer'    -->
         </source>
         <reason>
           <coding>
@@ -144,6 +144,11 @@
           <lastUpdated value="2021-11-26T15:00:00+00:00" />
           <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-Encounter" />
         </meta>
+        <identifier>
+          <system value="https://sender.url/Id/case-number" />
+          <!-- Set by the sender who is passing the business case number value -->
+          <value value="sender1234" />
+        </identifier>
 	<id value="__ENCOUNTER_ID__"/>
         <status value="triaged" />
         <class>

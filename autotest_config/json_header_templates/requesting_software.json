@@ -1,13 +1,13 @@
 {
-  "requestingSoftware": {
-    "resourceType": "Device",
-    "identifier": [
-      {
-        "system": "__SYSTEM__",
-        "value": "__VALUE__"
-      }
-    ],
-    "model": "Supplier product name",
-    "version": "1.0.0"
+  "resourceType": "Device" ,
+  "identifier": [
+   {
+      "system": "__SYSTEM__",
+      "value": "__VALUE__"
+    }
+  ],
+  "deviceName": "Supplier product name",
+  "version": {
+    "1.0.0"
   }
 }
