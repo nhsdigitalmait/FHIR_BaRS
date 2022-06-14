@@ -10,13 +10,13 @@ services:
             # asset directory for reading npm tars
             - '${HOME}/Technical_Specialist_Folder/fhir/Assets/npm_tars:/home/service/fhir'
             # external configuration directory
-            - '${TKWROOT}/config/FHIR_BaRS/external_configs:/home/service/TKW/config/FHIR_BaRS/external_configs'
+            #- '${TKWROOT}/config/FHIR_BaRS/external_configs:/home/service/TKW/config/FHIR_BaRS/external_configs'
             # directory for storing evidence
             - '${TKWROOT}/config/FHIR_BaRS/all_evidence:/home/service/TKW/config/FHIR_BaRS/all_evidence'
             # log directory for TKW logs
             - '${TKWROOT}/config/FHIR_BaRS/logs:/home/service/TKW/config/FHIR_BaRS/logs'
             # Access token file location for the remote terminology server
-            - '${HOME}/Technical_Specialist_Folder/TerminologyServer/TerminologyServerLoginDetails:/home/service/access_token'
+            #- '${HOME}/Technical_Specialist_Folder/TerminologyServer/TerminologyServerLoginDetails:/home/service/access_token'
             # auto_tests folder
             - ${TKWROOT}/config/FHIR_BaRS/autotest_config/auto_tests:/home/service/TKW/config/FHIR_BaRS/autotest_config/auto_tests
             # endpoint_configs folder
