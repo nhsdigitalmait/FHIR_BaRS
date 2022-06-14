@@ -10,7 +10,7 @@ services:
             # asset directory for reading npm tars
             - '${HOME}/Technical_Specialist_Folder/fhir/Assets/npm_tars:/home/service/fhir'
             # external configuration directory
-            - '${HOME}/TKW-5.0.5/TKW/config/external_configs:/home/service/config'
+            - '${TKWROOT}/config/FHIR_BaRS/external_configs:/home/service/TKW/config/FHIR_BaRS/external_configs'
             # directory for storing evidence
             - '${TKWROOT}/config/FHIR_BaRS/all_evidence:/home/service/TKW/config/FHIR_BaRS/all_evidence'
             # log directory for TKW logs
