@@ -28,6 +28,10 @@
 	<xsl:template match="fhir:Flag/fhir:id"/>
 	<xsl:template match="fhir:Consent/fhir:id"/>
 
+	<xsl:template match="fhir:MedicationStatement/fhir:id"/>
+	<xsl:template match="fhir:AllergyIntolerance/fhir:id"/>
+	<xsl:template match="fhir:QuestionnaireResponse/fhir:id"/>
+
 	<!-- match all atts all nodes -->
 	<xsl:template match="@*|node()">
 		<xsl:copy>
