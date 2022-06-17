@@ -20,3 +20,5 @@ services:
         - ${TKWROOT}/config/FHIR_BaRS/autotest_config/endpoint_configs:/home/service/TKW/config/FHIR_BaRS/autotest_config/endpoint_configs
         # autotest logs folder
         - ${TKWROOT}/config/FHIR_BaRS/autotest_config/autotest_logs:/home/service/TKW/config/FHIR_BaRS/autotest_config/autotest_logs
+        # external configuration directory
+        #- ${TKWROOT}/config/FHIR_BaRS/external_configs:/home/service/TKW/config/FHIR_BaRS/external_configs
