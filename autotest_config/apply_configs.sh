@@ -99,7 +99,7 @@ sed -e s!__TKWROOT__!$TKWROOT!g \
 
 echo "writing transformed requests"
 # name templates for dest id for reentrancy
-for f in book_appt referral_request referral_response validation_request validation_response
+for f in book_appt referral_request_01 referral_request_02 referral_response validation_request validation_response
 do
 	echo $f 
 	sed -e s!__FROM_SERVICE__!$fromservice!g \
