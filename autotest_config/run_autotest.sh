@@ -17,7 +17,7 @@
 
 usage() 
 {
-	echo usage: $0 '--version |  ( -s  <endpoint name> [<testname> *]) |  ( [<endpoint name> <A|S|B|C|>*] )'
+	>&2 echo usage: $0 '--version |  ( -s  <endpoint name> [<testname> *]) |  ( [<endpoint name> <A|S|B|C|>*] )'
 	exit 1
 }
 
@@ -114,7 +114,7 @@ else
 		#	;;
 
 			*)
-			echo "unrecognised group parameter $t"
+			>&2 echo "unrecognised group parameter $t"
 			exit 1
 			;;
 		esac
@@ -150,8 +150,8 @@ then
 		then
 			TESTS+='|'$test
 		else
-			echo "Unrecognised test $test"
-			exit
+			>&2 echo "Unrecognised test $test"
+			exit 1
 		fi
 	done
 	# post edit to filter out any tests not specified

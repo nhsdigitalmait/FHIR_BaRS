@@ -72,7 +72,7 @@
           <lastUpdated value="2021-11-26T15:00:00+00:00" />
           <profile value="https://fhir.nhs.uk/StructureDefinition/BARSServiceRequest-request-validation" />
         </meta>
-	<id value="__SERVICE_REQUEST_ID__"/>
+        <id value="__SERVICE_REQUEST_ID__"/>
         <basedOn>
           <!--     Always CarePlan    -->
           <reference value="urn:uuid:68d3c42e-f76e-4f66-9498-d96e1040c81c" />
@@ -149,7 +149,7 @@
           <!-- Set by the sender who is passing the business case number value -->
           <value value="sender1234" />
         </identifier>
-	<id value="__ENCOUNTER_ID__"/>
+        <id value="__ENCOUNTER_ID__"/>
         <status value="triaged" />
         <class>
           <system value="http://terminology.hl7.org/CodeSystem/v3-ActCode" />
