@@ -4,13 +4,16 @@
 TARGET=extractor_configs
 NOW=`date`
 
-for f in {5..20}
+for f in {1..3}
 do
 	echo $f
-	chmod +w $TARGET/slots_free$f.cfg
+	if [[ -e $TARGET/slots_free$f.cfg ]]
+	then
+		chmod +w $TARGET/slots_free$f.cfg
+	fi
 	# configure each extractor config file file with correct indices
 	sed -e s/__SLOT_NO__/s$f/ \
-		-e s/__POSITION__/$(($f-4))/ \
+		-e s/__POSITION__/$(($f))/ \
 		-e "s/__NOW__/$NOW/" \
 		< slots_free_template.cfg > $TARGET/slots_free$f.cfg
 

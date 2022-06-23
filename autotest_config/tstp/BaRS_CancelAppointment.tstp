@@ -10,9 +10,9 @@ ReadNonExistentAppointment TESTS ReadNonExistentAppointment ResponseIsOperationO
 #OperationOutcomeSystemCodeIsSpine NoRecordFound
 
 # happy path
-CancelAppointment_HappyPath TESTS SFFSWithValidParameters_3_days_5 ResponseIsBundleExtracting5 BookAppointment ResponseIsAppointmentExtracting5 IntegrityRequestIDHeaderIsPresent IntegrityCorrelationIDHeaderIsPresent IntegrityRequestIDHeadersMatch IntegrityCorrelationIDHeadersMatch ReadAppointment5 CancelAppointment_HappyPath5 ResponseIsAppointmentExtracting5  IntegrityRequestIDHeaderIsPresent IntegrityCorrelationIDHeaderIsPresent IntegrityRequestIDHeadersMatch IntegrityCorrelationIDHeadersMatch LastModifiedHeaderIsPresent 
+CancelAppointment_HappyPath TESTS SFFSWithValidParameters_3_days_1 ResponseIsBundleExtracting1 BookAppointment ResponseIsAppointmentExtracting1 IntegrityRequestIDHeaderIsPresent IntegrityCorrelationIDHeaderIsPresent IntegrityRequestIDHeadersMatch IntegrityCorrelationIDHeadersMatch ReadAppointment1 CancelAppointment_HappyPath1 ResponseIsAppointmentExtracting1  IntegrityRequestIDHeaderIsPresent IntegrityCorrelationIDHeaderIsPresent IntegrityRequestIDHeadersMatch IntegrityCorrelationIDHeadersMatch LastModifiedHeaderIsPresent 
 
-CancelAppointment_DifferencesDetected TESTS SFFSWithValidParameters_3_days_13 ResponseIsBundleExtracting13 BookAppointment_13 ResponseIsAppointmentExtracting13 IntegrityRequestIDHeaderIsPresent IntegrityCorrelationIDHeaderIsPresent IntegrityRequestIDHeadersMatch IntegrityCorrelationIDHeadersMatch ReadAppointment13 CancelAppointment_DifferencesDetected ResponseIsOperationOutcome 
+CancelAppointment_DifferencesDetected TESTS SFFSWithValidParameters_3_days_1 ResponseIsBundleExtracting1 BookAppointment ResponseIsAppointmentExtracting1 IntegrityRequestIDHeaderIsPresent IntegrityCorrelationIDHeaderIsPresent IntegrityRequestIDHeadersMatch IntegrityCorrelationIDHeadersMatch ReadAppointment1 CancelAppointment_DifferencesDetected ResponseIsOperationOutcome 
 #OperationOutcomeSystemCodeIsSpine ReferenceNotFound
 
 
@@ -21,39 +21,29 @@ END SCHEDULES
 
 BEGIN TESTS
 
-SFFSWithValidParameters_3_days_13 SEND_TKW empty_file13 TO __TO_ENDPOINT__/Slot?Schedule.actor%3AHealthcareService=__HCS__&start=ge__START_SLOT_TIME__&start=le__END_SLOT_TIME__&status=free&_include=Slot%3Aschedule&_include=Schedule%3Aactor%3APractitioner&_include=Schedule%3Aactor%3APractitionerRole&_include=Schedule%3Aactor%3AHealthcareService&_include=HealthcareService.location&_include=HealthcareService.providedBy FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ SYNC ok WITH_PROPERTYSET base+webservices+get WITH_HTTPHEADERS credentials+default_accept+Oauth2AccessToken TEXT "HTTP Response must be HTTP 200"
-
 ReadNonExistentAppointment SEND_TKW empty_file TO __TO_ENDPOINT__/Appointment/95e58add-0b10-4a8c-817c-2729eb0cab75 FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ SYNC httpstatuscheck404 WITH_PROPERTYSET base+webservices+get WITH_HTTPHEADERS credentials+xml_accept+Oauth2AccessToken TEXT "HTTP Response must be HTTP 404"
 
-ReadAppointment5 SEND_TKW empty_file5 TO __TO_ENDPOINT__/Appointment/__APPT_ID__ FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ SYNC ok WITH_PROPERTYSET base+webservices+get WITH_HTTPHEADERS credentials+default_accept+Oauth2AccessToken TEXT "HTTP Response must be HTTP 200"
-ReadAppointment13 SEND_TKW empty_file13 TO __TO_ENDPOINT__/Appointment/__APPT_ID__ FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ SYNC ok WITH_PROPERTYSET base+webservices+get WITH_HTTPHEADERS credentials+default_accept+Oauth2AccessToken TEXT "HTTP Response must be HTTP 200"
-
-
-BookAppointment_13 SEND_TKW book_appointment_slot13 TO __TO_ENDPOINT__/$process-message FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ PRETRANSFORM __TKWROOT__/config/FHIR_BaRS/autotest_config/transforms/remove_appt_id_and_contact.xslt APPLYPRETRANSFORMTO data SYNC ok WITH_PROPERTYSET base+webservices+post WITH_HTTPHEADERS credentials+Oauth2AccessToken+default_content+default_accept+integrity TEXT "HTTP Response must be HTTP 200"
+ReadAppointment1 SEND_TKW empty_file1 TO __TO_ENDPOINT__/Appointment/__APPT_ID__ FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ SYNC ok WITH_PROPERTYSET base+webservices+get WITH_HTTPHEADERS credentials+default_accept+Oauth2AccessToken TEXT "HTTP Response must be HTTP 200"
 
 #============================================================================================================
 
 # Happy path scenario 22
-CancelAppointment_HappyPath5 SEND_TKW cancel_appointment_slot5 TO __TO_ENDPOINT__/$process-message FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ PRETRANSFORM __TKWROOT__/config/FHIR_BaRS/autotest_config/transforms/cancel_appointment.xslt APPLYPRETRANSFORMTO data SYNC ok WITH_PROPERTYSET base+webservices+post WITH_HTTPHEADERS credentials+Oauth2AccessToken+default_content+default_accept+integrity TEXT "HTTP Response must be HTTP 200 SCAL P-CAN-APP-RET-OK-CODE-LAST-MOD-ETAG-HEAD-VERS-ID"
+CancelAppointment_HappyPath1 SEND_TKW cancel_appointment_slot1 TO __TO_ENDPOINT__/$process-message FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ PRETRANSFORM __TKWROOT__/config/FHIR_BaRS/autotest_config/transforms/cancel_appointment.xslt APPLYPRETRANSFORMTO data SYNC ok WITH_PROPERTYSET base+webservices+post WITH_HTTPHEADERS credentials+Oauth2AccessToken+default_content+default_accept+integrity TEXT "HTTP Response must be HTTP 200 SCAL P-CAN-APP-RET-OK-CODE-LAST-MOD-ETAG-HEAD-VERS-ID"
 
 # scenario 23
-CancelAppointment_DifferencesDetected SEND_TKW cancel_appointment_slot13 TO __TO_ENDPOINT__/$process-message FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ PRETRANSFORM __TKWROOT__/config/FHIR_BaRS/autotest_config/transforms/change_patient_surname.xslt APPLYPRETRANSFORMTO data SYNC httpstatuscheck422 WITH_PROPERTYSET base+webservices+post WITH_HTTPHEADERS credentials+Oauth2AccessToken+default_content+default_accept+integrity TEXT "HTTP Response must be HTTP 422"
+CancelAppointment_DifferencesDetected SEND_TKW cancel_appointment_slot1 TO __TO_ENDPOINT__/$process-message FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ PRETRANSFORM __TKWROOT__/config/FHIR_BaRS/autotest_config/transforms/change_patient_surname.xslt APPLYPRETRANSFORMTO data SYNC httpstatuscheck422 WITH_PROPERTYSET base+webservices+post WITH_HTTPHEADERS credentials+Oauth2AccessToken+default_content+default_accept+integrity TEXT "HTTP Response must be HTTP 422"
 
 
 #============================================================================================================
 
 ResponseIsAppointment CHAIN SYNC response_is_appt TEXT "Response contains a root fhir:Appointment element"
 
-ResponseIsAppointmentExtracting13 CHAIN SYNC response_is_appt_extracting13 TEXT "Response contains a root fhir:Appointment element"
 
 LastModifiedHeaderIsPresent CHAIN SYNC last_modified_header_is_present TEXT "Response contains a Last-Modified Header SCAL P-CAN-APP-RET-OK-CODE-LAST-MOD-ETAG-HEAD-VERS-ID"
 END TESTS
 
 BEGIN MESSAGES
-book_appointment_slot13 USING book_appt_template WITH slots13 ID s13
-
-cancel_appointment_slot5 USING cancel_appt_template WITH slots5 ID s5
-cancel_appointment_slot13 USING cancel_appt_template WITH slots13 ID s13
+cancel_appointment_slot1 USING cancel_appt_template WITH slots1_ds ID s1
 END MESSAGES
 
 BEGIN PASSFAIL
@@ -61,7 +51,6 @@ BEGIN PASSFAIL
 # Response checks
 #
 response_is_appt synchronousxpath /fhir:Bundle/fhir:entry/fhir:resource/fhir:Appointment exists
-response_is_appt_extracting13 synchronousxpath /fhir:Bundle/fhir:entry/fhir:resource/fhir:Appointment exists EXTRACTOR slots_free13_extractor
 
 httpheadercheckcontentlengthexists httpheadercheck Content-Length exists
 last_modified_header_is_present httpheadercheck Last-Modified exists

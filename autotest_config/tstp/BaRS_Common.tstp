@@ -15,13 +15,13 @@ BEGIN TESTS
 # valid date ranges
 SFFSWithValidParameters_3_days SEND_TKW empty_file TO __TO_ENDPOINT__/Slot?Schedule.actor%3AHealthcareService=__HCS__&start=ge__START_SLOT_TIME__&start=le__END_SLOT_TIME__&status=free&_include=Slot%3Aschedule&_include=Schedule%3Aactor%3APractitioner&_include=Schedule%3Aactor%3APractitionerRole&_include=Schedule%3Aactor%3AHealthcareService&_include=HealthcareService.location&_include=HealthcareService.providedBy FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ SYNC ok WITH_PROPERTYSET base+webservices+get WITH_HTTPHEADERS credentials+default_accept+Oauth2AccessToken TEXT "HTTP Response must be HTTP 200"
 
-SFFSWithValidParameters_3_days_5 SEND_TKW empty_file5 TO __TO_ENDPOINT__/Slot?Schedule.actor%3AHealthcareService=__HCS__&start=ge__START_SLOT_TIME__&start=le__END_SLOT_TIME__&status=free&_include=Slot%3Aschedule&_include=Schedule%3Aactor%3APractitioner&_include=Schedule%3Aactor%3APractitionerRole&_include=Schedule%3Aactor%3AHealthcareService&_include=HealthcareService.location&_include=HealthcareService.providedBy FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ SYNC ok WITH_PROPERTYSET base+webservices+get WITH_HTTPHEADERS credentials+default_accept+Oauth2AccessToken TEXT "HTTP Response must be HTTP 200"
+SFFSWithValidParameters_3_days_1 SEND_TKW empty_file1 TO __TO_ENDPOINT__/Slot?Schedule.actor%3AHealthcareService=__HCS__&start=ge__START_SLOT_TIME__&start=le__END_SLOT_TIME__&status=free&_include=Slot%3Aschedule&_include=Schedule%3Aactor%3APractitioner&_include=Schedule%3Aactor%3APractitionerRole&_include=Schedule%3Aactor%3AHealthcareService&_include=HealthcareService.location&_include=HealthcareService.providedBy FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ SYNC ok WITH_PROPERTYSET base+webservices+get WITH_HTTPHEADERS credentials+default_accept+Oauth2AccessToken TEXT "HTTP Response must be HTTP 200"
 
 SearchCountIsZero CHAIN SYNC search_count_is_zero TEXT "Search count must be zero"
 SearchCountIsGreaterThanZero CHAIN SYNC search_count_is_greater_than_zero TEXT "Search count must be greater than zero"
 
 # happy path
-BookAppointment SEND_TKW book_appointment_slot5 TO __TO_ENDPOINT__/$process-message FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ PRETRANSFORM __TKWROOT__/config/FHIR_BaRS/autotest_config/transforms/remove_appt_id.xslt APPLYPRETRANSFORMTO data SYNC ok WITH_PROPERTYSET base+webservices+post WITH_HTTPHEADERS credentials+Oauth2AccessToken+default_content+default_accept+integrity TEXT "HTTP Response must be HTTP 200"
+BookAppointment SEND_TKW book_appointment_slot1 TO __TO_ENDPOINT__/$process-message FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ PRETRANSFORM __TKWROOT__/config/FHIR_BaRS/autotest_config/transforms/remove_appt_id.xslt APPLYPRETRANSFORMTO data SYNC ok WITH_PROPERTYSET base+webservices+post WITH_HTTPHEADERS credentials+Oauth2AccessToken+default_content+default_accept+integrity TEXT "HTTP Response must be HTTP 200"
 
 ResponseIsOperationOutcome CHAIN SYNC operation_outcome TEXT "Response contains a root fhir:OperationOutcome element"
 OperationOutcomeSystemCodeIsSpine CHAIN SYNC operation_outcome_system_code_is_spine TEXT "OperationOutcome System code is https://fhir.nhs.uk/STU3/CodeSystem/Spine-ErrorOrWarningCode-1"
@@ -38,31 +38,13 @@ MissingOrInvalidHeader CHAIN SYNC missing_or_invalid_header TEXT "Response conta
 BadRequest CHAIN SYNC bad_request TEXT "Response contains a root fhir:OperationOutcome reporting an BAD_REQUEST code"
 
 
-ResponseIsAppointmentExtracting5 CHAIN SYNC response_is_appt_extracting5 TEXT "Response Bundle contains a fhir:Appointment element"
-ResponseIsAppointmentExtracting20 CHAIN SYNC response_is_appt_extracting20 TEXT "Response Bundle contains a fhir:Appointment element"
+ResponseIsAppointmentExtracting1 CHAIN SYNC response_is_appt_extracting1 TEXT "Response Bundle contains a fhir:Appointment element"
 
 ResponseIsBundle CHAIN SYNC response_is_bundle TEXT "Response contains a root fhir:Bundle element"
 
-ResponseIsEmptyPayloadExtracting5 CHAIN SYNC response_is_empty_payload_extracting5 TEXT "Response payload is empty"
+ResponseIsEmptyPayloadExtracting1 CHAIN SYNC response_is_empty_payload_extracting1 TEXT "Response payload is empty"
 
-ResponseIsBundleExtracting5 CHAIN SYNC response_is_bundle_extracting5 TEXT "Response contains a root fhir:Bundle element"
-ResponseIsBundleExtracting6 CHAIN SYNC response_is_bundle_extracting6 TEXT "Response contains a root fhir:Bundle element"
-ResponseIsBundleExtracting7 CHAIN SYNC response_is_bundle_extracting7 TEXT "Response contains a root fhir:Bundle element"
-ResponseIsBundleExtracting8 CHAIN SYNC response_is_bundle_extracting8 TEXT "Response contains a root fhir:Bundle element"
-ResponseIsBundleExtracting11 CHAIN SYNC response_is_bundle_extracting11 TEXT "Response contains a root fhir:Bundle element"
-
-ResponseIsBundleExtracting13 CHAIN SYNC response_is_bundle_extracting13 TEXT "Response contains a root fhir:Bundle element"
-ResponseIsEmptyPayloadExtracting13 CHAIN SYNC response_is_empty_payload_extracting13 TEXT "Response payload is empty"
-
-ResponseIsBundleExtracting14 CHAIN SYNC response_is_bundle_extracting14 TEXT "Response contains a root fhir:Bundle element"
-ResponseIsEmptyPayloadExtracting14 CHAIN SYNC response_is_empty_payload_extracting14 TEXT "Response payload is empty"
-
-ResponseIsBundleExtracting15 CHAIN SYNC response_is_bundle_extracting15 TEXT "Response contains a root fhir:Bundle element"
-ResponseIsEmptyPayloadExtracting15 CHAIN SYNC response_is_empty_payload_extracting15 TEXT "Response payload is empty"
-
-
-ResponseIsBundleExtracting20 CHAIN SYNC response_is_bundle_extracting20 TEXT "Response contains a root fhir:Bundle element"
-ResponseIsEmptyPayloadExtracting20 CHAIN SYNC response_is_empty_payload_extracting20 TEXT "Response payload is empty"
+ResponseIsBundleExtracting1 CHAIN SYNC response_is_bundle_extracting1 TEXT "Response contains a root fhir:Bundle element"
 
 LocationIsReturned CHAIN SYNC location_is_returned TEXT "Location must be returned in an http header"
 AppointmentIsBooked CHAIN SYNC appt_is_booked TEXT "Appointment status must be booked SCAL C-APP-RES-STAT-BOOKED"
@@ -92,20 +74,14 @@ BEGIN MESSAGES
 #
 # supply this for HTTP GET requests
 #
-empty_file USING empty_file_template WITH slots
-empty_file5 USING empty_file_template WITH slots5 ID s5
-empty_file6 USING empty_file_template WITH slots6 ID s6
-empty_file7 USING empty_file_template WITH slots7 ID s7
-empty_file8 USING empty_file_template WITH slots8 ID s8
-empty_file11 USING empty_file_template WITH slots11 ID s11
-empty_file13 USING empty_file_template WITH slots13 ID s13
-empty_file14 USING empty_file_template WITH slots14 ID s14
-empty_file15 USING empty_file_template WITH slots15 ID s15
+empty_file USING empty_file_template WITH slots_ds
+empty_file1 USING empty_file_template WITH slots1_ds ID s1
+empty_file2 USING empty_file_template WITH slots2_ds ID s2
+empty_file3 USING empty_file_template WITH slots3_ds ID s3
 
-empty_file20 USING empty_file_template WITH slots20 ID s20
-
-book_appointment_slot5 USING book_appt_template WITH slots5 ID s5
-book_appointment_slot20 USING book_appt_template WITH slots20 ID s20
+book_appointment_slot1 USING book_appt_template WITH slots1_ds ID s1
+book_appointment_slot2 USING book_appt_template WITH slots2_ds ID s2
+book_appointment_slot3 USING book_appt_template WITH slots3_ds ID s3
 END MESSAGES
 
 BEGIN TEMPLATES
@@ -177,35 +153,14 @@ resent_rq_id
 END HTTPHEADERS
 
 BEGIN EXTRACTORS
-slots_free5_extractor xpathextractor __TKWROOT__/config/FHIR_BaRS/autotest_config/extractor_configs/slots_free5.cfg
-
-slots_free6_extractor xpathextractor __TKWROOT__/config/FHIR_BaRS/autotest_config/extractor_configs/slots_free6.cfg
-slots_free7_extractor xpathextractor __TKWROOT__/config/FHIR_BaRS/autotest_config/extractor_configs/slots_free7.cfg
-slots_free8_extractor xpathextractor __TKWROOT__/config/FHIR_BaRS/autotest_config/extractor_configs/slots_free8.cfg
-slots_free11_extractor xpathextractor __TKWROOT__/config/FHIR_BaRS/autotest_config/extractor_configs/slots_free11.cfg
-
-slots_free13_extractor xpathextractor __TKWROOT__/config/FHIR_BaRS/autotest_config/extractor_configs/slots_free13.cfg
-slots_free14_extractor xpathextractor __TKWROOT__/config/FHIR_BaRS/autotest_config/extractor_configs/slots_free14.cfg
-slots_free15_extractor xpathextractor __TKWROOT__/config/FHIR_BaRS/autotest_config/extractor_configs/slots_free15.cfg
-
-slots_free20_extractor xpathextractor __TKWROOT__/config/FHIR_BaRS/autotest_config/extractor_configs/slots_free20.cfg
+slots_free1_extractor xpathextractor __TKWROOT__/config/FHIR_BaRS/autotest_config/extractor_configs/slots_free1.cfg
 END EXTRACTORS
 
 BEGIN DATASOURCES
-# do we actually need this datasource?
-slots circularwritabletdv __TKWROOT__/config/FHIR_BaRS/autotest_config/extractor_configs/slots.tdv
-
-slots5 circularwritabletdv __TKWROOT__/config/FHIR_BaRS/autotest_config/extractor_configs/slot_5.tdv
-slots6 circularwritabletdv __TKWROOT__/config/FHIR_BaRS/autotest_config/extractor_configs/slot_6.tdv
-slots7 circularwritabletdv __TKWROOT__/config/FHIR_BaRS/autotest_config/extractor_configs/slot_7.tdv
-slots8 circularwritabletdv __TKWROOT__/config/FHIR_BaRS/autotest_config/extractor_configs/slot_8.tdv
-slots11 circularwritabletdv __TKWROOT__/config/FHIR_BaRS/autotest_config/extractor_configs/slot_11.tdv
-
-slots13 circularwritabletdv __TKWROOT__/config/FHIR_BaRS/autotest_config/extractor_configs/slot_13.tdv
-slots14 circularwritabletdv __TKWROOT__/config/FHIR_BaRS/autotest_config/extractor_configs/slot_14.tdv
-slots15 circularwritabletdv __TKWROOT__/config/FHIR_BaRS/autotest_config/extractor_configs/slot_15.tdv
-
-slots20 circularwritabletdv __TKWROOT__/config/FHIR_BaRS/autotest_config/extractor_configs/slot_20.tdv
+slots_ds circularwritabletdv __TKWROOT__/config/FHIR_BaRS/autotest_config/extractor_configs/slots.tdv
+slots1_ds circularwritabletdv __TKWROOT__/config/FHIR_BaRS/autotest_config/extractor_configs/slot_1.tdv
+slots2_ds circularwritabletdv __TKWROOT__/config/FHIR_BaRS/autotest_config/extractor_configs/slot_2.tdv
+slots3_ds circularwritabletdv __TKWROOT__/config/FHIR_BaRS/autotest_config/extractor_configs/slot_3.tdv
 END DATASOURCES
 
 BEGIN PASSFAIL
@@ -215,26 +170,9 @@ BEGIN PASSFAIL
 ok httpok
 response_is_bundle synchronousxpath /fhir:Bundle exists
 
-response_is_appt_extracting5 synchronousxpath /fhir:Bundle/fhir:entry/fhir:resource/fhir:Appointment exists EXTRACTOR slots_free5_extractor
-response_is_appt_extracting20 synchronousxpath /fhir:Bundle/fhir:entry/fhir:resource/fhir:Appointment exists EXTRACTOR slots_free20_extractor
-
-response_is_empty_payload_extracting5 synchronousxpath / doesnotexist EXTRACTOR slots_free5_extractor
-
-response_is_empty_payload_extracting13 synchronousxpath / doesnotexist EXTRACTOR slots_free13_extractor
-response_is_empty_payload_extracting14 synchronousxpath / doesnotexist EXTRACTOR slots_free14_extractor
-response_is_empty_payload_extracting15 synchronousxpath / doesnotexist EXTRACTOR slots_free15_extractor
-
-response_is_bundle_extracting5 synchronousxpath /fhir:Bundle exists EXTRACTOR slots_free5_extractor
-response_is_bundle_extracting6 synchronousxpath /fhir:Bundle exists EXTRACTOR slots_free6_extractor
-response_is_bundle_extracting7 synchronousxpath /fhir:Bundle exists EXTRACTOR slots_free7_extractor
-response_is_bundle_extracting8 synchronousxpath /fhir:Bundle exists EXTRACTOR slots_free8_extractor
-response_is_bundle_extracting11 synchronousxpath /fhir:Bundle exists EXTRACTOR slots_free11_extractor
-
-response_is_bundle_extracting13 synchronousxpath /fhir:Bundle exists EXTRACTOR slots_free13_extractor
-response_is_bundle_extracting14 synchronousxpath /fhir:Bundle exists EXTRACTOR slots_free14_extractor
-response_is_bundle_extracting15 synchronousxpath /fhir:Bundle exists EXTRACTOR slots_free15_extractor
-
-response_is_bundle_extracting20 synchronousxpath /fhir:Bundle exists EXTRACTOR slots_free20_extractor
+response_is_appt_extracting1 synchronousxpath /fhir:Bundle/fhir:entry/fhir:resource/fhir:Appointment exists EXTRACTOR slots_free1_extractor
+response_is_empty_payload_extracting1 synchronousxpath / doesnotexist EXTRACTOR slots_free1_extractor
+response_is_bundle_extracting1 synchronousxpath /fhir:Bundle exists EXTRACTOR slots_free1_extractor
 
 type_searchset synchronousxpath /fhir:Bundle/fhir:type[@value='searchset'] exists
 operation_outcome synchronousxpath /fhir:OperationOutcome exists
