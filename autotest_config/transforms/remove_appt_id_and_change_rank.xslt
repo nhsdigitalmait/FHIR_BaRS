@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 
-<!-- remove appt id for initial booking make both contacts rank 1 -->
+<!-- remove appt id for initial booking make any rank 2 contacts rank 1 -->
 
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fhir="http://hl7.org/fhir" version="1.0">
 
@@ -20,7 +20,7 @@
 		<xsl:attribute name="value"><xsl:value-of select="format-dateTime(current-dateTime(),'[Y0001]-[M01]-[D01]T[H01]:[m01]:[s01][Z]')"/></xsl:attribute>
 	</xsl:template>
 
-	<xsl:template match="fhir:Patient/fhir:contact/fhir:extension[@url='https://fhir.hl7.org.uk/StructureDefinition/Extension-UKCore-ContactRank']/fhir:valuePositiveInt/@value[.='2']">
+	<xsl:template match="fhir:Patient/fhir:contact/fhir:extension[@url='https://fhir.hl7.org.uk/StructureDefinition/Extension-UKCore-ContactRank']/fhir:valuePositiveInt/@value[not(.='1')]">
 		<xsl:attribute name="value">1</xsl:attribute>
 	</xsl:template>
 
