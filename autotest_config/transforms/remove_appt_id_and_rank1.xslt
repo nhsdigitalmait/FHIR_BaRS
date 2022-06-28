@@ -6,13 +6,9 @@
 
 	<xsl:output method="xml" indent="yes" omit-xml-declaration="yes"/>
 
-	<xsl:variable name="newbundleid" select="document('http://localhost:8001/getuuid?bundleid')/uuid/text()"/>
+	<xsl:include href="autotest_config/transforms/patient_not_traced.xslt"/>
 
-	<xsl:template match="fhir:Bundle/fhir:id/@value">
-		<xsl:attribute name="value">
-			<xsl:value-of select="$newbundleid"/>
-		</xsl:attribute>
-	</xsl:template>
+	<xsl:include href="autotest_config/transforms/common_message_transforms.xslt"/>
 
 	<!-- remove the id -->
 	<xsl:template match="fhir:Appointment/fhir:id"/>
@@ -23,14 +19,5 @@
 
 	<!-- remove the rank 1 contact altogether -->
 	<xsl:template match="fhir:Patient/fhir:contact[fhir:extension/@url='https://fhir.hl7.org.uk/StructureDefinition/Extension-UKCore-ContactRank'][fhir:extension/fhir:valuePositiveInt/@value='1']"/>
-
-	<xsl:include href="autotest_config/transforms/patient_not_traced.xslt"/>
-
-	<!-- match all atts all nodes -->
-	<xsl:template match="@*|node()">
-		<xsl:copy>
-			<xsl:apply-templates select="@*|node()"/>
-		</xsl:copy>
-	</xsl:template>
 
 </xsl:stylesheet>

@@ -6,13 +6,9 @@
 
 	<xsl:output method="xml" indent="yes" omit-xml-declaration="yes"/>
 
-	<xsl:variable name="newbundleid" select="document('http://localhost:8001/getuuid?bundleid')/uuid/text()"/>
+	<xsl:include href="autotest_config/transforms/patient_not_traced.xslt"/>
 
-	<xsl:template match="fhir:Bundle/fhir:id/@value">
-		<xsl:attribute name="value">
-			<xsl:value-of select="$newbundleid"/>
-		</xsl:attribute>
-	</xsl:template>
+	<xsl:include href="autotest_config/transforms/common_message_transforms.xslt"/>
 
 	<xsl:template match="fhir:Appointment/fhir:id"/>
 	<xsl:template match="fhir:Patient/fhir:telecom"/>
@@ -21,18 +17,9 @@
 		<xsl:attribute name="value"><xsl:value-of select="format-dateTime(current-dateTime(),'[Y0001]-[M01]-[D01]T[H01]:[m01]:[s01][Z]')"/></xsl:attribute>
 	</xsl:template>
 
-	<xsl:include href="autotest_config/transforms/patient_not_traced.xslt"/>
-
 	<!-- change contact telecom rank to 1-->
 	<xsl:template match="fhir:Appointment/fhir:contained/fhir:Patient/fhir:contact/fhir:telecom/fhir:rank/@value">
 		<xsl:attribute name="value"><xsl:value-of select="'1'"/></xsl:attribute>
-	</xsl:template>
-
-	<!-- match all atts all nodes -->
-	<xsl:template match="@*|node()">
-		<xsl:copy>
-			<xsl:apply-templates select="@*|node()"/>
-		</xsl:copy>
 	</xsl:template>
 
 </xsl:stylesheet>

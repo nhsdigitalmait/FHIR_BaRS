@@ -6,17 +6,11 @@
 
 	<xsl:output method="xml" indent="yes" omit-xml-declaration="yes"/>
 
-	<xsl:variable name="newbundleid" select="document('http://localhost:8001/getuuid?bundleid')/uuid/text()"/>
-
-	<xsl:template match="fhir:Bundle/fhir:id/@value">
-		<xsl:attribute name="value">
-			<xsl:value-of select="$newbundleid"/>
-		</xsl:attribute>
-	</xsl:template>
-
 	<xsl:include href="autotest_config/transforms/patient_not_traced.xslt"/>
 
 	<xsl:include href="autotest_config/transforms/remove_listed_ids.xslt"/>
+
+	<xsl:include href="autotest_config/transforms/common_message_transforms.xslt"/>
 
 	<xsl:template match="fhir:Patient">
 		<xsl:if test="not (fhir:contact[fhir:extension/@url='https://fhir.hl7.org.uk/StructureDefinition/Extension-UKCore-ContactRank'][fhir:extension/fhir:valuePositiveInt/@value='1'])">
@@ -34,13 +28,6 @@
 	<!-- change the rank 1 relationship to BROTHER -->
 	<xsl:template match="fhir:Patient/fhir:contact[fhir:extension/@url='https://fhir.hl7.org.uk/StructureDefinition/Extension-UKCore-ContactRank'][fhir:extension/fhir:valuePositiveInt/@value='1']/fhir:relationship/fhir:coding[fhir:system/@value='https://fhir.hl7.org.uk/ValueSet/UKCore-PersonRelationshipType']/fhir:code/@value">
 		<xsl:attribute name="value"><xsl:value-of select="'BROTHER'"/></xsl:attribute>
-	</xsl:template>
-
-	<!-- match all atts all nodes -->
-	<xsl:template match="@*|node()">
-		<xsl:copy>
-			<xsl:apply-templates select="@*|node()"/>
-		</xsl:copy>
 	</xsl:template>
 
 </xsl:stylesheet>

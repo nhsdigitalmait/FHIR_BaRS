@@ -6,14 +6,11 @@
 
 	<xsl:output method="xml" indent="yes" omit-xml-declaration="yes"/>
 	<xsl:variable name="bundleid" select="/fhir:Bundle/fhir:id/@value"/>
-	<xsl:variable name="newbundleid" select="document('http://localhost:8001/getuuid?bundleid')/uuid/text()"/>
 	<xsl:variable name="newencounterid" select="document('http://localhost:8001/getuuid?newencounterid')/uuid/text()"/>
 
-	<xsl:template match="fhir:Bundle/fhir:id/@value">
-		<xsl:attribute name="value">
-			<xsl:value-of select="$newbundleid"/>
-		</xsl:attribute>
-	</xsl:template>
+	<xsl:include href="autotest_config/transforms/patient_not_traced.xslt"/>
+
+	<xsl:include href="autotest_config/transforms/common_message_transforms.xslt"/>
 
 	<xsl:template match="fhir:MessageHeader">
 		<xsl:copy>
@@ -103,15 +100,4 @@
 		</xsl:copy>
 	</xsl:template>
 
-
-	<!-- match all atts all nodes -->
-	<xsl:template match="@*|node()">
-		<xsl:copy>
-			<xsl:apply-templates select="@*|node()"/>
-		</xsl:copy>
-	</xsl:template>
-
-	<xsl:include href="autotest_config/transforms/patient_not_traced.xslt"/>
-
 </xsl:stylesheet>
-
