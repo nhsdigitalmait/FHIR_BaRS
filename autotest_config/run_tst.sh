@@ -7,6 +7,12 @@
 # need more heap space
 OPTIONS=-Xmx2048m
 
+# if called by BaRS response importer this envt var will be set and must be passed to TKW
+if [[ "$CorrelationID" != "" ]]
+then
+	OPTIONS+=" -Dtks.internal.autotest.correlationid=$CorrelationID"
+fi
+
 for f in $*
 do
 	echo "Running tst file $f"

@@ -1,7 +1,7 @@
 #
 #  Docker file for building FHIR_BaRS emergency booking consumer simulator docker image
 #
-FROM nhsdigitalmait/tkw-x:cf3028c
+FROM nhsdigitalmait/tkw-x:5134cec
 
 ARG USER_ID
 
