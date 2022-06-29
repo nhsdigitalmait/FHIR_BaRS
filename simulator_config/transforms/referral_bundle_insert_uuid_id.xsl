@@ -28,6 +28,22 @@
       <xsl:value-of select="$servicerequest_uuid" />
     </xsl:attribute>
   </xsl:template>
+  <!-- If id is present then update only when "new" -->
+  <xsl:template match="//fhir:entry/fhir:resource[not(fhir:ServiceRequest)]/*/fhir:id/@value">
+    <xsl:choose>
+      <xsl:when test="/fhir:Bundle/fhir:entry/fhir:resource/fhir:MessageHeader/fhir:reason/fhir:coding/fhir:code/@value='new'">
+        <xsl:attribute name="value">
+          <xsl:variable name="uuid" select="lower-case(uuid:get-uuid(.))" />
+          <xsl:value-of select="$uuid" />
+        </xsl:attribute>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:attribute name="value">
+          <xsl:value-of select="." />
+        </xsl:attribute>
+      </xsl:otherwise>
+    </xsl:choose>
+  </xsl:template>
   <!-- match all atts all nodes -->
   <xsl:template match="@*|node()">
     <xsl:copy>

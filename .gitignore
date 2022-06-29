@@ -15,3 +15,15 @@ push_provider_simulator_to_dockerhub.sh
 TKWAutotestManager.jar
 TKWPropertiesEditor.jar
 setremote.sh
+/autotest_config/requests/book_appt.xml
+/autotest_config/requests/referral_request.xml
+/autotest_config/requests/referral_response.xml
+/autotest_config/requests/validation_request.xml
+/autotest_config/requests/validation_response.xml
+/autotest_config/requests/request_templates/cf.requests.sh
+/autotest_config/requests/*_TKW0004.xml
+/autotest_config/mergedfile_TKW0004_*.tstp
+*.backup
+Makefile
+/autotest_config/tst/*
+/autotest_config/tstp/TestFileMergerFile.log
