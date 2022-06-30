@@ -1,13 +1,13 @@
 <?xml version="1.0"?>
 
-<!-- remove appt id for initial booking use a verified patient that is on PDS -->
+<!-- remove appt id for initial booking use an unverified patient that is not on PDS -->
 
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fhir="http://hl7.org/fhir" version="1.0">
 
 	<xsl:output method="xml" indent="yes" omit-xml-declaration="yes"/>
 
 	<!-- NB is traced -->
-	<xsl:include href="autotest_config/transforms/patient_is_traced.xslt"/>
+	<xsl:include href="autotest_config/transforms/patient_not_traced.xslt"/>
 
 	<xsl:include href="autotest_config/transforms/common_message_transforms.xslt"/>
 

@@ -8,7 +8,7 @@
 	<xsl:variable name="bundleid" select="/fhir:Bundle/fhir:id/@value"/>
 	<xsl:variable name="newencounterid" select="document('http://localhost:8001/getuuid?newencounterid')/uuid/text()"/>
 
-	<xsl:include href="autotest_config/transforms/patient_not_traced.xslt"/>
+	<xsl:include href="autotest_config/transforms/patient_is_traced.xslt"/>
 
 	<xsl:include href="autotest_config/transforms/common_message_transforms.xslt"/>
 

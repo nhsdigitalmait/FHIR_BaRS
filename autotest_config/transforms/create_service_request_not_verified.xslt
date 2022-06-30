@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 
-<!-- generic new servide request make patient not traced and remoave listed ids -->
+<!-- generic new servide request make patient traced and remove listed ids -->
 
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fhir="http://hl7.org/fhir" version="1.0">
 

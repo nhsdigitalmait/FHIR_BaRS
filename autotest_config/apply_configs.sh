@@ -72,7 +72,6 @@ template_root=$TKWROOT/config/FHIR_BaRS/autotest_config/json_header_templates
 toserviceb64=`cat $template_root/target_identifier.json | sed -e s!__VALUE__!$toservice! -e s!__SYSTEM__!https://fhir.nhs.uk/Id/dos-service-id! | base64 -w 0`
 enduserorganizationb64=`cat $template_root/enduser_organisation.json | sed -e s!__VALUE__!$enduserorganization!  -e s!__SYSTEM__!https://fhir.nhs.uk/Id/ods-organization-code! | base64 -w 0`
 requestingpractitionerb64=`cat $template_root/requesting_practitioner.json | sed -e s!__VALUE__!$requestingpractitioner!  -e s!__SYSTEM__!https://fhir.nhs.uk/Id/sds-role-profile-id! | base64 -w 0`
-requestingpersonb64=`cat $template_root/requesting_person.json | sed -e s!__VALUE__!$requestingperson!  -e s!__SYSTEM__!urn:oid:1.2.36.146.595.217.0.1! | base64 -w 0`
 requestingsoftwareb64=`cat $template_root/requesting_software.json | sed -e s!__VALUE__!$requestingsoftware!  -e s!__SYSTEM__!urn:oid:1.2.36.146.595.217.0.1! | base64 -w 0`
 
 echo Writing transformed $tstfile to $tst/$prefix'.tst'
