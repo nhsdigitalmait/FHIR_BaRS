@@ -7,15 +7,15 @@ services:
         volumes:
             # data directory
             - '${TKWROOT}/config/FHIR_BaRS:/home/service/data'
-            # asset directory for reading npm tars
-            - '${HOME}/Technical_Specialist_Folder/fhir/Assets/npm_tars:/home/service/fhir'
-            # external configuration directory
+            # asset directory for reading npm tars - can be disabled and the internal one defined in the "internal" external properties file used
+            #- '${HOME}/Technical_Specialist_Folder/fhir/Assets/npm_tars:/home/service/fhir'
+            # external configuration directory - can be disabled and the internal one defined in the "internal" external properties file used
             #- '${TKWROOT}/config/FHIR_BaRS/external_configs:/home/service/TKW/config/FHIR_BaRS/external_configs'
             # directory for storing evidence
             - '${TKWROOT}/config/FHIR_BaRS/all_evidence:/home/service/TKW/config/FHIR_BaRS/all_evidence'
             # log directory for TKW logs
             - '${TKWROOT}/config/FHIR_BaRS/logs:/home/service/TKW/config/FHIR_BaRS/logs'
-            # Access token file location for the remote terminology server
+            # Access token file location for the remote terminology server - an be disabled which will disable the use of the Terminology server - also need to disable any refs in the External Properties file
             #- '${HOME}/Technical_Specialist_Folder/TerminologyServer/TerminologyServerLoginDetails:/home/service/access_token'
             # auto_tests folder
             - ${TKWROOT}/config/FHIR_BaRS/autotest_config/auto_tests:/home/service/TKW/config/FHIR_BaRS/autotest_config/auto_tests
