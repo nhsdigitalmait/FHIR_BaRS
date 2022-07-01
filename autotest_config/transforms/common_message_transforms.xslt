@@ -9,6 +9,9 @@
 	<xsl:variable name="newbundleid" select="document('http://localhost:8001/getuuid?bundleid')/uuid/text()"/>
 
 	<xsl:template match="fhir:Bundle/fhir:id/@value">
+		<xsl:if test="not($newbundleid)">
+			<xsl:message>WARNING uuid is empty is uuid handler running on port 8001?</xsl:message>
+		</xsl:if>
 		<xsl:attribute name="value">
 			<xsl:value-of select="$newbundleid"/>
 		</xsl:attribute>
