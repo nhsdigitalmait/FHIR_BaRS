@@ -27,7 +27,6 @@ keystore=NONE
 
 enduserorganization=A1001
 requestingpractitioner=100334993514
-requestingperson=12345
 requestingsoftware=SUPP-APP-1
 
 # not required for EB since it relates to async but is required for TKW
@@ -83,7 +82,6 @@ sed -e s!__TKWROOT__!$TKWROOT!g \
 	-e s!__TO_SERVICE_B64__!$toserviceb64!g \
 	-e s!__END_USER_ORGANIZATION_B64__!$enduserorganizationb64!g \
 	-e s!__REQUESTING_PRACTITIONER_B64__!$requestingpractitionerb64!g \
-	-e s!__REQUESTING_PERSON_B64__!$requestingpersonb64!g \
 	-e s!__REQUESTING_SOFTWARE_B64__!$requestingsoftwareb64!g \
 	-e s!__TO_ENDPOINT__!$to_ep!g \
 	-e s!__FROM_ENDPOINT__!$from_ep!g \
@@ -113,8 +111,10 @@ then
 	echo
 fi
 
-# run the tests
+# run the tests ensuring the current folder is correct for relative references in transforms
+cd $TKWROOT/config/FHIR_BaRS
 $autotest/run_tst.sh $tst/$prefix'.tst'
+cd -
 
 # copy the tst file to the target autotests folder
 target_autotest_folder=`echo $prefix | sed -e "s/^mergedfile/BaRS/" -e "s/\.tst$//"`
