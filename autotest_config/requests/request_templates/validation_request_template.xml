@@ -61,6 +61,7 @@
           <!--     ServiceRequest     -->
           <reference value="urn:uuid:236bb75d-90ef-461f-b71e-fde7f899802c" />
         </focus>
+        <definition value="https://fhir.nhs.uk/MessageDefinition/bars-message-servicerequest-request-validation" />
       </MessageHeader>
     </resource>
   </entry>
@@ -160,7 +161,7 @@
           <reference value="urn:uuid:9589fb37-87a2-48d8-968f-b371429208a8" />
         </subject>
         <episodeOfCare>
-          <!--   Resource reference to an EpisodeOfCare Journey ID   -->
+          <!--     Resource reference to an EpisodeOfCare Journey ID     -->
           <reference value="urn:uuid:d877b820-e72b-44d1-a627-195f54bfc606" />
         </episodeOfCare>
         <period>

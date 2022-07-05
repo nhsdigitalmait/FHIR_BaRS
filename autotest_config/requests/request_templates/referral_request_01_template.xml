@@ -61,6 +61,8 @@
           <!--     ServiceRequest     -->
           <reference value="urn:uuid:236bb75d-90ef-461f-b71e-fde7f899802c" />
         </focus>
+        <definition value="https://fhir.nhs.uk/MessageDefinition/bars-message-servicerequest-request-referral" />
+        <!-- The MessageDefinition that this Bundle conforms against -->
       </MessageHeader>
     </resource>
   </entry>

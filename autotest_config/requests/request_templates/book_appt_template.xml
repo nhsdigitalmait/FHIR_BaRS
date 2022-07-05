@@ -49,6 +49,7 @@
           <!--     Appointment     -->
           <reference value="urn:uuid:aca94bdb-2e38-4399-9ece-2ba083ce65b5" />
         </focus>
+        <definition value="https://fhir.nhs.uk/MessageDefinition/bars-message-booking-request" />
       </MessageHeader>
     </resource>
   </entry>

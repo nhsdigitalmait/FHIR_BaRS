@@ -67,6 +67,7 @@
           <!--    New Encounter    -->
           <reference value="urn:uuid:b83d13e2-8c2e-422c-88ac-63b8e86a4413" />
         </focus>
+        <definition value="https://fhir.nhs.uk/MessageDefinition/bars-message-servicerequest-response-validation-full" />
       </MessageHeader>
     </resource>
   </entry>
