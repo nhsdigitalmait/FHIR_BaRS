@@ -14,7 +14,9 @@
 	<xsl:template match="fhir:Appointment/fhir:id"/>
 	<xsl:template match="fhir:Patient/fhir:id"/>
 
+	<!--
 	<xsl:include href="autotest_config/transforms/remove_listed_ids.xslt"/>
+	-->
 
 	<xsl:template match="fhir:Appointment/fhir:created/@value">
 		<xsl:attribute name="value"><xsl:value-of select="format-dateTime(current-dateTime(),'[Y0001]-[M01]-[D01]T[H01]:[m01]:[s01][Z]')"/></xsl:attribute>

@@ -41,6 +41,7 @@ BadRequest CHAIN SYNC bad_request TEXT "Response contains a root fhir:OperationO
 ResponseIsAppointmentExtracting1 CHAIN SYNC response_is_appt_extracting1 TEXT "Response Bundle contains a fhir:Appointment element"
 
 ResponseIsBundle CHAIN SYNC response_is_bundle TEXT "Response contains a root fhir:Bundle element"
+ResponseIsBundle_ExtractingReferralServiceID CHAIN SYNC responseisbundle_extracting_referral_serviceid TEXT "Response is a bundle"
 
 ResponseIsEmptyPayloadExtracting1 CHAIN SYNC response_is_empty_payload_extracting1 TEXT "Response payload is empty"
 
@@ -74,7 +75,7 @@ BEGIN MESSAGES
 #
 # supply this for HTTP GET requests
 #
-empty_file USING empty_file_template WITH slots_ds
+empty_file USING empty_file_template WITH NULL
 empty_file1 USING empty_file_template WITH slots1_ds ID s1
 empty_file2 USING empty_file_template WITH slots2_ds ID s2
 empty_file3 USING empty_file_template WITH slots3_ds ID s3
@@ -155,13 +156,16 @@ END HTTPHEADERS
 
 BEGIN EXTRACTORS
 slots_free1_extractor xpathextractor __TKWROOT__/config/FHIR_BaRS/autotest_config/extractor_configs/slots_free1.cfg
+referral_service_request_extractor xpathextractor __TKWROOT__/config/FHIR_BaRS/autotest_config/extractor_configs/referral_service_request.cfg
 END EXTRACTORS
 
 BEGIN DATASOURCES
-slots_ds circularwritabletdv __TKWROOT__/config/FHIR_BaRS/autotest_config/extractor_configs/slots.tdv
+#slots_ds circularwritabletdv __TKWROOT__/config/FHIR_BaRS/autotest_config/extractor_configs/slots.tdv
 slots1_ds circularwritabletdv __TKWROOT__/config/FHIR_BaRS/autotest_config/extractor_configs/slot_1.tdv
 slots2_ds circularwritabletdv __TKWROOT__/config/FHIR_BaRS/autotest_config/extractor_configs/slot_2.tdv
 slots3_ds circularwritabletdv __TKWROOT__/config/FHIR_BaRS/autotest_config/extractor_configs/slot_3.tdv
+
+referral_service_request_ds circularwritabletdv __TKWROOT__/config/FHIR_BaRS/autotest_config/extractor_configs/referral_service_request.tdv
 END DATASOURCES
 
 BEGIN PASSFAIL
@@ -243,6 +247,7 @@ search_count_is_greater_than_zero synchronousxpath boolean(/fhir:Bundle/fhir:tot
 
 response_is_not_echoing_ids synchronousxpath count(//fhir:id[matches(@value,'^__.+__$')]) matches "^0$"
 
+responseisbundle_extracting_referral_serviceid synchronousxpath /fhir:Bundle exists EXTRACTOR referral_service_request_extractor
 END PASSFAIL
 
 #

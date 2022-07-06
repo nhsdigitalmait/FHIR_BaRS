@@ -10,7 +10,8 @@
 #  C => Cancel appointment
 #  VALRQ => Validation Request
 #  VALRP => Validation Response
-#  REFRQ => Referral Request
+#  999_REFRQ => 999 to CAS Referral Request
+#  111_REFRQ => 111 to ED Referral Request
 #  REFRP => Referral Response
 #  No Parameter => All
 #
@@ -66,7 +67,8 @@ then
 		BaRS_SearchForFreeSlots.tstp \
 		BaRS_BookAppointment.tstp \
 		BaRS_CancelAppointment.tstp \
-		BaRS_ReferralRequest.tstp \
+		BaRS_999_ReferralRequest.tstp \
+		BaRS_111_ReferralRequest.tstp \
 		BaRS_ValidationRequest.tstp \
 		BaRS_ReferralResponse.tstp \
 		BaRS_ValidationResponse.tstp"
@@ -92,8 +94,12 @@ else
 			;;
 
 			# new BARS messages
-			REFRQ|refrq)
-			TSTP_FILES+=' BaRS_ReferralRequest.tstp'
+			999_REFRQ|999_refrq)
+			TSTP_FILES+=' BaRS_999_ReferralRequest.tstp'
+			;;
+
+			111_REFRQ|111_refrq)
+			TSTP_FILES+=' BaRS_111_ReferralRequest.tstp'
 			;;
 
 			VALRQ|valrq)
