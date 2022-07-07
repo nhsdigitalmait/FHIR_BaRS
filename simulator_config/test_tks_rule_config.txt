@@ -9,17 +9,17 @@ BEGIN RESPONSES
 #Search
 notFound_Response						TKW_ROOT/config/FHIR_BaRS/simulator_config/successful_responses/NotFound_Trigger_NEMS.xml "200 OK"
 
-Operation_Outcome_400					TKW_ROOT/config/FHIR_BaRS/simulator_config/operation_outcomes/operation_outcome_400.xml "400 Bad Request"
-Operation_Outcome_401					TKW_ROOT/config/FHIR_BaRS/simulator_config/operation_outcomes/operation_outcome_401.xml "401 Unauthorized"
-Operation_Outcome_404					TKW_ROOT/config/FHIR_BaRS/simulator_config/operation_outcomes/operation_outcome_404.xml "404 Not Found"
-Operation_Outcome_405					TKW_ROOT/config/FHIR_BaRS/simulator_config/operation_outcomes/operation_outcome_405.xml "405 Method Not Allowed"
-Operation_Outcome_408					TKW_ROOT/config/FHIR_BaRS/simulator_config/operation_outcomes/operation_outcome_408.xml "408 Request Timeout"
-Operation_Outcome_409					TKW_ROOT/config/FHIR_BaRS/simulator_config/operation_outcomes/operation_outcome_409.xml "409 Conflict" WITH_HTTP_HEADERS (  Date : "__RFC822TIMESTAMP__" )
-Operation_Outcome_422					TKW_ROOT/config/FHIR_BaRS/simulator_config/operation_outcomes/operation_outcome_422.xml "422 Unprocessable Entity"
-Operation_Outcome_429					TKW_ROOT/config/FHIR_BaRS/simulator_config/operation_outcomes/operation_outcome_429.xml "429 Too Many Requests"
-Operation_Outcome_500					TKW_ROOT/config/FHIR_BaRS/simulator_config/operation_outcomes/operation_outcome_500.xml "500 Internal Server Error"
-Operation_Outcome_501					TKW_ROOT/config/FHIR_BaRS/simulator_config/operation_outcomes/operation_outcome_501.xml "501 Not Implemented"
-Operation_Outcome_503					TKW_ROOT/config/FHIR_BaRS/simulator_config/operation_outcomes/operation_outcome_503.xml "503 Service Unavailable"
+Operation_Outcome_400					TKW_ROOT/config/FHIR_BaRS/simulator_config/operation_outcomes/operation_outcome_400.xml "400 Bad Request"  WITH_HTTP_HEADERS ( X-Request-Id : "__XREQID_ECHO__" X-Correlation-Id : "__XCORRID_ECHO__" )
+Operation_Outcome_401					TKW_ROOT/config/FHIR_BaRS/simulator_config/operation_outcomes/operation_outcome_401.xml "401 Unauthorized"  WITH_HTTP_HEADERS ( X-Request-Id : "__XREQID_ECHO__" X-Correlation-Id : "__XCORRID_ECHO__" )
+Operation_Outcome_404					TKW_ROOT/config/FHIR_BaRS/simulator_config/operation_outcomes/operation_outcome_404.xml "404 Not Found"  WITH_HTTP_HEADERS ( X-Request-Id : "__XREQID_ECHO__" X-Correlation-Id : "__XCORRID_ECHO__" )
+Operation_Outcome_405					TKW_ROOT/config/FHIR_BaRS/simulator_config/operation_outcomes/operation_outcome_405.xml "405 Method Not Allowed"  WITH_HTTP_HEADERS ( X-Request-Id : "__XREQID_ECHO__" X-Correlation-Id : "__XCORRID_ECHO__" )
+Operation_Outcome_408					TKW_ROOT/config/FHIR_BaRS/simulator_config/operation_outcomes/operation_outcome_408.xml "408 Request Timeout"  WITH_HTTP_HEADERS ( X-Request-Id : "__XREQID_ECHO__" X-Correlation-Id : "__XCORRID_ECHO__" )
+Operation_Outcome_409					TKW_ROOT/config/FHIR_BaRS/simulator_config/operation_outcomes/operation_outcome_409.xml "409 Conflict" WITH_HTTP_HEADERS (  Date : "__RFC822TIMESTAMP__" X-Request-Id : "__XREQID_ECHO__" X-Correlation-Id : "__XCORRID_ECHO__" )
+Operation_Outcome_422					TKW_ROOT/config/FHIR_BaRS/simulator_config/operation_outcomes/operation_outcome_422.xml "422 Unprocessable Entity"  WITH_HTTP_HEADERS ( X-Request-Id : "__XREQID_ECHO__" X-Correlation-Id : "__XCORRID_ECHO__" )
+Operation_Outcome_429					TKW_ROOT/config/FHIR_BaRS/simulator_config/operation_outcomes/operation_outcome_429.xml "429 Too Many Requests"  WITH_HTTP_HEADERS ( X-Request-Id : "__XREQID_ECHO__" X-Correlation-Id : "__XCORRID_ECHO__" )
+Operation_Outcome_500					TKW_ROOT/config/FHIR_BaRS/simulator_config/operation_outcomes/operation_outcome_500.xml "500 Internal Server Error"  WITH_HTTP_HEADERS ( X-Request-Id : "__XREQID_ECHO__" X-Correlation-Id : "__XCORRID_ECHO__" )
+Operation_Outcome_501					TKW_ROOT/config/FHIR_BaRS/simulator_config/operation_outcomes/operation_outcome_501.xml "501 Not Implemented"  WITH_HTTP_HEADERS ( X-Request-Id : "__XREQID_ECHO__" X-Correlation-Id : "__XCORRID_ECHO__" )
+Operation_Outcome_503					TKW_ROOT/config/FHIR_BaRS/simulator_config/operation_outcomes/operation_outcome_503.xml "503 Service Unavailable"  WITH_HTTP_HEADERS ( X-Request-Id : "__XREQID_ECHO__" X-Correlation-Id : "__XCORRID_ECHO__" )
 
 SearchSlots_HappyPath_Response	TKW_ROOT/config/FHIR_BaRS/simulator_config/BaRS_Booking/SearchSlots_HappyPath_Response.xml 200  WITH_HTTP_HEADERS ( X-Request-Id : "__XREQID_ECHO__" X-Correlation-Id : "__XCORRID_ECHO__" )
 SearchSlots_HappyPath_FreeBusy_Response	TKW_ROOT/config/FHIR_BaRS/simulator_config/BaRS_Booking/SearchSlots_HappyPath_FreeBusy_Response.xml 200  WITH_HTTP_HEADERS ( X-Request-Id : "__XREQID_ECHO__" X-Correlation-Id : "__XCORRID_ECHO__" )
@@ -108,8 +108,8 @@ __REFERRALBUNDLEREQUEST_NODE__	Class uk.nhs.digital.mait.tkwx.tk.internalservice
 __REFERRALBUNDLEREQUEST_FOR_405_NODE__	Class uk.nhs.digital.mait.tkwx.tk.internalservices.rules.XmlFragmentSubstitution "/fhir:Bundle TKW_ROOT/config/FHIR_BaRS/simulator_config/transforms/referral_bundle_insert_uuid_id.xsl servicerequest_uuid 61215702-0049-4d76-9807-2123f0a6ca15"
 __REFERRALBUNDLEREQUEST_FOR_429_NODE__	Class uk.nhs.digital.mait.tkwx.tk.internalservices.rules.XmlFragmentSubstitution "/fhir:Bundle TKW_ROOT/config/FHIR_BaRS/simulator_config/transforms/referral_bundle_insert_uuid_id.xsl servicerequest_uuid 9d280ad9-6dda-46d2-a75e-f5b47b2f4e87"
 __REFERRALBUNDLEREQUEST_FOR_503_NODE__	Class uk.nhs.digital.mait.tkwx.tk.internalservices.rules.XmlFragmentSubstitution "/fhir:Bundle TKW_ROOT/config/FHIR_BaRS/simulator_config/transforms/referral_bundle_insert_uuid_id.xsl servicerequest_uuid 4d65ddaa-4d09-41cd-87c9-aeb9c0c96352"
-__BOOKINGBUNDLEREQUEST_NODE__	Class uk.nhs.digital.mait.tkwx.tk.internalservices.rules.XmlFragmentSubstitution "/fhir:Bundle TKW_ROOT/config/FHIR_BaRS/simulator_config/transforms/booking_bundle_insert_uuid_id.xsl appointment_uuid ce1c4ced-2a84-4198-9982-9caf894d0bb7 slot_uuid da83ae28-46f0-4aad-9c54-dcad462cafcb"
-__BOOKINGBUNDLEREQUEST_FOR_501_NODE__	Class uk.nhs.digital.mait.tkwx.tk.internalservices.rules.XmlFragmentSubstitution "/fhir:Bundle TKW_ROOT/config/FHIR_BaRS/simulator_config/transforms/booking_bundle_insert_uuid_id.xsl appointment_uuid 0d440c22-7f25-4c6c-905d-2213d197d02a slot_uuid da83ae28-46f0-4aad-9c54-dcad462cafcb"
+__BOOKINGBUNDLEREQUEST_NODE__			Class uk.nhs.digital.mait.tkwx.tk.internalservices.rules.XmlFragmentSubstitution "/fhir:Bundle TKW_ROOT/config/FHIR_BaRS/simulator_config/transforms/booking_bundle_insert_uuid_id.xsl appointment_uuid ce1c4ced-2a84-4198-9982-9caf894d0bb7"
+__BOOKINGBUNDLEREQUEST_FOR_501_NODE__	Class uk.nhs.digital.mait.tkwx.tk.internalservices.rules.XmlFragmentSubstitution "/fhir:Bundle TKW_ROOT/config/FHIR_BaRS/simulator_config/transforms/booking_bundle_insert_uuid_id.xsl appointment_uuid 0d440c22-7f25-4c6c-905d-2213d197d02a"
 __BUNDLERESPONSE_NODE__	Class uk.nhs.digital.mait.tkwx.tk.internalservices.rules.XmlFragmentSubstitution "/fhir:Bundle"
 END SUBSTITUTIONS
 
@@ -175,6 +175,11 @@ SR_STATUS_COMPLETED	xpathmatches //fhir:Bundle/fhir:entry/fhir:resource/fhir:Ser
 APPOINTMENT_STATUS_BOOKED xpathmatches //fhir:Bundle/fhir:entry/fhir:resource/fhir:Appointment/fhir:status/@value booked
 APPOINTMENT_STATUS_CANCELLED xpathmatches //fhir:Bundle/fhir:entry/fhir:resource/fhir:Appointment/fhir:status/@value cancelled
 
+# There are 3 slots returned by the simulataor in SFFS
+#SLOT 1 = da83ae28-46f0-4aad-9c54-dcad462cafcb
+#SLOT 2 = c413ac51-df9b-45be-b413-d7548406a4fb - used for returning a response in preparation for the GET appointment responded with a 501
+#SLOT 3 = 3f5dd95a-68a5-44ec-a234-3b28a24dad33 - busy slot
+
 #NHS Number
 #PATIENT001	xpathmatches //fhir:Bundle/fhir:entry/fhir:resource/fhir:Patient/fhir:identifier/fhir:value/@value 3478526985
 PATIENT400			xpathmatches //fhir:Bundle/fhir:entry/fhir:resource/fhir:Patient/fhir:identifier/fhir:value/@value 9618388816
@@ -190,10 +195,6 @@ PATIENT501			xpathmatches //fhir:Bundle/fhir:entry/fhir:resource/fhir:Patient/fh
 PATIENT503			xpathmatches //fhir:Bundle/fhir:entry/fhir:resource/fhir:Patient/fhir:identifier/fhir:value/@value 9999960529
 
 #PATIENTBOOKANDREF	xpathmatches //fhir:Bundle/fhir:entry/fhir:resource/fhir:Patient/fhir:identifier/fhir:value/@value 9054613556
-
-
-#HTTP HEADER CHECKS
-#QUESTION - is the GUID Upper or Lower case? 3cb63c23-2d28-49c5-ad57-033fcbba71c7
 
 passthrough	Always
 dontpassthrough	Never
@@ -249,14 +250,13 @@ IF	PATIENT404	AND APPOINTMENT_STATUS_BOOKED		THEN	Operation_Outcome_404 ELSE NEX
 IF	PATIENT409	AND APPOINTMENT_STATUS_BOOKED		THEN	Operation_Outcome_409 ELSE NEXT
 IF	PATIENT422	AND APPOINTMENT_STATUS_BOOKED		THEN	Operation_Outcome_422 ELSE NEXT
 IF	PATIENT501	AND APPOINTMENT_STATUS_BOOKED		THEN	BookingRequest_HappyPath_for_501_Response ELSE NEXT
-IF	APPOINTMENT_STATUS_BOOKED						THEN	BookingRequest_HappyPath_Response ELSE NEXT
+IF	APPOINTMENT_STATUS_BOOKED	THEN	BookingRequest_HappyPath_Response ELSE NEXT
 IF passthrough THEN notFound_Response
 END RULE
 
 BEGIN RULE
 POST+urn:nhs:names:services:bars:fhir:messaging:update:booking-request
-IF	APPOINTMENT_STATUS_BOOKED						THEN	BookingRequest_HappyPath_Response ELSE NEXT
-IF	APPOINTMENT_STATUS_CANCELLED					THEN	BookingRequest_HappyPath_Response ELSE NEXT
+IF	APPOINTMENT_STATUS_CANCELLED	THEN	BookingRequest_HappyPath_Response ELSE NEXT
 IF passthrough THEN notFound_Response
 END RULE
 BEGIN RULE
@@ -277,8 +277,8 @@ IF	SERVICEREQUEST	AND	REFERRALSERVICEREQUEST001			THEN	ReferralServiceRequest_Ha
 IF	SERVICEREQUEST	AND	REFERRALSERVICEREQUEST405			THEN	Operation_Outcome_405						ELSE	NEXT
 IF	SERVICEREQUEST	AND	REFERRALSERVICEREQUEST429			THEN	Operation_Outcome_429						ELSE	NEXT
 IF	SERVICEREQUEST	AND	REFERRALSERVICEREQUEST503			THEN	Operation_Outcome_503						ELSE	NEXT
-IF	APPOINTMENT	AND	BOOKINGAPPOINTMENT001					THEN	BookingAppointment_HappyPath_Response		ELSE	NEXT
 IF	APPOINTMENT	AND	BOOKINGAPPOINTMENT501					THEN	Operation_Outcome_501						ELSE	NEXT
+IF	APPOINTMENT												THEN	BookingAppointment_HappyPath_Response		ELSE	NEXT
 IF	MESSAGEDEFINITION	AND	DOSSERVICEID401					THEN	Operation_Outcome_401						ELSE	NEXT
 IF	MESSAGEDEFINITION										THEN	MessageDefinition_HappyPath_Response		ELSE	NEXT
 IF 	SLOT	AND	HEALTHCARESERVICE_MISSING					THEN	Operation_Outcome_400						ELSE	NEXT

@@ -6,7 +6,7 @@
     <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-Bundle" />
   </meta>
   <type value="searchset" />
-  <total value="3" />
+  <total value="2" />
   <timestamp value="__TIMESTAMP__" />
   <link>
     <relation value="self" />
@@ -34,7 +34,7 @@
           </coding>
         </appointmentType>
         <schedule>
-          <reference value="Schedule/sched1111" />
+          <reference value="Schedule/7e8c4baa-b7a7-4a7c-bb8c-8c8426ad7781" />
         </schedule>
         <status value="free" />
         <start value="__TOMORROW__T10:00:00.000+00:00" />
@@ -64,41 +64,11 @@
           </coding>
         </appointmentType>
         <schedule>
-          <reference value="Schedule/sched1111" />
+          <reference value="Schedule/7e8c4baa-b7a7-4a7c-bb8c-8c8426ad7781" />
         </schedule>
         <status value="free" />
         <start value="__TOMORROW__T10:15:00.000+00:00" />
         <end value="__TOMORROW__T10:30:00.000+00:00" />
-      </Slot>
-    </resource>
-  </entry>
-  <entry>
-    <fullUrl value="https://directory.spineservices.nhs.uk/Slot/3f5dd95a-68a5-44ec-a234-3b28a24dad33" />
-    <resource>
-      <Slot>
-        <id value="3f5dd95a-68a5-44ec-a234-3b28a24dad33" />
-        <meta>
-          <lastUpdated value="__YESTERDAY__T15:01:30+00:00" />
-          <profile value="http://hl7.org/fhir/StructureDefinition/Slot" />
-        </meta>
-        <serviceCategory>
-          <coding>
-            <code value="14" />
-            <display value="Emergency Department" />
-          </coding>
-        </serviceCategory>
-        <appointmentType>
-          <coding>
-            <code value="EMERGENCY" />
-            <display value="Emergency appointment" />
-          </coding>
-        </appointmentType>
-        <schedule>
-          <reference value="Schedule/sched1111" />
-        </schedule>
-        <status value="free" />
-        <start value="__TOMORROW__T10:45:00.000+00:00" />
-        <end value="__TOMORROW__T11:00:00.000+00:00" />
       </Slot>
     </resource>
   </entry>
