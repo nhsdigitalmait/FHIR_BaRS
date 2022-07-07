@@ -71,8 +71,9 @@ then
 		BaRS_111_ReferralRequest.tstp \
 		BaRS_ValidationRequest.tstp \
 		BaRS_ReferralResponse.tstp \
-		BaRS_ValidationResponse.tstp"
-
+		BaRS_ValidationResponse.tstp \
+		BaRS_Simulator.tstp \
+		BaRS_Extractor.tstp"
 else
 	for t in $*
 	do
@@ -114,10 +115,10 @@ else
 			TSTP_FILES+=' BaRS_ValidationResponse.tstp'
 			;;
 
-		#   Simulator Tests only not of use against real systems
-		#	SIM|sim)
-		#	TSTP_FILES+=' BaRS_SimulatorTests.tstp'
-		#	;;
+		#   Simulator Tests only, not of use against real systems
+			SIM|sim)
+			TSTP_FILES+=' BaRS_Simulator.tstp'
+			;;
 
 			*)
 			>&2 echo "unrecognised group parameter $t"

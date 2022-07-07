@@ -21,9 +21,9 @@ END SCHEDULES
 
 BEGIN TESTS
 
-ReadNonExistentAppointment SEND_TKW empty_file TO __TO_ENDPOINT__/Appointment/95e58add-0b10-4a8c-817c-2729eb0cab75 FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ SYNC httpstatuscheck404 WITH_PROPERTYSET base+webservices+get WITH_HTTPHEADERS credentials+xml_accept+Oauth2AccessToken TEXT "HTTP Response must be HTTP 404"
+ReadNonExistentAppointment SEND_TKW empty_file TO __TO_ENDPOINT__/Appointment/95e58add-0b10-4a8c-817c-2729eb0cab75 FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ SYNC httpstatuscheck404 WITH_PROPERTYSET base+webservices+get WITH_HTTPHEADERS credentials+xml_accept+Oauth2AccessToken+integrity TEXT "HTTP Response must be HTTP 404"
 
-ReadAppointment1 SEND_TKW empty_file1 TO __TO_ENDPOINT__/Appointment/__APPT_ID__ FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ SYNC ok WITH_PROPERTYSET base+webservices+get WITH_HTTPHEADERS credentials+default_accept+Oauth2AccessToken TEXT "HTTP Response must be HTTP 200"
+ReadAppointment1 SEND_TKW empty_file1 TO __TO_ENDPOINT__/Appointment/__APPT_ID__ FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ SYNC ok WITH_PROPERTYSET base+webservices+get WITH_HTTPHEADERS credentials+default_accept+Oauth2AccessToken+integrity TEXT "HTTP Response must be HTTP 200"
 
 #============================================================================================================
 

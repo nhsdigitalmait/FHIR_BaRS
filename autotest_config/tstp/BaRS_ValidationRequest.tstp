@@ -73,32 +73,11 @@ ValidationRequestCancelTest SEND_TKW validation_request_extracted TO __TO_ENDPOI
 
 ValidationRequestTest_ignore_ids SEND_TKW validation_request_no_ds TO __TO_ENDPOINT__/$process-message FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ PRETRANSFORM __TKWROOT__/config/FHIR_BaRS/autotest_config/transforms/create_service_request_leave_ids.xslt APPLYPRETRANSFORMTO data SYNC ok WITH_PROPERTYSET base+webservices+post WITH_HTTPHEADERS credentials+Oauth2AccessToken+json_accept+json_content+integrity TEXT "HTTP Response must be HTTP 200"
 
-ResponseIsBundle_ExtractingValidationServiceID CHAIN SYNC responseisbundle_extracting_validation_serviceid TEXT "Response is a bundle"
-
 ValidationRequestTest_ResentRequestID SEND_TKW validation_request_extracted TO __TO_ENDPOINT__/$process-message FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ PRETRANSFORM __TKWROOT__/config/FHIR_BaRS/autotest_config/transforms/create_service_request.xslt APPLYPRETRANSFORMTO data SYNC httpstatuscheck400 WITH_PROPERTYSET base+webservices+post WITH_HTTPHEADERS credentials+Oauth2AccessToken+json_accept+json_content+resent_rq_id TEXT "HTTP Response must be HTTP 400"
 
 END TESTS
 
 BEGIN MESSAGES
-validation_request USING validation_request_template WITH validation_service_request_ds
 validation_request_extracted USING validation_request_template WITH validation_service_request_ds ID s1
 validation_request_no_ds USING validation_request_template WITH NULL
 END MESSAGES
-
-BEGIN TEMPLATES
-validation_request_template __TKWROOT__/config/FHIR_BaRS/autotest_config/requests/validation_request___TO_SERVICE__.xml
-END TEMPLATES
-
-BEGIN PASSFAIL
-responseisbundle_extracting_validation_serviceid synchronousxpath /fhir:Bundle exists EXTRACTOR validation_service_request_extractor 
-END PASSFAIL
-
-BEGIN EXTRACTORS
-validation_service_request_extractor xpathextractor __TKWROOT__/config/FHIR_BaRS/autotest_config/extractor_configs/validation_service_request.cfg
-
-END EXTRACTORS
-
-BEGIN DATASOURCES
-validation_service_request_ds circularwritabletdv __TKWROOT__/config/FHIR_BaRS/autotest_config/extractor_configs/validation_service_request.tdv
-
-END DATASOURCES

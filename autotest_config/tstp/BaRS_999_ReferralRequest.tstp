@@ -60,11 +60,6 @@ ReferralRequest_999toCASTest_ResentRequestID SEND_TKW referral_request_02_extrac
 END TESTS
 
 BEGIN MESSAGES
-referral_request_02 USING referral_request_02_template WITH referral_service_request_ds
 referral_request_02_extracted USING referral_request_02_template WITH referral_service_request_ds ID s1
 referral_request_02_no_ds USING referral_request_02_template WITH NULL
 END MESSAGES
-
-BEGIN TEMPLATES
-referral_request_02_template __TKWROOT__/config/FHIR_BaRS/autotest_config/requests/referral_request_02___TO_SERVICE__.xml
-END TEMPLATES

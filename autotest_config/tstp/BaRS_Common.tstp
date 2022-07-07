@@ -42,6 +42,7 @@ ResponseIsAppointmentExtracting1 CHAIN SYNC response_is_appt_extracting1 TEXT "R
 
 ResponseIsBundle CHAIN SYNC response_is_bundle TEXT "Response contains a root fhir:Bundle element"
 ResponseIsBundle_ExtractingReferralServiceID CHAIN SYNC responseisbundle_extracting_referral_serviceid TEXT "Response is a bundle"
+ResponseIsBundle_ExtractingValidationServiceID CHAIN SYNC responseisbundle_extracting_validation_serviceid TEXT "Response is a bundle"
 
 ResponseIsEmptyPayloadExtracting1 CHAIN SYNC response_is_empty_payload_extracting1 TEXT "Response payload is empty"
 
@@ -80,9 +81,17 @@ empty_file1 USING empty_file_template WITH slots1_ds ID s1
 empty_file2 USING empty_file_template WITH slots2_ds ID s2
 empty_file3 USING empty_file_template WITH slots3_ds ID s3
 
+empty_file_sr USING empty_file_template WITH validation_service_request_ds ID s1
+empty_file_rr USING empty_file_template WITH referral_service_request_ds ID s1
+
 book_appointment_slot1 USING book_appt_template WITH slots1_ds ID s1
 book_appointment_slot2 USING book_appt_template WITH slots2_ds ID s2
 book_appointment_slot3 USING book_appt_template WITH slots3_ds ID s3
+
+validation_request USING validation_request_template WITH validation_service_request_ds ID s1
+validation_response USING validation_response_template WITH NULL
+referral_request_01 USING referral_request_01_template WITH referral_service_request_ds ID s1
+referral_request_02 USING referral_request_02_template WITH referral_service_request_ds ID s1
 END MESSAGES
 
 BEGIN TEMPLATES
@@ -90,6 +99,11 @@ BEGIN TEMPLATES
 empty_file_template __TKWROOT__/config/FHIR_BaRS/autotest_config/requests/emptyfile.txt
 book_appt_template __TKWROOT__/config/FHIR_BaRS/autotest_config/requests/book_appt___TO_SERVICE__.xml
 cancel_appt_template __TKWROOT__/config/FHIR_BaRS/autotest_config/requests/book_appt___TO_SERVICE__.xml
+
+validation_request_template __TKWROOT__/config/FHIR_BaRS/autotest_config/requests/validation_request___TO_SERVICE__.xml
+validation_response_template __TKWROOT__/config/FHIR_BaRS/autotest_config/requests/validation_response___TO_SERVICE__.xml
+referral_request_01_template __TKWROOT__/config/FHIR_BaRS/autotest_config/requests/referral_request_01___TO_SERVICE__.xml
+referral_request_02_template __TKWROOT__/config/FHIR_BaRS/autotest_config/requests/referral_request_02___TO_SERVICE__.xml
 END TEMPLATES
 
 # if chunking required
@@ -157,6 +171,7 @@ END HTTPHEADERS
 BEGIN EXTRACTORS
 slots_free1_extractor xpathextractor __TKWROOT__/config/FHIR_BaRS/autotest_config/extractor_configs/slots_free1.cfg
 referral_service_request_extractor xpathextractor __TKWROOT__/config/FHIR_BaRS/autotest_config/extractor_configs/referral_service_request.cfg
+validation_service_request_extractor xpathextractor __TKWROOT__/config/FHIR_BaRS/autotest_config/extractor_configs/validation_service_request.cfg
 END EXTRACTORS
 
 BEGIN DATASOURCES
@@ -166,6 +181,8 @@ slots2_ds circularwritabletdv __TKWROOT__/config/FHIR_BaRS/autotest_config/extra
 slots3_ds circularwritabletdv __TKWROOT__/config/FHIR_BaRS/autotest_config/extractor_configs/slot_3.tdv
 
 referral_service_request_ds circularwritabletdv __TKWROOT__/config/FHIR_BaRS/autotest_config/extractor_configs/referral_service_request.tdv
+
+validation_service_request_ds circularwritabletdv __TKWROOT__/config/FHIR_BaRS/autotest_config/extractor_configs/validation_service_request.tdv
 END DATASOURCES
 
 BEGIN PASSFAIL
@@ -207,16 +224,21 @@ httpstatuscheck201 httpstatuscheck 201
 httpstatuschecknot200 not ( httpok )
 
 httpstatuscheck400 httpstatuscheck 400
+httpstatuscheck401 httpstatuscheck 401
 httpstatuscheck403 httpstatuscheck 403
 httpstatuscheck404 httpstatuscheck 404
 httpstatuscheck405 httpstatuscheck 405
+httpstatuscheck408 httpstatuscheck 408
 httpstatuscheck409 httpstatuscheck 409
 httpstatuscheck412 httpstatuscheck 412
 httpstatuscheck415 httpstatuscheck 415
 httpstatuscheck422 httpstatuscheck 422
+httpstatuscheck429 httpstatuscheck 429
 
 httpstatuscheck500 httpstatuscheck 500
+httpstatuscheck501 httpstatuscheck 501
 httpstatuscheck502 httpstatuscheck 502
+httpstatuscheck503 httpstatuscheck 503
 httpstatuscheck504 httpstatuscheck 504
 #
 # http header checks
@@ -248,6 +270,7 @@ search_count_is_greater_than_zero synchronousxpath boolean(/fhir:Bundle/fhir:tot
 response_is_not_echoing_ids synchronousxpath count(//fhir:id[matches(@value,'^__.+__$')]) matches "^0$"
 
 responseisbundle_extracting_referral_serviceid synchronousxpath /fhir:Bundle exists EXTRACTOR referral_service_request_extractor
+responseisbundle_extracting_validation_serviceid synchronousxpath /fhir:Bundle exists EXTRACTOR validation_service_request_extractor 
 END PASSFAIL
 
 #
