@@ -10,7 +10,7 @@ ReadNonExistentAppointment TESTS ReadNonExistentAppointment ResponseIsOperationO
 #OperationOutcomeSystemCodeIsSpine NoRecordFound
 
 # happy path
-CancelAppointment_HappyPath TESTS SFFSWithValidParameters_3_days_1 ResponseIsBundleExtracting1 BookAppointment ResponseIsAppointmentExtracting1 IntegrityRequestIDHeaderIsPresent IntegrityCorrelationIDHeaderIsPresent IntegrityRequestIDHeadersMatch IntegrityCorrelationIDHeadersMatch ReadAppointment1 CancelAppointment_HappyPath1 ResponseIsAppointment IntegrityRequestIDHeaderIsPresent IntegrityCorrelationIDHeaderIsPresent IntegrityRequestIDHeadersMatch IntegrityCorrelationIDHeadersMatch LastModifiedHeaderIsPresent 
+CancelAppointment_HappyPath TESTS SFFSWithValidParameters_3_days_1 ResponseIsBundleExtracting1 BookAppointment ResponseIsAppointmentExtracting1 IntegrityRequestIDHeaderIsPresent IntegrityCorrelationIDHeaderIsPresent IntegrityRequestIDHeadersMatch IntegrityCorrelationIDHeadersMatch ReadAppointment1 CancelAppointment_HappyPath1 ResponseIsAppointment IntegrityRequestIDHeaderIsPresent IntegrityCorrelationIDHeaderIsPresent IntegrityRequestIDHeadersMatch IntegrityCorrelationIDHeadersMatch
 
 CancelAppointment_DifferencesDetected TESTS SFFSWithValidParameters_3_days_1 ResponseIsBundleExtracting1 BookAppointment ResponseIsAppointmentExtracting1 IntegrityRequestIDHeaderIsPresent IntegrityCorrelationIDHeaderIsPresent IntegrityRequestIDHeadersMatch IntegrityCorrelationIDHeadersMatch ReadAppointment1 CancelAppointment_DifferencesDetected ResponseIsOperationOutcome 
 #OperationOutcomeSystemCodeIsSpine ReferenceNotFound
@@ -37,9 +37,6 @@ CancelAppointment_DifferencesDetected SEND_TKW cancel_appointment_slot1 TO __TO_
 #============================================================================================================
 
 ResponseIsAppointment CHAIN SYNC response_is_appt TEXT "Response contains a root fhir:Appointment element"
-
-
-LastModifiedHeaderIsPresent CHAIN SYNC last_modified_header_is_present TEXT "Response contains a Last-Modified Header SCAL P-CAN-APP-RET-OK-CODE-LAST-MOD-ETAG-HEAD-VERS-ID"
 END TESTS
 
 BEGIN MESSAGES

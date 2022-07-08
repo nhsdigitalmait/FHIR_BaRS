@@ -15,12 +15,6 @@ BookAppointment_NoNHSNumber TESTS SFFSWithValidParameters_3_days_1 ResponseIsBun
 BookAppointment_SlotAlreadyBooked TESTS SFFSWithValidParameters_3_days_1 ResponseIsBundleExtracting1 BookAppointment_SlotAlreadyBookedInitialBooking BookAppointment_SlotAlreadyBooked ResponseIsOperationOutcome  
 #OutcomeSeverityIsError OutcomeCodeIsProcessing OutcomeDetailsSystemIsIssueType OutcomeDetailsCodeIsProcessing OutcomeDetailsDisplayIsProcessingFailure OutcomeDiagnosticsIsSlotNoLongerAvailable
 
-BookAppointment_FailedValidation TESTS SFFSWithValidParameters_3_days_1 ResponseIsBundleExtracting1 BookAppointment_FailedValidation ResponseIsOperationOutcome 
-#OperationOutcomeSystemCodeIsSpine InvalidParameter
-
-BookAppointment_Invalid TESTS SFFSWithValidParameters_3_days_1 ResponseIsBundleExtracting1 BookAppointment_Invalid ResponseIsOperationOutcome 
-#OperationOutcomeSystemCodeIsSpine InvalidParameter
-
 BookAppointment_UnsupportedMediaType TESTS SFFSWithValidParameters_3_days_1 ResponseIsBundleExtracting1 BookAppointment_UnsupportedMediaType ResponseIsOperationOutcome 
 #OperationOutcomeSystemCodeIsSpine UnsupportedMediaType
 
@@ -67,15 +61,6 @@ BookAppointment_NotVerified SEND_TKW book_appointment_slot1 TO __TO_ENDPOINT__/$
 BookAppointment_SlotAlreadyBookedInitialBooking SEND_TKW book_appointment_slot1 TO __TO_ENDPOINT__/$process-message FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ PRETRANSFORM __TKWROOT__/config/FHIR_BaRS/autotest_config/transforms/remove_appt_id_and_contact.xslt APPLYPRETRANSFORMTO data SYNC ok WITH_PROPERTYSET base+webservices+post WITH_HTTPHEADERS credentials+Oauth2AccessToken+default_content+default_accept+integrity TEXT "HTTP Response must be HTTP 200"
 BookAppointment_SlotAlreadyBooked SEND_TKW book_appointment_slot1 TO __TO_ENDPOINT__/$process-message FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ PRETRANSFORM __TKWROOT__/config/FHIR_BaRS/autotest_config/transforms/remove_appt_id_and_contact.xslt APPLYPRETRANSFORMTO data SYNC httpstatuscheck422 WITH_PROPERTYSET base+webservices+post WITH_HTTPHEADERS credentials+Oauth2AccessToken+default_content+default_accept+integrity TEXT "HTTP Response must be HTTP 422 SCAL P-BOOK-APP-SLOT-NOT-FREE-RET-STAT"
 
-# failed validation 16 If the request fails because the request body failed validation against the relevant profiles
-# TODO need to make this request invalid in some way whats the difference between this and scenario 17
-BookAppointment_FailedValidation SEND_TKW book_appointment_slot1 TO __TO_ENDPOINT__/$process-message FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ PRETRANSFORM __TKWROOT__/config/FHIR_BaRS/autotest_config/transforms/remove_appt_id_and_contact.xslt APPLYPRETRANSFORMTO data SYNC httpstatuscheck422 WITH_PROPERTYSET base+webservices+post WITH_HTTPHEADERS credentials+Oauth2AccessToken+default_content+default_accept+integrity TEXT "HTTP Response must be HTTP 422"
-#
-# request body is invalid or unsupported scenario 17
-# TODO need to make this request invalid in some way whats the difference between this and scenario 16
-BookAppointment_Invalid SEND_TKW book_appointment_slot1 TO __TO_ENDPOINT__/$process-message FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ PRETRANSFORM __TKWROOT__/config/FHIR_BaRS/autotest_config/transforms/remove_appt_id_and_contact.xslt APPLYPRETRANSFORMTO data SYNC httpstatuscheck400 WITH_PROPERTYSET base+webservices+post WITH_HTTPHEADERS credentials+Oauth2AccessToken+default_content+default_accept+integrity TEXT "HTTP Response must be HTTP 400"
-#
-#
 # unsupported media type 20 - content type is application/xml
 BookAppointment_UnsupportedMediaType SEND_TKW book_appointment_slot1 TO __TO_ENDPOINT__/$process-message FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ PRETRANSFORM __TKWROOT__/config/FHIR_BaRS/autotest_config/transforms/remove_appt_id_and_contact.xslt APPLYPRETRANSFORMTO data SYNC httpstatuscheck415 WITH_PROPERTYSET base+webservices+post WITH_HTTPHEADERS credentials+Oauth2AccessToken+unsupported_content+default_accept+integrity TEXT "HTTP Response must be HTTP 415"
 
