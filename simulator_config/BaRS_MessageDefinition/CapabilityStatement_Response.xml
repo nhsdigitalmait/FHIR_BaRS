@@ -2,7 +2,7 @@
   <id value="45bcbe62-718b-4874-a68c-b0fe39a76cf5" />
   <status value="active" />
   <experimental value="true" />
-  <date value="2022-02-11" />
+  <date value="2022-06-29" />
   <publisher value="NHS Digital" />
   <contact>
     <name value="System Administrator" />
@@ -11,7 +11,7 @@
       <value value="interoperabilityteam@nhs.net" />
     </telecom>
   </contact>
-  <description value="Sample capability statement showing new MessageDefinition structure" />
+  <description value="Sample capability statement showing new MessageDefinition structure, modify this Capability Statement to reflect what your system is capable of." />
   <kind value="instance" />
   <software>
     <name value="NHS Digital" />
@@ -34,12 +34,40 @@
     <reliableCache value="30" />
     <documentation value="ADT A08 equivalent for external system notifications" />
     <supportedMessage>
+      <mode value="sender" />
+      <definition value="MessageDefinition/bars-message-servicerequest-request-validation" />
+    </supportedMessage>
+    <supportedMessage>
+      <mode value="sender" />
+      <definition value="MessageDefinition/bars-message-servicerequest-response-validation-interim" />
+    </supportedMessage>
+    <supportedMessage>
+      <mode value="sender" />
+      <definition value="MessageDefinition/bars-message-servicerequest-response-validation-full" />
+    </supportedMessage>
+    <supportedMessage>
+      <mode value="sender" />
+      <definition value="MessageDefinition/bars-message-servicerequest-request-referral" />
+    </supportedMessage>
+    <supportedMessage>
+      <mode value="sender" />
+      <definition value="MessageDefinition/bars-message-servicerequest-response-referral" />
+    </supportedMessage>
+    <supportedMessage>
+      <mode value="sender" />
+      <definition value="MessageDefinition/bars-message-booking-request" />
+    </supportedMessage>
+    <supportedMessage>
       <mode value="receiver" />
       <definition value="MessageDefinition/bars-message-servicerequest-request-validation" />
     </supportedMessage>
     <supportedMessage>
       <mode value="receiver" />
-      <definition value="MessageDefinition/bars-message-servicerequest-response-validation" />
+      <definition value="MessageDefinition/bars-message-servicerequest-response-validation-interim" />
+    </supportedMessage>
+    <supportedMessage>
+      <mode value="receiver" />
+      <definition value="MessageDefinition/bars-message-servicerequest-response-validation-full" />
     </supportedMessage>
     <supportedMessage>
       <mode value="receiver" />
