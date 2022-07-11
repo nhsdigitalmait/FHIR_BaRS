@@ -130,6 +130,7 @@
         <meta>
           <lastUpdated value="2021-11-26T15:15:00+00:00" />
           <profile value="http://hl7.org/fhir/StructureDefinition/HealthcareService" />
+          <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-HealthcareService" />
         </meta>
         <identifier>
           <system value="http://fhir.nhs.uk/Id/dos-service-id" />
@@ -583,6 +584,7 @@
         <meta>
           <lastUpdated value="2021-11-26T15:15:00+00:00" />
           <profile value="http://hl7.org/fhir/StructureDefinition/Flag" />
+          <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-Flag" />
         </meta>
         <status value="active" />
         <category>

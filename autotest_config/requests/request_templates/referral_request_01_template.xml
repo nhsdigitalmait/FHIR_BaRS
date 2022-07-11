@@ -128,6 +128,7 @@
         <meta>
           <lastUpdated value="2021-11-26T15:00:00+00:00" />
           <profile value="http://hl7.org/fhir/StructureDefinition/HealthcareService" />
+          <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-HealthcareService" />
         </meta>
         <id value="__HEALTHCARE_SERVICE_ID__"/>
         <identifier>
@@ -701,6 +702,7 @@
         <meta>
           <lastUpdated value="2021-10-11T15:23:30+00:00" />
           <profile value="http://hl7.org/fhir/StructureDefinition/Flag" />
+          <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-Flag" />
         </meta>
  	<id value="__FLAG1_ID__"/>
         <status value="active" />
@@ -731,6 +733,7 @@
         <meta>
           <lastUpdated value="2021-10-11T15:23:30+00:00" />
           <profile value="http://hl7.org/fhir/StructureDefinition/Flag" />
+          <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-Flag" />
         </meta>
  	<id value="__FLAG2_ID__"/>
         <status value="active" />
@@ -767,6 +770,7 @@
         <meta>
           <lastUpdated value="2021-10-11T15:23:30+00:00" />
           <profile value="http://hl7.org/fhir/StructureDefinition/Flag" />
+          <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-Flag" />
         </meta>
 		<id value="__FLAG3_ID__"/>
         <status value="active" />
@@ -922,7 +926,7 @@
         <status value="final" />
         <code>
           <coding>
-            <system value="https://www.hl7.org/fhir/v3/LivingArrangement/vs.html" />
+            <system value="http://terminology.hl7.org/CodeSystem/v3-LivingArrangement" />
             <code value="N" />
             <display value="Nursing Home" />
           </coding>

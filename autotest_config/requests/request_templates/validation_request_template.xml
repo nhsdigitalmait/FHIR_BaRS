@@ -123,6 +123,7 @@
         <meta>
           <lastUpdated value="2021-11-26T15:00:00+00:00" />
           <profile value="http://hl7.org/fhir/StructureDefinition/HealthcareService" />
+          <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-HealthcareService" />
         </meta>
         <id value="__HEALTHCARE_SERVICE_ID__"/>
         <identifier>
@@ -613,6 +614,7 @@
         <meta>
           <lastUpdated value="2021-11-26T15:00:00+00:00" />
           <profile value="http://hl7.org/fhir/StructureDefinition/Flag" />
+          <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-Flag" />
         </meta>
 	<id value="__FLAG_ID__"/>
         <status value="active" />

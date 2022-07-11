@@ -60,6 +60,7 @@
         <meta>
           <lastUpdated value="2021-10-11T15:01:30+00:00" />
           <profile value="http://hl7.org/fhir/StructureDefinition/Appointment" />
+          <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-Appointment" />
         </meta>
         <status value="booked" />
         <description value="Reason for calling-" />
@@ -250,6 +251,7 @@
         <meta>
           <lastUpdated value="2021-10-11T15:01:30+00:00" />
           <profile value="http://hl7.org/fhir/StructureDefinition/Slot" />
+          <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-Slot" />
         </meta>
         <id value="__SLOT_ID____APPT_SLOT_ID__" />
         <serviceCategory>
@@ -280,6 +282,7 @@
         <meta>
           <lastUpdated value="2021-10-11T15:01:30+00:00" />
           <profile value="http://hl7.org/fhir/StructureDefinition/Schedule" />
+          <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-Schedule" />
         </meta>
         <id value="__SCHEDULE____APPT_SCHEDULE__" />
         <identifier>
@@ -308,6 +311,7 @@
         <meta>
           <lastUpdated value="2021-10-11T15:01:30+00:00" />
           <profile value="http://hl7.org/fhir/StructureDefinition/HealthcareService" />
+          <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-HealthcareService" />
         </meta>
         <id value="__HEALTHCARE_SERVICE_ID__" />
         <identifier>
