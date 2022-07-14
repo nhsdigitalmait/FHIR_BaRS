@@ -6,7 +6,7 @@
 
 	<xsl:output method="xml" indent="yes" omit-xml-declaration="yes"/>
 	<xsl:variable name="bundleid" select="/fhir:Bundle/fhir:id/@value"/>
-	<xsl:variable name="newencounterid" select="document('http://localhost:8001/getuuid?newencounterid')/uuid/text()"/>
+	<xsl:variable name="newencounterid" select="lower-case(document('http://localhost:8001/getuuid?newencounterid')/uuid/text())"/>
 
 	<xsl:include href="autotest_config/transforms/patient_is_traced.xslt"/>
 
@@ -45,7 +45,7 @@
 	</xsl:template>
 
 	<xsl:template match="fhir:MessageHeader/fhir:focus/fhir:reference/@value">
-		<xsl:attribute name="value"><xsl:value-of select="$newencounterid"/></xsl:attribute>
+		<xsl:attribute name="value">urn:uuid:<xsl:value-of select="$newencounterid"/></xsl:attribute>
 	</xsl:template>
 
 	<xsl:template match="fhir:MessageHeader/fhir:meta/fhir:profile/@value">

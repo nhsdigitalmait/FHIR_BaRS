@@ -1,0 +1,93 @@
+#!/bin/bash 
+# autocompletion script this must be sourced from the command line ie . ./autotests.txt
+# source this file
+X="Capability_xml_accept \
+Capability_json_accept \
+Capability_xml_parameter \
+Capability_json_parameter \
+Capability_xml_parameter_json_accept \
+Capability_json_parameter_xml_accept \
+Capability_xml_accept_gzip \
+GetMessageDefinition_xml_accept \
+GetMessageDefinition_json_accept \
+SFFSWithValidParameters_parameter_json \
+SFFSWithValidParameters_header_json \
+SFFSWithValidParameters_parameter_xml \
+SFFSWithValidParameters_header_xml \
+SFFSWithValidParameters_3_days \
+SFFSWithValidParameters_includes \
+SFFSWithValidParameters_includes_slots_only \
+SFFSNoSlots_HappyPath \
+SFFSInvalid \
+SFFSForbidden \
+SFFSWrongMethod \
+SFFSWithBusySlots \
+SFFSWithNoIncludes \
+SFFSWithNoIncludesSlotsOnly \
+SFFSWithFreeAndBusySlots \
+SFFSWithFreeSlotsWithRevIncludes \
+SFFSWithFreeSlotsWithGzipEncoding \
+BookAppointment_HappyPath \
+BookAppointment_NotVerified \
+BookAppointment_NoNHSNumber \
+BookAppointment_SlotAlreadyBooked \
+BookAppointment_FailedValidation \
+BookAppointment_Invalid \
+BookAppointment_UnsupportedMediaType \
+BookAppointment_TwoRank1 \
+BookAppointment_NoRank1 \
+BookAppointment_Rank1NotOnsself \
+BookAppointment_HappyPathWithGzip \
+BookAppointment_HappyPathWithResentRequestID \
+ReadNonExistentAppointment \
+CancelAppointment_HappyPath \
+CancelAppointment_DifferencesDetected \
+ReferralRequest_999toCAS_xml_accept \
+ReferralRequest_999toCAS_json_accept \
+ReferralRequest_999toCAS_NotVerified \
+ReferralRequest_999toCAS_NoNhsNo \
+ReferralRequest_999toCAS_Rank1NotOneself \
+ReferralRequest_999toCAS_NoRank1 \
+ReferralRequest_999toCAS_TwoRank1 \
+ReferralRequest_999toCAS_Update \
+ReferralRequest_999toCAS_Cancel \
+ReferralRequest_999toCAS_Ignore_IDs \
+ReferralRequest_999toCAS_WithResentRequestID \
+ReferralRequest_111toED_xml_accept \
+ReferralRequest_111toED_json_accept \
+ReferralRequest_111toED_NotVerified \
+ReferralRequest_111toED_NoNhsNo \
+ReferralRequest_111toED_Rank1NotOneself \
+ReferralRequest_111toED_NoRank1 \
+ReferralRequest_111toED_TwoRank1 \
+ReferralRequest_111toED_Update \
+ReferralRequest_111toED_Cancel \
+ReferralRequest_111toED_Ignore_IDs \
+ReferralRequest_111toED_WithResentRequestID \
+ValidationRequest_xml_accept \
+ValidationRequest_json_accept \
+ValidationRequest_NotVerified \
+ValidationRequest_NoNhsNo \
+ValidationRequest_Rank1NotOneself \
+ValidationRequest_NoRank1 \
+ValidationRequest_TwoRank1 \
+ValidationRequest_SS_Unsafe \
+ValidationRequest_SS_Safe \
+ValidationRequest_SS_Unknown \
+ValidationRequest_NoLocation \
+ValidationRequest_NoUPRN \
+ValidationRequest_NoLocationAddressPostcodeEastingsNorthings \
+ValidationRequest_Update \
+ValidationRequest_Cancel \
+ValidationRequest_Ignore_IDs \
+ValidationRequest_WithResentRequestID \
+UnsolicitedReferralResponse_xml_accept \
+UnsolicitedReferralResponse_json_accept \
+UnsolicitedValidationResponse_xml_accept \
+UnsolicitedValidationResponse_json_accept"
+
+complete -W "$X" run_autotest.sh
+complete -p run_autotest.sh
+
+complete -W "$X" run_consumer_simulator.sh
+complete -p run_consumer_simulator.sh

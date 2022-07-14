@@ -13,9 +13,9 @@ STOP WHEN COMPLETE
 # tests which define an extractor cannot be reused unless all the extractor references are the same
 BEGIN TESTS
 # valid date ranges
-SFFSWithValidParameters_3_days SEND_TKW empty_file TO __TO_ENDPOINT__/Slot?Schedule.actor%3AHealthcareService=__HCS__&start=ge__START_SLOT_TIME__&start=le__END_SLOT_TIME__&status=free&_include=Slot%3Aschedule&_include=Schedule%3Aactor%3APractitioner&_include=Schedule%3Aactor%3APractitionerRole&_include=Schedule%3Aactor%3AHealthcareService&_include=HealthcareService.location&_include=HealthcareService.providedBy FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ SYNC ok WITH_PROPERTYSET base+webservices+get WITH_HTTPHEADERS credentials+default_accept+Oauth2AccessToken TEXT "HTTP Response must be HTTP 200"
+SFFSWithValidParameters_3_days SEND_TKW empty_file TO __TO_ENDPOINT__/Slot?Schedule.actor%3AHealthcareService=__HCS__&start=ge__START_SLOT_TIME__&start=le__END_SLOT_TIME__&status=free&_include=Slot%3Aschedule&_include=Schedule%3Aactor%3APractitioner&_include=Schedule%3Aactor%3APractitionerRole&_include=Schedule%3Aactor%3AHealthcareService&_include=HealthcareService.location&_include=HealthcareService.providedBy FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ SYNC ok WITH_PROPERTYSET base+webservices+get WITH_HTTPHEADERS credentials+default_accept+Oauth2AccessToken+integrity TEXT "HTTP Response must be HTTP 200"
 
-SFFSWithValidParameters_3_days_1 SEND_TKW empty_file1 TO __TO_ENDPOINT__/Slot?Schedule.actor%3AHealthcareService=__HCS__&start=ge__START_SLOT_TIME__&start=le__END_SLOT_TIME__&status=free&_include=Slot%3Aschedule&_include=Schedule%3Aactor%3APractitioner&_include=Schedule%3Aactor%3APractitionerRole&_include=Schedule%3Aactor%3AHealthcareService&_include=HealthcareService.location&_include=HealthcareService.providedBy FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ SYNC ok WITH_PROPERTYSET base+webservices+get WITH_HTTPHEADERS credentials+default_accept+Oauth2AccessToken TEXT "HTTP Response must be HTTP 200"
+SFFSWithValidParameters_3_days_1 SEND_TKW empty_file1 TO __TO_ENDPOINT__/Slot?Schedule.actor%3AHealthcareService=__HCS__&start=ge__START_SLOT_TIME__&start=le__END_SLOT_TIME__&status=free&_include=Slot%3Aschedule&_include=Schedule%3Aactor%3APractitioner&_include=Schedule%3Aactor%3APractitionerRole&_include=Schedule%3Aactor%3AHealthcareService&_include=HealthcareService.location&_include=HealthcareService.providedBy FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ SYNC ok WITH_PROPERTYSET base+webservices+get WITH_HTTPHEADERS credentials+default_accept+Oauth2AccessToken+integrity TEXT "HTTP Response must be HTTP 200"
 
 SearchCountIsZero CHAIN SYNC search_count_is_zero TEXT "Search count must be zero"
 SearchCountIsGreaterThanZero CHAIN SYNC search_count_is_greater_than_zero TEXT "Search count must be greater than zero"
@@ -278,16 +278,16 @@ END PASSFAIL
 #
 BEGIN SUBSTITUTION_TAGS
 # Healthcare Service happy path
-__HCS__  Literal "999999999"
+__HCS__  Literal "2000072489"
 
 # Healthcare Service happy path - no slots
-__HCS_NO_SLOTS__  Literal "999999998"
+__HCS_NO_SLOTS__  Literal "2000073917"
 
 # Healthcare Service slots only
-__HCS_SLOTS_ONLY__  Literal "999999997"
+__HCS_SLOTS_ONLY__  Literal "2000081825"
 
 # Healthcare Service http 408 timeout
-__HCS_408__  Literal "999999992"
+__HCS_408__  Literal "2000094120"
 #
 # These are evaluated at runtime when the script is run by TKW in autotest mode
 #
