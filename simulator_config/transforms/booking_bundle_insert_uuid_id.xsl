@@ -5,7 +5,7 @@
   <xsl:param name ="appointment_uuid" select="$uuid" />
   <xsl:output method="xml" indent="yes" omit-xml-declaration="yes" />
   <!-- Add a generated UUID to each resource if not already present -->
-  <xsl:template match="//fhir:entry/fhir:resource[not(fhir:Schedule) and not(fhir:Slot) and not(fhir:HealthcareService) and not(fhir:Practitioner) and not(fhir:PractitionerRole) and not(fhir:Location)][//fhir:Appointment]/*">
+  <xsl:template match="//fhir:entry/fhir:resource[not(fhir:Schedule) and not(fhir:Slot) and not(fhir:HealthcareService) and not(fhir:Practitioner) and not(fhir:PractitionerRole) and not(fhir:Location)][//fhir:MessageHeader/fhir:eventCoding/fhir:code/@value='booking-request']/*">
     <xsl:choose>
       <xsl:when test="not(fhir:id)">
     <xsl:copy>
