@@ -9,6 +9,7 @@ RUN useradd -rm -u $USER_ID service && apt-get update && apt-get install zip && 
 
 ENV TKWROOT=/home/service/TKW
 ENV FHIR_ASSETS_NPMTAR_ROOT=/home/service/TKW/config/FHIR_BaRS/validator_config/fhir_assets/npm_tars
+ENV TERMINOLOGY_SERVER_ACCESS_TOKEN_ROOT=/home/service/access_token
 
 WORKDIR $TKWROOT/config/FHIR_BaRS
 
