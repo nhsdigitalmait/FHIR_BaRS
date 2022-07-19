@@ -53,6 +53,7 @@ ReferralRequest_999toCAS_Update \
 ReferralRequest_999toCAS_Cancel \
 ReferralRequest_999toCAS_Ignore_IDs \
 ReferralRequest_999toCAS_WithResentRequestID \
+ReferralRequest_999toCAS_NotDirectCare \
 ReferralRequest_111toED_xml_accept \
 ReferralRequest_111toED_json_accept \
 ReferralRequest_111toED_NotVerified \
@@ -64,6 +65,7 @@ ReferralRequest_111toED_Update \
 ReferralRequest_111toED_Cancel \
 ReferralRequest_111toED_Ignore_IDs \
 ReferralRequest_111toED_WithResentRequestID \
+ReferralRequest_111toED_NotDirectCare \
 ValidationRequest_xml_accept \
 ValidationRequest_json_accept \
 ValidationRequest_NotVerified \
@@ -81,10 +83,13 @@ ValidationRequest_Update \
 ValidationRequest_Cancel \
 ValidationRequest_Ignore_IDs \
 ValidationRequest_WithResentRequestID \
+ValidationRequest_NotDirectCare \
 UnsolicitedReferralResponse_xml_accept \
 UnsolicitedReferralResponse_json_accept \
 UnsolicitedValidationResponse_xml_accept \
-UnsolicitedValidationResponse_json_accept"
+UnsolicitedValidationResponse_json_accept \
+-s \
+TKW0004"
 
 complete -W "$X" run_autotest.sh
 complete -p run_autotest.sh
