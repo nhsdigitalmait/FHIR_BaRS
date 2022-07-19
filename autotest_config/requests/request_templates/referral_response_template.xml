@@ -236,9 +236,6 @@
         <description value="Reason for calling" />
         <start value="2021-10-12T12:30:00+00:00" />
         <end value="2021-10-12T12:40:00+00:00" />
-        <slot>
-          <reference value="Slot/c3f6145e-1a26-4345-b3f2-dccbcba62049" />
-        </slot>
         <created value="2021-10-11T15:01:30+00:00" />
         <participant>
           <actor>
@@ -524,6 +521,19 @@
     </resource>
   </entry>
   <entry>
+    <fullUrl value="urn:uuid:33a33b58-648a-4453-b981-e21ea9ffb4hj" />
+    <resource>
+      <Organization>
+        <id value="33a33b58-648a-4453-b981-e21ea9ggb4hj" />
+        <meta>
+          <lastUpdated value="2021-11-26T15:17:00+00:00" />
+          <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-Organization" />
+        </meta>
+        <name value="Practitioner Org" />
+      </Organization>
+    </resource>
+  </entry>
+  <entry>
     <fullUrl value="urn:uuid:ea37a499-245c-40e9-b0fa-df4383c4d413" />
     <resource>
       <Flag>
@@ -743,6 +753,64 @@
           <text value="The patient wishes to not be admitted to hospital unless deemed completely necessary. They have long term conditions which are better managed at home" />
         </note>
       </Observation>
+    </resource>
+  </entry>
+  <entry>
+    <fullUrl value="urn:uuid:d482d092-6efc-4eef-b4a0-730718b1fbfd" />
+    <resource>
+      <HealthcareService>
+        <id value="d482d092-6efc-4eef-b4a0-730718b1fbfd" />
+        <meta>
+          <lastUpdated value="2021-11-26T15:17:00+00:00" />
+          <profile value="http://hl7.org/fhir/StructureDefinition/HealthcareService" />
+          <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-HealthcareService" />
+        </meta>
+        <identifier>
+          <system value="http://fhir.nhs.uk/Id/dos-service-id" />
+          <value value="111111111" />
+        </identifier>
+        <active value="true" />
+        <providedBy>
+          <reference value="urn:uuid:d5ffd0cd-ec7e-48a1-84f1-91f4c0eb8fc5" />
+        </providedBy>
+        <name value="Emergency Department - Adult" />
+      </HealthcareService>
+    </resource>
+  </entry>
+  <entry>
+    <fullUrl value="urn:uuid:1e91008e-96d0-438b-873c-c6d2c007fc29" />
+    <resource>
+      <Consent>
+        <id value="1e91008e-96d0-438b-873c-c6d2c007fc29" />
+        <meta>
+          <lastUpdated value="2021-11-26T15:00:00+00:00" />
+          <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-Consent" />
+        </meta>
+        <status value="active" />
+        <scope>
+          <coding>
+            <system value="http://terminology.hl7.org/CodeSystem/consentscope" />
+            <code value="patient-privacy" />
+          </coding>
+        </scope>
+        <category>
+          <coding>
+            <system value="https://fhir.nhs.uk/CodeSystem/consent-categories-bars" />
+            <code value="DRC" />
+            <display value="Direct Care" />
+          </coding>
+        </category>
+        <patient>
+          <reference value="urn:uuid:9589fb37-87a2-48d8-968f-b371429208a8" />
+        </patient>
+        <dateTime value="2021-11-26" />
+        <policyRule>
+          <coding>
+            <system value="http://terminology.hl7.org/CodeSystem/v3-ActCode" />
+            <code value="IMPLIED" />
+          </coding>
+        </policyRule>
+      </Consent>
     </resource>
   </entry>
 </Bundle>
