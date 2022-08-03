@@ -44,22 +44,22 @@ BookAppointment_HappyPathWithResentRequestID TESTS SFFSWithValidParameters_3_day
 END SCHEDULES
 
 BEGIN TESTS
-AppointmentHasId CHAIN SYNC appt_has_id TEXT "Booked appointment has an allocated id element. SCAL P-BOOK-APP-RES-CRT-CODE-RET-NEW-ID"
-LocationIsWellFormed CHAIN SYNC location_is_well_formed TEXT "Location is well formed. SCAL P-BOOK-APP-LOCA-HEAD-RELA-ABSOL-VALUE"
+AppointmentHasId CHAIN SYNC appt_has_id TEXT "Booked appointment has an allocated id element."
+LocationIsWellFormed CHAIN SYNC location_is_well_formed TEXT "Location is well formed."
 
-OutcomeSeverityIsError CHAIN SYNC severity_is_error TEXT "Operation Outcome severity is error. SCAL P-BOOK-APP-SLOT-NOT-FREE-OPER-OUT-RES-ONE-ISSUE" 
+OutcomeSeverityIsError CHAIN SYNC severity_is_error TEXT "Operation Outcome severity is error." 
 OutcomeCodeIsProcessing CHAIN SYNC code_is_processing TEXT "Operation Outcome code is Processing." 
 
-OutcomeDetailsCodeIsProcessing CHAIN SYNC details_code_is_processing TEXT "Operation Outcome details code is Processing. SCAL P-BOOK-APP-SLOT-NOT-FREE-OPER-OUT-RES-ONE-ISSUE" 
+OutcomeDetailsCodeIsProcessing CHAIN SYNC details_code_is_processing TEXT "Operation Outcome details code is Processing." 
 OutcomeDetailsSystemIsIssueType CHAIN SYNC details_system_is_issue-type TEXT "Operation Outcome details system is http://hl7.org/fhir/issue-type." 
-OutcomeDetailsDisplayIsProcessingFailure CHAIN SYNC details_display_is_processing_failure TEXT "Operation Outcome details display is Processing Failure. SCAL P-BOOK-APP-SLOT-NOT-FREE-OPER-OUT-RES-ONE-ISSUE" 
-OutcomeDiagnosticsIsSlotNoLongerAvailable CHAIN SYNC diagnostics_is_slot_no_longer_available TEXT "Operation Outcome diagnostics is Slot no longer available. SCAL P-BOOK-APP-SLOT-NOT-FREE-OPER-OUT-RES-ONE-ISSUE"
+OutcomeDetailsDisplayIsProcessingFailure CHAIN SYNC details_display_is_processing_failure TEXT "Operation Outcome details display is Processing Failure." 
+OutcomeDiagnosticsIsSlotNoLongerAvailable CHAIN SYNC diagnostics_is_slot_no_longer_available TEXT "Operation Outcome diagnostics is Slot no longer available."
 
 BookAppointment_NotVerified SEND_TKW book_appointment_slot1 TO __TO_ENDPOINT__/$process-message FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ PRETRANSFORM __TKWROOT__/config/FHIR_BaRS/autotest_config/transforms/remove_appt_id_not_verified.xslt APPLYPRETRANSFORMTO data SYNC httpstatuscheck400 WITH_PROPERTYSET base+webservices+post WITH_HTTPHEADERS credentials+Oauth2AccessToken+default_content+default_accept+integrity TEXT "HTTP Response must be HTTP 400"
 #
 # slot already booked scenario 15
 BookAppointment_SlotAlreadyBookedInitialBooking SEND_TKW book_appointment_slot1 TO __TO_ENDPOINT__/$process-message FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ PRETRANSFORM __TKWROOT__/config/FHIR_BaRS/autotest_config/transforms/remove_appt_id_and_contact.xslt APPLYPRETRANSFORMTO data SYNC ok WITH_PROPERTYSET base+webservices+post WITH_HTTPHEADERS credentials+Oauth2AccessToken+default_content+default_accept+integrity TEXT "HTTP Response must be HTTP 200"
-BookAppointment_SlotAlreadyBooked SEND_TKW book_appointment_slot1 TO __TO_ENDPOINT__/$process-message FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ PRETRANSFORM __TKWROOT__/config/FHIR_BaRS/autotest_config/transforms/remove_appt_id_and_contact.xslt APPLYPRETRANSFORMTO data SYNC httpstatuscheck422 WITH_PROPERTYSET base+webservices+post WITH_HTTPHEADERS credentials+Oauth2AccessToken+default_content+default_accept+integrity TEXT "HTTP Response must be HTTP 422 SCAL P-BOOK-APP-SLOT-NOT-FREE-RET-STAT"
+BookAppointment_SlotAlreadyBooked SEND_TKW book_appointment_slot1 TO __TO_ENDPOINT__/$process-message FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ PRETRANSFORM __TKWROOT__/config/FHIR_BaRS/autotest_config/transforms/remove_appt_id_and_contact.xslt APPLYPRETRANSFORMTO data SYNC httpstatuscheck409 WITH_PROPERTYSET base+webservices+post WITH_HTTPHEADERS credentials+Oauth2AccessToken+default_content+default_accept+integrity TEXT "HTTP Response must be HTTP 409"
 
 # unsupported media type 20 - content type is application/xml
 BookAppointment_UnsupportedMediaType SEND_TKW book_appointment_slot1 TO __TO_ENDPOINT__/$process-message FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ PRETRANSFORM __TKWROOT__/config/FHIR_BaRS/autotest_config/transforms/remove_appt_id_and_contact.xslt APPLYPRETRANSFORMTO data SYNC httpstatuscheck415 WITH_PROPERTYSET base+webservices+post WITH_HTTPHEADERS credentials+Oauth2AccessToken+unsupported_content+default_accept+integrity TEXT "HTTP Response must be HTTP 415"

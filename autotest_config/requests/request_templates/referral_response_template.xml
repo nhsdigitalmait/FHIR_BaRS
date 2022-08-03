@@ -501,7 +501,7 @@
           <reference value="urn:uuid:7d948662-bade-450e-b6c5-9bb6ee39cb56" />
         </practitioner>
         <organization>
-          <reference value="urn:uuid:33a33b58-648a-4453-b981-e21ea9ffb4hj" />
+          <reference value="urn:uuid:b5e27389-3ca5-4cbc-9173-73f0c74915d9" />
         </organization>
         <code>
           <coding>
@@ -521,10 +521,10 @@
     </resource>
   </entry>
   <entry>
-    <fullUrl value="urn:uuid:33a33b58-648a-4453-b981-e21ea9ffb4hj" />
+    <fullUrl value="urn:uuid:b5e27389-3ca5-4cbc-9173-73f0c74915d9" />
     <resource>
       <Organization>
-        <id value="33a33b58-648a-4453-b981-e21ea9ggb4hj" />
+        <id value="b5e27389-3ca5-4cbc-9173-73f0c74915d9" />
         <meta>
           <lastUpdated value="2021-11-26T15:17:00+00:00" />
           <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-Organization" />
