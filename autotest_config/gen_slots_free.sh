@@ -55,5 +55,8 @@ do
 #	sed -i -e "/__ID__/s/$/	__LOCATION_ID__/" $TARGET/slot_$f.tdv
 #	sed -i -e "/^s/s/$/	_/" $TARGET/slot_$f.tdv
 
+#	sed -i -e "/__ID__/s/$/	__BUNDLE_ID__" $TARGET/slot_$f.tdv
+#	sed -i -e "/^s/s/$/	_/" $TARGET/slot_$f.tdv
+
 	chmod -w $TARGET/slots_free$f.cfg
 done

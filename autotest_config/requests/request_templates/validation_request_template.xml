@@ -1,6 +1,6 @@
 <Bundle xmlns="http://hl7.org/fhir">
 	<!-- this file is based on VALREQ01 999 to CAS -->
-  <id value="86e3371d-1c15-4862-9552-d9560f8292ba" />
+  <id value="__BUNDLE_ID__" />
   <meta>
     <versionId value="1.1.0-alpha" />
     <lastUpdated value="2022-06-01T15:00:00+00:00" />

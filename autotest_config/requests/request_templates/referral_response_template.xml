@@ -1,6 +1,6 @@
 <Bundle xmlns="http://hl7.org/fhir">
 	<!-- this message is based on REFRESP01 ED to 111 Safeguarding DNA -->
-  <id value="bc040878-cf51-4acf-9ede-7448fbb5be7c" />
+  <id value="__BUNDLE_ID__" />
   <meta>
     <versionId value="1.0.0-alpha" />
     <lastUpdated value="2021-10-11T15:23:30+00:00" />

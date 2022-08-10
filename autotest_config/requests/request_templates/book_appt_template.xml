@@ -1,6 +1,6 @@
 <Bundle xmlns="http://hl7.org/fhir">
   <!-- Based on BOOKREQ01 (compare with csdiff) -->
-  <id value="777a156c-af3c-4748-a8a3-7e95e4b0df9a" />
+  <id value="__BUNDLE_ID__" />
   <meta>
     <versionId value="1.0.0-alpha" />
     <lastUpdated value="2021-10-11T15:01:30+00:00" />

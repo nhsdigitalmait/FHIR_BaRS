@@ -166,6 +166,9 @@ integrity
 resent_rq_id
 	X-Request-ID __REQUEST_ID__
 	X-Correlation-ID function:uk.nhs.digital.mait.tkwx.tk.internalservices.testautomation.PropertySetFunctions.getuuid
+nonguid_integrity
+	X-Request-ID xxxxxxxxxxxxxxxxx
+	X-Correlation-ID yyyyyyyyyyyyyyy
 END HTTPHEADERS
 
 BEGIN EXTRACTORS
