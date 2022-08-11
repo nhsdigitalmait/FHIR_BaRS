@@ -29,6 +29,13 @@ SFFSWithNoIncludesSlotsOnly \
 SFFSWithFreeAndBusySlots \
 SFFSWithFreeSlotsWithRevIncludes \
 SFFSWithFreeSlotsWithGzipEncoding \
+SFFSWithNoHealthcareService \
+SFFSWithInvalidHealthcareService \
+SFFSWithNoStartDate \
+SFFSWithOneStartDate \
+SFFSWithThreeStartDates \
+SFFSWithNoStatus \
+SFFSWithInvalidStatus \
 BookAppointment_HappyPath \
 BookAppointment_NotVerified \
 BookAppointment_NoNHSNumber \
