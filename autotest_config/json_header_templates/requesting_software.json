@@ -8,6 +8,6 @@
   ],
   "deviceName": "Supplier product name",
   "version": {
-    "1.0.0"
+      "value" : "1.0.0"
   }
 }
