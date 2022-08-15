@@ -255,10 +255,6 @@
           <lastUpdated value="2021-11-26T15:00:00+00:00" />
           <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-Patient" />
         </meta>
-        <!--   added birthSex extension   -->
-        <extension url="https://fhir.hl7.org.uk/StructureDefinition/Extension-UKCore-BirthSex">
-          <valueCode value="F" />
-        </extension>
         <!--   added EthnicCategory extension   -->
         <extension url="https://fhir.hl7.org.uk/StructureDefinition/Extension-UKCore-EthnicCategory">
           <valueCodeableConcept>
@@ -549,11 +545,10 @@
         </category>
         <code>
           <coding>
-            <system value="http://system.system" />
-            <code value="160877008" />
-            <display value="Child at risk" />
+            <system value="https://fhir.nhs.uk/CodeSystem/safeguarding-codes-bars" />
+            <code value="U" />
+            <display value="Unspecified Safeguarding Concern Identified" />
           </coding>
-          <text value="Child at risk" />
         </code>
         <subject>
           <reference value="urn:uuid:9589fb37-87a2-48d8-968f-b371429208a8" />

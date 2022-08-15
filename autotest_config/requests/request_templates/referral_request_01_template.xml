@@ -254,10 +254,6 @@
           <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-Patient" />
         </meta>
         <id value="__PATIENT_ID__"/>
-        <!--      added birthSex extension      -->
-        <extension url="https://fhir.hl7.org.uk/StructureDefinition/Extension-UKCore-BirthSex">
-          <valueCode value="F" />
-        </extension>
         <!--      added EthnicCategory extension      -->
         <extension url="https://fhir.hl7.org.uk/StructureDefinition/Extension-UKCore-EthnicCategory">
           <valueCodeableConcept>
@@ -355,6 +351,7 @@
             <family value="Grayson" />
             <given value="Jack" />
           </name>
+          <!-- this is missing from the simplifier example -->
           <extension url="https://fhir.hl7.org.uk/StructureDefinition/Extension-UKCore-ContactRank">
             <valuePositiveInt value="2" />
           </extension>
@@ -407,7 +404,7 @@
     </resource>
   </entry>
   <entry>
-    <fullUrl value="urn:uuid:33a33b58-648a-4453-b981-e21ea9ffb4ff" />
+    <fullUrl value="urn:uuid:b5e27389-3ca5-4cbc-9173-73f0c74915d9" />
     <resource>
       <Organization>
         <meta>
@@ -717,7 +714,11 @@
           </coding>
         </category>
         <code>
-          <text value="Child at risk" />
+          <coding>
+            <system value="https://fhir.nhs.uk/CodeSystem/safeguarding-codes-bars" />
+            <code value="U" />
+            <display value="Unspecified Safeguarding Concern Identified" />
+          </coding>
         </code>
         <subject>
           <reference value="urn:uuid:9589fb37-87a2-48d8-968f-b371429208a8" />

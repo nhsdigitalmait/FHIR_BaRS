@@ -235,10 +235,6 @@
           <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-Patient" />
         </meta>
 	<id value="__PATIENT_ID__"/>
-        <!--   added birthSex extension   -->
-        <extension url="https://fhir.hl7.org.uk/StructureDefinition/Extension-UKCore-BirthSex">
-          <valueCode value="F" />
-        </extension>
         <!--   added EthnicCategory extension   -->
         <extension url="https://fhir.hl7.org.uk/StructureDefinition/Extension-UKCore-EthnicCategory">
           <valueCodeableConcept>
@@ -338,6 +334,7 @@
             <family value="Grayson" />
             <given value="Jack" />
           </name>
+          <!-- this is not in the simplifier example -->
           <extension url="https://fhir.hl7.org.uk/StructureDefinition/Extension-UKCore-ContactRank">
             <valuePositiveInt value="2" />
           </extension>
