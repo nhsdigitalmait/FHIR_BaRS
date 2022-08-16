@@ -6,7 +6,9 @@
 
 	<xsl:output method="xml" indent="yes" omit-xml-declaration="yes"/>
 
+	<!--
 	<xsl:include href="autotest_config/transforms/patient_is_traced.xslt"/>
+	-->
 
 	<xsl:include href="autotest_config/transforms/common_message_transforms.xslt"/>
 
