@@ -312,4 +312,5 @@ __HCS_SLOTS_ONLY__  Literal "2000081825"
 __START_SLOT_TIME__  function:uk.nhs.digital.mait.tkwx.tk.internalservices.testautomation.PropertySetFunctions.getFormattedTime "yyyy-MM-dd'T00:00:00'XXX" "Europe/London" "1" "0" "true"
 __START_SLOT_TIME1L__  function:uk.nhs.digital.mait.tkwx.tk.internalservices.testautomation.PropertySetFunctions.getFormattedTime "yyyy-MM-dd'T00:00:00'XXX" "Europe/London" "-1" "0" "true"
 __END_SLOT_TIME__  function:uk.nhs.digital.mait.tkwx.tk.internalservices.testautomation.PropertySetFunctions.getFormattedTime "yyyy-MM-dd'T00:00:00'XXX" "Europe/London" "4" "0" "true"
+__START_SLOT_TIME_NO_TIMEZONE__  function:uk.nhs.digital.mait.tkwx.tk.internalservices.testautomation.PropertySetFunctions.getFormattedTime "yyyy-MM-dd'T00:00:00'" "Europe/London" "1" "0" "true"
 END SUBSTITUTION_TAGS
