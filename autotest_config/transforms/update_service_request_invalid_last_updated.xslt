@@ -6,10 +6,6 @@
 
 	<xsl:output method="xml" indent="yes" omit-xml-declaration="yes"/>
 
-	<!--
-	<xsl:include href="autotest_config/transforms/patient_is_traced.xslt"/>
-	-->
-
 	<xsl:include href="autotest_config/transforms/common_message_transforms.xslt"/>
 
 	<xsl:template match="fhir:MessageHeader/fhir:reason/fhir:coding/fhir:code/@value">
@@ -38,6 +34,10 @@
 
 	<xsl:template match="fhir:Patient/fhir:birthDate/@value">
 		<xsl:attribute name="value">1959-05-04</xsl:attribute>
+	</xsl:template>
+
+	<xsl:template match="fhir:Patient/fhir:meta/fhir:lastUpdated/@value">
+		<xsl:attribute name="value">2020-11-26T15:00:00+00:00</xsl:attribute>
 	</xsl:template>
 
 </xsl:stylesheet>

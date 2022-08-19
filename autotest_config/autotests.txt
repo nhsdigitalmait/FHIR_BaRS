@@ -36,6 +36,7 @@ SFFSWithOneStartDate \
 SFFSWithThreeStartDates \
 SFFSWithNoStatus \
 SFFSWithInvalidStatus \
+SFFSWithInvalidTimestamp \
 BookAppointment_HappyPath \
 BookAppointment_NotVerified \
 BookAppointment_NoNHSNumber \
@@ -65,6 +66,7 @@ ReferralRequest_999toCAS_Rank1NotOneself \
 ReferralRequest_999toCAS_NoRank1 \
 ReferralRequest_999toCAS_TwoRank1 \
 ReferralRequest_999toCAS_Update \
+ReferralRequest_999toCAS_Update_InvalidLastUpdated \
 ReferralRequest_999toCAS_Cancel \
 ReferralRequest_999toCAS_Ignore_IDs \
 ReferralRequest_999toCAS_WithResentRequestID \
@@ -108,6 +110,7 @@ ValidationRequest_NoLocation \
 ValidationRequest_NoUPRN \
 ValidationRequest_NoLocationAddressPostcodeEastingsNorthings \
 ValidationRequest_Update \
+ValidationRequest_Update_InvalidLastUpdated \
 ValidationRequest_Cancel \
 ValidationRequest_Ignore_IDs \
 ValidationRequest_WithResentRequestID \
