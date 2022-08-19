@@ -53,6 +53,7 @@ BookAppointment_WithNonGUIDRequestID \
 BookAppointment_WithResentBundleID \
 BookAppointment_WithInvalidEventCode \
 BookAppointment_WithInvalidReasonCode \
+BookAppointment_WithNoVersionID \
 ReadNonExistentAppointment \
 CancelAppointment_HappyPath \
 CancelAppointment_DifferencesDetected \
@@ -73,6 +74,8 @@ ReferralRequest_999toCAS_WithResentBundleID \
 ReferralRequest_999toCAS_NotDirectCare \
 ReferralRequest_999toCAS_InvalidEventCode \
 ReferralRequest_999toCAS_InvalidReasonCode \
+ReferralRequest_999toCAS_WrongMethod \
+ReferralRequest_999toCAS_NoVersionID \
 ReferralRequest_111toED_xml_accept \
 ReferralRequest_111toED_json_accept \
 ReferralRequest_111toED_NotVerified \
@@ -80,7 +83,6 @@ ReferralRequest_111toED_NoNhsNo \
 ReferralRequest_111toED_Rank1NotOneself \
 ReferralRequest_111toED_NoRank1 \
 ReferralRequest_111toED_TwoRank1 \
-ReferralRequest_111toED_Update \
 ReferralRequest_111toED_Cancel \
 ReferralRequest_111toED_Ignore_IDs \
 ReferralRequest_111toED_WithResentRequestID \
@@ -90,6 +92,8 @@ ReferralRequest_111toED_WithResentBundleID \
 ReferralRequest_111toED_NotDirectCare \
 ReferralRequest_111toED_InvalidEventCode \
 ReferralRequest_111toED_InvalidReasonCode \
+ReferralRequest_111toED_WrongMethod \
+ReferralRequest_111toED_NoVersionID \
 ValidationRequest_xml_accept \
 ValidationRequest_json_accept \
 ValidationRequest_NotVerified \
@@ -113,6 +117,8 @@ ValidationRequest_WithResentBundleID \
 ValidationRequest_NotDirectCare \
 ValidationRequest_WithInvalidEventCode \
 ValidationRequest_WithInvalidReasonCode \
+ValidationRequest_WrongMethod \
+ValidationRequest_NoVersionID \
 UnsolicitedReferralResponse_xml_accept \
 UnsolicitedReferralResponse_json_accept \
 UnsolicitedValidationResponse_xml_accept \

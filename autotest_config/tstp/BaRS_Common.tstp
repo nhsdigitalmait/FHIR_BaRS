@@ -24,20 +24,28 @@ SearchCountIsGreaterThanZero CHAIN SYNC search_count_is_greater_than_zero TEXT "
 BookAppointment SEND_TKW book_appointment_slot1 TO __TO_ENDPOINT__/$process-message FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ PRETRANSFORM __TKWROOT__/config/FHIR_BaRS/autotest_config/transforms/remove_appt_id.xslt APPLYPRETRANSFORMTO data SYNC ok WITH_PROPERTYSET base+webservices+post WITH_HTTPHEADERS credentials+Oauth2AccessToken+default_content+default_accept+integrity TEXT "HTTP Response must be HTTP 200"
 
 ResponseIsOperationOutcome CHAIN SYNC operation_outcome TEXT "Response contains a root fhir:OperationOutcome element"
+
 OperationOutcomeSystemCodeIsSpine CHAIN SYNC operation_outcome_system_code_is_spine TEXT "OperationOutcome System code is https://fhir.nhs.uk/STU3/CodeSystem/Spine-ErrorOrWarningCode-1"
-# OO code checks
-InvalidParameter CHAIN SYNC invalid_parameter TEXT "Response contains a root fhir:OperationOutcome reporting an INVALID_PARAMETER code"
-AccessDenied CHAIN SYNC access_denied TEXT "Response contains a root fhir:OperationOutcome reporting an ACCESS DENIED code"
-NotSupported CHAIN SYNC not_supported TEXT "Response contains a root fhir:OperationOutcome reporting an not-supported code"
-InternalServerError CHAIN SYNC internal_server_error TEXT "Response contains a root fhir:OperationOutcome reporting an INTERNAL_SERVER_ERROR code"
-UnsupportedMediaType CHAIN SYNC unsupported_media_type TEXT "Response contains a root fhir:OperationOutcome reporting an UNSUPPORTED_MEDIA_TYPE code"
-NoRecordFound CHAIN SYNC no_record_found TEXT "Response contains a root fhir:OperationOutcome reporting an NO_RECORD_FOUND code"
-ReferenceNotFound CHAIN SYNC reference_not_found TEXT "Response contains a root fhir:OperationOutcome reporting an REFERENCE_NOT_FOUND code"
-ConflictingValues CHAIN SYNC conflicting_values TEXT "Response contains a root fhir:OperationOutcome reporting an CONFLICTING_VALUES code"
-MissingOrInvalidHeader CHAIN SYNC missing_or_invalid_header TEXT "Response contains a root fhir:OperationOutcome reporting an MISSING_OR_INVALID_HEADER code"
-BadRequest CHAIN SYNC bad_request TEXT "Response contains a root fhir:OperationOutcome reporting an BAD_REQUEST code"
+#
+# OO issue/details/code checks May not be required for BaRS
+IssueDetailsCodeBadRequest CHAIN SYNC issue_details_code_bad_request TEXT "Response contains a root fhir:OperationOutcome reporting a REC_BAD_REQUEST issue details code"
+IssueDetailsCodeUnprocessableEntity CHAIN SYNC issue_details_code_bad_request TEXT "Response contains a root fhir:OperationOutcome reporting a REC_UNPROCESSABLE_ENTITY issue details code"
+IssueDetailsCodeConflict CHAIN SYNC issue_details_code_conflict TEXT "Response contains a root fhir:OperationOutcome reporting a REC_CONFLICT issue details code"
+IssueDetailsCodeMethodNotAllowed CHAIN SYNC issue_details_code_method_not_allowed TEXT "Response contains a root fhir:OperationOutcome reporting a REC_METHOD_NOT_ALLOWED issue details code"
 
+#
+# OO issue code/checks
+IssueCodeNotSupported CHAIN SYNC issue_code_not_supported  TEXT "Response contains a root fhir:OperationOutcome reporting 'not-supported' issue code"
+IssueCodeRequired CHAIN SYNC issue_code_required  TEXT "Response contains a root fhir:OperationOutcome reporting 'required' issue code"
+IssueCodeInvariant CHAIN SYNC issue_code_invariant  TEXT "Response contains a root fhir:OperationOutcome reporting 'invariant' issue code"
+IssueCodeValueOrInvalid CHAIN SYNC issue_code_invalid  TEXT "Response contains a root fhir:OperationOutcome reporting 'value' or 'invalid' issue code"
+IssueCodeRequired CHAIN SYNC issue_code_required  TEXT "Response contains a root fhir:OperationOutcome reporting 'required' issue code"
+IssueCodeNotFound CHAIN SYNC issue_code_not_found  TEXT "Response contains a root fhir:OperationOutcome reporting 'not-found' issue code"
+IssueCodeInvalid CHAIN SYNC issue_code_invalid  TEXT "Response contains a root fhir:OperationOutcome reporting 'invalid' issue code"
+IssueCodeConflict CHAIN SYNC issue_code_conflict  TEXT "Response contains a root fhir:OperationOutcome reporting 'conflict' issue code"
+IssueCodeDuplicate CHAIN SYNC issue_code_duplicate  TEXT "Response contains a root fhir:OperationOutcome reporting 'duplicate' issue code"
 
+ResponseIsAppointment CHAIN SYNC response_is_appt TEXT "Response contains a root fhir:Appointment element"
 ResponseIsAppointmentExtracting1 CHAIN SYNC response_is_appt_extracting1 TEXT "Response Bundle contains a fhir:Appointment element"
 
 ResponseIsBundle CHAIN SYNC response_is_bundle TEXT "Response contains a root fhir:Bundle element"
@@ -67,9 +75,11 @@ IntegrityRequestIDHeadersMatch CHAIN SYNC integrity_request_id_headers_match TEX
 
 ResponseWasGzip CHAIN SYNC response_has_was_gzip_header TEXT "Response was returned with a Content-encoding http header value of gzip"
 
-SFFSWithValidParameters_3_days_slots_only SEND_TKW empty_file TO __TO_ENDPOINT__/Slot?Schedule.actor%3AHealthcareService=__HCS_SLOTS_ONLY__&start=ge__START_SLOT_TIME__&start=le__END_SLOT_TIME__&status=free&_include=Slot%3Aschedule&_include=Schedule%3Aactor%3APractitioner&_include=Schedule%3Aactor%3APractitionerRole&_include=Schedule%3Aactor%3AHealthcareService&_include=HealthcareService.location&_include=HealthcareService.providedBy FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ SYNC ok WITH_PROPERTYSET base+webservices+get WITH_HTTPHEADERS credentials+default_accept+Oauth2AccessToken TEXT "HTTP Response must be HTTP 200"
+SFFSWithValidParameters_3_days_slots_only SEND_TKW empty_file TO __TO_ENDPOINT__/Slot?Schedule.actor%3AHealthcareService=__HCS_SLOTS_ONLY__&start=ge__START_SLOT_TIME__&start=le__END_SLOT_TIME__&status=free&_include=Slot%3Aschedule&_include=Schedule%3Aactor%3APractitioner&_include=Schedule%3Aactor%3APractitionerRole&_include=Schedule%3Aactor%3AHealthcareService&_include=HealthcareService.location&_include=HealthcareService.providedBy FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ SYNC ok WITH_PROPERTYSET base+webservices+get WITH_HTTPHEADERS credentials+default_accept+Oauth2AccessToken+integrity TEXT "HTTP Response must be HTTP 200"
 
 ResponseIsNotEchoingIDs CHAIN SYNC response_is_not_echoing_ids TEXT "Initial Response ids are being generated by the Receiver"
+
+BundleIDsCorrelate CHAIN SYNC bundleidscorrelate TEXT "Response bundle id must equal request bundle id"
 END TESTS
 
 BEGIN MESSAGES
@@ -203,22 +213,25 @@ type_searchset synchronousxpath /fhir:Bundle/fhir:type[@value='searchset'] exist
 operation_outcome synchronousxpath /fhir:OperationOutcome exists
 
 operation_outcome_system_code_is_spine synchronousxpath /fhir:OperationOutcome/fhir:issue/fhir:details/fhir:coding/fhir:system/@value matches "^https://fhir.nhs.uk/STU3/CodeSystem/Spine-ErrorOrWarningCode-1$"
-# 400
-invalid_parameter synchronousxpath /fhir:OperationOutcome/fhir:issue/fhir:details/fhir:coding/fhir:code/@value matches "^INVALID_PARAMETER$"
-bad_request synchronousxpath /fhir:OperationOutcome/fhir:issue/fhir:details/fhir:coding/fhir:code/@value matches "^BAD_REQUEST$"
 #
-# 403
-access_denied synchronousxpath /fhir:OperationOutcome/fhir:issue/fhir:details/fhir:coding/fhir:code/@value matches "^ACCESS DENIED$"
 #
-# 405 wrong method NB issue/code not issue/details/code
-not_supported synchronousxpath /fhir:OperationOutcome/fhir:issue/fhir:code/@value matches "^not-supported$"
+# NB issue/code not issue/details/code
+issue_code_not_supported synchronousxpath /fhir:OperationOutcome/fhir:issue/fhir:code/@value matches "^not-supported$"
+issue_code_required synchronousxpath /fhir:OperationOutcome/fhir:issue/fhir:code/@value matches "^required$"
+issue_code_invariant synchronousxpath /fhir:OperationOutcome/fhir:issue/fhir:code/@value matches "^invariant$"
+issue_code_value_or_invalid synchronousxpath /fhir:OperationOutcome/fhir:issue/fhir:code/@value matches "^(value|invalid)$"
+issue_code_required synchronousxpath /fhir:OperationOutcome/fhir:issue/fhir:code/@value matches "^required$"
+issue_code_not_found synchronousxpath /fhir:OperationOutcome/fhir:issue/fhir:code/@value matches "^not-found$"
+issue_code_not_supported synchronousxpath /fhir:OperationOutcome/fhir:issue/fhir:code/@value matches "^not-supported$"
+issue_code_invalid synchronousxpath /fhir:OperationOutcome/fhir:issue/fhir:code/@value matches "^invalid$"
+issue_code_conflict synchronousxpath /fhir:OperationOutcome/fhir:issue/fhir:code/@value matches "^conflict$"
+issue_code_duplicate synchronousxpath /fhir:OperationOutcome/fhir:issue/fhir:code/@value matches "^duplicate$"
 
-internal_server_error synchronousxpath /fhir:OperationOutcome/fhir:issue/fhir:details/fhir:coding/fhir:code/@value matches "^INTERNAL_SERVER_ERROR$"
-unsupported_media_type synchronousxpath /fhir:OperationOutcome/fhir:issue/fhir:details/fhir:coding/fhir:code/@value matches "^UNSUPPORTED_MEDIA_TYPE$"
-no_record_found synchronousxpath /fhir:OperationOutcome/fhir:issue/fhir:details/fhir:coding/fhir:code/@value matches "^NO_RECORD_FOUND$"
-reference_not_found synchronousxpath /fhir:OperationOutcome/fhir:issue/fhir:details/fhir:coding/fhir:code/@value matches "^REFERENCE_NOT_FOUND$"
-conflicting_values synchronousxpath /fhir:OperationOutcome/fhir:issue/fhir:details/fhir:coding/fhir:code/@value matches "^CONFLICTING_VALUES$"
-missing_or_invalid_header synchronousxpath /fhir:OperationOutcome/fhir:issue/fhir:details/fhir:coding/fhir:code/@value matches "^MISSING_OR_INVALID_HEADER$"
+# NB issue/details/code not details/code 
+issue_details_code_bad_request synchronousxpath /fhir:OperationOutcome/fhir:issue/fhir:details/fhir:coding/fhir:code/@value matches "^REC_BAD_REQUEST$"
+issue_details_code_unprocessable_entity synchronousxpath /fhir:OperationOutcome/fhir:issue/fhir:details/fhir:coding/fhir:code/@value matches "^REC_UNPROCESSABLE_ENTITY$"
+issue_details_code_conflict synchronousxpath /fhir:OperationOutcome/fhir:issue/fhir:details/fhir:coding/fhir:code/@value matches "^REC_CONFLICT$"
+issue_details_code_method_not_allowed synchronousxpath /fhir:OperationOutcome/fhir:issue/fhir:details/fhir:coding/fhir:code/@value matches "^REC_METHOD_NOT_ALLOWED$"
 #
 #
 # http status code checks
@@ -274,6 +287,8 @@ response_is_not_echoing_ids synchronousxpath count(//fhir:id[matches(@value,'^__
 
 responseisbundle_extracting_referral_serviceid synchronousxpath /fhir:Bundle exists EXTRACTOR referral_service_request_extractor
 responseisbundle_extracting_validation_serviceid synchronousxpath /fhir:Bundle exists EXTRACTOR validation_service_request_extractor 
+
+bundleidscorrelate xpathcorrelationcheck /fhir:Bundle/fhir:id/@value
 END PASSFAIL
 
 #
@@ -289,9 +304,6 @@ __HCS_NO_SLOTS__  Literal "2000073917"
 # Healthcare Service slots only
 __HCS_SLOTS_ONLY__  Literal "2000081825"
 
-# Healthcare Service http 408 timeout
-__HCS_408__  Literal "2000094120"
-#
 # These are evaluated at runtime when the script is run by TKW in autotest mode
 #
 # Europe/London sets the DST flag correctly, true => URL encode the result, unfortunately at present these values cannot be used in the slots_too_early/late tests
