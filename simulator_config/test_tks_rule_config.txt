@@ -22,6 +22,7 @@ Operation_Outcome_501					TKW_ROOT/config/FHIR_BaRS/simulator_config/operation_o
 Operation_Outcome_503					TKW_ROOT/config/FHIR_BaRS/simulator_config/operation_outcomes/operation_outcome_503.xml "503 Service Unavailable"  WITH_HTTP_HEADERS ( X-Request-Id : "__XREQID_ECHO__" X-Correlation-Id : "__XCORRID_ECHO__" Date : "__RFC822TIMESTAMP__" )
 
 SearchSlots_HappyPath_Response	TKW_ROOT/config/FHIR_BaRS/simulator_config/BaRS_Booking/SearchSlots_HappyPath_Response.xml 200  WITH_HTTP_HEADERS ( X-Request-Id : "__XREQID_ECHO__" X-Correlation-Id : "__XCORRID_ECHO__" Date : "__RFC822TIMESTAMP__" )
+SearchSlots_HappyPath_No_Includes_Response		TKW_ROOT/config/FHIR_BaRS/simulator_config/BaRS_Booking/SearchSlots_HappyPath_No_Includes_Response.xml 200  WITH_HTTP_HEADERS ( X-Request-Id : "__XREQID_ECHO__" X-Correlation-Id : "__XCORRID_ECHO__" Date : "__RFC822TIMESTAMP__" )
 SearchSlots_HappyPath_FreeBusy_Response	TKW_ROOT/config/FHIR_BaRS/simulator_config/BaRS_Booking/SearchSlots_HappyPath_FreeBusy_Response.xml 200  WITH_HTTP_HEADERS ( X-Request-Id : "__XREQID_ECHO__" X-Correlation-Id : "__XCORRID_ECHO__" Date : "__RFC822TIMESTAMP__" )
 SearchSlots_HappyPath_NoSlots_Response	TKW_ROOT/config/FHIR_BaRS/simulator_config/BaRS_Booking/SearchSlots_HappyPath_NoSlots_Response.xml 200  WITH_HTTP_HEADERS ( X-Request-Id : "__XREQID_ECHO__" X-Correlation-Id : "__XCORRID_ECHO__" Date : "__RFC822TIMESTAMP__" )
 SearchSlots_HappyPath_OnlySlots_Response	TKW_ROOT/config/FHIR_BaRS/simulator_config/BaRS_Booking/SearchSlots_HappyPath_OnlySlots_Response.xml 200  WITH_HTTP_HEADERS ( X-Request-Id : "__XREQID_ECHO__" X-Correlation-Id : "__XCORRID_ECHO__" Date : "__RFC822TIMESTAMP__" )
@@ -145,6 +146,7 @@ APPOINTMENT					context_path matches ^.*/R4/Appointment.*$
 SERVICEREQUEST				context_path matches ^.*/R4/ServiceRequest.*$
 MESSAGEDEFINITION			context_path matches ^.*/R4/MessageDefinition\?context=https%3A%2F%2Ffhir.nhs.uk%2FId%2Fdos-service-id.*$
 DOSSERVICEID401				context_path matches ^.*FAIL0401.*$
+INCLUDES						context_path matches ^.*_include.*$
 
 VALIDATIONSERVICEREQUEST001				context_path matches ^.*/R4/ServiceRequest/0b42eac3-0175-43c8-bbab-efaa8ca31ccf.*$
 VALIDATIONSERVICEREQUEST408				context_path matches ^.*/R4/ServiceRequest/9e595424-9d67-45db-9a90-03259653cd37.*$
@@ -273,25 +275,26 @@ END RULE
 
 BEGIN RULE
 GET
-IF	METADATA												THEN	Capability_HappyPath_Response				ELSE	NEXT
-IF	SERVICEREQUEST	AND	VALIDATIONSERVICEREQUEST001			THEN	ValidationServiceRequest_HappyPath_Response	ELSE	NEXT
-IF	SERVICEREQUEST	AND	VALIDATIONSERVICEREQUEST408			THEN	Operation_Outcome_408						ELSE	NEXT
-IF	SERVICEREQUEST	AND	VALIDATIONSERVICEREQUEST501			THEN	Operation_Outcome_501						ELSE	NEXT
-IF	SERVICEREQUEST	AND	REFERRALSERVICEREQUEST001			THEN	ReferralServiceRequest_HappyPath_Response	ELSE	NEXT
-IF	SERVICEREQUEST	AND	REFERRALSERVICEREQUEST405			THEN	Operation_Outcome_405						ELSE	NEXT
-IF	SERVICEREQUEST	AND	REFERRALSERVICEREQUEST429			THEN	Operation_Outcome_429						ELSE	NEXT
-IF	SERVICEREQUEST	AND	REFERRALSERVICEREQUEST503			THEN	Operation_Outcome_503						ELSE	NEXT
-IF	APPOINTMENT	AND	BOOKINGAPPOINTMENT501					THEN	Operation_Outcome_501						ELSE	NEXT
-IF	APPOINTMENT												THEN	BookingAppointment_HappyPath_Response		ELSE	NEXT
-IF	MESSAGEDEFINITION	AND	DOSSERVICEID401					THEN	Operation_Outcome_401						ELSE	NEXT
-IF	MESSAGEDEFINITION										THEN	MessageDefinition_HappyPath_Response		ELSE	NEXT
-IF 	SLOT	AND	HEALTHCARESERVICE_MISSING					THEN	Operation_Outcome_400						ELSE	NEXT
-IF	SLOT	AND	FREEANDBUSY	AND	HEALTHCARESERVICE2000072489	THEN	SearchSlots_HappyPath_FreeBusy_Response		ELSE	NEXT
-IF	SLOT	AND	FREEONLY	AND	HEALTHCARESERVICE2000072489	THEN	SearchSlots_HappyPath_Response				ELSE	NEXT
-IF	SLOT	AND	HEALTHCARESERVICE2000072489					THEN	SearchSlots_HappyPath_Response				ELSE	NEXT
-IF	SLOT	AND	HEALTHCARESERVICE2000073917					THEN	SearchSlots_HappyPath_NoSlots_Response		ELSE	NEXT
-IF	SLOT	AND	HEALTHCARESERVICE2000081825					THEN	SearchSlots_HappyPath_OnlySlots_Response	ELSE	NEXT
-IF	SLOT	AND	HEALTHCARESERVICE2000094120					THEN	Operation_Outcome_408						ELSE	NEXT
+IF	METADATA															THEN	Capability_HappyPath_Response				ELSE	NEXT
+IF	SERVICEREQUEST	AND	VALIDATIONSERVICEREQUEST001						THEN	ValidationServiceRequest_HappyPath_Response	ELSE	NEXT
+IF	SERVICEREQUEST	AND	VALIDATIONSERVICEREQUEST408						THEN	Operation_Outcome_408						ELSE	NEXT
+IF	SERVICEREQUEST	AND	VALIDATIONSERVICEREQUEST501						THEN	Operation_Outcome_501						ELSE	NEXT
+IF	SERVICEREQUEST	AND	REFERRALSERVICEREQUEST001						THEN	ReferralServiceRequest_HappyPath_Response	ELSE	NEXT
+IF	SERVICEREQUEST	AND	REFERRALSERVICEREQUEST405						THEN	Operation_Outcome_405						ELSE	NEXT
+IF	SERVICEREQUEST	AND	REFERRALSERVICEREQUEST429						THEN	Operation_Outcome_429						ELSE	NEXT
+IF	SERVICEREQUEST	AND	REFERRALSERVICEREQUEST503						THEN	Operation_Outcome_503						ELSE	NEXT
+IF	APPOINTMENT	AND	BOOKINGAPPOINTMENT501								THEN	Operation_Outcome_501						ELSE	NEXT
+IF	APPOINTMENT															THEN	BookingAppointment_HappyPath_Response		ELSE	NEXT
+IF	MESSAGEDEFINITION	AND	DOSSERVICEID401								THEN	Operation_Outcome_401						ELSE	NEXT
+IF	MESSAGEDEFINITION													THEN	MessageDefinition_HappyPath_Response		ELSE	NEXT
+IF 	SLOT	AND	HEALTHCARESERVICE_MISSING								THEN	Operation_Outcome_400						ELSE	NEXT
+IF	SLOT	AND	FREEANDBUSY	AND	HEALTHCARESERVICE2000072489				THEN	SearchSlots_HappyPath_FreeBusy_Response		ELSE	NEXT
+IF	SLOT	AND	FREEONLY	AND	HEALTHCARESERVICE2000072489	AND INCLUDES	THEN	SearchSlots_HappyPath_Response				ELSE	NEXT
+IF	SLOT	AND	FREEONLY	AND	HEALTHCARESERVICE2000072489				THEN	SearchSlots_HappyPath_No_Includes_Response				ELSE	NEXT
+IF	SLOT	AND	HEALTHCARESERVICE2000072489								THEN	SearchSlots_HappyPath_Response				ELSE	NEXT
+IF	SLOT	AND	HEALTHCARESERVICE2000073917								THEN	SearchSlots_HappyPath_NoSlots_Response		ELSE	NEXT
+IF	SLOT	AND	HEALTHCARESERVICE2000081825								THEN	SearchSlots_HappyPath_OnlySlots_Response	ELSE	NEXT
+IF	SLOT	AND	HEALTHCARESERVICE2000094120								THEN	Operation_Outcome_408						ELSE	NEXT
 
 IF passthrough THEN notFound_Response
 END RULE

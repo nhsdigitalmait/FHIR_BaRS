@@ -16,16 +16,12 @@
     <resource>
       <MessageDefinition xmlns="http://hl7.org/fhir">
         <id value="7731af63-04ed-47d9-8f05-e510dece3b3f" />
-        <meta>
-          <versionId value="1.0.0-alpha" />
-          <lastUpdated value="2021-10-11T15:23:30+00:00" />
-          <profile value="https://fhir.nhs.uk/StructureDefinition/BARSMessageDefinition-ServiceRequest-Request" />
-        </meta>
         <url value="https://fhir.nhs.uk/MessageDefinition/bars-message-servicerequest-request-validation" />
         <name value="BARS Message Definition ServiceRequest - Request Validation" />
         <title value="BARS Message Definition ServiceRequest - Request Validation" />
         <status value="active" />
         <date value="2021-12-08" />
+        <version value="1.0.0-alpha" />
         <eventCoding>
           <system value="https://fhir.nhs.uk/CodeSystem/message-events-bars" />
           <code value="servicerequest-request" />
@@ -33,8 +29,8 @@
         <useContext>
           <!-- We are expecting the UseContext to be a DOS ID -->
           <code>
-            <system value="https://fhir.nhs.uk/CodeSystem/dos-id" />
-            <code value="dos-id" />
+            <system value="https://fhir.nhs.uk/CodeSystem/dos-service-id" />
+            <code value="TKW0004" />
           </code>
           <valueCodeableConcept>
             <coding>
@@ -154,16 +150,12 @@
     <resource>
       <MessageDefinition xmlns="http://hl7.org/fhir">
         <id value="11882ae2-211f-49ee-acbe-e319304d80cd" />
-        <meta>
-          <versionId value="1.0.0-alpha" />
-          <lastUpdated value="2021-10-11T15:23:30+00:00" />
-          <profile value="https://fhir.nhs.uk/StructureDefinition/BARSMessageDefinition-ServiceRequest-Request" />
-        </meta>
         <url value="https://fhir.nhs.uk/MessageDefinition/bars-message-servicerequest-request-referral" />
         <name value="BARS Message Definition ServiceRequest - Request Referral" />
         <title value="BARS Message Definition ServiceRequest - Request Referral" />
         <status value="active" />
         <date value="2022-02-11" />
+        <version value="1.0.0-alpha" />
         <eventCoding>
           <system value="https://fhir.nhs.uk/CodeSystem/message-events-bars" />
           <code value="servicerequest-request" />
@@ -171,8 +163,8 @@
         <useContext>
           <!-- We are expecting the UseContext to be a DOS ID -->
           <code>
-            <system value="https://fhir.nhs.uk/CodeSystem/dos-id" />
-            <code value="dos-id" />
+            <system value="https://fhir.nhs.uk/CodeSystem/dos-service-id" />
+            <code value="TKW0004" />
           </code>
           <valueCodeableConcept>
             <coding>
@@ -291,16 +283,12 @@
     <resource>
       <MessageDefinition xmlns="http://hl7.org/fhir">
         <id value="15b429dc-2464-42ca-b401-4c2a5e8320aa" />
-        <meta>
-          <versionId value="1.0.0-alpha" />
-          <lastUpdated value="2021-10-11T15:23:30+00:00" />
-          <profile value="https://fhir.nhs.uk/StructureDefinition/BARSMessageDefinition-ServiceRequest-Response" />
-        </meta>
         <url value="https://fhir.nhs.uk/MessageDefinition/bars-message-servicerequest-response-validation" />
         <name value="BARS Message Definition ServiceRequest - Response Validation Full" />
         <title value="BARS Message Definition ServiceRequest - Response Validation Full" />
         <status value="active" />
         <date value="2022-03-01" />
+        <version value="1.0.0-alpha" />
         <eventCoding>
           <system value="https://fhir.nhs.uk/CodeSystem/message-events-bars" />
           <code value="servicerequest-response" />
@@ -308,8 +296,8 @@
         <useContext>
           <!-- We are expecting the UseContext to be a DOS ID -->
           <code>
-            <system value="https://fhir.nhs.uk/CodeSystem/dos-id" />
-            <code value="dos-id" />
+            <system value="https://fhir.nhs.uk/CodeSystem/dos-service-id" />
+            <code value="TKW0004" />
           </code>
           <valueCodeableConcept>
             <coding>
@@ -429,16 +417,12 @@
     <resource>
       <MessageDefinition xmlns="http://hl7.org/fhir">
         <id value="2a2ff4ff-47cd-4094-a95e-e8179e6f48b8" />
-        <meta>
-          <versionId value="1.0.0-alpha" />
-          <lastUpdated value="2021-10-11T15:23:30+00:00" />
-          <profile value="https://fhir.nhs.uk/StructureDefinition/BARSMessageDefinition-ServiceRequest-Response" />
-        </meta>
         <url value="https://fhir.nhs.uk/MessageDefinition/bars-message-servicerequest-response-referral" />
         <name value="BARS Message Definition ServiceRequest - Response Referral" />
         <title value="BARS Message Definition ServiceRequest - Response Referral" />
         <status value="active" />
         <date value="2022-02-11" />
+        <version value="1.0.0-alpha" />
         <eventCoding>
           <system value="https://fhir.nhs.uk/CodeSystem/message-events-bars" />
           <code value="servicerequest-response" />
@@ -446,8 +430,8 @@
         <useContext>
           <!-- We are expecting the UseContext to be a DOS ID -->
           <code>
-            <system value="https://fhir.nhs.uk/CodeSystem/dos-id" />
-            <code value="dos-id" />
+            <system value="https://fhir.nhs.uk/CodeSystem/dos-service-id" />
+            <code value="TKW0004" />
           </code>
           <valueCodeableConcept>
             <coding>
@@ -572,16 +556,12 @@
     <resource>
       <MessageDefinition xmlns="http://hl7.org/fhir">
         <id value="95b337c0-9644-4b5e-accf-246636e55905" />
-        <meta>
-          <versionId value="1.0.0-alpha" />
-          <lastUpdated value="2021-10-11T15:23:30+00:00" />
-          <profile value="https://fhir.nhs.uk/StructureDefinition/BARSMessageDefinition-Booking-Request" />
-        </meta>
         <url value="https://fhir.nhs.uk/MessageDefinition/bars-message-booking-request" />
         <name value="BARS Message Definition Booking - Request" />
         <title value="BARS Message Definition Booking - Request" />
         <status value="active" />
         <date value="2022-02-11" />
+        <version value="1.0.0-alpha" />
         <eventCoding>
           <system value="https://fhir.nhs.uk/CodeSystem/message-events-bars" />
           <code value="booking-request" />
@@ -589,8 +569,8 @@
         <useContext>
           <!-- We are expecting the UseContext to be a DOS ID -->
           <code>
-            <system value="https://fhir.nhs.uk/CodeSystem/dos-id" />
-            <code value="dos-id" />
+            <system value="https://fhir.nhs.uk/CodeSystem/dos-service-id" />
+            <code value="TKW0004" />
           </code>
           <valueCodeableConcept>
             <coding>
@@ -684,22 +664,152 @@
     <fullUrl value="urn:uuid:__UUID6__" />
     <resource>
       <MessageDefinition xmlns="http://hl7.org/fhir">
+        <id value="15b429dc-2464-42ca-b401-4c2a5e8320aa" />
+        <url value="https://fhir.nhs.uk/MessageDefinition/bars-message-servicerequest-response-validation-full" />
+        <name value="BARS Message Definition ServiceRequest - Response Validation Full" />
+        <title value="BARS Message Definition ServiceRequest - Response Validation Full" />
+        <status value="active" />
+        <date value="2022-05-31" />
+        <version value="1.0.0-alpha" />
+        <eventCoding>
+          <system value="https://fhir.nhs.uk/CodeSystem/message-events-bars" />
+          <code value="servicerequest-response" />
+        </eventCoding>
+        <useContext>
+          <!-- We are expecting the UseContext to be a DOS ID -->
+          <code>
+            <system value="https://fhir.nhs.uk/CodeSystem/dos-service-id" />
+            <code value="TKW0004" />
+          </code>
+          <valueCodeableConcept>
+            <coding>
+              <system value="http://terminology.hl7.org/CodeSystem/variant-state" />
+              <code value="positive" />
+            </coding>
+          </valueCodeableConcept>
+        </useContext>
+        <focus>
+          <code value="Bundle" />
+          <profile value="https://fhir.nhs.uk/StructureDefinition/BARSBundleMessage" />
+          <min value="1" />
+          <max value="1" />
+        </focus>
+        <focus>
+          <code value="MessageHeader" />
+          <profile value="https://fhir.nhs.uk/StructureDefinition/BARSMessageHeader-servicerequest-response" />
+          <min value="1" />
+          <max value="1" />
+        </focus>
+        <focus>
+          <code value="ServiceRequest" />
+          <profile value="https://fhir.nhs.uk/StructureDefinition/BARSServiceRequest-request-validation" />
+          <min value="1" />
+          <max value="1" />
+        </focus>
+        <focus>
+          <code value="Patient" />
+          <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-Patient" />
+          <min value="1" />
+          <max value="1" />
+        </focus>
+        <focus>
+          <code value="Encounter" />
+          <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-Encounter" />
+          <min value="2" />
+          <max value="3" />
+        </focus>
+        <focus>
+          <code value="CarePlan" />
+          <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-CarePlan" />
+          <min value="1" />
+          <max value="1" />
+        </focus>
+        <focus>
+          <code value="Location" />
+          <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-Location" />
+          <min value="1" />
+          <max value="1" />
+        </focus>
+        <focus>
+          <code value="Organization" />
+          <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-Organization" />
+          <min value="2" />
+          <max value="*" />
+        </focus>
+        <focus>
+          <code value="Practitioner" />
+          <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-Practitioner" />
+          <min value="1" />
+          <max value="*" />
+        </focus>
+        <focus>
+          <code value="PractitionerRole" />
+          <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-PractitionerRole" />
+          <min value="1" />
+          <max value="*" />
+        </focus>
+        <focus>
+          <code value="Observation" />
+          <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-Observation" />
+          <min value="0" />
+          <max value="*" />
+        </focus>
+        <focus>
+          <!-- Add StructDef for scene safety flag TBD -->
+          <code value="Flag" />
+          <profile value="http://hl7.org/fhir/StructureDefinition/Flag" />
+          <min value="1" />
+          <max value="*" />
+        </focus>
+        <focus>
+          <code value="Flag" />
+          <profile value="http://hl7.org/fhir/StructureDefinition/Flag" />
+          <min value="0" />
+          <max value="*" />
+        </focus>
+        <focus>
+          <code value="Consent" />
+          <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-Consent" />
+          <min value="1" />
+          <max value="*" />
+        </focus>
+        <focus>
+          <code value="MedicationStatement" />
+          <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-MedicationStatement" />
+          <min value="0" />
+          <max value="*" />
+        </focus>
+        <focus>
+          <code value="AllergyIntolerance" />
+          <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-AllergyIntolerance" />
+          <min value="0" />
+          <max value="*" />
+        </focus>
+        <focus>
+          <code value="HealthcareService" />
+          <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-HealthcareService" />
+          <min value="1" />
+          <max value="1" />
+        </focus>
+      </MessageDefinition>
+    </resource>
+  </entry>
+  <entry>
+    <fullUrl value="urn:uuid:__UUID7__" />
+    <resource>
+      <MessageDefinition xmlns="http://hl7.org/fhir">
         <id value="15b429dc-2464-42ca-b401-4c2a5e8320bb" />
-        <meta>
-          <versionId value="1.0.0-alpha" />
-          <lastUpdated value="2021-10-11T15:23:30+00:00" />
-          <profile value="https://fhir.nhs.uk/StructureDefinition/BARSMessageDefinition-ServiceRequest-Response" />
-        </meta>
-        <url value="https://fhir.nhs.uk/MessageDefinition/bars-message-servicerequest-response-validation" />
+        <url value="https://fhir.nhs.uk/MessageDefinition/bars-message-servicerequest-response-validation-interim" />
         <name value="BARS Message Definition ServiceRequest - Response Validation Interim" />
         <title value="BARS Message Definition ServiceRequest - Response Validation Interim" />
         <status value="active" />
-        <date value="2022-03-01" />
+        <date value="2022-05-31" />
+        <version value="1.0.0-alpha" />
         <useContext>
           <!--  We are expecting the UseContext to be a DOS ID  -->
           <code>
-            <system value="https://fhir.nhs.uk/CodeSystem/dos-id" />
-            <code value="dos-id" />
+            <system value="https://fhir.nhs.uk/CodeSystem/dos-service-id" />
+            <code value="TKW0004" />
           </code>
           <valueCodeableConcept>
             <coding>

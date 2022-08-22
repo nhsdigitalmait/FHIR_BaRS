@@ -4,13 +4,13 @@
    </meta>
    <issue>
       <severity value="error"/>
-      <code value="invalid"/>
+      <code value="not supported"/>
       <details>
          <coding>
             <system value="https://fhir.nhs.uk/Codesystem/http-error-codes"/>
             <code value="REC_METHOD_NOT_ALLOWED"/>
          </coding>
       </details>
-      <diagnostics value="__MY_ODS__ : Receiver does not allow this."/>
+      <diagnostics value="__MY_ODS__ : Wrong HTTP Method"/>
    </issue>
 </OperationOutcome>

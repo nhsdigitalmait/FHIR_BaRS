@@ -5,22 +5,26 @@
   <xsl:param name ="appointment_uuid" select="$uuid" />
   <xsl:output method="xml" indent="yes" omit-xml-declaration="yes" />
   <!-- Add a generated UUID to each resource if not already present -->
-  <xsl:template match="//fhir:entry/fhir:resource[not(fhir:Schedule) and not(fhir:Slot) and not(fhir:HealthcareService) and not(fhir:Practitioner) and not(fhir:PractitionerRole) and not(fhir:Location) and not (fhir:Appointment)][//fhir:MessageHeader/fhir:eventCoding/fhir:code/@value='booking-request']/*">
+  <xsl:template match="//fhir:entry/fhir:resource[not(fhir:Schedule) and not(fhir:Slot) and not(fhir:HealthcareService) and not(fhir:Practitioner) and not(fhir:PractitionerRole) and not(fhir:Location) and not (fhir:Appointment) and not (fhir:MessageHeader)][//fhir:MessageHeader/fhir:eventCoding/fhir:code/@value='booking-request']/*">
     <xsl:choose>
       <xsl:when test="not(fhir:id)">
-    <xsl:copy>
-        <xsl:variable name="uuid" select="lower-case(uuid:get-uuid(.))" />
-        <id xmlns="http://hl7.org/fhir" value="{$uuid}" />
-      <xsl:apply-templates select="@*|node()" />
-    </xsl:copy>
-      </xsl:when>
-            <xsl:otherwise>
-        <xsl:attribute name="value">
+        <xsl:copy>
           <xsl:variable name="uuid" select="lower-case(uuid:get-uuid(.))" />
-          <xsl:value-of select="$uuid" />
-        </xsl:attribute>
+          <id xmlns="http://hl7.org/fhir" value="{$uuid}" />
+          <xsl:apply-templates select="@*|node()" />
+        </xsl:copy>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:apply-templates select="@*|node()" />
       </xsl:otherwise>
     </xsl:choose>
+  </xsl:template>
+  <!-- Update a generated UUID to each resource if not already present -->
+  <xsl:template match="//fhir:entry/fhir:resource[not(fhir:Schedule) and not(fhir:Slot) and not(fhir:HealthcareService) and not(fhir:Practitioner) and not(fhir:PractitionerRole) and not(fhir:Location) and not (fhir:Appointment) and not (fhir:MessageHeader)][//fhir:MessageHeader/fhir:eventCoding/fhir:code/@value='booking-request']/*/fhir:id/@value">
+    <xsl:attribute name="value">
+      <xsl:variable name="uuid" select="lower-case(uuid:get-uuid(.))" />
+      <xsl:value-of select="$uuid" />
+    </xsl:attribute>
   </xsl:template>
   <!-- Substitute a specific id for Appointment -->
   <xsl:template match="//fhir:entry/fhir:resource[fhir:Appointment]/*">

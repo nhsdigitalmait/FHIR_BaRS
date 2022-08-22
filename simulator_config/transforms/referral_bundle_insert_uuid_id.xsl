@@ -4,7 +4,7 @@
   <xsl:param name ="servicerequest_uuid" select="'22222222-2222-2222-2222-222222222222'" />
   <xsl:output method="xml" indent="yes" omit-xml-declaration="yes" />
   <!-- Add a generated UUID to each resource if not already present -->
-  <xsl:template match="//fhir:entry/fhir:resource[not(fhir:ServiceRequest)]/*">
+  <xsl:template match="//fhir:entry/fhir:resource[not(fhir:ServiceRequest) and not (fhir:MessageHeader)]/*">
     <xsl:copy>
       <xsl:if test="not(fhir:id)">
         <xsl:variable name="uuid" select="lower-case(uuid:get-uuid(.))" />

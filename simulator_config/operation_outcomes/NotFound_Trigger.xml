@@ -1,16 +1,16 @@
 <OperationOutcome xmlns="http://hl7.org/fhir">
-	<meta>
-		<profile value="https://fhir.nhs.uk/STU3/StructureDefinition/Spine-OperationOutcome-1"/>
-	</meta>
-	<issue>
-		<severity value="error"/>
-		<code value="invalid"/>
-		<details>
-			<coding>
-				<system value="https://fhir.nhs.uk/STU3/CodeSystem/Spine-ErrorOrWarningCode-1"/>
-				<code value="NOTFOUND_SIMULATOR_TRIGGER"/>
-				<display value="The request message did not contain any of the triggers to return a simulator response. As no response was selected this text file has been returned."/>
-			</coding>
-		</details>
-	</issue>
+   <meta>
+      <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-OperationOutcome"/>
+   </meta>
+   <issue>
+      <severity value="error"/>
+      <code value="invalid"/>
+      <details>
+         <coding>
+            <system value="https://fhir.nhs.uk/Codesystem/http-error-codes"/>
+            <code value="REC_BAD_REQUEST"/>
+         </coding>
+      </details>
+      <diagnostics value="The request message did not contain any of the triggers defined for the TKW Test Harness to return a simulator response."/>
+   </issue>
 </OperationOutcome>
