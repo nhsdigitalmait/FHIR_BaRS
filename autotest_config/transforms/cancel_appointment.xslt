@@ -18,4 +18,9 @@
 		<xsl:attribute name="value">cancelled</xsl:attribute>
 	</xsl:template>
 
+	<!-- put slot back to free ??? -->
+	<xsl:template match="fhir:Slot/fhir:status/@value">
+		<xsl:attribute name="value">free</xsl:attribute>
+	</xsl:template>
+
 </xsl:stylesheet>

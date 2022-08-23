@@ -199,6 +199,9 @@ validation_service_request_ds circularwritabletdv __TKWROOT__/config/FHIR_BaRS/a
 END DATASOURCES
 
 BEGIN PASSFAIL
+
+#Every returned slot must have a status of free (if free was specified)
+slots_status_free synchronousxpath boolean(count(/fhir:Bundle/fhir:entry/fhir:resource/fhir:Slot/fhir:status[@value='free']) = count(/fhir:Bundle/fhir:entry/fhir:resource/fhir:Slot)) matches "^true$"
 #
 # Response checks
 #
