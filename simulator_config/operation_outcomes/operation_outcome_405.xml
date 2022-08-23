@@ -4,7 +4,7 @@
    </meta>
    <issue>
       <severity value="error"/>
-      <code value="not supported"/>
+      <code value="not-supported"/>
       <details>
          <coding>
             <system value="https://fhir.nhs.uk/Codesystem/http-error-codes"/>
