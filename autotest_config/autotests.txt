@@ -104,7 +104,6 @@ ValidationRequest_Rank1NotOneself \
 ValidationRequest_NoRank1 \
 ValidationRequest_TwoRank1 \
 ValidationRequest_SS_Unsafe \
-ValidationRequest_SS_Safe \
 ValidationRequest_SS_Unknown \
 ValidationRequest_NoLocation \
 ValidationRequest_NoUPRN \
