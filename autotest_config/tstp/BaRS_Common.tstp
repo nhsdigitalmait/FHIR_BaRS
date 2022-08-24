@@ -38,7 +38,7 @@ IssueDetailsCodeMethodNotAllowed CHAIN SYNC issue_details_code_method_not_allowe
 IssueCodeNotSupported CHAIN SYNC issue_code_not_supported  TEXT "Response contains a root fhir:OperationOutcome reporting 'not-supported' issue code"
 IssueCodeRequired CHAIN SYNC issue_code_required  TEXT "Response contains a root fhir:OperationOutcome reporting 'required' issue code"
 IssueCodeInvariant CHAIN SYNC issue_code_invariant  TEXT "Response contains a root fhir:OperationOutcome reporting 'invariant' issue code"
-IssueCodeValueOrInvalid CHAIN SYNC issue_code_invalid  TEXT "Response contains a root fhir:OperationOutcome reporting 'value' or 'invalid' issue code"
+IssueCodeValueOrInvalid CHAIN SYNC issue_code_value_or_invalid  TEXT "Response contains a root fhir:OperationOutcome reporting 'value' or 'invalid' issue code"
 IssueCodeRequired CHAIN SYNC issue_code_required  TEXT "Response contains a root fhir:OperationOutcome reporting 'required' issue code"
 IssueCodeNotFound CHAIN SYNC issue_code_not_found  TEXT "Response contains a root fhir:OperationOutcome reporting 'not-found' issue code"
 IssueCodeInvalid CHAIN SYNC issue_code_invalid  TEXT "Response contains a root fhir:OperationOutcome reporting 'invalid' issue code"
@@ -61,7 +61,7 @@ AppointmentIsBooked CHAIN SYNC appt_is_booked TEXT "Appointment status must be b
 
 
 # Most of the operation outcome checks will be satisified by the validation
-#OperationOutcomeHasId CHAIN SYNC outcome_has_id TEXT "Operation outcome id is mandatory. SCAL P37"
+#OperationOutcomeHasId CHAIN SYNC outcome_has_id TEXT "Operation outcome id is mandatory.
 #
 ResponseIsXml CHAIN SYNC httpheadercheckcontenttypeisxml TEXT "Response has fhir xml Content-type"
 ResponseIsJson CHAIN SYNC httpheadercheckcontenttypeisjson TEXT "Response has fhir json Content-type"

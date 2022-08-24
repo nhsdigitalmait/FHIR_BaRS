@@ -8,18 +8,18 @@ SCRIPT BaRS_SearchForFreeSlots
 #  Search parameters spec implies thay are all optional https://developer.nhs.uk/apis/nhsbooking-2.0.0-beta/search_free_slots.html
 #  
 #status=free  C27 => optional
-#start=le mandatory le or lt See C28
-#start=ge optional gt or ge See  C29
-#Schedule.actor.healthcareservice mandatory C30
+#start=le mandatory le or lt 
+#start=ge optional gt or ge 
+#Schedule.actor.healthcareservice mandatory 
 #
 #_include in response parameters
 #
-#_include=Slot:Schedule mandatory C31
-#_include=Schedule:actor%3APractitioner mandatory SCAL P19 implies optional C33 States mandatory
-#_include=Schedule:actor%3APractitionerRole mandatory SCAL P20 implies optional C34 States mandatory
-#_include=Schedule:actor%3AHealthcareService mandatory SCAL P21 implies optional C32 states Mandatory
+#_include=Slot:Schedule mandatory
+#_include=Schedule:actor%3APractitioner mandatory 
+#_include=Schedule:actor%3APractitionerRole mandatory 
+#_include=Schedule:actor%3AHealthcareService mandatory 
 #_include=HealthcareService.location Not mentioned
-#_include=HealthcareService.providedBy SCAL P21 implies optional
+#_include=HealthcareService.providedBy 
 #
 #
 
@@ -68,9 +68,6 @@ SFFSWithInvalidStatus TESTS SFFS_invalid_status ResponseIsOperationOutcome Issue
 
 
 SFFSWithFreeAndBusySlots TESTS SFFSWithValidParameters_search_for_free_and_busy_slots ResponseIsBundle
-#
-
-SFFSWithFreeSlotsWithRevIncludes TESTS SFFSWithValidParameters_search_for_free_slots_with_revincludes ResponseIsBundle
 #
 
 SFFSWithFreeSlotsWithGzipEncoding TESTS SFFSWithValidParameters_search_for_free_slots_with_gzip_encoding ResponseIsBundle ResponseWasGzip
@@ -163,8 +160,6 @@ SFFS_no_include_schedule SEND_TKW empty_file TO __TO_ENDPOINT__/Slot?Schedule.ac
 
 SFFS_no_include_healthcare_service SEND_TKW empty_file TO __TO_ENDPOINT__/Slot?Schedule.actor%3AHealthcareService=__HCS__&start=ge__START_SLOT_TIME__&start=le__END_SLOT_TIME__&status=free&_include=Schedule%3Aactor%3APractitioner&_include=Schedule%3Aactor%3APractitionerRole&_include=Schedule%3Aactor%3AHealthcareService&_include=HealthcareService.location&_include=HealthcareService.providedBy FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ SYNC httpstatuscheck400 WITH_PROPERTYSET base+webservices+get WITH_HTTPHEADERS credentials+default_accept+Oauth2AccessToken+integrity TEXT "HTTP Response must be HTTP 400"
 #
-# UECABS-144 5 includes and 5 rev includes
-SFFSWithValidParameters_search_for_free_slots_with_revincludes SEND_TKW empty_file TO __TO_ENDPOINT__/Slot?Schedule.actor%3AHealthcareService=__HCS__&start=ge__START_SLOT_TIME__&start=le__END_SLOT_TIME__&status=free&_include=Slot%3Aschedule&_include=Schedule%3Aactor%3APractitioner&_include=Schedule%3Aactor%3APractitionerRole&_include=Schedule%3Aactor%3AHealthcareService&_include=HealthcareService.location&_include=HealthcareService.providedBy&_revinclude=Slot%3Aschedule&_revinclude=Schedule%3Aactor%3APractitioner&_revinclude=Schedule%3Aactor%3APractitionerRole&_revinclude=Schedule%3Aactor%3AHealthcareService&_revinclude=HealthcareService.location&_revinclude=HealthcareService.providedBy FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ SYNC ok WITH_PROPERTYSET base+webservices+get WITH_HTTPHEADERS credentials+default_accept+Oauth2AccessToken+integrity TEXT "HTTP Response must be HTTP 200"
 #
 SFFSWithValidParameters_search_for_free_slots_with_gzip_encoding SEND_TKW empty_file TO __TO_ENDPOINT__/Slot?Schedule.actor%3AHealthcareService=__HCS__&start=ge__START_SLOT_TIME__&start=le__END_SLOT_TIME__&status=free&_include=Slot%3Aschedule&_include=Schedule%3Aactor%3APractitioner&_include=Schedule%3Aactor%3APractitionerRole&_include=Schedule%3Aactor%3AHealthcareService&_include=HealthcareService.location&_include=HealthcareService.providedBy FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ SYNC ok WITH_PROPERTYSET base+webservices+get WITH_HTTPHEADERS credentials+Oauth2AccessToken+accept_gzip+integrity TEXT "HTTP Response must be HTTP 200"
 
