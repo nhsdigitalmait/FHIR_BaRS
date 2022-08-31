@@ -291,7 +291,7 @@ response_is_not_echoing_ids synchronousxpath count(//fhir:id[matches(@value,'^__
 responseisbundle_extracting_referral_serviceid synchronousxpath /fhir:Bundle exists EXTRACTOR referral_service_request_extractor
 responseisbundle_extracting_validation_serviceid synchronousxpath /fhir:Bundle exists EXTRACTOR validation_service_request_extractor 
 
-bundleidscorrelate xpathcorrelationcheck /fhir:Bundle/fhir:id/@value
+bundleidscorrelate synchronousxpathcorrelationcheck /fhir:Bundle/fhir:id/@value
 END PASSFAIL
 
 #
