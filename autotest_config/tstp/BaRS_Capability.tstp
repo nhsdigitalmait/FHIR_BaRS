@@ -37,12 +37,12 @@ ResponseIsCapabilityStatement CHAIN SYNC response_is_capability_statement TEXT "
 
 CapabilityTest_xml_accept_gzip SEND_TKW empty_file TO __TO_ENDPOINT__/metadata FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ SYNC ok WITH_PROPERTYSET base+webservices+get WITH_HTTPHEADERS credentials+Oauth2AccessToken+xml_accept+accept_gzip+integrity TEXT "HTTP Response must be HTTP 200"
 
-MessageDefinitionTest_xml_accept SEND_TKW empty_file TO __TO_ENDPOINT__/MessageDefinition?context=https%3A%2F%2Ffhir.nhs.uk%2FId%2Fdos-service-id%7C__TO_SERVICE__ FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ SYNC ok WITH_PROPERTYSET base+webservices+get WITH_HTTPHEADERS credentials+Oauth2AccessToken+xml_accept+integrity TEXT "HTTP Response must be HTTP 200"
-MessageDefinitionTest_json_accept SEND_TKW empty_file TO __TO_ENDPOINT__/MessageDefinition?context=https%3A%2F%2Ffhir.nhs.uk%2FId%2Fdos-service-id%7C__TO_SERVICE__ FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ SYNC ok WITH_PROPERTYSET base+webservices+get WITH_HTTPHEADERS credentials+Oauth2AccessToken+json_accept+integrity TEXT "HTTP Response must be HTTP 200"
+MessageDefinitionTest_xml_accept SEND_TKW empty_file TO __TO_ENDPOINT__/MessageDefinition?context=__TO_SERVICE__ FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ SYNC ok WITH_PROPERTYSET base+webservices+get WITH_HTTPHEADERS credentials+Oauth2AccessToken+xml_accept+integrity TEXT "HTTP Response must be HTTP 200"
+MessageDefinitionTest_json_accept SEND_TKW empty_file TO __TO_ENDPOINT__/MessageDefinition?context=__TO_SERVICE__ FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ SYNC ok WITH_PROPERTYSET base+webservices+get WITH_HTTPHEADERS credentials+Oauth2AccessToken+json_accept+integrity TEXT "HTTP Response must be HTTP 200"
 
 MessageDefinitionTest_no_context SEND_TKW empty_file TO __TO_ENDPOINT__/MessageDefinition FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ SYNC httpstatuscheck400 WITH_PROPERTYSET base+webservices+get WITH_HTTPHEADERS credentials+Oauth2AccessToken+json_accept+integrity TEXT "HTTP Response must be HTTP 400"
 
-MessageDefinitionTest_context_does_not_exist SEND_TKW empty_file TO __TO_ENDPOINT__/MessageDefinition?context=https%3A%2F%2Ffhir.nhs.uk%2FId%2Fdos-service-id%7C99999999999999 FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ SYNC httpstatuscheck400 WITH_PROPERTYSET base+webservices+get WITH_HTTPHEADERS credentials+Oauth2AccessToken+json_accept+integrity TEXT "HTTP Response must be HTTP 400"
+MessageDefinitionTest_context_does_not_exist SEND_TKW empty_file TO __TO_ENDPOINT__/MessageDefinition?context=99999999999999 FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ SYNC httpstatuscheck400 WITH_PROPERTYSET base+webservices+get WITH_HTTPHEADERS credentials+Oauth2AccessToken+json_accept+integrity TEXT "HTTP Response must be HTTP 400"
 
 END TESTS
 
