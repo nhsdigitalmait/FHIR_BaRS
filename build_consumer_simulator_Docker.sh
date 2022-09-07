@@ -3,7 +3,7 @@
 # usage build_consumer_simulator_Docker.sh [<userid>]
 # if no user id is provided it defaults to 1000 and the tag is just the version number
 #
-TAG=0.3
+TAG=0.4
 
 if [[ "$1" == "" ]]
 then
@@ -15,8 +15,11 @@ fi
 
 IMAGENAME=tkw_bars_consumer_simulator
 PROJECT=FHIR_BaRS
+VALIDATION_CONFIG=validator_config/consumer_simulator_validator.conf
 
 echo "Building $IMAGENAME:$TAG"
+grep VALIDATION-RULESET-VERSION $VALIDATION_CONFIG
+grep VALIDATION-RULESET-TIMESTAMP $VALIDATION_CONFIG
 read -n 1 -p "Press any key to continue..."
 echo building
 

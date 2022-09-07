@@ -140,17 +140,6 @@
           <postalCode value="LS1 4HR" />
         </address>
         <contact>
-          <extension url="https://fhir.hl7.org.uk/StructureDefinition/Extension-UKCore-ContactPreference">
-            <extension url="PreferredContactMethod">
-              <valueCodeableConcept>
-                <coding>
-                  <system value="https://fhir.hl7.org.uk/CodeSystem/UKCore-PreferredContactMethod" />
-                  <code value="3" />
-                  <display value="Telephone" />
-                </coding>
-              </valueCodeableConcept>
-            </extension>
-          </extension>
           <extension url="https://fhir.hl7.org.uk/StructureDefinition/Extension-UKCore-ContactRank">
             <valuePositiveInt value="1" />
           </extension>
@@ -180,17 +169,6 @@
           </telecom>
         </contact>
         <contact>
-          <extension url="https://fhir.hl7.org.uk/StructureDefinition/Extension-UKCore-ContactPreference">
-            <extension url="PreferredContactMethod">
-              <valueCodeableConcept>
-                <coding>
-                  <system value="https://fhir.hl7.org.uk/CodeSystem/UKCore-PreferredContactMethod" />
-                  <code value="3" />
-                  <display value="Telephone" />
-                </coding>
-              </valueCodeableConcept>
-            </extension>
-          </extension>
           <extension url="https://fhir.hl7.org.uk/StructureDefinition/Extension-UKCore-ContactRank">
             <valuePositiveInt value="2" />
           </extension>
