@@ -307,6 +307,12 @@
           <postalCode value="LS10 4YU" />
         </address>
         <contact>
+          <relationship>
+            <coding>
+              <system value="https://fhir.hl7.org.uk/ValueSet/UKCore-PersonRelationshipType" />
+              <code value="ONESELF" />
+            </coding>
+          </relationship>
           <extension url="https://fhir.hl7.org.uk/StructureDefinition/Extension-UKCore-ContactRank">
             <valuePositiveInt value="1" />
           </extension>
@@ -333,7 +339,7 @@
           <relationship>
             <coding>
               <!--    Emergency contact person   -->
-              <system value="http://terminology.hl7.org/CodeSystem/v2-0131" />
+              <system value="https://fhir.hl7.org.uk/ValueSet/UKCore-PersonRelationshipType" />
               <code value="EP" />
             </coding>
           </relationship>
