@@ -21,7 +21,6 @@ SFFSWithValidParameters_includes \
 SFFSWithValidParameters_includes_slots_only \
 SFFSNoSlots_HappyPath \
 SFFSInvalid \
-SFFSForbidden \
 SFFSWrongMethod \
 SFFSWithBusySlots \
 SFFSWithNoIncludes \

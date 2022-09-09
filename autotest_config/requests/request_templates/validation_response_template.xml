@@ -277,10 +277,6 @@
           <lastUpdated value="2021-11-26T15:15:00+00:00" />
           <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-Patient" />
         </meta>
-        <!--   added birthSex extension   -->
-        <extension url="https://fhir.hl7.org.uk/StructureDefinition/Extension-UKCore-BirthSex">
-          <valueCode value="F" />
-        </extension>
         <!--   added EthnicCategory extension   -->
         <extension url="https://fhir.hl7.org.uk/StructureDefinition/Extension-UKCore-EthnicCategory">
           <valueCodeableConcept>

@@ -208,6 +208,7 @@ slots_status_free synchronousxpath boolean(count(/fhir:Bundle/fhir:entry/fhir:re
 ok httpok
 response_is_bundle synchronousxpath /fhir:Bundle exists
 
+response_is_appt synchronousxpath /fhir:Bundle/fhir:entry/fhir:resource/fhir:Appointment exists
 response_is_appt_extracting1 synchronousxpath /fhir:Bundle/fhir:entry/fhir:resource/fhir:Appointment exists EXTRACTOR slots_free1_extractor
 response_is_empty_payload_extracting1 synchronousxpath / doesnotexist EXTRACTOR slots_free1_extractor
 response_is_bundle_extracting1 synchronousxpath /fhir:Bundle exists EXTRACTOR slots_free1_extractor
