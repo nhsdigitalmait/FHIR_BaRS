@@ -21,7 +21,7 @@ SearchCountIsZero CHAIN SYNC search_count_is_zero TEXT "Search count must be zer
 SearchCountIsGreaterThanZero CHAIN SYNC search_count_is_greater_than_zero TEXT "Search count must be greater than zero"
 
 # happy path
-BookAppointment SEND_TKW book_appointment_slot1 TO __TO_ENDPOINT__/$process-message FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ PRETRANSFORM __TKWROOT__/config/FHIR_BaRS/autotest_config/transforms/remove_appt_id.xslt APPLYPRETRANSFORMTO data SYNC ok WITH_PROPERTYSET base+webservices+post WITH_HTTPHEADERS credentials+Oauth2AccessToken+default_content+default_accept+integrity TEXT "HTTP Response must be HTTP 200"
+BookAppointment SEND_TKW book_appointment_slot1 TO __TO_ENDPOINT__/$process-message FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ PRETRANSFORM __TKWROOT__/config/FHIR_BaRS/autotest_config/transforms/remove_appt_id.xslt APPLYPRETRANSFORMTO data SYNC ok WITH_PROPERTYSET base+webservices+post WITH_HTTPHEADERS credentials+Oauth2AccessToken+default_content+default_accept+integrity TEXT "HTTP Response must be HTTP 200 SCAL BR-CONS-BOOK BR-PAT-REG"
 
 ResponseIsOperationOutcome CHAIN SYNC operation_outcome TEXT "Response contains a root fhir:OperationOutcome element"
 
@@ -57,7 +57,7 @@ ResponseIsEmptyPayloadExtracting1 CHAIN SYNC response_is_empty_payload_extractin
 ResponseIsBundleExtracting1 CHAIN SYNC response_is_bundle_extracting1 TEXT "Response contains a root fhir:Bundle element"
 
 LocationIsReturned CHAIN SYNC location_is_returned TEXT "Location must be returned in an http header"
-AppointmentIsBooked CHAIN SYNC appt_is_booked TEXT "Appointment status must be booked SCAL C-APP-RES-STAT-BOOKED"
+AppointmentIsBooked CHAIN SYNC appt_is_booked TEXT "Appointment status must be booked"
 
 
 # Most of the operation outcome checks will be satisified by the validation

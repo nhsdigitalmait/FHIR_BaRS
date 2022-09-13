@@ -24,21 +24,21 @@ GetMessageDefinition_context_does_not_exist TESTS MessageDefinitionTest_context_
 END SCHEDULES
 
 BEGIN TESTS
-CapabilityTest_xml_accept SEND_TKW empty_file TO __TO_ENDPOINT__/metadata FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ SYNC ok WITH_PROPERTYSET base+webservices+get WITH_HTTPHEADERS credentials+Oauth2AccessToken+xml_accept+integrity TEXT "HTTP Response must be HTTP 200"
-CapabilityTest_json_accept SEND_TKW empty_file TO __TO_ENDPOINT__/metadata FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ SYNC ok WITH_PROPERTYSET base+webservices+get WITH_HTTPHEADERS credentials+Oauth2AccessToken+json_accept+integrity TEXT "HTTP Response must be HTTP 200"
+CapabilityTest_xml_accept SEND_TKW empty_file TO __TO_ENDPOINT__/metadata FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ SYNC ok WITH_PROPERTYSET base+webservices+get WITH_HTTPHEADERS credentials+Oauth2AccessToken+xml_accept+integrity TEXT "HTTP Response must be HTTP 200 SCAL BR_CAPA_RESO"
+CapabilityTest_json_accept SEND_TKW empty_file TO __TO_ENDPOINT__/metadata FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ SYNC ok WITH_PROPERTYSET base+webservices+get WITH_HTTPHEADERS credentials+Oauth2AccessToken+json_accept+integrity TEXT "HTTP Response must be HTTP 200 SCAL BR_CAPA_RESO"
 
-CapabilityTest_xml_parameter SEND_TKW empty_file TO __TO_ENDPOINT__/metadata?_format=application%2Ffhir%2Bxml FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ SYNC ok WITH_PROPERTYSET base+webservices+get WITH_HTTPHEADERS credentials+Oauth2AccessToken+integrity TEXT "HTTP Response must be HTTP 200"
-CapabilityTest_json_parameter SEND_TKW empty_file TO __TO_ENDPOINT__/metadata?_format=application%2Ffhir%2Bjson FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ SYNC ok WITH_PROPERTYSET base+webservices+get WITH_HTTPHEADERS credentials+Oauth2AccessToken+integrity TEXT "HTTP Response must be HTTP 200"
+CapabilityTest_xml_parameter SEND_TKW empty_file TO __TO_ENDPOINT__/metadata?_format=application%2Ffhir%2Bxml FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ SYNC ok WITH_PROPERTYSET base+webservices+get WITH_HTTPHEADERS credentials+Oauth2AccessToken+integrity TEXT "HTTP Response must be HTTP 200 SCAL BR_CAPA_RESO"
+CapabilityTest_json_parameter SEND_TKW empty_file TO __TO_ENDPOINT__/metadata?_format=application%2Ffhir%2Bjson FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ SYNC ok WITH_PROPERTYSET base+webservices+get WITH_HTTPHEADERS credentials+Oauth2AccessToken+integrity TEXT "HTTP Response must be HTTP 200 BR_CAPA_RESO SCAL BR_RESPON_FORMAT"
 
-CapabilityTest_xml_parameter_json_accept SEND_TKW empty_file TO __TO_ENDPOINT__/metadata?_format=application%2Ffhir%2Bxml FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ SYNC ok WITH_PROPERTYSET base+webservices+get WITH_HTTPHEADERS credentials+Oauth2AccessToken+json_accept+integrity TEXT "HTTP Response must be HTTP 200"
-CapabilityTest_json_parameter_xml_accept SEND_TKW empty_file TO __TO_ENDPOINT__/metadata?_format=application%2Ffhir%2Bjson FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ SYNC ok WITH_PROPERTYSET base+webservices+get WITH_HTTPHEADERS credentials+Oauth2AccessToken+xml_accept+integrity TEXT "HTTP Response must be HTTP 200"
+CapabilityTest_xml_parameter_json_accept SEND_TKW empty_file TO __TO_ENDPOINT__/metadata?_format=application%2Ffhir%2Bxml FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ SYNC ok WITH_PROPERTYSET base+webservices+get WITH_HTTPHEADERS credentials+Oauth2AccessToken+json_accept+integrity TEXT "HTTP Response must be HTTP 200 SCAL BR_CAPA_RESO"
+CapabilityTest_json_parameter_xml_accept SEND_TKW empty_file TO __TO_ENDPOINT__/metadata?_format=application%2Ffhir%2Bjson FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ SYNC ok WITH_PROPERTYSET base+webservices+get WITH_HTTPHEADERS credentials+Oauth2AccessToken+xml_accept+integrity TEXT "HTTP Response must be HTTP 200 SCAL BR_CAPA_RESO BR_RESPON_FORMAT"
 
-ResponseIsCapabilityStatement CHAIN SYNC response_is_capability_statement TEXT "Response must be a CapabilityStatement"
+ResponseIsCapabilityStatement CHAIN SYNC response_is_capability_statement TEXT "Response must be a CapabilityStatement SCAL BR_CAPA_RESO"
 
 CapabilityTest_xml_accept_gzip SEND_TKW empty_file TO __TO_ENDPOINT__/metadata FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ SYNC ok WITH_PROPERTYSET base+webservices+get WITH_HTTPHEADERS credentials+Oauth2AccessToken+xml_accept+accept_gzip+integrity TEXT "HTTP Response must be HTTP 200"
 
-MessageDefinitionTest_xml_accept SEND_TKW empty_file TO __TO_ENDPOINT__/MessageDefinition?context=__TO_SERVICE__ FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ SYNC ok WITH_PROPERTYSET base+webservices+get WITH_HTTPHEADERS credentials+Oauth2AccessToken+xml_accept+integrity TEXT "HTTP Response must be HTTP 200"
-MessageDefinitionTest_json_accept SEND_TKW empty_file TO __TO_ENDPOINT__/MessageDefinition?context=__TO_SERVICE__ FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ SYNC ok WITH_PROPERTYSET base+webservices+get WITH_HTTPHEADERS credentials+Oauth2AccessToken+json_accept+integrity TEXT "HTTP Response must be HTTP 200"
+MessageDefinitionTest_xml_accept SEND_TKW empty_file TO __TO_ENDPOINT__/MessageDefinition?context=__TO_SERVICE__ FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ SYNC ok WITH_PROPERTYSET base+webservices+get WITH_HTTPHEADERS credentials+Oauth2AccessToken+xml_accept+integrity TEXT "HTTP Response must be HTTP 200 SCAL RR-MSG-DEF-RESO"
+MessageDefinitionTest_json_accept SEND_TKW empty_file TO __TO_ENDPOINT__/MessageDefinition?context=__TO_SERVICE__ FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ SYNC ok WITH_PROPERTYSET base+webservices+get WITH_HTTPHEADERS credentials+Oauth2AccessToken+json_accept+integrity TEXT "HTTP Response must be HTTP 200 SCAL RR-MSG-DEF-RESO"
 
 MessageDefinitionTest_no_context SEND_TKW empty_file TO __TO_ENDPOINT__/MessageDefinition FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ SYNC httpstatuscheck400 WITH_PROPERTYSET base+webservices+get WITH_HTTPHEADERS credentials+Oauth2AccessToken+json_accept+integrity TEXT "HTTP Response must be HTTP 400"
 
