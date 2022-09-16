@@ -147,6 +147,7 @@
             <coding>
               <system value="https://fhir.hl7.org.uk/ValueSet/UKCore-PersonRelationshipType" />
               <code value="ONESELF" />
+              <displa value="self" />
             </coding>
           </relationship>
           <telecom>
@@ -176,6 +177,7 @@
             <coding>
               <system value="https://fhir.hl7.org.uk/ValueSet/UKCore-PersonRelationshipType" />
               <code value="NEPHEW" />
+              <display value="nephew" />
             </coding>
           </relationship>
           <name>

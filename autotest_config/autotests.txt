@@ -59,6 +59,7 @@ CancelAppointment_HappyPath \
 CancelAppointment_DifferencesDetected \
 ReferralRequest_999toCAS_xml_accept \
 ReferralRequest_999toCAS_json_accept \
+ReferralRequest_999toCAS_Basic \
 ReferralRequest_999toCAS_NotVerified \
 ReferralRequest_999toCAS_NoNhsNo \
 ReferralRequest_999toCAS_Rank1NotOneself \
@@ -79,6 +80,7 @@ ReferralRequest_999toCAS_WrongMethod \
 ReferralRequest_999toCAS_NoVersionID \
 ReferralRequest_111toED_xml_accept \
 ReferralRequest_111toED_json_accept \
+ReferralRequest_111toED_Basic \
 ReferralRequest_111toED_NotVerified \
 ReferralRequest_111toED_NoNhsNo \
 ReferralRequest_111toED_Rank1NotOneself \

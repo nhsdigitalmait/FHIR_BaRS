@@ -108,7 +108,10 @@
         <performer>
           <!--       Receiving/performing Organization/HealthcareService       -->
           <reference value="urn:uuid:d5ffd0cd-ec7e-48a1-84f1-91f4c0eb8fc5" />
-        </performer>
+	    </performer>
+	    <locationReference>
+          <reference value="urn:uuid:2ec99e82-a0af-4b70-bd53-1869d84b2ad1"/>
+        </locationReference>
         <supportingInfo>
           <reference value="urn:uuid:65508934-c9e6-46d2-a393-af096b502daf" />
           <display value="Rejected Services - Patient Choice in Service Selection - Details" />
@@ -310,6 +313,7 @@
             <coding>
               <system value="https://fhir.hl7.org.uk/ValueSet/UKCore-PersonRelationshipType" />
               <code value="ONESELF" />
+              <display value="self" />
             </coding>
           </relationship>
           <extension url="https://fhir.hl7.org.uk/StructureDefinition/Extension-UKCore-ContactRank">
@@ -340,6 +344,7 @@
               <!--       Emergency contact person      -->
               <system value="https://fhir.hl7.org.uk/ValueSet/UKCore-PersonRelationshipType" />
               <code value="EP" />
+              <display value="Emergency Contact Person" />
             </coding>
           </relationship>
           <name>
@@ -428,6 +433,28 @@
       </Organization>
     </resource>
   </entry>
+  <entry>
+      <fullUrl value="urn:uuid:2ec99e82-a0af-4b70-bd53-1869d84b2ad1"/>
+      <resource>
+         <Location xmlns="http://hl7.org/fhir">
+            <meta>
+               <lastUpdated value="2021-11-26T15:00:00+00:00"/>
+               <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-Location"/>
+            </meta>
+            <name value="Briggate corner"/>
+            <address>
+               <line value="20 The Headrow"/>
+               <city value="Leeds"/>
+               <postalCode value="LS1 6PT"/>
+               <country value="UK"/>
+            </address>
+            <position>
+               <longitude value="53.79957987629337"/>
+               <latitude value="-1.5417544014466307"/>
+            </position>
+         </Location>
+      </resource>
+   </entry>
   <entry>
     <fullUrl value="urn:uuid:07dec093-be12-42f4-ade5-0d582d255ef1" />
     <resource>
