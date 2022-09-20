@@ -441,6 +441,7 @@
                <lastUpdated value="2021-11-26T15:00:00+00:00"/>
                <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-Location"/>
             </meta>
+            <id value="__LOCATION_ID__"/>
             <name value="Briggate corner"/>
             <address>
                <line value="20 The Headrow"/>
