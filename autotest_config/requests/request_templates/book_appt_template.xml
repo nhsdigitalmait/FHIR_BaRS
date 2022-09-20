@@ -91,6 +91,7 @@
                <lastUpdated value="2021-10-11T15:23:30+00:00"/>
                <profile value="https://fhir.nhs.uk/StructureDefinition/BARSServiceRequest-request-referral"/>
             </meta>
+			<id value="__SERVICE_REQUEST_ID__" />
             <status value="active"/>
             <intent value="plan"/>
             <category>
@@ -431,6 +432,7 @@
                <lastUpdated value="2021-10-11T15:23:30+00:00"/>
                <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-Practitioner"/>
             </meta>
+			<id value="__PRACTITIONER2_ID__" />
             <identifier>
                <system value="https://fhir.nhs.uk/Id/sds-role-profile-id"/>
                <value value="PT2489"/>
@@ -455,6 +457,7 @@
                <lastUpdated value="2021-10-11T15:23:30+00:00"/>
                <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-PractitionerRole"/>
             </meta>
+			<id value="__PRACTITIONER_ROLE2_ID__" />
             <practitioner>
                <reference value="urn:uuid:7d948662-bade-450e-b6c5-9bb6ee39cb56"/>
             </practitioner>
