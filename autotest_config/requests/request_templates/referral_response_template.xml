@@ -311,7 +311,7 @@
             <coding>
               <system value="https://fhir.hl7.org.uk/ValueSet/UKCore-PersonRelationshipType" />
               <code value="ONESELF" />
-              <displa value="self" />
+              <display value="self" />
             </coding>
           </relationship>
           <extension url="https://fhir.hl7.org.uk/StructureDefinition/Extension-UKCore-ContactRank">
