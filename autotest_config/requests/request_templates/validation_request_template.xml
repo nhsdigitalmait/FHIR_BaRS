@@ -276,9 +276,10 @@
         </identifier>
         <name>
           <use value="official" />
-          <text value="Mrs Julie Jones" />
+          <text value="Mrs Julie Jane Jones" />
           <family value="Jones" />
           <given value="Julie" />
+          <given value="Jane" />
           <prefix value="Mrs" />
         </name>
         <gender value="female" />
@@ -591,21 +592,53 @@
           <lastUpdated value="2021-11-26T15:00:00+00:00" />
           <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-Observation" />
         </meta>
-	<id value="__OBSERVATION_ID__"/>
+   	    <id value="__OBSERVATION_ID__"/>
         <status value="final" />
         <code>
           <coding>
-            <system value="http://snomed.info/sct" />
-            <code value="271594007" />
-            <display value="Syncope (disorder)" />
+            <system value="https://fhir.hl7.org.uk/StructureDefinition/Extension-UKCore-BirthSex" />
+            <code value="M" />
+            <display value="Male" />
+            <!-- TODO is this right? -->
+            <text value="Birth Sex"/>
           </coding>
         </code>
         <subject>
           <reference value="urn:uuid:9589fb37-87a2-48d8-968f-b371429208a8" />
-        </subject>
+	    </subject>
+	    <encounter>
+	      <reference value="urn:uuid:8c63d621-4d86-4f57-8699-e8e22d49935d"/>
+	    </encounter>
         <effectiveDateTime value="2021-11-26T15:00:00+00:00" />
       </Observation>
     </resource>
+  </entry>
+  <entry>
+      <fullUrl value="urn:uuid:c584542a-a1c6-4b77-a3e8-4a5b0b9cea00"/>
+      <resource>
+         <Observation xmlns="http://hl7.org/fhir">
+            <id value="9c2b9f44-154a-42d3-9b43-d2fba2fb4c85"/>
+            <meta>
+               <lastUpdated value="2022-01-26T15:00:00+00:00"/>
+               <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-Observation"/>
+            </meta>
+            <id value="__OBSERVATION2_ID__"/>
+            <status value="final"/>
+            <code>
+               <text value="Patient Estimated Age"/>
+            </code>
+            <subject>
+               <reference value="urn:uuid:9589fb37-87a2-48d8-968f-b371429208a8"/>
+            </subject>
+            <effectiveDateTime value="2022-01-26T15:00:00+00:00"/>
+            <valueQuantity>
+               <value value="32"/>
+               <unit value="years"/>
+               <system value="https://ucum.org/trac"/>
+               <code value="year"/>
+            </valueQuantity>
+         </Observation>
+      </resource>
   </entry>
   <entry>
     <fullUrl value="urn:uuid:5b94d980-b9b6-42ce-8ca3-56676af6c0a7" />
@@ -616,7 +649,7 @@
           <profile value="http://hl7.org/fhir/StructureDefinition/Flag" />
           <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-Flag" />
         </meta>
-	<id value="__FLAG_ID__"/>
+    	<id value="__FLAG_ID__"/>
         <status value="active" />
         <category>
           <coding>
@@ -641,6 +674,41 @@
       </Flag>
     </resource>
   </entry>
+  <entry>
+      <fullUrl value="urn:uuid:5b94d980-b9b6-42ce-8ca3-56676af6c0a9"/>
+      <resource>
+         <Flag xmlns="http://hl7.org/fhir">
+            <meta>
+               <lastUpdated value="2021-10-11T15:23:30+00:00"/>
+               <profile value="http://hl7.org/fhir/StructureDefinition/Flag"/>
+               <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-Flag"/>
+            </meta>
+         	<id value="__FLAG2_ID__"/>
+            <status value="active"/>
+            <category>
+               <coding>
+                  <system value="https://fhir.nhs.uk/CodeSystem/flag-categories-bars"/>
+                  <code value="SG"/>
+                  <display value="Safeguarding Concern"/>
+               </coding>
+            </category>
+            <code>
+               <coding>
+                  <system value="https://fhir.nhs.uk/CodeSystem/safeguarding-codes-bars"/>
+                  <code value="U"/>
+                  <display value="Unspecified Safeguarding Concern Identified"/>
+               </coding>
+            </code>
+            <subject>
+               <reference value="urn:uuid:9589fb37-87a2-48d8-968f-b371429208a8"/>
+            </subject>
+            <period>
+               <start value="2021-10-11T12:15:10+00:00"/>
+               <end value="2021-10-11T12:15:10+00:00"/>
+            </period>
+         </Flag>
+      </resource>
+   </entry>
   <entry>
     <fullUrl value="urn:uuid:1e91008e-96d0-438b-873c-c6d2c007fc29" />
     <resource>
