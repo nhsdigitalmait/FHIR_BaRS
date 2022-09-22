@@ -599,9 +599,8 @@
             <system value="https://fhir.hl7.org.uk/StructureDefinition/Extension-UKCore-BirthSex" />
             <code value="M" />
             <display value="Male" />
-            <!-- TODO is this right? -->
-            <text value="Birth Sex"/>
           </coding>
+		  <text value="Birth Sex"/>
         </code>
         <subject>
           <reference value="urn:uuid:9589fb37-87a2-48d8-968f-b371429208a8" />
@@ -617,7 +616,6 @@
       <fullUrl value="urn:uuid:c584542a-a1c6-4b77-a3e8-4a5b0b9cea00"/>
       <resource>
          <Observation xmlns="http://hl7.org/fhir">
-            <id value="9c2b9f44-154a-42d3-9b43-d2fba2fb4c85"/>
             <meta>
                <lastUpdated value="2022-01-26T15:00:00+00:00"/>
                <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-Observation"/>
