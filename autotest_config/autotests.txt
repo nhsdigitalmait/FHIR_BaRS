@@ -37,6 +37,7 @@ SFFSWithNoStatus \
 SFFSWithInvalidStatus \
 SFFSWithInvalidTimestamp \
 BookAppointment_HappyPath \
+BookTwoAppointments \
 BookAppointment_Basic \
 BookAppointment_NotVerified \
 BookAppointment_NoNHSNumber \

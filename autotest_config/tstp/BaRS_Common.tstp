@@ -16,12 +16,14 @@ BEGIN TESTS
 SFFSWithValidParameters_3_days SEND_TKW empty_file TO __TO_ENDPOINT__/Slot?Schedule.actor%3AHealthcareService=__HCS__&start=ge__START_SLOT_TIME__&start=le__END_SLOT_TIME__&status=free&_include=Slot%3Aschedule&_include=Schedule%3Aactor%3APractitioner&_include=Schedule%3Aactor%3APractitionerRole&_include=Schedule%3Aactor%3AHealthcareService&_include=HealthcareService.location&_include=HealthcareService.providedBy FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ SYNC ok WITH_PROPERTYSET base+webservices+get WITH_HTTPHEADERS credentials+default_accept+Oauth2AccessToken+integrity TEXT "HTTP Response must be HTTP 200"
 
 SFFSWithValidParameters_3_days_1 SEND_TKW empty_file1 TO __TO_ENDPOINT__/Slot?Schedule.actor%3AHealthcareService=__HCS__&start=ge__START_SLOT_TIME__&start=le__END_SLOT_TIME__&status=free&_include=Slot%3Aschedule&_include=Schedule%3Aactor%3APractitioner&_include=Schedule%3Aactor%3APractitionerRole&_include=Schedule%3Aactor%3AHealthcareService&_include=HealthcareService.location&_include=HealthcareService.providedBy FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ SYNC ok WITH_PROPERTYSET base+webservices+get WITH_HTTPHEADERS credentials+default_accept+Oauth2AccessToken+integrity TEXT "HTTP Response must be HTTP 200"
+SFFSWithValidParameters_3_days_2 SEND_TKW empty_file2 TO __TO_ENDPOINT__/Slot?Schedule.actor%3AHealthcareService=__HCS__&start=ge__START_SLOT_TIME__&start=le__END_SLOT_TIME__&status=free&_include=Slot%3Aschedule&_include=Schedule%3Aactor%3APractitioner&_include=Schedule%3Aactor%3APractitionerRole&_include=Schedule%3Aactor%3AHealthcareService&_include=HealthcareService.location&_include=HealthcareService.providedBy FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ SYNC ok WITH_PROPERTYSET base+webservices+get WITH_HTTPHEADERS credentials+default_accept+Oauth2AccessToken+integrity TEXT "HTTP Response must be HTTP 200"
 
 SearchCountIsZero CHAIN SYNC search_count_is_zero TEXT "Search count must be zero"
 SearchCountIsGreaterThanZero CHAIN SYNC search_count_is_greater_than_zero TEXT "Search count must be greater than zero"
 
 # happy path
 BookAppointment SEND_TKW book_appointment_slot1 TO __TO_ENDPOINT__/$process-message FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ PRETRANSFORM __TKWROOT__/config/FHIR_BaRS/autotest_config/transforms/remove_appt_id.xslt APPLYPRETRANSFORMTO data SYNC ok WITH_PROPERTYSET base+webservices+post WITH_HTTPHEADERS credentials+Oauth2AccessToken+default_content+default_accept+integrity TEXT "HTTP Response must be HTTP 200 SCAL BR-CONS-BOOK BR-PAT-REG"
+BookAppointment2 SEND_TKW book_appointment_slot2 TO __TO_ENDPOINT__/$process-message FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ PRETRANSFORM __TKWROOT__/config/FHIR_BaRS/autotest_config/transforms/remove_appt_id.xslt APPLYPRETRANSFORMTO data SYNC ok WITH_PROPERTYSET base+webservices+post WITH_HTTPHEADERS credentials+Oauth2AccessToken+default_content+default_accept+integrity TEXT "HTTP Response must be HTTP 200 SCAL BR-CONS-BOOK BR-PAT-REG"
 
 ResponseIsOperationOutcome CHAIN SYNC operation_outcome TEXT "Response contains a root fhir:OperationOutcome element"
 
@@ -47,6 +49,8 @@ IssueCodeDuplicate CHAIN SYNC issue_code_duplicate  TEXT "Response contains a ro
 
 ResponseIsAppointment CHAIN SYNC response_is_appt TEXT "Response contains a root fhir:Appointment element"
 ResponseIsAppointmentExtracting1 CHAIN SYNC response_is_appt_extracting1 TEXT "Response Bundle contains a fhir:Appointment element"
+ResponseIsAppointmentExtracting2 CHAIN SYNC response_is_appt_extracting2 TEXT "Response Bundle contains a fhir:Appointment element"
+ResponseIsAppointmentExtracting2 CHAIN SYNC response_is_appt_extracting2 TEXT "Response Bundle contains a fhir:Appointment element"
 
 ResponseIsBundle CHAIN SYNC response_is_bundle TEXT "Response contains a root fhir:Bundle element"
 ResponseIsBundle_ExtractingReferralServiceID CHAIN SYNC responseisbundle_extracting_referral_serviceid TEXT "Response is a bundle"
@@ -55,6 +59,7 @@ ResponseIsBundle_ExtractingValidationServiceID CHAIN SYNC responseisbundle_extra
 ResponseIsEmptyPayloadExtracting1 CHAIN SYNC response_is_empty_payload_extracting1 TEXT "Response payload is empty"
 
 ResponseIsBundleExtracting1 CHAIN SYNC response_is_bundle_extracting1 TEXT "Response contains a root fhir:Bundle element"
+ResponseIsBundleExtracting2 CHAIN SYNC response_is_bundle_extracting2 TEXT "Response contains a root fhir:Bundle element"
 
 LocationIsReturned CHAIN SYNC location_is_returned TEXT "Location must be returned in an http header"
 AppointmentIsBooked CHAIN SYNC appt_is_booked TEXT "Appointment status must be booked"
@@ -183,6 +188,8 @@ END HTTPHEADERS
 
 BEGIN EXTRACTORS
 slots_free1_extractor xpathextractor __TKWROOT__/config/FHIR_BaRS/autotest_config/extractor_configs/slots_free1.cfg
+slots_free2_extractor xpathextractor __TKWROOT__/config/FHIR_BaRS/autotest_config/extractor_configs/slots_free2.cfg
+
 referral_service_request_extractor xpathextractor __TKWROOT__/config/FHIR_BaRS/autotest_config/extractor_configs/referral_service_request.cfg
 validation_service_request_extractor xpathextractor __TKWROOT__/config/FHIR_BaRS/autotest_config/extractor_configs/validation_service_request.cfg
 END EXTRACTORS
@@ -209,9 +216,13 @@ ok httpok
 response_is_bundle synchronousxpath /fhir:Bundle exists
 
 response_is_appt synchronousxpath /fhir:Bundle/fhir:entry/fhir:resource/fhir:Appointment exists
+
 response_is_appt_extracting1 synchronousxpath /fhir:Bundle/fhir:entry/fhir:resource/fhir:Appointment exists EXTRACTOR slots_free1_extractor
+response_is_appt_extracting2 synchronousxpath /fhir:Bundle/fhir:entry/fhir:resource/fhir:Appointment exists EXTRACTOR slots_free2_extractor
 response_is_empty_payload_extracting1 synchronousxpath / doesnotexist EXTRACTOR slots_free1_extractor
+
 response_is_bundle_extracting1 synchronousxpath /fhir:Bundle exists EXTRACTOR slots_free1_extractor
+response_is_bundle_extracting2 synchronousxpath /fhir:Bundle exists EXTRACTOR slots_free2_extractor
 
 type_searchset synchronousxpath /fhir:Bundle/fhir:type[@value='searchset'] exists
 operation_outcome synchronousxpath /fhir:OperationOutcome exists
