@@ -324,7 +324,7 @@
               <!--    Emergency contact person   -->
               <system value="https://fhir.hl7.org.uk/ValueSet/UKCore-PersonRelationshipType" />
               <code value="EP" />
-              <code value="Emergency Contact Person" />
+              <display value="Emergency Contact Person" />
             </coding>
           </relationship>
           <name>
