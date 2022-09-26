@@ -18,12 +18,18 @@ SFFSWithValidParameters_3_days SEND_TKW empty_file TO __TO_ENDPOINT__/Slot?Sched
 SFFSWithValidParameters_3_days_1 SEND_TKW empty_file1 TO __TO_ENDPOINT__/Slot?Schedule.actor%3AHealthcareService=__HCS__&start=ge__START_SLOT_TIME__&start=le__END_SLOT_TIME__&status=free&_include=Slot%3Aschedule&_include=Schedule%3Aactor%3APractitioner&_include=Schedule%3Aactor%3APractitionerRole&_include=Schedule%3Aactor%3AHealthcareService&_include=HealthcareService.location&_include=HealthcareService.providedBy FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ SYNC ok WITH_PROPERTYSET base+webservices+get WITH_HTTPHEADERS credentials+default_accept+Oauth2AccessToken+integrity TEXT "HTTP Response must be HTTP 200"
 SFFSWithValidParameters_3_days_2 SEND_TKW empty_file2 TO __TO_ENDPOINT__/Slot?Schedule.actor%3AHealthcareService=__HCS__&start=ge__START_SLOT_TIME__&start=le__END_SLOT_TIME__&status=free&_include=Slot%3Aschedule&_include=Schedule%3Aactor%3APractitioner&_include=Schedule%3Aactor%3APractitionerRole&_include=Schedule%3Aactor%3AHealthcareService&_include=HealthcareService.location&_include=HealthcareService.providedBy FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ SYNC ok WITH_PROPERTYSET base+webservices+get WITH_HTTPHEADERS credentials+default_accept+Oauth2AccessToken+integrity TEXT "HTTP Response must be HTTP 200"
 
+CancelAppointment_HappyPath1 SEND_TKW cancel_appointment_slot1 TO __TO_ENDPOINT__/$process-message FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ PRETRANSFORM __TKWROOT__/config/FHIR_BaRS/autotest_config/transforms/cancel_appointment.xslt APPLYPRETRANSFORMTO data SYNC ok WITH_PROPERTYSET base+webservices+post WITH_HTTPHEADERS credentials+Oauth2AccessToken+default_content+default_accept+integrity TEXT "HTTP Response must be HTTP 200"
+
 SearchCountIsZero CHAIN SYNC search_count_is_zero TEXT "Search count must be zero"
 SearchCountIsGreaterThanZero CHAIN SYNC search_count_is_greater_than_zero TEXT "Search count must be greater than zero"
 
 # happy path
 BookAppointment SEND_TKW book_appointment_slot1 TO __TO_ENDPOINT__/$process-message FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ PRETRANSFORM __TKWROOT__/config/FHIR_BaRS/autotest_config/transforms/remove_appt_id.xslt APPLYPRETRANSFORMTO data SYNC ok WITH_PROPERTYSET base+webservices+post WITH_HTTPHEADERS credentials+Oauth2AccessToken+default_content+default_accept+integrity TEXT "HTTP Response must be HTTP 200 SCAL BR-CONS-BOOK BR-PAT-REG"
 BookAppointment2 SEND_TKW book_appointment_slot2 TO __TO_ENDPOINT__/$process-message FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ PRETRANSFORM __TKWROOT__/config/FHIR_BaRS/autotest_config/transforms/remove_appt_id.xslt APPLYPRETRANSFORMTO data SYNC ok WITH_PROPERTYSET base+webservices+post WITH_HTTPHEADERS credentials+Oauth2AccessToken+default_content+default_accept+integrity TEXT "HTTP Response must be HTTP 200 SCAL BR-CONS-BOOK BR-PAT-REG"
+
+ReadAppointment1 SEND_TKW empty_file1 TO __TO_ENDPOINT__/Appointment/__APPT_ID__ FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ SYNC ok WITH_PROPERTYSET base+webservices+get WITH_HTTPHEADERS credentials+default_accept+Oauth2AccessToken+integrity TEXT "HTTP Response must be HTTP 200"
+
+SlotIsFree CHAIN SYNC slots_status_free TEXT "Returned slot is marked free"
 
 ResponseIsOperationOutcome CHAIN SYNC operation_outcome TEXT "Response contains a root fhir:OperationOutcome element"
 
@@ -102,6 +108,8 @@ empty_file_rr USING empty_file_template WITH referral_service_request_ds ID s1
 book_appointment_slot1 USING book_appt_template WITH slots1_ds ID s1
 book_appointment_slot2 USING book_appt_template WITH slots2_ds ID s2
 book_appointment_slot3 USING book_appt_template WITH slots3_ds ID s3
+
+cancel_appointment_slot1 USING cancel_appt_template WITH slots1_ds ID s1
 
 validation_request USING validation_request_template WITH validation_service_request_ds ID s1
 validation_response USING validation_response_template WITH NULL

@@ -21,25 +21,14 @@ BEGIN TESTS
 
 ReadNonExistentAppointment SEND_TKW empty_file TO __TO_ENDPOINT__/Appointment/95e58add-0b10-4a8c-817c-2729eb0cab75 FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ SYNC httpstatuscheck404 WITH_PROPERTYSET base+webservices+get WITH_HTTPHEADERS credentials+xml_accept+Oauth2AccessToken+integrity TEXT "HTTP Response must be HTTP 404"
 
-ReadAppointment1 SEND_TKW empty_file1 TO __TO_ENDPOINT__/Appointment/__APPT_ID__ FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ SYNC ok WITH_PROPERTYSET base+webservices+get WITH_HTTPHEADERS credentials+default_accept+Oauth2AccessToken+integrity TEXT "HTTP Response must be HTTP 200"
-
 #============================================================================================================
 
-# Happy path scenario 22
-CancelAppointment_HappyPath1 SEND_TKW cancel_appointment_slot1 TO __TO_ENDPOINT__/$process-message FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ PRETRANSFORM __TKWROOT__/config/FHIR_BaRS/autotest_config/transforms/cancel_appointment.xslt APPLYPRETRANSFORMTO data SYNC ok WITH_PROPERTYSET base+webservices+post WITH_HTTPHEADERS credentials+Oauth2AccessToken+default_content+default_accept+integrity TEXT "HTTP Response must be HTTP 200"
-
-# scenario 23
 CancelAppointment_DifferencesDetected SEND_TKW cancel_appointment_slot1 TO __TO_ENDPOINT__/$process-message FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ PRETRANSFORM __TKWROOT__/config/FHIR_BaRS/autotest_config/transforms/change_patient_surname.xslt APPLYPRETRANSFORMTO data SYNC httpstatuscheck422 WITH_PROPERTYSET base+webservices+post WITH_HTTPHEADERS credentials+Oauth2AccessToken+default_content+default_accept+integrity TEXT "HTTP Response must be HTTP 422"
 
-SlotIsFree CHAIN SYNC slots_status_free TEXT "Returned slot is marked free"
 
 #============================================================================================================
 
 END TESTS
-
-BEGIN MESSAGES
-cancel_appointment_slot1 USING cancel_appt_template WITH slots1_ds ID s1
-END MESSAGES
 
 BEGIN PASSFAIL
 #
