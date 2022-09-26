@@ -28,6 +28,11 @@ SearchSlots_HappyPath_NoSlots_Response	TKW_ROOT/config/FHIR_BaRS/simulator_confi
 SearchSlots_HappyPath_OnlySlots_Response	TKW_ROOT/config/FHIR_BaRS/simulator_config/BaRS_Booking/SearchSlots_HappyPath_OnlySlots_Response.xml 200  WITH_HTTP_HEADERS ( X-Request-Id : "__XREQID_ECHO__" X-Correlation-Id : "__XCORRID_ECHO__" Date : "__RFC822TIMESTAMP__" )
 
 Capability_HappyPath_Response	TKW_ROOT/config/FHIR_BaRS/simulator_config/BaRS_MessageDefinition/CapabilityStatement_Response.xml "200 OK" WITH_HTTP_HEADERS ( X-Request-Id : "__XREQID_ECHO__" X-Correlation-Id : "__XCORRID_ECHO__" Date : "__RFC822TIMESTAMP__" )
+Capability_HappyPath_BookingAndReferral_Response	TKW_ROOT/config/FHIR_BaRS/simulator_config/BaRS_MessageDefinition/BaRS_Capability_Statement-Booking_and_Referral_Receiver.xml "200 OK" WITH_HTTP_HEADERS ( X-Request-Id : "__XREQID_ECHO__" X-Correlation-Id : "__XCORRID_ECHO__" Date : "__RFC822TIMESTAMP__" )
+Capability_HappyPath_ReferralReceiver_Response	TKW_ROOT/config/FHIR_BaRS/simulator_config/BaRS_MessageDefinition/BaRS_Capability_Statement-Referral_Receiver.xml "200 OK" WITH_HTTP_HEADERS ( X-Request-Id : "__XREQID_ECHO__" X-Correlation-Id : "__XCORRID_ECHO__" Date : "__RFC822TIMESTAMP__" )
+Capability_HappyPath_BookingAndReferralSender_Response	TKW_ROOT/config/FHIR_BaRS/simulator_config/BaRS_MessageDefinition/BaRS_Capability_Statement-Booking_and_Referral_Sender.xml "200 OK" WITH_HTTP_HEADERS ( X-Request-Id : "__XREQID_ECHO__" X-Correlation-Id : "__XCORRID_ECHO__" Date : "__RFC822TIMESTAMP__" )
+Capability_HappyPath_ValidationReceiver_Response	TKW_ROOT/config/FHIR_BaRS/simulator_config/BaRS_MessageDefinition/BaRS_Capability_Statement-Validation_Receiver.xml "200 OK" WITH_HTTP_HEADERS ( X-Request-Id : "__XREQID_ECHO__" X-Correlation-Id : "__XCORRID_ECHO__" Date : "__RFC822TIMESTAMP__" )
+Capability_HappyPath_ValidationSender_Response	TKW_ROOT/config/FHIR_BaRS/simulator_config/BaRS_MessageDefinition/BaRS_Capability_Statement-Validation_Sender.xml "200 OK" WITH_HTTP_HEADERS ( X-Request-Id : "__XREQID_ECHO__" X-Correlation-Id : "__XCORRID_ECHO__" Date : "__RFC822TIMESTAMP__" )
 
 ValidationRequest_HappyPath_Response	TKW_ROOT/config/FHIR_BaRS/simulator_config/BaRS_Validation/999_to_111_ValidationRequest_Response.xml "200 OK"  WITH_HTTP_HEADERS ( X-Request-Id : "__XREQID_ECHO__" X-Correlation-Id : "__XCORRID_ECHO__" Date : "__RFC822TIMESTAMP__" )
 
@@ -39,6 +44,27 @@ ReferralRequest_HappyPath_Response	TKW_ROOT/config/FHIR_BaRS/simulator_config/Ba
 ReferralRequest_HappyPath_for_405_Response	TKW_ROOT/config/FHIR_BaRS/simulator_config/BaRS_Referral/ReferralRequest_for_405_Response.xml "200 OK"  WITH_HTTP_HEADERS ( X-Request-Id : "__XREQID_ECHO__" X-Correlation-Id : "__XCORRID_ECHO__" Date : "__RFC822TIMESTAMP__" )
 ReferralRequest_HappyPath_for_429_Response	TKW_ROOT/config/FHIR_BaRS/simulator_config/BaRS_Referral/ReferralRequest_for_429_Response.xml "200 OK"  WITH_HTTP_HEADERS ( X-Request-Id : "__XREQID_ECHO__" X-Correlation-Id : "__XCORRID_ECHO__" Date : "__RFC822TIMESTAMP__" )
 ReferralRequest_HappyPath_for_503_Response	TKW_ROOT/config/FHIR_BaRS/simulator_config/BaRS_Referral/ReferralRequest_for_503_Response.xml "200 OK"  WITH_HTTP_HEADERS ( X-Request-Id : "__XREQID_ECHO__" X-Correlation-Id : "__XCORRID_ECHO__" Date : "__RFC822TIMESTAMP__" )
+
+#Numbers at the end of these PATIENT9707606312 responses refer to the matrix in the order _X_Y
+ReferralRequest_Operation_Outcome_1_3	TKW_ROOT/config/FHIR_BaRS/simulator_config/operation_outcomes/operation_outcome_400_9707606312_booking_not_exists.xml "400 Bad Request"  WITH_HTTP_HEADERS ( X-Request-Id : "__XREQID_ECHO__" X-Correlation-Id : "__XCORRID_ECHO__" Date : "__RFC822TIMESTAMP__" ) $111_TO_ED_Variable = 
+ReferralRequest_HappyPath_Response_2_3	TKW_ROOT/config/FHIR_BaRS/simulator_config/BaRS_Referral/ReferralRequest_Response.xml "200 OK"  WITH_HTTP_HEADERS ( X-Request-Id : "__XREQID_ECHO__" X-Correlation-Id : "__XCORRID_ECHO__" Date : "__RFC822TIMESTAMP__" ) $111_TO_ED_Variable = "ReferralCreated"
+ReferralRequest_Operation_Outcome_3_3	TKW_ROOT/config/FHIR_BaRS/simulator_config/operation_outcomes/operation_outcome_409_9707606312_referral_already_exists.xml "400 Bad Request"  WITH_HTTP_HEADERS ( X-Request-Id : "__XREQID_ECHO__" X-Correlation-Id : "__XCORRID_ECHO__" Date : "__RFC822TIMESTAMP__" ) $111_TO_ED_Variable = "ReferralCreated"
+
+ReferralRequest_Operation_Outcome_1_4	TKW_ROOT/config/FHIR_BaRS/simulator_config/operation_outcomes/operation_outcome_400_9707606312_booking_not_exists.xml "400 Bad Request"  WITH_HTTP_HEADERS ( X-Request-Id : "__XREQID_ECHO__" X-Correlation-Id : "__XCORRID_ECHO__" Date : "__RFC822TIMESTAMP__" ) $111_TO_ED_Variable = 
+ReferralRequest_Operation_Outcome_2_4	TKW_ROOT/config/FHIR_BaRS/simulator_config/operation_outcomes/operation_outcome_409_9707606312_referral_not_linked.xml "400 Bad Request"  WITH_HTTP_HEADERS ( X-Request-Id : "__XREQID_ECHO__" X-Correlation-Id : "__XCORRID_ECHO__" Date : "__RFC822TIMESTAMP__" ) $111_TO_ED_Variable = "AppointmentBooked"
+ReferralRequest_Operation_Outcome_3_4	TKW_ROOT/config/FHIR_BaRS/simulator_config/operation_outcomes/operation_outcome_409_9707606312_referral_already_exists.xml "400 Bad Request"  WITH_HTTP_HEADERS ( X-Request-Id : "__XREQID_ECHO__" X-Correlation-Id : "__XCORRID_ECHO__" Date : "__RFC822TIMESTAMP__" ) $111_TO_ED_Variable = "ReferralCreated"
+
+ReferralRequest_Operation_Outcome_1_5	TKW_ROOT/config/FHIR_BaRS/simulator_config/operation_outcomes/operation_outcome_400_9707606312_referral_not_exists.xml "400 Bad Request"  WITH_HTTP_HEADERS ( X-Request-Id : "__XREQID_ECHO__" X-Correlation-Id : "__XCORRID_ECHO__" Date : "__RFC822TIMESTAMP__" ) $111_TO_ED_Variable = 
+ReferralRequest_Operation_Outcome_2_5	TKW_ROOT/config/FHIR_BaRS/simulator_config/operation_outcomes/operation_outcome_400_9707606312_referral_not_exists.xml "400 Bad Request"  WITH_HTTP_HEADERS ( X-Request-Id : "__XREQID_ECHO__" X-Correlation-Id : "__XCORRID_ECHO__" Date : "__RFC822TIMESTAMP__" ) $111_TO_ED_Variable = "AppointmentBooked"
+ReferralRequest_HappyPath_Response_3_5	TKW_ROOT/config/FHIR_BaRS/simulator_config/BaRS_Referral/ReferralRequest_Response.xml "200 OK"  WITH_HTTP_HEADERS ( X-Request-Id : "__XREQID_ECHO__" X-Correlation-Id : "__XCORRID_ECHO__" Date : "__RFC822TIMESTAMP__" ) $111_TO_ED_Variable = "AppointmentBooked"
+
+BookingRequest_HappyPath_Response_1_1	TKW_ROOT/config/FHIR_BaRS/simulator_config/BaRS_Booking/BookingRequest_9707606312_Response.xml "200 OK"  WITH_HTTP_HEADERS ( X-Request-Id : "__XREQID_ECHO__" X-Correlation-Id : "__XCORRID_ECHO__" Date : "__RFC822TIMESTAMP__" ) $111_TO_ED_Variable = "AppointmentBooked"
+BookingRequest_Operation_Outcome_2_1	TKW_ROOT/config/FHIR_BaRS/simulator_config/operation_outcomes/operation_outcome_409_9707606312_booking_already_exists.xml "400 Bad Request"  WITH_HTTP_HEADERS ( X-Request-Id : "__XREQID_ECHO__" X-Correlation-Id : "__XCORRID_ECHO__" Date : "__RFC822TIMESTAMP__" ) $111_TO_ED_Variable = "AppointmentBooked"
+BookingRequest_Operation_Outcome_3_1	TKW_ROOT/config/FHIR_BaRS/simulator_config/operation_outcomes/operation_outcome_409_9707606312_booking_already_exists.xml "400 Bad Request"  WITH_HTTP_HEADERS ( X-Request-Id : "__XREQID_ECHO__" X-Correlation-Id : "__XCORRID_ECHO__" Date : "__RFC822TIMESTAMP__" ) $111_TO_ED_Variable = "ReferralCreated"
+
+BookingRequest_Operation_Outcome_1_2	TKW_ROOT/config/FHIR_BaRS/simulator_config/operation_outcomes/operation_outcome_400_9707606312_booking_not_exists.xml "400 Bad Request"  WITH_HTTP_HEADERS ( X-Request-Id : "__XREQID_ECHO__" X-Correlation-Id : "__XCORRID_ECHO__" Date : "__RFC822TIMESTAMP__" ) $111_TO_ED_Variable = 
+BookingRequest_HappyPath_Response_2_2	TKW_ROOT/config/FHIR_BaRS/simulator_config/BaRS_Booking/BookingRequest_9707606312_Response.xml "200 OK"  WITH_HTTP_HEADERS ( X-Request-Id : "__XREQID_ECHO__" X-Correlation-Id : "__XCORRID_ECHO__" Date : "__RFC822TIMESTAMP__" ) $111_TO_ED_Variable = 
+BookingRequest_HappyPath_Response_3_2	TKW_ROOT/config/FHIR_BaRS/simulator_config/BaRS_Booking/BookingRequest_9707606312_Response.xml "200 OK"  WITH_HTTP_HEADERS ( X-Request-Id : "__XREQID_ECHO__" X-Correlation-Id : "__XCORRID_ECHO__" Date : "__RFC822TIMESTAMP__" ) $111_TO_ED_Variable = 
 
 BookingRequest_HappyPath_Response	TKW_ROOT/config/FHIR_BaRS/simulator_config/BaRS_Booking/BookingRequest_Response.xml "200 OK"  WITH_HTTP_HEADERS ( X-Request-Id : "__XREQID_ECHO__" X-Correlation-Id : "__XCORRID_ECHO__" Date : "__RFC822TIMESTAMP__" )
 BookingRequest_HappyPath_for_501_Response	TKW_ROOT/config/FHIR_BaRS/simulator_config/BaRS_Booking/BookingRequest_for_501_Response.xml "200 OK"  WITH_HTTP_HEADERS ( X-Request-Id : "__XREQID_ECHO__" X-Correlation-Id : "__XCORRID_ECHO__" Date : "__RFC822TIMESTAMP__" )
@@ -111,7 +137,11 @@ __REFERRALBUNDLEREQUEST_FOR_429_NODE__	Class uk.nhs.digital.mait.tkwx.tk.interna
 __REFERRALBUNDLEREQUEST_FOR_503_NODE__	Class uk.nhs.digital.mait.tkwx.tk.internalservices.rules.XmlFragmentSubstitution "/fhir:Bundle TKW_ROOT/config/FHIR_BaRS/simulator_config/transforms/referral_bundle_insert_uuid_id.xsl servicerequest_uuid 4d65ddaa-4d09-41cd-87c9-aeb9c0c96352"
 __BOOKINGBUNDLEREQUEST_NODE__			Class uk.nhs.digital.mait.tkwx.tk.internalservices.rules.XmlFragmentSubstitution "/fhir:Bundle TKW_ROOT/config/FHIR_BaRS/simulator_config/transforms/booking_bundle_insert_uuid_id.xsl appointment_uuid ce1c4ced-2a84-4198-9982-9caf894d0bb7"
 __BOOKINGBUNDLEREQUEST_FOR_501_NODE__	Class uk.nhs.digital.mait.tkwx.tk.internalservices.rules.XmlFragmentSubstitution "/fhir:Bundle TKW_ROOT/config/FHIR_BaRS/simulator_config/transforms/booking_bundle_insert_uuid_id.xsl appointment_uuid 0d440c22-7f25-4c6c-905d-2213d197d02a"
+__BOOKINGBUNDLEREQUEST9707606312_NODE__			Class uk.nhs.digital.mait.tkwx.tk.internalservices.rules.XmlFragmentSubstitution "/fhir:Bundle TKW_ROOT/config/FHIR_BaRS/simulator_config/transforms/booking_bundle_insert_uuid_id.xsl appointment_uuid 9a8df080-bfbc-457f-b30f-664bba7760a4"
 __BUNDLERESPONSE_NODE__	Class uk.nhs.digital.mait.tkwx.tk.internalservices.rules.XmlFragmentSubstitution "/fhir:Bundle"
+
+#session id added for the stateful handling
+SESSION_ID jsonpath http_header b64 NHSD-End-User-Organisation $.identifier[0].value
 END SUBSTITUTIONS
 
 # all the "match/contains" rules apply to the content by default to use eg the context path it must be specified as context_path
@@ -169,6 +199,12 @@ HEALTHCARESERVICE2000073917		context_path matches ^.*Schedule.actor%3AHealthcare
 HEALTHCARESERVICE2000081825		context_path matches ^.*Schedule.actor%3AHealthcareService=2000081825.*$
 HEALTHCARESERVICE2000094120		context_path matches ^.*Schedule.actor%3AHealthcareService=2000094120.*$
 
+DOSID2000011147 http_header b64 NHSD-Target-Identifier jsonpathequals $.value 2000011147
+DOSID2000094704 http_header b64 NHSD-Target-Identifier jsonpathequals $.value 2000094704
+DOSID2000076289 http_header b64 NHSD-Target-Identifier jsonpathequals $.value 2000076289
+DOSID2000008878 http_header b64 NHSD-Target-Identifier jsonpathequals $.value 2000008878
+DOSID2000011149 http_header b64 NHSD-Target-Identifier jsonpathequals $.value 2000011149
+
 #Service Request Category
 SR_CATEGORY_VALIDATION	xpathmatches //fhir:Bundle/fhir:entry/fhir:resource/fhir:ServiceRequest/fhir:category/fhir:coding/fhir:code/@value validation
 SR_CATEGORY_REFERRAL	xpathmatches //fhir:Bundle/fhir:entry/fhir:resource/fhir:ServiceRequest/fhir:category/fhir:coding/fhir:code/@value referral
@@ -200,7 +236,18 @@ PATIENT500			xpathmatches //fhir:Bundle/fhir:entry/fhir:resource/fhir:Patient/fh
 PATIENT501			xpathmatches //fhir:Bundle/fhir:entry/fhir:resource/fhir:Patient/fhir:identifier/fhir:value/@value 9010223337
 PATIENT503			xpathmatches //fhir:Bundle/fhir:entry/fhir:resource/fhir:Patient/fhir:identifier/fhir:value/@value 9999960529
 
+PATIENT9707606312	xpathmatches //fhir:Bundle/fhir:entry/fhir:resource/fhir:Patient/fhir:identifier/fhir:value/@value 9707606312
+
 #PATIENTBOOKANDREF	xpathmatches //fhir:Bundle/fhir:entry/fhir:resource/fhir:Patient/fhir:identifier/fhir:value/@value 9054613556
+
+#Stateful Variable setting
+111_TO_ED_Variable_Initialised				$111_TO_ED_Variable matches ^$
+111_TO_ED_Variable_Appointment_Booked		$111_TO_ED_Variable matches ^AppointmentBooked$
+111_TO_ED_Variable_New_Referral_Created		$111_TO_ED_Variable matches ^ReferralCreated$
+
+
+Booking_and_Referral_Linked xpathequals /fhir:Bundle/fhir:entry/fhir:resource/fhir:ServiceRequest/fhir:supportingInfo[fhir:display/@value='Booked Appointment']/fhir:reference/@value Appointment/9a8df080-bfbc-457f-b30f-664bba7760a4
+Booking_and_Referral_MisLinked xpathexists /fhir:Bundle/fhir:entry/fhir:resource/fhir:ServiceRequest/fhir:supportingInfo[fhir:display/@value='Booked Appointment']/fhir:reference/@value 
 
 passthrough	Always
 dontpassthrough	Never
@@ -216,12 +263,29 @@ IF	SR_CATEGORY_VALIDATION	AND	PATIENT501	THEN	ValidationRequest_HappyPath_for_50
 IF	SR_CATEGORY_VALIDATION	AND	PATIENT404	THEN	Operation_Outcome_404 ELSE NEXT
 IF	SR_CATEGORY_VALIDATION	AND	PATIENT409	THEN	Operation_Outcome_409 ELSE NEXT
 IF	SR_CATEGORY_VALIDATION	AND	PATIENT422	THEN	Operation_Outcome_422 ELSE NEXT
+#Catch all Validation response
 IF	SR_CATEGORY_VALIDATION					THEN	ValidationRequest_HappyPath_Response ELSE NEXT
 IF	SR_CATEGORY_REFERRAL	AND	PATIENT400	THEN	Operation_Outcome_400 ELSE NEXT
 IF	SR_CATEGORY_REFERRAL	AND	PATIENT405	THEN	ReferralRequest_HappyPath_for_405_Response ELSE NEXT
 IF	SR_CATEGORY_REFERRAL	AND	PATIENT429	THEN	ReferralRequest_HappyPath_for_429_Response ELSE NEXT
 IF	SR_CATEGORY_REFERRAL	AND	PATIENT500	THEN	Operation_Outcome_500 ELSE NEXT
 IF	SR_CATEGORY_REFERRAL	AND	PATIENT503	THEN	ReferralRequest_HappyPath_for_503_Response ELSE NEXT
+
+# 111toED - Referral Created / Create Linked Referral Request  matching correct state 
+IF	SR_CATEGORY_REFERRAL	AND	PATIENT9707606312	AND 111_TO_ED_Variable_New_Referral_Created AND Booking_and_Referral_Linked THEN	ReferralRequest_Operation_Outcome_3_3 ELSE NEXT
+# 111toED - Appointment Booked / Create Linked Referral Request  matching correct state 
+IF	SR_CATEGORY_REFERRAL	AND	PATIENT9707606312	AND 111_TO_ED_Variable_Appointment_Booked AND Booking_and_Referral_Linked THEN	ReferralRequest_HappyPath_Response_2_3 ELSE NEXT
+# 111toED - Initial / Create Linked Referral Request  matching correct state 
+IF	SR_CATEGORY_REFERRAL	AND	PATIENT9707606312 AND Booking_and_Referral_Linked THEN	ReferralRequest_Operation_Outcome_1_3 ELSE NEXT
+
+# 111toED - Referral Created / Create Linked Referral Request  matching correct state 
+IF	SR_CATEGORY_REFERRAL	AND	PATIENT9707606312	AND 111_TO_ED_Variable_New_Referral_Created AND Booking_and_Referral_MisLinked THEN	ReferralRequest_Operation_Outcome_3_4 ELSE NEXT
+# 111toED - Appointment Booked / Create Linked Referral Request  matching correct state 
+IF	SR_CATEGORY_REFERRAL	AND	PATIENT9707606312	AND 111_TO_ED_Variable_Appointment_Booked AND Booking_and_Referral_MisLinked THEN	ReferralRequest_Operation_Outcome_2_4 ELSE NEXT
+# 111toED - Initial / Create Linked Referral Request  matching correct state 
+IF	SR_CATEGORY_REFERRAL	AND	PATIENT9707606312 AND Booking_and_Referral_MisLinked THEN	ReferralRequest_Operation_Outcome_1_4 ELSE NEXT
+
+#Catch all Referral response
 IF	SR_CATEGORY_REFERRAL					THEN	ReferralRequest_HappyPath_Response ELSE NEXT
 IF passthrough THEN notFound_Response
 END RULE
@@ -229,6 +293,15 @@ END RULE
 BEGIN RULE
 POST+urn:nhs:names:services:bars:fhir:messaging:update:servicerequest-request
 IF	SR_CATEGORY_VALIDATION	THEN	ValidationRequest_HappyPath_Response ELSE NEXT
+
+# 111toED - Referral Created / Cancel Referral Request
+IF	SR_CATEGORY_REFERRAL	AND PATIENT9707606312	AND 111_TO_ED_Variable_New_Referral_Created	THEN	ReferralRequest_HappyPath_Response_3_5 ELSE NEXT
+# 111toED - Appointment Booked / Cancel Referral Request
+IF	SR_CATEGORY_REFERRAL	AND PATIENT9707606312	AND 111_TO_ED_Variable_Appointment_Booked	THEN	ReferralRequest_Operation_Outcome_2_5 ELSE NEXT
+# 111toED - Initial / Cancel Referral Request
+IF	SR_CATEGORY_REFERRAL	AND PATIENT9707606312	THEN	ReferralRequest_Operation_Outcome_1_5 ELSE NEXT
+
+#Catch all Referral response
 IF	SR_CATEGORY_REFERRAL	THEN	ReferralRequest_HappyPath_Response ELSE NEXT
 IF passthrough THEN notFound_Response
 END RULE
@@ -256,12 +329,28 @@ IF	PATIENT404	AND APPOINTMENT_STATUS_BOOKED		THEN	Operation_Outcome_404 ELSE NEX
 IF	PATIENT409	AND APPOINTMENT_STATUS_BOOKED		THEN	Operation_Outcome_409 ELSE NEXT
 IF	PATIENT422	AND APPOINTMENT_STATUS_BOOKED		THEN	Operation_Outcome_422 ELSE NEXT
 IF	PATIENT501	AND APPOINTMENT_STATUS_BOOKED		THEN	BookingRequest_HappyPath_for_501_Response ELSE NEXT
+# 111toED - Referral Created / Make a Booking 
+IF	APPOINTMENT_STATUS_BOOKED	AND PATIENT9707606312	AND 111_TO_ED_Variable_New_Referral_Created	THEN	BookingRequest_Operation_Outcome_3_1 ELSE NEXT
+# 111toED - Appointment Booked / Make a Booking 
+IF	APPOINTMENT_STATUS_BOOKED	AND PATIENT9707606312	AND 111_TO_ED_Variable_Appointment_Booked	THEN	BookingRequest_Operation_Outcome_2_1 ELSE NEXT
+# 111toED - Initial / Make a Booking
+IF	APPOINTMENT_STATUS_BOOKED	AND PATIENT9707606312	THEN	BookingRequest_HappyPath_Response_1_1 ELSE NEXT
+#Catch all Booking response
 IF	APPOINTMENT_STATUS_BOOKED	THEN	BookingRequest_HappyPath_Response ELSE NEXT
 IF passthrough THEN notFound_Response
 END RULE
 
 BEGIN RULE
 POST+urn:nhs:names:services:bars:fhir:messaging:update:booking-request
+
+# 111toED - Referral Created / Cancel a Booking 
+IF	APPOINTMENT_STATUS_CANCELLED	AND PATIENT9707606312	AND 111_TO_ED_Variable_New_Referral_Created	THEN	BookingRequest_HappyPath_Response_3_2 ELSE NEXT
+# 111toED - Appointment Booked / Cancel a Booking 
+IF	APPOINTMENT_STATUS_CANCELLED	AND PATIENT9707606312	AND 111_TO_ED_Variable_Appointment_Booked	THEN	BookingRequest_HappyPath_Response_2_2 ELSE NEXT
+# 111toED - Initial / Cancel a Booking 
+IF	APPOINTMENT_STATUS_CANCELLED	AND PATIENT9707606312	THEN	BookingRequest_Operation_Outcome_1_2 ELSE NEXT
+
+#Catch all Booking response
 IF	APPOINTMENT_STATUS_CANCELLED	THEN	BookingRequest_HappyPath_Response ELSE NEXT
 IF passthrough THEN notFound_Response
 END RULE
@@ -275,6 +364,11 @@ END RULE
 
 BEGIN RULE
 GET
+IF	METADATA	AND	DOSID2000011147										THEN	Capability_HappyPath_BookingAndReferral_Response	ELSE	NEXT
+IF	METADATA	AND	DOSID2000076289										THEN	Capability_HappyPath_ReferralReceiver_Response		ELSE	NEXT
+IF	METADATA	AND	DOSID2000094704										THEN	Capability_HappyPath_BookingAndReferralSender_Response		ELSE	NEXT
+IF	METADATA	AND	DOSID2000008878										THEN	Capability_HappyPath_ValidationReceiver_Response	ELSE	NEXT
+IF	METADATA	AND	DOSID2000011149										THEN	Capability_HappyPath_ValidationSender_Response		ELSE	NEXT
 IF	METADATA															THEN	Capability_HappyPath_Response				ELSE	NEXT
 IF	SERVICEREQUEST	AND	VALIDATIONSERVICEREQUEST001						THEN	ValidationServiceRequest_HappyPath_Response	ELSE	NEXT
 IF	SERVICEREQUEST	AND	VALIDATIONSERVICEREQUEST408						THEN	Operation_Outcome_408						ELSE	NEXT

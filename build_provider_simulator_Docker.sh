@@ -3,7 +3,7 @@
 # usage build_provider_simulator_Docker.sh [<userid>]
 # if no user id is provided it defaults to 1000 and the tag is just the version number
 #
-TAG=0.3
+TAG=0.4
 
 if [[ "$1" == "" ]]
 then
@@ -17,7 +17,9 @@ IMAGENAME=tkw_bars_provider_simulator
 PROJECT=FHIR_BaRS
 
 echo "Building $IMAGENAME:$TAG"
-read -n 1 -p "Press any key to continue..."
+grep 'VALIDATION-RULESET-VERSION' validator_config/provider_simulator_validator.conf
+grep 'VALIDATION-RULESET-TIMESTAMP' validator_config/provider_simulator_validator.conf
+read -n 1 -p "Check the versions agree, then Press any key to continue..."
 echo building
 
 # put the git commit hash and date into a text file

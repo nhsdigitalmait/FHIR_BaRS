@@ -1,0 +1,49 @@
+<CapabilityStatement xmlns="http://hl7.org/fhir">
+   <id value="BaRS-FHIR-Server"/>
+   <url value="https://MyService.nhs.uk/FHIR-Server"/>
+   <version value="1.0.0-alpha"/>
+   <name value="BaRS FHIR Server CapabilityStatement"/>
+   <status value="active"/>
+   <experimental value="false"/>
+   <date value="2022-06-15T15:30:15Z"/>
+   <publisher value="My Publisher"/>
+   <kind value="instance"/>
+   <software>
+      <name value="My Software"/>
+      <version value="1.0"/>
+   </software>
+   <implementation>
+      <description value="BaRS FHIR Server"/>
+      <url value="https://MyService.nhs.uk/FHIR-Server"/>
+   </implementation>
+   <fhirVersion value="4.0.1"/>
+   <format value="xml"/>
+   <format value="json"/>
+   <rest>
+      <mode value="server"/>
+      <operation>
+         <name value="$process-message"/>
+         <definition value="http://hl7.org/fhir/OperationDefinition/MessageHeader-process-message"/>
+      </operation>
+   </rest>
+   <messaging>
+      <endpoint>
+         <protocol>
+            <code value="http"/>
+         </protocol>
+         <address value="https://MyService.nhs.uk/FHIR-Server"/>
+      </endpoint>
+      <supportedMessage>
+         <mode value="sender"/>
+         <definition value="MessageDefinition/bars-message-servicerequest-request-referral"/>
+      </supportedMessage>
+      <supportedMessage>
+         <mode value="receiver"/>
+         <definition value="MessageDefinition/bars-message-servicerequest-response-referral"/>
+      </supportedMessage>
+      <supportedMessage>
+         <mode value="sender"/>
+         <definition value="MessageDefinition/bars-message-booking-request"/>
+      </supportedMessage>
+   </messaging>
+</CapabilityStatement>

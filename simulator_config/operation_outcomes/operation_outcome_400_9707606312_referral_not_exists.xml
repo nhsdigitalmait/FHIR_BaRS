@@ -1,0 +1,16 @@
+<OperationOutcome xmlns="http://hl7.org/fhir">
+   <meta>
+      <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-OperationOutcome"/>
+   </meta>
+   <issue>
+      <severity value="error"/>
+      <code value="invalid"/>
+      <details>
+         <coding>
+            <system value="https://fhir.nhs.uk/Codesystem/http-error-codes"/>
+            <code value="REC_BAD_REQUEST"/>
+         </coding>
+      </details>
+      <diagnostics value="__MY_ODS__ was unable to process the request: The referral this request relates to does not exist"/>
+   </issue>
+</OperationOutcome>

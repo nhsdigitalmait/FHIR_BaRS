@@ -1,0 +1,16 @@
+<OperationOutcome xmlns="http://hl7.org/fhir">
+   <meta>
+      <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-OperationOutcome"/>
+   </meta>
+   <issue>
+      <severity value="error"/>
+      <code value="invalid"/>
+      <details>
+         <coding>
+            <system value="https://fhir.nhs.uk/Codesystem/http-error-codes"/>
+            <code value="REC_CONFLICT"/>
+         </coding>
+      </details>
+      <diagnostics value="__MY_ODS__ encountered a conflict: The referral this request relates to is not linked to a booking against this patient"/>
+   </issue>
+</OperationOutcome>
