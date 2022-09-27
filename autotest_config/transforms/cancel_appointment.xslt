@@ -23,4 +23,9 @@
 		<xsl:attribute name="value">free</xsl:attribute>
 	</xsl:template>
 
+	<!-- don't send any empty id fields backed out temporarily for 0.4 -->
+	<!--
+	<xsl:template match="//fhir:id[@value='']"/>
+	-->
+
 </xsl:stylesheet>
