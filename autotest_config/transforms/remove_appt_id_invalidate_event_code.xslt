@@ -14,7 +14,7 @@
 	<xsl:template match="fhir:Patient/fhir:id"/>
 
 	<!-- don't send any empty id fields -->
-	<xsl:template match="//fhir:id[@value='']"/>
+	<xsl:template match="//fhir:id[@value='' and not(../../(fhir:Appointment|fhir:Patient))]"/>
 
 	<xsl:template match="fhir:MessageHeader/fhir:eventCoding[fhir:system/@value='https://fhir.nhs.uk/CodeSystem/message-events-bars']/fhir:code/@value">
 		<xsl:attribute name="value"><xsl:value-of select="'booking-destruction'"/></xsl:attribute>

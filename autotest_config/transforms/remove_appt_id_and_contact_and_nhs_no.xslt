@@ -16,7 +16,7 @@
 	<xsl:template match="fhir:Patient/fhir:identifier"/>
 
 	<!-- don't send any empty id fields -->
-	<xsl:template match="//fhir:id[@value='']"/>
+	<xsl:template match="//fhir:id[@value='' and not(../../(fhir:Appointment|fhir:Patient))]"/>
 
 	<!--
 	<xsl:include href="autotest_config/transforms/remove_listed_ids.xslt"/>

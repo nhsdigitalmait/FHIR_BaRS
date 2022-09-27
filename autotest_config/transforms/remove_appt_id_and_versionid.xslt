@@ -14,7 +14,7 @@
 	<xsl:template match="fhir:Patient/fhir:id"/>
 
 	<!-- don't send any empty id fields -->
-	<xsl:template match="//fhir:id[@value='']"/>
+	<xsl:template match="//fhir:id[@value='' and not(../../(fhir:Appointment|fhir:Patient))]"/>
 
 	<!-- remove bundle meta versionId -->
 	<xsl:template match="fhir:Bundle/fhir:meta/fhir:versionId"/>
