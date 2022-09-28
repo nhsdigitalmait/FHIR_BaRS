@@ -173,9 +173,9 @@ INVALID_ACCEPT					http_header accept notmatches ^.*application/fhir\+(xml|json)
 SLOT						context_path matches ^.*/R4/Slot.*$
 METADATA					context_path matches ^.*/R4/metadata.*$
 APPOINTMENT					context_path matches ^.*/R4/Appointment.*$
-SERVICEREQUEST				context_path matches ^.*/R4/ServiceRequest.*$
-MESSAGEDEFINITION			context_path matches ^.*/R4/MessageDefinition\?context=https%3A%2F%2Ffhir.nhs.uk%2FId%2Fdos-service-id.*$
-DOSSERVICEID401				context_path matches ^.*FAIL0401.*$
+SERVICEREQUEST					context_path matches ^.*/R4/ServiceRequest.*$
+MESSAGEDEFINITION				context_path matches ^.*/R4/MessageDefinition\?context=.*$
+MESSAGEDEFINITION401				context_path matches ^.*/R4/MessageDefinition\?context=FAIL0401.*$
 INCLUDES						context_path matches ^.*_include.*$
 
 VALIDATIONSERVICEREQUEST001				context_path matches ^.*/R4/ServiceRequest/0b42eac3-0175-43c8-bbab-efaa8ca31ccf.*$
@@ -379,8 +379,8 @@ IF	SERVICEREQUEST	AND	REFERRALSERVICEREQUEST429						THEN	Operation_Outcome_429	
 IF	SERVICEREQUEST	AND	REFERRALSERVICEREQUEST503						THEN	Operation_Outcome_503						ELSE	NEXT
 IF	APPOINTMENT	AND	BOOKINGAPPOINTMENT501								THEN	Operation_Outcome_501						ELSE	NEXT
 IF	APPOINTMENT															THEN	BookingAppointment_HappyPath_Response		ELSE	NEXT
-IF	MESSAGEDEFINITION	AND	DOSSERVICEID401								THEN	Operation_Outcome_401						ELSE	NEXT
-IF	MESSAGEDEFINITION													THEN	MessageDefinition_HappyPath_Response		ELSE	NEXT
+IF	MESSAGEDEFINITION401										THEN	Operation_Outcome_401						ELSE	NEXT
+IF	MESSAGEDEFINITION										THEN	MessageDefinition_HappyPath_Response		ELSE	NEXT
 IF 	SLOT	AND	HEALTHCARESERVICE_MISSING								THEN	Operation_Outcome_400						ELSE	NEXT
 IF	SLOT	AND	FREEANDBUSY	AND	HEALTHCARESERVICE2000072489				THEN	SearchSlots_HappyPath_FreeBusy_Response		ELSE	NEXT
 IF	SLOT	AND	FREEONLY	AND	HEALTHCARESERVICE2000072489	AND INCLUDES	THEN	SearchSlots_HappyPath_Response				ELSE	NEXT

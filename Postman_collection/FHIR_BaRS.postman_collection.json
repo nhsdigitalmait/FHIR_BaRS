@@ -1,9 +1,8 @@
 {
 	"info": {
-		"_postman_id": "2de01340-7485-4b4b-a7a8-2771fd8444df",
+		"_postman_id": "66a8473d-d36b-42f4-a443-8361e4f42901",
 		"name": "FHIR_BaRS",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "11735442"
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
@@ -1556,13 +1555,28 @@
 								"value": "{{accept}}"
 							},
 							{
-								"key": "NHSD-Service",
-								"value": "{{NHSD-Service}}",
+								"key": "X-Request-Id",
+								"value": "GUID_1",
+								"type": "text"
+							},
+							{
+								"key": "X-Correlation-Id",
+								"value": "GUID_2",
+								"type": "text"
+							},
+							{
+								"key": "NHSD-Target-Identifier",
+								"value": "{{nhsd-target-identifier}}",
+								"type": "text"
+							},
+							{
+								"key": "NHSD-End-User-Organisation",
+								"value": "{{nhsd-end-user-organisation}}",
 								"type": "text"
 							}
 						],
 						"url": {
-							"raw": "{{url}}/R4/MessageDefinition?context=https%3A%2F%2Ffhir.nhs.uk%2FId%2Fdos-service-id%7CTKW0004",
+							"raw": "{{url}}/R4/MessageDefinition?context=TKW0004",
 							"host": [
 								"{{url}}"
 							],
@@ -1573,7 +1587,7 @@
 							"query": [
 								{
 									"key": "context",
-									"value": "https%3A%2F%2Ffhir.nhs.uk%2FId%2Fdos-service-id%7CTKW0004"
+									"value": "TKW0004"
 								}
 							]
 						}
@@ -1607,13 +1621,18 @@
 								"value": "{{accept}}"
 							},
 							{
-								"key": "NHSD-Service",
-								"value": "{{NHSD-Service}}",
+								"key": "NHSD-Target-Identifier",
+								"value": "{{nhsd-target-identifier}}",
+								"type": "text"
+							},
+							{
+								"key": "NHSD-End-User-Organisation",
+								"value": "{{nhsd-end-user-organisation}}",
 								"type": "text"
 							}
 						],
 						"url": {
-							"raw": "{{url}}/R4/MessageDefinition?context=https%3A%2F%2Ffhir.nhs.uk%2FId%2Fdos-service-id%7CFAIL0401",
+							"raw": "{{url}}/R4/MessageDefinition?context=FAIL0401",
 							"host": [
 								"{{url}}"
 							],
@@ -1624,7 +1643,7 @@
 							"query": [
 								{
 									"key": "context",
-									"value": "https%3A%2F%2Ffhir.nhs.uk%2FId%2Fdos-service-id%7CFAIL0401"
+									"value": "FAIL0401"
 								}
 							]
 						}
