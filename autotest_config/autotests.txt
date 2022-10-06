@@ -26,7 +26,6 @@ SFFSWithBusySlots \
 SFFSWithNoIncludes \
 SFFSWithNoIncludesSlotsOnly \
 SFFSWithFreeAndBusySlots \
-SFFSWithFreeSlotsWithRevIncludes \
 SFFSWithFreeSlotsWithGzipEncoding \
 SFFSWithNoHealthcareService \
 SFFSWithInvalidHealthcareService \
