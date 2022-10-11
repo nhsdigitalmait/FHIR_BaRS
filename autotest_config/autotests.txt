@@ -100,6 +100,7 @@ ReferralRequest_111toED_WrongMethod \
 ReferralRequest_111toED_NoVersionID \
 ValidationRequest_xml_accept \
 ValidationRequest_json_accept \
+ValidationRequest_Basic \
 ValidationRequest_NotVerified \
 ValidationRequest_NoNhsNo \
 ValidationRequest_Rank1NotOneself \
