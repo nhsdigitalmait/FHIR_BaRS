@@ -41,8 +41,6 @@ BookAppointment_Basic \
 BookAppointment_NotVerified \
 BookAppointment_NoNHSNumber \
 BookAppointment_SlotAlreadyBooked \
-BookAppointment_FailedValidation \
-BookAppointment_Invalid \
 BookAppointment_UnsupportedMediaType \
 BookAppointment_TwoRank1 \
 BookAppointment_NoRank1 \
