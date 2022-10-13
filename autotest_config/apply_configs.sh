@@ -1,5 +1,7 @@
 #!/bin/bash
 #
+# usage $0 '<destination endpoint service id> <tst filename>'
+# usage 
 # take the BaRS tstp files and perform substitutions to generate tst files in the correct location
 # then run the tst file
 #
@@ -93,6 +95,14 @@ sed -e s!__TKWROOT__!$TKWROOT!g \
 	-e s!__TODAY4__!$today4!g \
 	-e s!__TODAYl1__!$todayl1!g \
 	< $tstfile  > $tst/$prefix'.tst'
+
+# local point specific change if we are talking to the simulator use a sentinel value otherwise use the to service
+if [[ "$toservice" == "TKW0004" ]]
+then
+	sed -i -e s!__HCS__!2000072489!g $tst/$prefix'.tst'
+else
+	sed -i -e s!__HCS__!$toservice!g $tst/$prefix'.tst'
+fi
 
 echo "writing transformed requests"
 # name templates for dest id for reentrancy
