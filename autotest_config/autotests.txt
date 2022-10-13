@@ -38,7 +38,6 @@ SFFSWithInvalidTimestamp \
 BookAppointment_HappyPath \
 BookTwoAppointments \
 BookAppointment_Basic \
-BookAppointment_NotVerified \
 BookAppointment_NoNHSNumber \
 BookAppointment_SlotAlreadyBooked \
 BookAppointment_UnsupportedMediaType \
@@ -80,7 +79,6 @@ ReferralRequest_999toCAS_NoVersionID \
 ReferralRequest_111toED_xml_accept \
 ReferralRequest_111toED_json_accept \
 ReferralRequest_111toED_Basic \
-ReferralRequest_111toED_NotVerified \
 ReferralRequest_111toED_NoNhsNo \
 ReferralRequest_111toED_Rank1NotOneself \
 ReferralRequest_111toED_NoRank1 \
