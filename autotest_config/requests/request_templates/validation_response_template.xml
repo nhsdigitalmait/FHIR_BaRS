@@ -84,7 +84,7 @@
           <!--    Always CarePlan   -->
           <reference value="urn:uuid:68d3c42e-f76e-4f66-9498-d96e1040c81c" />
         </basedOn>
-        <status value="active" />
+        <status value="complete" />
         <!--   used to drive workflow e.g. cancel/remove   -->
         <intent value="plan" />
         <!--    required and always set to 'plan'   -->
