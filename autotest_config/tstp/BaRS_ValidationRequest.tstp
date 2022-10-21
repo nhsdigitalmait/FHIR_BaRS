@@ -29,14 +29,39 @@ ValidationRequest_SS_Unsafe TESTS ValidationRequestTest_SS_Unsafe ResponseIsJson
 # scene safety unknown SCAL RS-REC_SCENE-INFO, RR-REC-SCENE-INFO
 ValidationRequest_SS_Unknown TESTS ValidationRequestTest_SS_Unknown ResponseIsJson IntegrityRequestIDHeaderIsPresent IntegrityCorrelationIDHeaderIsPresent IntegrityRequestIDHeadersMatch IntegrityCorrelationIDHeadersMatch ResponseIsBundle_ExtractingValidationServiceID BundleIDsCorrelate
 
+# Start of Address Schedules
+# from the matrix
+# see https://nhsd-confluence.digital.nhs.uk/pages/viewpage.action?spaceKey=PAAB&title=Message+content+for+Address+Matrix
+# 1. UPRN + Address
+ValidationRequest_Location_UPRN_Address TESTS ValidationRequestTest_UPRN_Address ResponseIsJson IntegrityRequestIDHeaderIsPresent IntegrityCorrelationIDHeaderIsPresent IntegrityRequestIDHeadersMatch IntegrityCorrelationIDHeadersMatch ResponseIsBundle
+# 2. Address
+ValidationRequest_Location_Address TESTS ValidationRequestTest_Address ResponseIsJson IntegrityRequestIDHeaderIsPresent IntegrityCorrelationIDHeaderIsPresent IntegrityRequestIDHeadersMatch IntegrityCorrelationIDHeadersMatch ResponseIsBundle
+# 3. E/N
+ValidationRequest_Location_EN TESTS ValidationRequestTest_EN ResponseIsJson IntegrityRequestIDHeaderIsPresent IntegrityCorrelationIDHeaderIsPresent IntegrityRequestIDHeadersMatch IntegrityCorrelationIDHeadersMatch ResponseIsBundle
+# 4. UPRN
+ValidationRequest_Location_UPRN TESTS ValidationRequestTest_UPRN ResponseIsJson IntegrityRequestIDHeaderIsPresent IntegrityCorrelationIDHeaderIsPresent IntegrityRequestIDHeadersMatch IntegrityCorrelationIDHeadersMatch ResponseIsBundle
+# 5. UPRN + Address + E/N + Pos (LL) DN how does this differ from a full request - it doesn't
+ValidationRequest_Location_UPRN_Address_EN_LL TESTS ValidationRequestTest_UPRN_Address_EN_LL ResponseIsJson IntegrityRequestIDHeaderIsPresent IntegrityCorrelationIDHeaderIsPresent IntegrityRequestIDHeadersMatch IntegrityCorrelationIDHeadersMatch ResponseIsBundle
+# 6. UPRN + Address + E/N - DN This already exists as a transform elsewhere - CHECK 
+ValidationRequest_Location_UPRN_Address_EN TESTS ValidationRequestTest_UPRN_Address_EN ResponseIsJson IntegrityRequestIDHeaderIsPresent IntegrityCorrelationIDHeaderIsPresent IntegrityRequestIDHeadersMatch IntegrityCorrelationIDHeadersMatch ResponseIsBundle
+# 7. UPRN + Address + E/N + W3W
+#
+# 8. UPRN + Address + LL
+ValidationRequest_Location_UPRN_Address_LL TESTS ValidationRequestTest_UPRN_Address_LL ResponseIsJson IntegrityRequestIDHeaderIsPresent IntegrityCorrelationIDHeaderIsPresent IntegrityRequestIDHeadersMatch IntegrityCorrelationIDHeadersMatch ResponseIsBundle
+# 9. Pos (LL)
+ValidationRequest_Location_LL TESTS ValidationRequestTest_LL ResponseIsJson IntegrityRequestIDHeaderIsPresent IntegrityCorrelationIDHeaderIsPresent IntegrityRequestIDHeadersMatch IntegrityCorrelationIDHeadersMatch ResponseIsBundle
+# 10. W3W
+#
 # No location SCAL RR-REC-INCID-INFO
 ValidationRequest_NoLocation TESTS ValidationRequestTest_NoLocation ResponseIsJson IntegrityRequestIDHeaderIsPresent IntegrityCorrelationIDHeaderIsPresent IntegrityRequestIDHeadersMatch IntegrityCorrelationIDHeadersMatch ResponseIsOperationOutcome
 
-# No UPRN SCAL RR-INFO-LOC-UPRN
+# No UPRN SCAL RR-INFO-LOC-UPRN Postcode Address E/N Position
 ValidationRequest_NoUPRN TESTS ValidationRequestTest_NoUPRN ResponseIsJson IntegrityRequestIDHeaderIsPresent IntegrityCorrelationIDHeaderIsPresent IntegrityRequestIDHeadersMatch IntegrityCorrelationIDHeadersMatch ResponseIsOperationOutcome
 #
-# No Location address or postcode or eastings/northings SCAL RR-INFO-LOC-EN
+# No Location address or postcode or eastings/northings SCAL RR-INFO-LOC-EN UPRN + Position
 ValidationRequest_NoLocationAddressPostcodeEastingsNorthings TESTS ValidationRequestTest_NoLocationAddressPostcodeEastingsNorthings ResponseIsJson IntegrityRequestIDHeaderIsPresent IntegrityCorrelationIDHeaderIsPresent IntegrityRequestIDHeadersMatch IntegrityCorrelationIDHeadersMatch ResponseIsOperationOutcome
+
+# End of Address Schedules
 
 ValidationRequest_WrongMethod TESTS ValidationRequest_Test_WrongMethod ResponseIsJson ResponseIsOperationOutcome IssueCodeNotSupported IssueDetailsCodeMethodNotAllowed
 
@@ -84,12 +109,37 @@ ValidationRequestTest_SS_Unsafe SEND_TKW validation_request TO __TO_ENDPOINT__/$
 
 ValidationRequestTest_SS_Unknown SEND_TKW validation_request TO __TO_ENDPOINT__/$process-message FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ PRETRANSFORM __TKWROOT__/config/FHIR_BaRS/autotest_config/transforms/create_service_request_ss_unknown.xslt APPLYPRETRANSFORMTO data SYNC ok WITH_PROPERTYSET base+webservices+post WITH_HTTPHEADERS credentials+Oauth2AccessToken+default_accept+default_content+integrity TEXT "HTTP Response must be HTTP 200 SCAL RR-SERV-REQ-CONSUME RS-REC_SCENE-INFO, RR-REC-SCENE-INFO RR-PAT-REG"
 
+# Start of Location Address Tests
+# NB Full message includes  LocationExtension/UPRN, Postcode, Address, LocationExtension/(eastings and northings), position (longitude and latitude) ( +W3W ? )
+# Matrix
+# 1
+ValidationRequestTest_UPRN_Address SEND_TKW validation_request TO __TO_ENDPOINT__/$process-message FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ PRETRANSFORM __TKWROOT__/config/FHIR_BaRS/autotest_config/transforms/create_service_request_uprn_address.xslt APPLYPRETRANSFORMTO data SYNC ok WITH_PROPERTYSET base+webservices+post WITH_HTTPHEADERS credentials+Oauth2AccessToken+default_accept+default_content+integrity TEXT "HTTP Response must be HTTP 200 Check This ??? SCAL RR-REC-INCID-INFO"
+# 2
+ValidationRequestTest_Address SEND_TKW validation_request TO __TO_ENDPOINT__/$process-message FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ PRETRANSFORM __TKWROOT__/config/FHIR_BaRS/autotest_config/transforms/create_service_request_address.xslt APPLYPRETRANSFORMTO data SYNC ok WITH_PROPERTYSET base+webservices+post WITH_HTTPHEADERS credentials+Oauth2AccessToken+default_accept+default_content+integrity TEXT "HTTP Response must be HTTP 200 Check This ??? SCAL RR-REC-INCID-INFO"
+# 3
+ValidationRequestTest_EN SEND_TKW validation_request TO __TO_ENDPOINT__/$process-message FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ PRETRANSFORM __TKWROOT__/config/FHIR_BaRS/autotest_config/transforms/create_service_request_en.xslt APPLYPRETRANSFORMTO data SYNC ok WITH_PROPERTYSET base+webservices+post WITH_HTTPHEADERS credentials+Oauth2AccessToken+default_accept+default_content+integrity TEXT "HTTP Response must be HTTP 200 Check This ??? SCAL RR-REC-INCID-INFO"
+# 4
+ValidationRequestTest_UPRN SEND_TKW validation_request TO __TO_ENDPOINT__/$process-message FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ PRETRANSFORM __TKWROOT__/config/FHIR_BaRS/autotest_config/transforms/create_service_request_uprn.xslt APPLYPRETRANSFORMTO data SYNC ok WITH_PROPERTYSET base+webservices+post WITH_HTTPHEADERS credentials+Oauth2AccessToken+default_accept+default_content+integrity TEXT "HTTP Response must be HTTP 200 Check This ??? SCAL RR-REC-INCID-INFO"
+# 5
+ValidationRequestTest_UPRN_Address_EN_LL SEND_TKW validation_request TO __TO_ENDPOINT__/$process-message FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ PRETRANSFORM __TKWROOT__/config/FHIR_BaRS/autotest_config/transforms/create_service_request_uprn_address_en_ll.xslt APPLYPRETRANSFORMTO data SYNC ok WITH_PROPERTYSET base+webservices+post WITH_HTTPHEADERS credentials+Oauth2AccessToken+default_accept+default_content+integrity TEXT "HTTP Response must be HTTP 200 Check This ??? SCAL RR-REC-INCID-INFO"
+# 6
+ValidationRequestTest_UPRN_Address_EN SEND_TKW validation_request TO __TO_ENDPOINT__/$process-message FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ PRETRANSFORM __TKWROOT__/config/FHIR_BaRS/autotest_config/transforms/create_service_request_uprn_address_en.xslt APPLYPRETRANSFORMTO data SYNC ok WITH_PROPERTYSET base+webservices+post WITH_HTTPHEADERS credentials+Oauth2AccessToken+default_accept+default_content+integrity TEXT "HTTP Response must be HTTP 200 Check This ??? SCAL RR-REC-INCID-INFO"
+# 8
+ValidationRequestTest_UPRN_Address_LL SEND_TKW validation_request TO __TO_ENDPOINT__/$process-message FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ PRETRANSFORM __TKWROOT__/config/FHIR_BaRS/autotest_config/transforms/create_service_request_uprn_address_ll.xslt APPLYPRETRANSFORMTO data SYNC ok WITH_PROPERTYSET base+webservices+post WITH_HTTPHEADERS credentials+Oauth2AccessToken+default_accept+default_content+integrity TEXT "HTTP Response must be HTTP 200 Check This ??? SCAL RR-REC-INCID-INFO"
+# 9
+ValidationRequestTest_LL SEND_TKW validation_request TO __TO_ENDPOINT__/$process-message FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ PRETRANSFORM __TKWROOT__/config/FHIR_BaRS/autotest_config/transforms/create_service_request_ll.xslt APPLYPRETRANSFORMTO data SYNC ok WITH_PROPERTYSET base+webservices+post WITH_HTTPHEADERS credentials+Oauth2AccessToken+default_accept+default_content+integrity TEXT "HTTP Response must be HTTP 200 Check This ??? SCAL RR-REC-INCID-INFO"
+#
+# No Location Fail 400
 ValidationRequestTest_NoLocation SEND_TKW validation_request TO __TO_ENDPOINT__/$process-message FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ PRETRANSFORM __TKWROOT__/config/FHIR_BaRS/autotest_config/transforms/create_service_request_no_location.xslt APPLYPRETRANSFORMTO data SYNC httpstatuscheck400 WITH_PROPERTYSET base+webservices+post WITH_HTTPHEADERS credentials+Oauth2AccessToken+default_accept+default_content+integrity TEXT "HTTP Response must be HTTP 400 Check This ??? SCAL RR-REC-INCID-INFO"
 
+# No UPRN Fail 400 ie Postcode + Address + E/N + Position
 ValidationRequestTest_NoUPRN SEND_TKW validation_request TO __TO_ENDPOINT__/$process-message FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ PRETRANSFORM __TKWROOT__/config/FHIR_BaRS/autotest_config/transforms/create_service_request_no_UPRN.xslt APPLYPRETRANSFORMTO data SYNC httpstatuscheck400 WITH_PROPERTYSET base+webservices+post WITH_HTTPHEADERS credentials+Oauth2AccessToken+default_accept+default_content+integrity TEXT "HTTP Response must be HTTP 400 Check This ??? SCAL RR-INFO-LOC-UPRN"
 
+# NoLocationAddressPostcodeEastingsNorthings Fail 400 ie UPRN + position
 ValidationRequestTest_NoLocationAddressPostcodeEastingsNorthings SEND_TKW validation_request TO __TO_ENDPOINT__/$process-message FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ PRETRANSFORM __TKWROOT__/config/FHIR_BaRS/autotest_config/transforms/create_service_request_no_location_address_postcode_eastings_northings.xslt APPLYPRETRANSFORMTO data SYNC httpstatuscheck400 WITH_PROPERTYSET base+webservices+post WITH_HTTPHEADERS credentials+Oauth2AccessToken+default_accept+default_content+integrity TEXT "HTTP Response must be HTTP 400 Check This ??? SCAL RR-INFO-LOC-EN"
-#
+
+# End of Location Address Tests
+
 # update, ReasonCode = update, SR status = active,  SR Category = validation, Encounter status = triaged
 ValidationRequestUpdateTest SEND_TKW validation_request_extracted TO __TO_ENDPOINT__/$process-message FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ PRETRANSFORM __TKWROOT__/config/FHIR_BaRS/autotest_config/transforms/update_service_request.xslt APPLYPRETRANSFORMTO data SYNC ok WITH_PROPERTYSET base+webservices+post WITH_HTTPHEADERS credentials+Oauth2AccessToken+default_accept+default_content+integrity TEXT "HTTP Response must be HTTP 200 SCAL RR-SERV-REQ-CONSUME RR-SERV-REQ-UPDATE"
 

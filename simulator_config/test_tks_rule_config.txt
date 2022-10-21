@@ -257,8 +257,8 @@ PATIENT9707606312	xpathmatches //fhir:Bundle/fhir:entry/fhir:resource/fhir:Patie
 111_TO_ED_Variable_New_Referral_Created		$111_TO_ED_Variable matches ^ReferralCreated$
 
 
-Booking_and_Referral_Linked xpathequals /fhir:Bundle/fhir:entry/fhir:resource/fhir:ServiceRequest/fhir:supportingInfo[fhir:display/@value='Booked Appointment']/fhir:reference/@value Appointment/9a8df080-bfbc-457f-b30f-664bba7760a4
-Booking_and_Referral_MisLinked xpathexists /fhir:Bundle/fhir:entry/fhir:resource/fhir:ServiceRequest/fhir:supportingInfo[fhir:display/@value='Booked Appointment']/fhir:reference/@value 
+Booking_and_Referral_Linked xpathequals /fhir:Bundle/fhir:entry/fhir:resource/fhir:ServiceRequest/fhir:supportingInfo[starts-with(fhir:reference/@value,'Appointment/')]/fhir:reference/@value Appointment/9a8df080-bfbc-457f-b30f-664bba7760a4
+Booking_and_Referral_MisLinked xpathexists /fhir:Bundle/fhir:entry/fhir:resource/fhir:ServiceRequest/fhir:supportingInfo[starts-with(fhir:reference/@value,'Appointment/')]/fhir:reference/@value 
 
 passthrough	Always
 dontpassthrough	Never

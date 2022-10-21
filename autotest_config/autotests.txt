@@ -104,6 +104,14 @@ ValidationRequest_NoRank1 \
 ValidationRequest_TwoRank1 \
 ValidationRequest_SS_Unsafe \
 ValidationRequest_SS_Unknown \
+ValidationRequest_Location_UPRN_Address \
+ValidationRequest_Location_Address \
+ValidationRequest_Location_EN \
+ValidationRequest_Location_UPRN \
+ValidationRequest_Location_UPRN_Address_EN_LL \
+ValidationRequest_Location_UPRN_Address_EN \
+ValidationRequest_Location_UPRN_Address_LL \
+ValidationRequest_Location_LL \
 ValidationRequest_NoLocation \
 ValidationRequest_NoUPRN \
 ValidationRequest_NoLocationAddressPostcodeEastingsNorthings \
