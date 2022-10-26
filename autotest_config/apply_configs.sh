@@ -97,11 +97,16 @@ sed -e s!__TKWROOT__!$TKWROOT!g \
 	< $tstfile  > $tst/$prefix'.tst'
 
 # local point specific change if we are talking to the simulator use a sentinel value otherwise use the to service
+
 if [[ "$toservice" == "TKW0004" ]]
 then
-	sed -i -e s!__HCS__!2000072489!g $tst/$prefix'.tst'
+    sed -i -e s!__HCS__!2000072489!g $tst/$prefix'.tst'
+	sed -i -e s!__HCS_NO_SLOTS__!2000073917!g $tst/$prefix'.tst'
+	sed -i -e s!__HCS_SLOTS_ONLY__!2000081825!g $tst/$prefix'.tst'
 else
 	sed -i -e s!__HCS__!$toservice!g $tst/$prefix'.tst'
+	sed -i -e s!__HCS_NO_SLOTS__!$toservice!g $tst/$prefix'.tst'
+	sed -i -e s!__HCS_SLOTS_ONLY__!$toservice!g $tst/$prefix'.tst'
 fi
 
 echo "writing transformed requests"
