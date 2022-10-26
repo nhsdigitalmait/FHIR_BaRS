@@ -16,15 +16,12 @@ SFFSWithValidParameters_parameter_json \
 SFFSWithValidParameters_header_json \
 SFFSWithValidParameters_parameter_xml \
 SFFSWithValidParameters_header_xml \
-SFFSWithValidParameters_3_days \
-SFFSWithValidParameters_includes \
-SFFSWithValidParameters_includes_slots_only \
+SFFSWithValidParameters_all_includes \
 SFFSNoSlots_HappyPath \
 SFFSInvalid \
 SFFSWrongMethod \
 SFFSWithBusySlots \
 SFFSWithNoIncludes \
-SFFSWithNoIncludesSlotsOnly \
 SFFSWithFreeAndBusySlots \
 SFFSWithFreeSlotsWithGzipEncoding \
 SFFSWithNoHealthcareService \

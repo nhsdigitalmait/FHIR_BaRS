@@ -32,10 +32,8 @@ SFFSWithValidParameters_parameter_xml TESTS SFFSWithValidParameters_parameter_xm
 #
 SFFSWithValidParameters_header_xml TESTS SFFSWithValidParameters_header_xml ResponseIsXml ResponseIsBundle SearchCountIsGreaterThanZero
 
-SFFSWithValidParameters_3_days TESTS SFFSWithValidParameters_3_days ResponseIsBundle SearchCountIsGreaterThanZero
-
-SFFSWithValidParameters_includes TESTS SFFSWithValidParameters_3_days ResponseIsBundle SFFSPractitionersReturned SFFSPractitionerRolesReturned SFFSOrgsReturned SFFSHealthcareOrgsReturned SearchCountIsGreaterThanZero
-SFFSWithValidParameters_includes_slots_only TESTS SFFSWithValidParameters_3_days_slots_only ResponseIsBundle SFFSPractitionersReturned SFFSPractitionerRolesReturned SFFSOrgsReturned SFFSHealthcareOrgsReturned SearchCountIsGreaterThanZero
+SFFSWithValidParameters_all_includes TESTS SFFSWithValidParameters_3_days ResponseIsBundle SFFSPractitionersReturned SFFSPractitionerRolesReturned SFFSOrgsReturned SFFSHealthcareOrgsReturned SearchCountIsGreaterThanZero
+#SFFSWithValidParameters_all_includes_slots_only TESTS SFFSWithValidParameters_3_days_slots_only ResponseIsBundle SFFSPractitionersReturned SFFSPractitionerRolesReturned SFFSOrgsReturned SFFSHealthcareOrgsReturned SearchCountIsGreaterThanZero
 
 # invalid date ranges
 # commented out since TAs state no reqt to limit this.
@@ -61,7 +59,6 @@ SFFSWithBusySlots TESTS SFFSWithValidParameters_search_for_busy_slots ResponseIs
 #
 
 SFFSWithNoIncludes TESTS SFFS_no_includes ResponseIsOperationOutcome IssueCodeRequired IssueDetailsCodeBadRequest
-SFFSWithNoIncludesSlotsOnly TESTS SFFS_no_include_slots_only ResponseIsOperationOutcome IssueCodeRequired IssueDetailsCodeBadRequest
 SFFSWithNoIncludeSchedule TESTS SFFS_no_include_schedule ResponseIsOperationOutcome IssueCodeRequired IssueDetailsCodeBadRequest
 SFFSWithNoStatus TESTS SFFS_no_status ResponseIsOperationOutcome IssueCodeRequired IssueDetailsCodeBadRequest
 SFFSWithInvalidStatus TESTS SFFS_invalid_status ResponseIsOperationOutcome IssueCodeValueOrInvalid IssueDetailsCodeBadRequest
@@ -190,7 +187,7 @@ practitioners_returned synchronousxpath boolean(count(for $r in /fhir:Bundle/fhi
 #practitioners_returned synchronousxpath count(/fhir:Bundle/fhir:entry/fhir:resource/fhir:Schedule/fhir:actor/fhir:reference[starts-with(@value,'Practitioner/')]) matches "^true$"
 
 #for each reference to a practitioner role that practitioner should be present in the response
-practitioner_roles_returned synchronousxpath boolean(count(for $r in /fhir:Bundle/fhir:entry/fhir:resource/fhir:Practitioner/fhir:identifier[fhir:system/@value='https://fhir.nhs.uk/Id/sds-role-profile-id']/fhir:value/@value return /fhir:Bundle/fhir:entry/fhir:resource/fhir:PractitionerRole[fhir:id/@value=$r]) = count(/fhir:Bundle/fhir:entry/fhir:resource/fhir:Practitioner)) matches "^true$"
+practitioner_roles_returned synchronousxpath boolean(count(for $r in /fhir:Bundle/fhir:entry/fhir:resource/fhir:Schedule/fhir:actor/fhir:reference/@value[starts-with(.,'PractitionerRole/')] return /fhir:Bundle/fhir:entry/fhir:resource/fhir:PractitionerRole[fhir:id/@value=substring($r,18)]) = count(/fhir:Bundle/fhir:entry/fhir:resource/fhir:Schedule/fhir:actor/fhir:reference[starts-with(@value,'PractitionerRole/')])) matches "^true$"
 
 #for each reference to an Organization that organization should be present in the response
 orgs_returned synchronousxpath boolean(count(for $r in /fhir:Bundle/fhir:entry/fhir:resource/fhir:HealthcareService/fhir:providedBy/fhir:reference/@value[starts-with(.,'Organization/')] return /fhir:Bundle/fhir:entry/fhir:resource/fhir:Organization[fhir:id/@value=substring($r,14)]) = count(/fhir:Bundle/fhir:entry/fhir:resource/fhir:Organization)) matches "^true$"
