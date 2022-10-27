@@ -107,8 +107,10 @@ ValidationRequest_Location_EN \
 ValidationRequest_Location_UPRN \
 ValidationRequest_Location_UPRN_Address_EN_LL \
 ValidationRequest_Location_UPRN_Address_EN \
+ValidationRequest_Location_UPRN_Address_EN_W3W \
 ValidationRequest_Location_UPRN_Address_LL \
 ValidationRequest_Location_LL \
+ValidationRequest_Location_W3W \
 ValidationRequest_NoLocation \
 ValidationRequest_NoUPRN \
 ValidationRequest_NoLocationAddressPostcodeEastingsNorthings \

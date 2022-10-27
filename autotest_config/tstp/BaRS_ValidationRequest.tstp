@@ -45,12 +45,14 @@ ValidationRequest_Location_UPRN_Address_EN_LL TESTS ValidationRequestTest_UPRN_A
 # 6. UPRN + Address + E/N - DN This already exists as a transform elsewhere - CHECK 
 ValidationRequest_Location_UPRN_Address_EN TESTS ValidationRequestTest_UPRN_Address_EN ResponseIsJson IntegrityRequestIDHeaderIsPresent IntegrityCorrelationIDHeaderIsPresent IntegrityRequestIDHeadersMatch IntegrityCorrelationIDHeadersMatch ResponseIsBundle
 # 7. UPRN + Address + E/N + W3W
+ValidationRequest_Location_UPRN_Address_EN_W3W TESTS ValidationRequestTest_UPRN_Address_EN_W3W ResponseIsJson IntegrityRequestIDHeaderIsPresent IntegrityCorrelationIDHeaderIsPresent IntegrityRequestIDHeadersMatch IntegrityCorrelationIDHeadersMatch ResponseIsBundle
 #
 # 8. UPRN + Address + LL
 ValidationRequest_Location_UPRN_Address_LL TESTS ValidationRequestTest_UPRN_Address_LL ResponseIsJson IntegrityRequestIDHeaderIsPresent IntegrityCorrelationIDHeaderIsPresent IntegrityRequestIDHeadersMatch IntegrityCorrelationIDHeadersMatch ResponseIsBundle
 # 9. Pos (LL)
 ValidationRequest_Location_LL TESTS ValidationRequestTest_LL ResponseIsJson IntegrityRequestIDHeaderIsPresent IntegrityCorrelationIDHeaderIsPresent IntegrityRequestIDHeadersMatch IntegrityCorrelationIDHeadersMatch ResponseIsBundle
 # 10. W3W
+ValidationRequest_Location_W3W TESTS ValidationRequestTest_W3W ResponseIsJson IntegrityRequestIDHeaderIsPresent IntegrityCorrelationIDHeaderIsPresent IntegrityRequestIDHeadersMatch IntegrityCorrelationIDHeadersMatch ResponseIsBundle
 #
 # No location SCAL RR-REC-INCID-INFO
 ValidationRequest_NoLocation TESTS ValidationRequestTest_NoLocation ResponseIsJson IntegrityRequestIDHeaderIsPresent IntegrityCorrelationIDHeaderIsPresent IntegrityRequestIDHeadersMatch IntegrityCorrelationIDHeadersMatch ResponseIsOperationOutcome
@@ -124,10 +126,14 @@ ValidationRequestTest_UPRN SEND_TKW validation_request TO __TO_ENDPOINT__/$proce
 ValidationRequestTest_UPRN_Address_EN_LL SEND_TKW validation_request TO __TO_ENDPOINT__/$process-message FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ PRETRANSFORM __TKWROOT__/config/FHIR_BaRS/autotest_config/transforms/create_service_request_uprn_address_en_ll.xslt APPLYPRETRANSFORMTO data SYNC ok WITH_PROPERTYSET base+webservices+post WITH_HTTPHEADERS credentials+Oauth2AccessToken+default_accept+default_content+integrity TEXT "HTTP Response must be HTTP 200 Check This ??? SCAL RR-REC-INCID-INFO"
 # 6
 ValidationRequestTest_UPRN_Address_EN SEND_TKW validation_request TO __TO_ENDPOINT__/$process-message FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ PRETRANSFORM __TKWROOT__/config/FHIR_BaRS/autotest_config/transforms/create_service_request_uprn_address_en.xslt APPLYPRETRANSFORMTO data SYNC ok WITH_PROPERTYSET base+webservices+post WITH_HTTPHEADERS credentials+Oauth2AccessToken+default_accept+default_content+integrity TEXT "HTTP Response must be HTTP 200 Check This ??? SCAL RR-REC-INCID-INFO"
+# 7
+ValidationRequestTest_UPRN_Address_EN_W3W SEND_TKW validation_request TO __TO_ENDPOINT__/$process-message FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ PRETRANSFORM __TKWROOT__/config/FHIR_BaRS/autotest_config/transforms/create_service_request_uprn_address_en_w3w.xslt APPLYPRETRANSFORMTO data SYNC ok WITH_PROPERTYSET base+webservices+post WITH_HTTPHEADERS credentials+Oauth2AccessToken+default_accept+default_content+integrity TEXT "HTTP Response must be HTTP 200 Check This ??? SCAL RR-REC-INCID-INFO"
 # 8
 ValidationRequestTest_UPRN_Address_LL SEND_TKW validation_request TO __TO_ENDPOINT__/$process-message FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ PRETRANSFORM __TKWROOT__/config/FHIR_BaRS/autotest_config/transforms/create_service_request_uprn_address_ll.xslt APPLYPRETRANSFORMTO data SYNC ok WITH_PROPERTYSET base+webservices+post WITH_HTTPHEADERS credentials+Oauth2AccessToken+default_accept+default_content+integrity TEXT "HTTP Response must be HTTP 200 Check This ??? SCAL RR-REC-INCID-INFO"
 # 9
 ValidationRequestTest_LL SEND_TKW validation_request TO __TO_ENDPOINT__/$process-message FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ PRETRANSFORM __TKWROOT__/config/FHIR_BaRS/autotest_config/transforms/create_service_request_ll.xslt APPLYPRETRANSFORMTO data SYNC ok WITH_PROPERTYSET base+webservices+post WITH_HTTPHEADERS credentials+Oauth2AccessToken+default_accept+default_content+integrity TEXT "HTTP Response must be HTTP 200 Check This ??? SCAL RR-REC-INCID-INFO"
+#10 W3W
+ValidationRequestTest_W3W SEND_TKW validation_request TO __TO_ENDPOINT__/$process-message FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ PRETRANSFORM __TKWROOT__/config/FHIR_BaRS/autotest_config/transforms/create_service_request_w3w.xslt APPLYPRETRANSFORMTO data SYNC ok WITH_PROPERTYSET base+webservices+post WITH_HTTPHEADERS credentials+Oauth2AccessToken+default_accept+default_content+integrity TEXT "HTTP Response must be HTTP 200 Check This ??? SCAL RR-REC-INCID-INFO"
 #
 # No Location Fail 400
 ValidationRequestTest_NoLocation SEND_TKW validation_request TO __TO_ENDPOINT__/$process-message FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ PRETRANSFORM __TKWROOT__/config/FHIR_BaRS/autotest_config/transforms/create_service_request_no_location.xslt APPLYPRETRANSFORMTO data SYNC httpstatuscheck400 WITH_PROPERTYSET base+webservices+post WITH_HTTPHEADERS credentials+Oauth2AccessToken+default_accept+default_content+integrity TEXT "HTTP Response must be HTTP 400 Check This ??? SCAL RR-REC-INCID-INFO"
