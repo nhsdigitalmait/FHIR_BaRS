@@ -32,7 +32,7 @@ fi
 
 if [ "$INHIBIT_RESPONSE_IMPORTER" != 'true' ]
 then
-	java -cp $TKWROOT/TKW-x.jar uk.nhs.digital.mait.tkwx.tk.boot.BARSResponseImporter $PROJECT &
+	java -cp $TKWROOT/BARSResponseImporter.jar:$TKWROOT/TKW-x.jar uk.nhs.digital.mait.tkwx.tk.boot.BARSResponseImporter $PROJECT &
 	echo "Starting BaRS Response Importer"
 fi
 

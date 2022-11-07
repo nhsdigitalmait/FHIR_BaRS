@@ -3,7 +3,7 @@
 # usage build_provider_simulator_Docker.sh [<userid>]
 # if no user id is provided it defaults to 1000 and the tag is just the version number
 #
-TAG=0.5
+TAG=0.6
 
 if [[ "$1" == "" ]]
 then
@@ -26,6 +26,7 @@ echo building
 echo "BaRS Provider Simulator Version: $TAG"  > version_string.txt
 echo "BaRS Github repository shortcode:" `git show -s --format="$PROJECT %h %cI"` >> version_string.txt
 
+cp $TKWROOT/BARSResponseImporter.jar .
 
 #Update the docker ignore sim link
 ln -fs .dockerignore.provider.simulator .dockerignore

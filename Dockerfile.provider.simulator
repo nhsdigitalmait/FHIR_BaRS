@@ -1,7 +1,7 @@
 #
 #  Docker file for building FHIR_BaRS emergency booking provider simulator docker image
 #
-FROM nhsdigitalmait/tkw-x:dfca383
+FROM nhsdigitalmait/tkw-x:de55331
 
 ARG USER_ID
 
@@ -11,6 +11,9 @@ ENV TKWROOT=/home/service/TKW
 ENV FHIR_ASSETS_NPMTAR_ROOT=/home/service/fhir
 ENV TERMINOLOGY_SERVER_ACCESS_TOKEN_ROOT=/home/service/access_token
 
+WORKDIR $TKWROOT
+COPY --chown=service:service BARSResponseImporter.jar BARSResponseImporter.jar 
+
 WORKDIR $TKWROOT/config/FHIR_BaRS
 
 # copy configs
@@ -18,6 +21,7 @@ COPY --chown=service:service autotest_config autotest_config
 COPY --chown=service:service validator_config validator_config
 COPY --chown=service:service simulator_config simulator_config
 RUN mkdir -p transmitter_sent_messages messages_for_validation transmitter_source autotest_config/tst validator_reports && chown -R service:service .
+
 
 COPY --chown=service:service version_string.txt .
 
