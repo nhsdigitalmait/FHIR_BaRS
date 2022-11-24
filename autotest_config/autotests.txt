@@ -55,7 +55,6 @@ CancelAppointment_DifferencesDetected \
 ReferralRequest_999toCAS_xml_accept \
 ReferralRequest_999toCAS_json_accept \
 ReferralRequest_999toCAS_Basic \
-ReferralRequest_999toCAS_NotVerified \
 ReferralRequest_999toCAS_NoNhsNo \
 ReferralRequest_999toCAS_Rank1NotOneself \
 ReferralRequest_999toCAS_NoRank1 \
@@ -94,7 +93,6 @@ ReferralRequest_111toED_NoVersionID \
 ValidationRequest_xml_accept \
 ValidationRequest_json_accept \
 ValidationRequest_Basic \
-ValidationRequest_NotVerified \
 ValidationRequest_NoNhsNo \
 ValidationRequest_Rank1NotOneself \
 ValidationRequest_NoRank1 \
