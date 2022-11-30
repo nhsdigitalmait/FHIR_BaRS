@@ -24,6 +24,7 @@ Operation_Outcome_503					TKW_ROOT/config/FHIR_BaRS/simulator_config/operation_o
 SearchSlots_HappyPath_Response	TKW_ROOT/config/FHIR_BaRS/simulator_config/BaRS_Booking/SearchSlots_HappyPath_Response.xml 200  WITH_HTTP_HEADERS ( X-Request-Id : "__XREQID_ECHO__" X-Correlation-Id : "__XCORRID_ECHO__" Date : "__RFC822TIMESTAMP__" )
 SearchSlots_HappyPath_No_Includes_Response		TKW_ROOT/config/FHIR_BaRS/simulator_config/BaRS_Booking/SearchSlots_HappyPath_No_Includes_Response.xml 200  WITH_HTTP_HEADERS ( X-Request-Id : "__XREQID_ECHO__" X-Correlation-Id : "__XCORRID_ECHO__" Date : "__RFC822TIMESTAMP__" )
 SearchSlots_HappyPath_FreeBusy_Response	TKW_ROOT/config/FHIR_BaRS/simulator_config/BaRS_Booking/SearchSlots_HappyPath_FreeBusy_Response.xml 200  WITH_HTTP_HEADERS ( X-Request-Id : "__XREQID_ECHO__" X-Correlation-Id : "__XCORRID_ECHO__" Date : "__RFC822TIMESTAMP__" )
+SearchSlots_HappyPath_FreeBusy_BusyOnly_Response	TKW_ROOT/config/FHIR_BaRS/simulator_config/BaRS_Booking/SearchSlots_HappyPath_FreeBusy_BusyOnly_Response.xml 200  WITH_HTTP_HEADERS ( X-Request-Id : "__XREQID_ECHO__" X-Correlation-Id : "__XCORRID_ECHO__" Date : "__RFC822TIMESTAMP__" )
 SearchSlots_HappyPath_NoSlots_Response	TKW_ROOT/config/FHIR_BaRS/simulator_config/BaRS_Booking/SearchSlots_HappyPath_NoSlots_Response.xml 200  WITH_HTTP_HEADERS ( X-Request-Id : "__XREQID_ECHO__" X-Correlation-Id : "__XCORRID_ECHO__" Date : "__RFC822TIMESTAMP__" )
 SearchSlots_HappyPath_OnlySlots_Response	TKW_ROOT/config/FHIR_BaRS/simulator_config/BaRS_Booking/SearchSlots_HappyPath_OnlySlots_Response.xml 200  WITH_HTTP_HEADERS ( X-Request-Id : "__XREQID_ECHO__" X-Correlation-Id : "__XCORRID_ECHO__" Date : "__RFC822TIMESTAMP__" )
 
@@ -180,7 +181,8 @@ METADATA					context_path matches ^.*/R4/metadata.*$
 APPOINTMENT					context_path matches ^.*/R4/Appointment.*$
 SERVICEREQUEST				context_path matches ^.*/R4/ServiceRequest.*$
 MESSAGEDEFINITION			context_path matches ^.*/R4/MessageDefinition\?context=.*$
-MESSAGEDEFINITION401		context_path matches ^.*/R4/MessageDefinition\?context=FAIL0401.*$
+MESSAGEDEFINITION401			context_path matches ^.*/R4/MessageDefinition\?context=FAIL0401.*$
+MESSAGEDEFINITION404			context_path matches ^.*/R4/MessageDefinition\?context=FAIL0404.*$
 INCLUDES						context_path matches ^.*_include.*$
 
 VALIDATIONSERVICEREQUEST001				context_path matches ^.*/R4/ServiceRequest/0b42eac3-0175-43c8-bbab-efaa8ca31ccf.*$
@@ -196,10 +198,12 @@ BOOKINGAPPOINTMENT001					context_path matches ^.*/R4/Appointment/ce1c4ced-2a84-
 BOOKINGAPPOINTMENT501				context_path matches ^.*/R4/Appointment/0d440c22-7f25-4c6c-905d-2213d197d02a.*$
 
 #HappyPath Free and Free & Busy	2000072489
+#HappyPath Free & Busy (Busy Only)	2000071234
 #HappyPath NoSlots 				2000073917
 #HappyPath Only Slots			2000081825
 #HTTP 408 						2000094120
 HEALTHCARESERVICE2000072489		context_path matches ^.*Schedule.actor%3AHealthcareService=2000072489.*$
+HEALTHCARESERVICE2000071234		context_path matches ^.*Schedule.actor%3AHealthcareService=2000071234.*$
 HEALTHCARESERVICE2000073917		context_path matches ^.*Schedule.actor%3AHealthcareService=2000073917.*$
 HEALTHCARESERVICE2000081825		context_path matches ^.*Schedule.actor%3AHealthcareService=2000081825.*$
 HEALTHCARESERVICE2000094120		context_path matches ^.*Schedule.actor%3AHealthcareService=2000094120.*$
@@ -390,20 +394,23 @@ IF	SERVICEREQUEST	AND	REFERRALSERVICEREQUEST429						THEN	Operation_Outcome_429	
 IF	SERVICEREQUEST	AND	REFERRALSERVICEREQUEST503						THEN	Operation_Outcome_503						ELSE	NEXT
 IF	APPOINTMENT	AND	BOOKINGAPPOINTMENT501								THEN	Operation_Outcome_501						ELSE	NEXT
 IF	APPOINTMENT															THEN	BookingAppointment_HappyPath_Response		ELSE	NEXT
-IF	MESSAGEDEFINITION401												THEN	Operation_Outcome_401						ELSE	NEXT
-IF	MESSAGEDEFINITION	AND	CONTEXT2000011147							THEN	MessageDefinition_HappyPath_BookingAndReferral_Response	ELSE	NEXT
+IF	MESSAGEDEFINITION401											THEN	Operation_Outcome_401							ELSE	NEXT
+IF	MESSAGEDEFINITION404											THEN	Operation_Outcome_404							ELSE	NEXT
+IF	MESSAGEDEFINITION	AND	CONTEXT2000011147							THEN	MessageDefinition_HappyPath_BookingAndReferral_Response		ELSE	NEXT
 IF	MESSAGEDEFINITION	AND	CONTEXT2000076289							THEN	MessageDefinition_HappyPath_ReferralReceiver_Response		ELSE	NEXT
-IF	MESSAGEDEFINITION	AND	CONTEXT2000094704							THEN	MessageDefinition_HappyPath_BookingAndReferralSender_Response		ELSE	NEXT
-IF	MESSAGEDEFINITION	AND	CONTEXT2000008878							THEN	MessageDefinition_HappyPath_ValidationReceiver_Response	ELSE	NEXT
+IF	MESSAGEDEFINITION	AND	CONTEXT2000094704							THEN	MessageDefinition_HappyPath_BookingAndReferralSender_Response	ELSE	NEXT
+IF	MESSAGEDEFINITION	AND	CONTEXT2000008878							THEN	MessageDefinition_HappyPath_ValidationReceiver_Response		ELSE	NEXT
 IF	MESSAGEDEFINITION	AND	CONTEXT2000011149							THEN	MessageDefinition_HappyPath_ValidationSender_Response		ELSE	NEXT
-IF	MESSAGEDEFINITION													THEN	MessageDefinition_HappyPath_Response		ELSE	NEXT
+IF	MESSAGEDEFINITION											THEN	MessageDefinition_HappyPath_Response					ELSE	NEXT
 IF 	SLOT	AND	HEALTHCARESERVICE_MISSING								THEN	Operation_Outcome_400						ELSE	NEXT
-IF	SLOT	AND	FREEANDBUSY	AND	HEALTHCARESERVICE2000072489				THEN	SearchSlots_HappyPath_FreeBusy_Response		ELSE	NEXT
-IF	SLOT	AND	FREEONLY	AND	HEALTHCARESERVICE2000072489	AND INCLUDES	THEN	SearchSlots_HappyPath_Response				ELSE	NEXT
-IF	SLOT	AND	FREEONLY	AND	HEALTHCARESERVICE2000072489				THEN	SearchSlots_HappyPath_No_Includes_Response				ELSE	NEXT
+IF	SLOT	AND	FREEANDBUSY	AND	HEALTHCARESERVICE2000072489					THEN	SearchSlots_HappyPath_FreeBusy_Response			ELSE	NEXT
+IF	SLOT	AND	FREEANDBUSY	AND	HEALTHCARESERVICE2000071234					THEN	SearchSlots_HappyPath_FreeBusy_BusyOnly_Response		ELSE	NEXT
+IF	SLOT	AND	FREEONLY	AND	HEALTHCARESERVICE2000072489	AND INCLUDES			THEN	SearchSlots_HappyPath_Response				ELSE	NEXT
+IF	SLOT	AND	FREEONLY	AND	HEALTHCARESERVICE2000072489					THEN	SearchSlots_HappyPath_No_Includes_Response			ELSE	NEXT
 IF	SLOT	AND	HEALTHCARESERVICE2000072489								THEN	SearchSlots_HappyPath_Response				ELSE	NEXT
-IF	SLOT	AND	HEALTHCARESERVICE2000073917								THEN	SearchSlots_HappyPath_NoSlots_Response		ELSE	NEXT
-IF	SLOT	AND	HEALTHCARESERVICE2000081825								THEN	SearchSlots_HappyPath_OnlySlots_Response	ELSE	NEXT
+IF	SLOT	AND	HEALTHCARESERVICE2000071234								THEN	SearchSlots_HappyPath_FreeBusy_BusyOnly_Response		ELSE	NEXT
+IF	SLOT	AND	HEALTHCARESERVICE2000073917								THEN	SearchSlots_HappyPath_NoSlots_Response			ELSE	NEXT
+IF	SLOT	AND	HEALTHCARESERVICE2000081825								THEN	SearchSlots_HappyPath_OnlySlots_Response			ELSE	NEXT
 IF	SLOT	AND	HEALTHCARESERVICE2000094120								THEN	Operation_Outcome_408						ELSE	NEXT
 
 IF passthrough THEN notFound_Response

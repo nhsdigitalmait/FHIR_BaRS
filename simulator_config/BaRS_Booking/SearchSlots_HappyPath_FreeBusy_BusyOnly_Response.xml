@@ -1,0 +1,158 @@
+<Bundle xmlns="http://hl7.org/fhir">
+<!--     BOOKREQRESP01  git commit 1458db7    -->
+  <id value="__MESSAGEID__" />
+  <meta>
+    <lastUpdated value="__TIMESTAMP__" />
+    <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-Bundle" />
+  </meta>
+  <type value="searchset" />
+  <total value="1" />
+  <timestamp value="__TIMESTAMP__" />
+  <link>
+    <relation value="self" />
+    <url value="https://__HOST____FULL_CONTEXT_PATH__" />
+  </link>
+  <entry>
+    <fullUrl value="https://directory.spineservices.nhs.uk/Slot/3f5dd95a-68a5-44ec-a234-3b28a24dad33" />
+    <resource>
+      <Slot>
+        <id value="3f5dd95a-68a5-44ec-a234-3b28a24dad33" />
+        <meta>
+          <lastUpdated value="__YESTERDAY__T15:01:30+00:00" />
+          <profile value="http://hl7.org/fhir/StructureDefinition/Slot" />
+        </meta>
+        <serviceCategory>
+          <coding>
+            <code value="14" />
+            <display value="Emergency Department" />
+          </coding>
+        </serviceCategory>
+        <appointmentType>
+          <coding>
+            <code value="EMERGENCY" />
+            <display value="Emergency appointment" />
+          </coding>
+        </appointmentType>
+        <schedule>
+          <reference value="Schedule/7e8c4baa-b7a7-4a7c-bb8c-8c8426ad7781" />
+        </schedule>
+        <status value="busy" />
+        <start value="__TOMORROW__T10:45:00.000+00:00" />
+        <end value="__TOMORROW__T11:00:00.000+00:00" />
+      </Slot>
+    </resource>
+  </entry>
+  <entry>
+    <fullUrl value="https://directory.spineservices.nhs.uk/Schedule/7e8c4baa-b7a7-4a7c-bb8c-8c8426ad7781" />
+    <resource>
+      <Schedule>
+        <id value="7e8c4baa-b7a7-4a7c-bb8c-8c8426ad7781" />
+        <meta>
+          <lastUpdated value="__YESTERDAY__T15:01:30+00:00" />
+          <profile value="http://hl7.org/fhir/StructureDefinition/Schedule" />
+        </meta>
+        <identifier>
+          <system value="https://system.supplier.co.uk/Diary/id" />
+          <value value="8622dfdb-dc6a-47b6-b3a7-2eb2829db287" />
+        </identifier>
+        <actor>
+          <!--  HealthcareService  -->
+          <reference value="HealthcareService/5088769a-491e-463f-a167-fff78bb472d9" />
+        </actor>
+        <actor>
+          <!--  PractitionerRole  -->
+          <reference value="PractitionerRole/6bea99e7-b97f-4ee1-980d-05f997afff4f" />
+        </actor>
+        <actor>
+          <!--  Practitioner  -->
+          <reference value="Practitioner/cad5a61c-3797-4f26-8921-ae4bc7f75eb6" />
+        </actor>
+      </Schedule>
+    </resource>
+  </entry>
+  <entry>
+    <fullUrl value="https://directory.spineservices.nhs.uk/HealthcareService/5088769a-491e-463f-a167-fff78bb472d9" />
+    <resource>
+      <HealthcareService>
+        <id value="5088769a-491e-463f-a167-fff78bb472d9" />
+        <meta>
+          <lastUpdated value="__YESTERDAY__T15:01:30+00:00" />
+          <profile value="http://hl7.org/fhir/StructureDefinition/HealthcareService" />
+        </meta>
+        <identifier>
+          <system value="https://system.supplier.co.uk/My/Healthcare/Services" />
+          <value value="100" />
+        </identifier>
+        <location>
+          <reference value="Location/d23eac9a-12e7-46c5-8781-c3c1d9b1d3c5" />
+        </location>
+        <name value="Healthcare Service Name" />
+      </HealthcareService>
+    </resource>
+  </entry>
+  <entry>
+    <fullUrl value="https://directory.spineservices.nhs.uk/Practitioner/cad5a61c-3797-4f26-8921-ae4bc7f75eb6" />
+    <resource>
+      <Practitioner>
+        <id value="cad5a61c-3797-4f26-8921-ae4bc7f75eb6" />
+        <meta>
+          <lastUpdated value="__YESTERDAY__T15:01:30+00:00" />
+          <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-Practitioner" />
+        </meta>
+        <identifier>
+          <system value="https://fhir.nhs.uk/Id/sds-user-id" />
+          <value value="cad5a61c-3797-4f26-8921-ae4bc7f75eb6" />
+        </identifier>
+        <identifier>
+          <system value="https://fhir.nhs.uk/Id/sds-role-profile-id" />
+          <value value="6bea99e7-b97f-4ee1-980d-05f997afff4f" />
+        </identifier>
+        <name>
+          <family value="Bloggs" />
+          <given value="Joe" />
+          <prefix value="Dr" />
+        </name>
+      </Practitioner>
+    </resource>
+  </entry>
+  <entry>
+    <fullUrl value="https://directory.spineservices.nhs.uk/PractitionerRole/6bea99e7-b97f-4ee1-980d-05f997afff4f" />
+    <resource>
+      <PractitionerRole>
+        <id value="6bea99e7-b97f-4ee1-980d-05f997afff4f" />
+        <meta>
+          <lastUpdated value="__YESTERDAY__T15:01:30+00:00" />
+          <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-PractitionerRole" />
+        </meta>
+        <practitioner>
+          <reference value="Practitioner/cad5a61c-3797-4f26-8921-ae4bc7f75eb6" />
+        </practitioner>
+        <code>
+          <coding>
+            <system value="https://fhir.hl7.org.uk/ValueSet/UKCore-PractitionerRoleCode" />
+            <version value="4.0.1" />
+            <code value="doctor" />
+            <display value="Doctor" />
+          </coding>
+        </code>
+      </PractitionerRole>
+    </resource>
+  </entry>
+  <entry>
+    <fullUrl value="https://directory.spineservices.nhs.uk/Location/d23eac9a-12e7-46c5-8781-c3c1d9b1d3c5" />
+    <resource>
+      <Location>
+        <id value="d23eac9a-12e7-46c5-8781-c3c1d9b1d3c5" />
+        <meta>
+          <lastUpdated value="__YESTERDAY__T15:01:30+00:00" />
+          <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-Location" />
+        </meta>
+        <name value="Healthcare Service Location" />
+        <position>
+          <longitude value="143.20196" />
+          <latitude value="-37.22866" />
+        </position>
+      </Location>
+    </resource>
+  </entry>
+</Bundle>
