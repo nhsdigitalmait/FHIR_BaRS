@@ -108,6 +108,7 @@
       </resource>
       <operation>
          <name value="$process-message"/>
+         <definition value="http://hl7.org/fhir/OperationDefinition/MessageHeader-process-message"/>
       </operation>
    </rest>
    <messaging>
@@ -119,12 +120,15 @@
       </endpoint>
       <supportedMessage>
          <mode value="receiver"/>
+         <definition value="MessageDefinition/bars-message-servicerequest-request-referral"/>
       </supportedMessage>
       <supportedMessage>
          <mode value="sender"/>
+         <definition value="MessageDefinition/bars-message-servicerequest-response-referral"/>
       </supportedMessage>
       <supportedMessage>
          <mode value="receiver"/>
+         <definition value="MessageDefinition/bars-message-booking-request"/>
       </supportedMessage>
    </messaging>
 </CapabilityStatement>
