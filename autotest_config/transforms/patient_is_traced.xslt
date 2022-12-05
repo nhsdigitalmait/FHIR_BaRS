@@ -14,7 +14,18 @@
 	</xsl:template>
 
 	<xsl:template match="fhir:Patient/fhir:identifier/fhir:value/@value">
+		<!-- default -->
 		<xsl:attribute name="value">9658218873</xsl:attribute>
+
+		<!-- interim -->
+		<!--
+		<xsl:attribute name="value">9706161317</xsl:attribute>
+		-->
+
+		<!-- full -->
+		<!--
+		<xsl:attribute name="value">9091510129</xsl:attribute>
+		-->
 	</xsl:template>
 
 	<xsl:template match="fhir:Patient/fhir:name">
