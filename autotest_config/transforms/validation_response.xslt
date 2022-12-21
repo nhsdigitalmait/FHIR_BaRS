@@ -70,6 +70,13 @@
 		</xsl:attribute>
 	</xsl:template>
 
+	<!-- NBRS 1775 if the supplier is using http rather than https for the system protocol prefix then fix this for them! -->
+	<xsl:template match="fhir:MessageHeader/fhir:source/fhir:endpoint/@value|fhir:MessageHeader/fhir:destination/fhir:endpoint/@value">
+		<xsl:attribute name="value">
+			<xsl:value-of select="replace(.,'^http:','https:')"/>
+		</xsl:attribute>
+	</xsl:template>
+
 	<xsl:template match="fhir:MessageHeader/fhir:definition/@value">
 		<xsl:choose>
 			<xsl:when test="$interim">
