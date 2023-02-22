@@ -27,3 +27,4 @@ setremote.sh
 Makefile
 /autotest_config/tst/*
 /autotest_config/tstp/TestFileMergerFile.log
+BARSResponseImporter.jar
