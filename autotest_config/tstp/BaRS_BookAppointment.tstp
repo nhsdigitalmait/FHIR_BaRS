@@ -110,7 +110,7 @@ GetAppointmentPathIdNotFound SEND_TKW empty_file TO __TO_ENDPOINT__/Appointment/
 
 GetAppointmentPatientParameterMissing SEND_TKW empty_file TO __TO_ENDPOINT__/Appointment?https%3A%2F%2Ffhir.nhs.uk%2FId%2Fnhs-number%7C FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ SYNC httpstatuscheck400 WITH_PROPERTYSET base+webservices+get WITH_HTTPHEADERS credentials+default_accept+Oauth2AccessToken+integrity TEXT "HTTP Response must be HTTP 400"
 
-GetAppointmentPatientParameterInvalid SEND_TKW empty_file TO __TO_ENDPOINT__/Appointment?https%3A%2F%2Ffhir.nhs.uk%2FId%2Fnhs-number%7CXXXXXX __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ SYNC httpstatuscheck400 WITH_PROPERTYSET base+webservices+get WITH_HTTPHEADERS credentials+default_accept+Oauth2AccessToken+integrity TEXT "HTTP Response must be HTTP 400"
+GetAppointmentPatientParameterInvalid SEND_TKW empty_file TO __TO_ENDPOINT__/Appointment?https%3A%2F%2Ffhir.nhs.uk%2FId%2Fnhs-number%7CXXXXXX FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ SYNC httpstatuscheck400 WITH_PROPERTYSET base+webservices+get WITH_HTTPHEADERS credentials+default_accept+Oauth2AccessToken+integrity TEXT "HTTP Response must be HTTP 400"
 
 END TESTS
 
