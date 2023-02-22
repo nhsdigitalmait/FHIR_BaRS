@@ -199,26 +199,27 @@ BOOKINGAPPOINTMENT501				context_path matches ^.*/R4/Appointment/0d440c22-7f25-4
 
 #HappyPath Free and Free & Busy	2000072489
 #HappyPath Free & Busy (Busy Only)	2000071234
-#HappyPath NoSlots 				2000073917
-#HappyPath Only Slots			2000081825
-#HTTP 408 						2000094120
+#HappyPath NoSlots 			2000073917
+#HappyPath Only Slots			1503499715
+#HTTP 408 				2000081230
 HEALTHCARESERVICE2000072489		context_path matches ^.*Schedule.actor%3AHealthcareService=2000072489.*$
 HEALTHCARESERVICE2000071234		context_path matches ^.*Schedule.actor%3AHealthcareService=2000071234.*$
 HEALTHCARESERVICE2000073917		context_path matches ^.*Schedule.actor%3AHealthcareService=2000073917.*$
-HEALTHCARESERVICE2000081825		context_path matches ^.*Schedule.actor%3AHealthcareService=2000081825.*$
-HEALTHCARESERVICE2000094120		context_path matches ^.*Schedule.actor%3AHealthcareService=2000094120.*$
+HEALTHCARESERVICE1503499715		context_path matches ^.*Schedule.actor%3AHealthcareService=1503499715.*$
+HEALTHCARESERVICE2000081230		context_path matches ^.*Schedule.actor%3AHealthcareService=2000081230.*$
+HEALTHCARESERVICE2000011147		context_path matches ^.*Schedule.actor%3AHealthcareService=2000011147.*$
 
 DOSID2000011147 http_header b64 NHSD-Target-Identifier jsonpathequals $.value 2000011147
-DOSID2000094704 http_header b64 NHSD-Target-Identifier jsonpathequals $.value 2000094704
+DOSID2000093816 http_header b64 NHSD-Target-Identifier jsonpathequals $.value 2000093816
 DOSID2000076289 http_header b64 NHSD-Target-Identifier jsonpathequals $.value 2000076289
-DOSID2000008878 http_header b64 NHSD-Target-Identifier jsonpathequals $.value 2000008878
-DOSID2000011149 http_header b64 NHSD-Target-Identifier jsonpathequals $.value 2000011149
+DOSID2000003366 http_header b64 NHSD-Target-Identifier jsonpathequals $.value 2000003366
+DOSID1374839566 http_header b64 NHSD-Target-Identifier jsonpathequals $.value 1374839566
 
 CONTEXT2000011147 context_path matches ^.*/R4/MessageDefinition\?context=2000011147$
-CONTEXT2000094704 context_path matches ^.*/R4/MessageDefinition\?context=2000094704$
+CONTEXT2000093816 context_path matches ^.*/R4/MessageDefinition\?context=2000093816$
 CONTEXT2000076289 context_path matches ^.*/R4/MessageDefinition\?context=2000076289$
-CONTEXT2000008878 context_path matches ^.*/R4/MessageDefinition\?context=2000008878$
-CONTEXT2000011149 context_path matches ^.*/R4/MessageDefinition\?context=2000011149$
+CONTEXT2000003366 context_path matches ^.*/R4/MessageDefinition\?context=2000003366$
+CONTEXT1374839566 context_path matches ^.*/R4/MessageDefinition\?context=1374839566$
 
 #Service Request Category
 SR_CATEGORY_VALIDATION	xpathmatches //fhir:Bundle/fhir:entry/fhir:resource/fhir:ServiceRequest/fhir:category/fhir:coding/fhir:code/@value validation
@@ -381,9 +382,9 @@ BEGIN RULE
 GET
 IF	METADATA	AND	DOSID2000011147										THEN	Capability_HappyPath_BookingAndReferral_Response	ELSE	NEXT
 IF	METADATA	AND	DOSID2000076289										THEN	Capability_HappyPath_ReferralReceiver_Response		ELSE	NEXT
-IF	METADATA	AND	DOSID2000094704										THEN	Capability_HappyPath_BookingAndReferralSender_Response		ELSE	NEXT
-IF	METADATA	AND	DOSID2000008878										THEN	Capability_HappyPath_ValidationReceiver_Response	ELSE	NEXT
-IF	METADATA	AND	DOSID2000011149										THEN	Capability_HappyPath_ValidationSender_Response		ELSE	NEXT
+IF	METADATA	AND	DOSID2000093816										THEN	Capability_HappyPath_BookingAndReferralSender_Response		ELSE	NEXT
+IF	METADATA	AND	DOSID2000003366										THEN	Capability_HappyPath_ValidationReceiver_Response	ELSE	NEXT
+IF	METADATA	AND	DOSID1374839566										THEN	Capability_HappyPath_ValidationSender_Response		ELSE	NEXT
 IF	METADATA															THEN	Capability_HappyPath_Response				ELSE	NEXT
 IF	SERVICEREQUEST	AND	VALIDATIONSERVICEREQUEST001						THEN	ValidationServiceRequest_HappyPath_Response	ELSE	NEXT
 IF	SERVICEREQUEST	AND	VALIDATIONSERVICEREQUEST408						THEN	Operation_Outcome_408						ELSE	NEXT
@@ -398,9 +399,9 @@ IF	MESSAGEDEFINITION401											THEN	Operation_Outcome_401							ELSE	NEXT
 IF	MESSAGEDEFINITION404											THEN	Operation_Outcome_404							ELSE	NEXT
 IF	MESSAGEDEFINITION	AND	CONTEXT2000011147							THEN	MessageDefinition_HappyPath_BookingAndReferral_Response		ELSE	NEXT
 IF	MESSAGEDEFINITION	AND	CONTEXT2000076289							THEN	MessageDefinition_HappyPath_ReferralReceiver_Response		ELSE	NEXT
-IF	MESSAGEDEFINITION	AND	CONTEXT2000094704							THEN	MessageDefinition_HappyPath_BookingAndReferralSender_Response	ELSE	NEXT
-IF	MESSAGEDEFINITION	AND	CONTEXT2000008878							THEN	MessageDefinition_HappyPath_ValidationReceiver_Response		ELSE	NEXT
-IF	MESSAGEDEFINITION	AND	CONTEXT2000011149							THEN	MessageDefinition_HappyPath_ValidationSender_Response		ELSE	NEXT
+IF	MESSAGEDEFINITION	AND	CONTEXT2000093816							THEN	MessageDefinition_HappyPath_BookingAndReferralSender_Response	ELSE	NEXT
+IF	MESSAGEDEFINITION	AND	CONTEXT2000003366							THEN	MessageDefinition_HappyPath_ValidationReceiver_Response		ELSE	NEXT
+IF	MESSAGEDEFINITION	AND	CONTEXT1374839566							THEN	MessageDefinition_HappyPath_ValidationSender_Response		ELSE	NEXT
 IF	MESSAGEDEFINITION											THEN	MessageDefinition_HappyPath_Response					ELSE	NEXT
 IF 	SLOT	AND	HEALTHCARESERVICE_MISSING								THEN	Operation_Outcome_400						ELSE	NEXT
 IF	SLOT	AND	FREEANDBUSY	AND	HEALTHCARESERVICE2000072489					THEN	SearchSlots_HappyPath_FreeBusy_Response			ELSE	NEXT
@@ -412,8 +413,8 @@ IF	SLOT	AND	FREEANDBUSY	AND	HEALTHCARESERVICE2000011147					THEN	SearchSlots_Hap
 IF	SLOT	AND	HEALTHCARESERVICE2000011147								THEN	SearchSlots_HappyPath_Response				ELSE	NEXT
 IF	SLOT	AND	HEALTHCARESERVICE2000071234								THEN	SearchSlots_HappyPath_FreeBusy_BusyOnly_Response		ELSE	NEXT
 IF	SLOT	AND	HEALTHCARESERVICE2000073917								THEN	SearchSlots_HappyPath_NoSlots_Response			ELSE	NEXT
-IF	SLOT	AND	HEALTHCARESERVICE2000081825								THEN	SearchSlots_HappyPath_OnlySlots_Response			ELSE	NEXT
-IF	SLOT	AND	HEALTHCARESERVICE2000094120								THEN	Operation_Outcome_408						ELSE	NEXT
+IF	SLOT	AND	HEALTHCARESERVICE1503499715								THEN	SearchSlots_HappyPath_OnlySlots_Response			ELSE	NEXT
+IF	SLOT	AND	HEALTHCARESERVICE2000081230								THEN	Operation_Outcome_408						ELSE	NEXT
 
 IF passthrough THEN notFound_Response
 END RULE
