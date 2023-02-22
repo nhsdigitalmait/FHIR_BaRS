@@ -336,6 +336,8 @@ __START_SLOT_TIME__  function:uk.nhs.digital.mait.tkwx.tk.internalservices.testa
 __START_SLOT_TIME1L__  function:uk.nhs.digital.mait.tkwx.tk.internalservices.testautomation.PropertySetFunctions.getFormattedTime "yyyy-MM-dd'T00:00:00'XXX" "Europe/London" "-1" "0" "true"
 __END_SLOT_TIME__  function:uk.nhs.digital.mait.tkwx.tk.internalservices.testautomation.PropertySetFunctions.getFormattedTime "yyyy-MM-dd'T00:00:00'XXX" "Europe/London" "4" "0" "true"
 __START_SLOT_TIME_NO_TIMEZONE__  function:uk.nhs.digital.mait.tkwx.tk.internalservices.testautomation.PropertySetFunctions.getFormattedTime "yyyy-MM-dd'T00:00:00'" "Europe/London" "1" "0" "true"
+__START_SLOT_TIME_WRONG_TIMEZONE__  function:uk.nhs.digital.mait.tkwx.tk.internalservices.testautomation.PropertySetFunctions.getFormattedTime "yyyy-MM-dd'T00:00:00'XXX" "US/Central" "1" "0" "true"
+__START_SLOT_TIME_YEAR_BACK__  function:uk.nhs.digital.mait.tkwx.tk.internalservices.testautomation.PropertySetFunctions.getFormattedTime "yyyy-MM-dd'T00:00:00'XXX" "Europe/London" "-365" "0" "true"
 # 3 am
 __START_SLOT_TIME_NO_SLOTS__  function:uk.nhs.digital.mait.tkwx.tk.internalservices.testautomation.PropertySetFunctions.getFormattedTime "yyyy-MM-dd'T03:00:00'XXX" "Europe/London" "1" "0" "true"
 # 4 am
