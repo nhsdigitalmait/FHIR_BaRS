@@ -5,23 +5,20 @@
 #
 SCRIPT BaRS_SearchForFreeSlots
 #
-#  Search parameters spec implies thay are all optional https://developer.nhs.uk/apis/nhsbooking-2.0.0-beta/search_free_slots.html
-#  
-#status=free  C27 => optional
+#
+#status=free mandatory free or free,busy or busy,free
 #start=le mandatory le or lt 
-#start=ge optional gt or ge 
+#start=ge mandatory gt or ge 
 #Schedule.actor.healthcareservice mandatory 
 #
 #_include in response parameters
 #
 #_include=Slot:Schedule mandatory
 #_include=Schedule:actor%3APractitioner mandatory 
-#_include=Schedule:actor%3APractitionerRole mandatory 
+#_include=Schedule:actor%3APractitionerRole
 #_include=Schedule:actor%3AHealthcareService mandatory 
-#_include=HealthcareService.location Not mentioned
-#_include=HealthcareService.providedBy 
-#
-#
+#_include=HealthcareService.location
+#_include=HealthcareService.providedBy
 
 BEGIN SCHEDULES
 # valid date ranges
@@ -29,54 +26,46 @@ BEGIN SCHEDULES
 SFFSWithValidParameters_parameter_json TESTS SFFSWithValidParameters_parameter_json ResponseIsJson ResponseIsBundle SearchCountIsGreaterThanZero
 SFFSWithValidParameters_header_json TESTS SFFSWithValidParameters_header_json ResponseIsJson ResponseIsBundle SearchCountIsGreaterThanZero
 SFFSWithValidParameters_parameter_xml TESTS SFFSWithValidParameters_parameter_xml ResponseIsXml ResponseIsBundle SFFSSlotsStatusFree SFFSSlotsTooEarly SFFSSlotsTooLate SearchCountIsGreaterThanZero
-#
+
 SFFSWithValidParameters_header_xml TESTS SFFSWithValidParameters_header_xml ResponseIsXml ResponseIsBundle SearchCountIsGreaterThanZero
 
 SFFSWithValidParameters_all_includes TESTS SFFSWithValidParameters_3_days ResponseIsBundle SFFSPractitionersReturned SFFSPractitionerRolesReturned SFFSOrgsReturned SFFSHealthcareOrgsReturned SearchCountIsGreaterThanZero
-#SFFSWithValidParameters_all_includes_slots_only TESTS SFFSWithValidParameters_3_days_slots_only ResponseIsBundle SFFSPractitionersReturned SFFSPractitionerRolesReturned SFFSOrgsReturned SFFSHealthcareOrgsReturned SearchCountIsGreaterThanZero
-
-# invalid date ranges
-# commented out since TAs state no reqt to limit this.
-#SFFSWithInvalidDateRangeError_l1_days TESTS SFFSWithInvalidDateRangeError_l1_days InvalidParameter
-
-# state is free
-
-# state is busy
-#
 
 SFFSNoSlots_HappyPath TESTS SFFSNoSlotsAvailable ResponseIsBundle SearchCountIsZero
 
-
 SFFSInvalid TESTS SFFSWithInvalidQuery ResponseIsOperationOutcome 
-
-# TODO P-VDATE-INCOM-JWT-CHK-EXP Put in an expired timestamp
-#
 
 SFFSWrongMethod TESTS SFFSWithWrongMethod ResponseIsOperationOutcome IssueCodeNotSupported IssueDetailsCodeMethodNotAllowed
 
-
 SFFSWithBusySlots TESTS SFFSWithValidParameters_search_for_busy_slots ResponseIsBundle
-#
 
 SFFSWithNoIncludes TESTS SFFS_no_includes ResponseIsOperationOutcome IssueCodeRequired IssueDetailsCodeBadRequest
 SFFSWithNoIncludeSchedule TESTS SFFS_no_include_schedule ResponseIsOperationOutcome IssueCodeRequired IssueDetailsCodeBadRequest
-SFFSWithNoStatus TESTS SFFS_no_status ResponseIsOperationOutcome IssueCodeRequired IssueDetailsCodeBadRequest
-SFFSWithInvalidStatus TESTS SFFS_invalid_status ResponseIsOperationOutcome IssueCodeValueOrInvalid IssueDetailsCodeBadRequest
+SFFSWithNoIncludePractitioner TESTS SFFS_no_include_practitioner ResponseIsOperationOutcome IssueCodeRequired IssueDetailsCodeBadRequest
+SFFSWithNoIncludeHealthcareService TESTS SFFS_no_include_healthcare_service ResponseIsOperationOutcome IssueCodeRequired IssueDetailsCodeBadRequest
 
+SFFSWithNoStatus TESTS SFFS_no_status ResponseIsOperationOutcome IssueCodeRequired IssueDetailsCodeSendOrRecBadRequest
+SFFSWithInvalidStatus TESTS SFFS_invalid_status ResponseIsOperationOutcome IssueCodeValue IssueDetailsCodeSendOrRecBadRequest
 
 SFFSWithFreeAndBusySlots TESTS SFFSWithValidParameters_search_for_free_and_busy_slots ResponseIsBundle
-#
 
 SFFSWithFreeSlotsWithGzipEncoding TESTS SFFSWithValidParameters_search_for_free_slots_with_gzip_encoding ResponseIsBundle ResponseWasGzip
 
-SFFSWithNoHealthcareService TESTS SFFS_no_healthcare_service ResponseIsOperationOutcome IssueCodeRequired IssueDetailsCodeBadRequest
-SFFSWithInvalidHealthcareService TESTS SFFS_invalid_healthcare_service ResponseIsOperationOutcome IssueCodeValueOrInvalid IssueDetailsCodeBadRequest
+SFFSWithNoHealthcareService TESTS SFFS_no_healthcare_service ResponseIsOperationOutcome IssueCodeRequired IssueDetailsCodeSendOrRecBadRequest
+SFFSWithInvalidHealthcareService TESTS SFFS_invalid_healthcare_service ResponseIsOperationOutcome IssueCodeValueOrInvariant IssueDetailsCodeBadRequest
+SFFSWithHealthcareServiceNotFound TESTS SFFS_healthcare_service_not_found ResponseIsOperationOutcome IssueCodeNotFound IssueDetailsCodeNotFound
 
-SFFSWithNoStartDate TESTS SFFSWithNoStartDates ResponseIsOperationOutcome IssueCodeRequired IssueDetailsCodeBadRequest
-SFFSWithOneStartDate TESTS SFFSWithOneStartDate ResponseIsOperationOutcome IssueCodeRequired IssueDetailsCodeBadRequest
-SFFSWithThreeStartDates TESTS SFFSWithThreeStartDates ResponseIsOperationOutcome IssueCodeRequired IssueDetailsCodeBadRequest
+SFFSWithNoStartDate TESTS SFFSWithNoStartDates ResponseIsOperationOutcome IssueCodeRequired IssueDetailsCodeSendOrRecBadRequest
+SFFSWithOneStartDate TESTS SFFSWithOneStartDate ResponseIsOperationOutcome IssueCodeRequired IssueDetailsCodeSendOrRecBadRequest
+SFFSWithThreeStartDates TESTS SFFSWithThreeStartDates ResponseIsOperationOutcome IssueCodeRequired IssueDetailsCodeSendOrRecBadRequest
 
-SFFSWithInvalidTimestamp TESTS SFFSWithInvalidTimestamp ResponseIsOperationOutcome IssueCodeValueOrInvalid IssueDetailsCodeBadRequest
+SFFSWithInvalidTimestamp TESTS SFFSWithInvalidTimestamp ResponseIsOperationOutcome IssueCodeValue IssueDetailsCodeSendOrRecBadRequest
+# TODO delete above
+
+SFFSWithDateRangeTooWide TESTS SFFSWithDateRangeTooWide ResponseIsOperationOutcome IssueCodeTooCostly IssueDetailsCodeUnprocessableEntity
+SFFSWithDateMissingTimezone TESTS SFFSWithDateMissingTimezone ResponseIsOperationOutcome IssueCodeValue IssueDetailsCodeSendOrRecBadRequest
+SFFSWithDateWrongTimezone TESTS SFFSWithDateWrongTimezone ResponseIsOperationOutcome IssueCodeValue IssueDetailsCodeSendOrRecBadRequest
+
 
 END SCHEDULES
 
@@ -121,13 +110,21 @@ SFFSWithWrongMethod SEND_TKW empty_file TO __TO_ENDPOINT__/Slot?Schedule.actor%3
 #
 #
 # Errors Invalid dates
-SFFSWithInvalidDateRangeError_l1_days SEND_TKW empty_file TO __TO_ENDPOINT__/Slot?Schedule.actor%3AHealthcareService=__HCS__&start=ge__START_SLOT_TIME__&start=le__START_SLOT_TIME1L__&status=free&_include=Slot%3Aschedule&_include=Schedule%3Aactor%3APractitioner&_include=Schedule%3Aactor%3APractitionerRole&_include=Schedule%3Aactor%3AHealthcareService&_include=HealthcareService.location&_include=HealthcareService.providedBy&_format=json FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ SYNC httpstatuscheck400 WITH_PROPERTYSET base+webservices+get WITH_HTTPHEADERS credentials+default_accept+Oauth2AccessToken+integrity TEXT "HTTP Response must be HTTP 400"
 
-SFFSWithNoStartDates SEND_TKW empty_file TO __TO_ENDPOINT__/Slot?Schedule.actor%3AHealthcareService=__HCS__&status=free&_include=Slot%3Aschedule&_include=Schedule%3Aactor%3APractitioner&_include=Schedule%3Aactor%3APractitionerRole&_include=Schedule%3Aactor%3AHealthcareService&_include=HealthcareService.location&_include=HealthcareService.providedBy&_format=json FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ SYNC httpstatuscheck400 WITH_PROPERTYSET base+webservices+get WITH_HTTPHEADERS credentials+default_accept+Oauth2AccessToken+integrity TEXT "HTTP Response must be HTTP 400"
-SFFSWithOneStartDate SEND_TKW empty_file TO __TO_ENDPOINT__/Slot?Schedule.actor%3AHealthcareService=__HCS__&start=ge__START_SLOT_TIME__&status=free&_include=Slot%3Aschedule&_include=Schedule%3Aactor%3APractitioner&_include=Schedule%3Aactor%3APractitionerRole&_include=Schedule%3Aactor%3AHealthcareService&_include=HealthcareService.location&_include=HealthcareService.providedBy&_format=json FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ SYNC httpstatuscheck400 WITH_PROPERTYSET base+webservices+get WITH_HTTPHEADERS credentials+default_accept+Oauth2AccessToken+integrity TEXT "HTTP Response must be HTTP 400"
-SFFSWithThreeStartDates SEND_TKW empty_file TO __TO_ENDPOINT__/Slot?Schedule.actor%3AHealthcareService=__HCS__&start=ge__START_SLOT_TIME__&start=le__END_SLOT_TIME__&start=le__END_SLOT_TIME__&status=free&_include=Slot%3Aschedule&_include=Schedule%3Aactor%3APractitioner&_include=Schedule%3Aactor%3APractitionerRole&_include=Schedule%3Aactor%3AHealthcareService&_include=HealthcareService.location&_include=HealthcareService.providedBy&_format=json FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ SYNC httpstatuscheck400 WITH_PROPERTYSET base+webservices+get WITH_HTTPHEADERS credentials+default_accept+Oauth2AccessToken+integrity TEXT "HTTP Response must be HTTP 400"
+SFFSWithNoStartDates SEND_TKW empty_file TO __TO_ENDPOINT__/Slot?Schedule.actor%3AHealthcareService=__HCS__&status=free&_include=Slot%3Aschedule&_include=Schedule%3Aactor%3APractitioner&_include=Schedule%3Aactor%3APractitionerRole&_include=Schedule%3Aactor%3AHealthcareService&_include=HealthcareService.location&_include=HealthcareService.providedBy FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ SYNC httpstatuscheck400 WITH_PROPERTYSET base+webservices+get WITH_HTTPHEADERS credentials+default_accept+Oauth2AccessToken+integrity TEXT "HTTP Response must be HTTP 400"
 
-SFFSWithInvalidTimestamp SEND_TKW empty_file TO __TO_ENDPOINT__/Slot?Schedule.actor%3AHealthcareService=__HCS__&start=ge&__START_SLOT_TIME_NO_TIMEZONE__&start=le__END_SLOT_TIME__&status=free&_include=Slot%3Aschedule&_include=Schedule%3Aactor%3APractitioner&_include=Schedule%3Aactor%3APractitionerRole&_include=Schedule%3Aactor%3AHealthcareService&_include=HealthcareService.location&_include=HealthcareService.providedBy&_format=json FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ SYNC httpstatuscheck400 WITH_PROPERTYSET base+webservices+get WITH_HTTPHEADERS credentials+default_accept+Oauth2AccessToken+integrity TEXT "HTTP Response must be HTTP 400"
+SFFSWithOneStartDate SEND_TKW empty_file TO __TO_ENDPOINT__/Slot?Schedule.actor%3AHealthcareService=__HCS__&start=ge__START_SLOT_TIME__&status=free&_include=Slot%3Aschedule&_include=Schedule%3Aactor%3APractitioner&_include=Schedule%3Aactor%3APractitionerRole&_include=Schedule%3Aactor%3AHealthcareService&_include=HealthcareService.location&_include=HealthcareService.providedBy FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ SYNC httpstatuscheck400 WITH_PROPERTYSET base+webservices+get WITH_HTTPHEADERS credentials+default_accept+Oauth2AccessToken+integrity TEXT "HTTP Response must be HTTP 400"
+
+SFFSWithThreeStartDates SEND_TKW empty_file TO __TO_ENDPOINT__/Slot?Schedule.actor%3AHealthcareService=__HCS__&start=ge__START_SLOT_TIME__&start=le__END_SLOT_TIME__&start=le__END_SLOT_TIME__&status=free&_include=Slot%3Aschedule&_include=Schedule%3Aactor%3APractitioner&_include=Schedule%3Aactor%3APractitionerRole&_include=Schedule%3Aactor%3AHealthcareService&_include=HealthcareService.location&_include=HealthcareService.providedBy FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ SYNC httpstatuscheck400 WITH_PROPERTYSET base+webservices+get WITH_HTTPHEADERS credentials+default_accept+Oauth2AccessToken+integrity TEXT "HTTP Response must be HTTP 400"
+
+SFFSWithInvalidTimestamp SEND_TKW empty_file TO __TO_ENDPOINT__/Slot?Schedule.actor%3AHealthcareService=__HCS__&start=ge&__START_SLOT_TIME_NO_TIMEZONE__&start=le__END_SLOT_TIME__&status=free&_include=Slot%3Aschedule&_include=Schedule%3Aactor%3APractitioner&_include=Schedule%3Aactor%3APractitionerRole&_include=Schedule%3Aactor%3AHealthcareService&_include=HealthcareService.location&_include=HealthcareService.providedBy FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ SYNC httpstatuscheck400 WITH_PROPERTYSET base+webservices+get WITH_HTTPHEADERS credentials+default_accept+Oauth2AccessToken+integrity TEXT "HTTP Response must be HTTP 400"
+
+SFFSWithDateRangeTooWide SEND_TKW empty_file TO __TO_ENDPOINT__/Slot?Schedule.actor%3AHealthcareService=__HCS__&start=ge&__START_SLOT_TIME_YEAR_BACK__&start=le__END_SLOT_TIME__&status=free&_include=Slot%3Aschedule&_include=Schedule%3Aactor%3APractitioner&_include=Schedule%3Aactor%3APractitionerRole&_include=Schedule%3Aactor%3AHealthcareService&_include=HealthcareService.location&_include=HealthcareService.providedBy FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ SYNC httpstatuscheck422 WITH_PROPERTYSET base+webservices+get WITH_HTTPHEADERS credentials+default_accept+Oauth2AccessToken+integrity TEXT "HTTP Response must be HTTP 422"
+
+SFFSWithDateMissingTimezone SEND_TKW empty_file TO __TO_ENDPOINT__/Slot?Schedule.actor%3AHealthcareService=__HCS__&start=ge&__START_SLOT_TIME_NO_TIMEZONE__&start=le__END_SLOT_TIME__&status=free&_include=Slot%3Aschedule&_include=Schedule%3Aactor%3APractitioner&_include=Schedule%3Aactor%3APractitionerRole&_include=Schedule%3Aactor%3AHealthcareService&_include=HealthcareService.location&_include=HealthcareService.providedBy FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ SYNC httpstatuscheck400 WITH_PROPERTYSET base+webservices+get WITH_HTTPHEADERS credentials+default_accept+Oauth2AccessToken+integrity TEXT "HTTP Response must be HTTP 400"
+
+SFFSWithDateWrongTimezone SEND_TKW empty_file TO __TO_ENDPOINT__/Slot?Schedule.actor%3AHealthcareService=__HCS__&start=ge&__START_SLOT_TIME_WRONG_TIMEZONE__&start=le__END_SLOT_TIME__&status=free&_include=Slot%3Aschedule&_include=Schedule%3Aactor%3APractitioner&_include=Schedule%3Aactor%3APractitionerRole&_include=Schedule%3Aactor%3AHealthcareService&_include=HealthcareService.location&_include=HealthcareService.providedBy FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ SYNC httpstatuscheck400 WITH_PROPERTYSET base+webservices+get WITH_HTTPHEADERS credentials+default_accept+Oauth2AccessToken+integrity TEXT "HTTP Response must be HTTP 400"
+
 #
 # P10 Validate slots request - The provider system must validate that where an incoming request for Slots specifies a HealthcareService, that it is a valid value recognised and delivered by the system.
 #
@@ -153,11 +150,12 @@ SFFSWithValidParameters_search_for_free_and_busy_slots SEND_TKW empty_file TO __
 
 SFFS_no_includes SEND_TKW empty_file TO __TO_ENDPOINT__/Slot?Schedule.actor%3AHealthcareService=__HCS__&start=ge__START_SLOT_TIME__&start=le__END_SLOT_TIME__&status=free FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ SYNC httpstatuscheck400 WITH_PROPERTYSET base+webservices+get WITH_HTTPHEADERS credentials+default_accept+Oauth2AccessToken+integrity TEXT "HTTP Response must be HTTP 400 SCAL BR_SLOT_UNK"
 
-SFFS_no_include_schedule SEND_TKW empty_file TO __TO_ENDPOINT__/Slot?Schedule.actor%3AHealthcareService=__HCS__&start=ge__START_SLOT_TIME__&start=le__END_SLOT_TIME__&status=free&_include=Slot%3Aschedule&_include=Schedule%3Aactor%3APractitioner&_include=Schedule%3Aactor%3APractitionerRole&_include=Schedule%3Aactor%3AHealthcareService&_include=HealthcareService.providedBy FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ SYNC httpstatuscheck400 WITH_PROPERTYSET base+webservices+get WITH_HTTPHEADERS credentials+default_accept+Oauth2AccessToken+integrity TEXT "HTTP Response must be HTTP 400 SCAL BR_SLOT_UNK"
+SFFS_no_include_schedule SEND_TKW empty_file TO __TO_ENDPOINT__/Slot?Schedule.actor%3AHealthcareService=__HCS__&start=ge__START_SLOT_TIME__&start=le__END_SLOT_TIME__&status=free&_include=Schedule%3Aactor%3APractitioner&_include=Schedule%3Aactor%3APractitionerRole&_include=Schedule%3Aactor%3AHealthcareService&_include=HealthcareService.location&_include=HealthcareService.providedBy FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ SYNC httpstatuscheck400 WITH_PROPERTYSET base+webservices+get WITH_HTTPHEADERS credentials+default_accept+Oauth2AccessToken+integrity TEXT "HTTP Response must be HTTP 400 SCAL BR_SLOT_UNK"
 
-SFFS_no_include_healthcare_service SEND_TKW empty_file TO __TO_ENDPOINT__/Slot?Schedule.actor%3AHealthcareService=__HCS__&start=ge__START_SLOT_TIME__&start=le__END_SLOT_TIME__&status=free&_include=Schedule%3Aactor%3APractitioner&_include=Schedule%3Aactor%3APractitionerRole&_include=Schedule%3Aactor%3AHealthcareService&_include=HealthcareService.location&_include=HealthcareService.providedBy FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ SYNC httpstatuscheck400 WITH_PROPERTYSET base+webservices+get WITH_HTTPHEADERS credentials+default_accept+Oauth2AccessToken+integrity TEXT "HTTP Response must be HTTP 400 SCAL BR_SLOT_UNK"
-#
-#
+SFFS_no_include_practitioner SEND_TKW empty_file TO __TO_ENDPOINT__/Slot?Schedule.actor%3AHealthcareService=__HCS__&start=ge__START_SLOT_TIME__&start=le__END_SLOT_TIME__&status=free&_include=Slot%3Aschedule&_include=Schedule%3Aactor%3APractitionerRole&_include=Schedule%3Aactor%3AHealthcareService&_include=HealthcareService.location&_include=HealthcareService.providedBy FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ SYNC httpstatuscheck400 WITH_PROPERTYSET base+webservices+get WITH_HTTPHEADERS credentials+default_accept+Oauth2AccessToken+integrity TEXT "HTTP Response must be HTTP 400 SCAL BR_SLOT_UNK"
+
+SFFS_no_include_healthcare_service SEND_TKW empty_file TO __TO_ENDPOINT__/Slot?Schedule.actor%3AHealthcareService=__HCS__&start=ge__START_SLOT_TIME__&start=le__END_SLOT_TIME__&status=free&_include=Slot%3Aschedule&_include=Schedule%3Aactor%3APractitioner&_include=Schedule%3Aactor%3APractitionerRole&_include=HealthcareService.location&_include=HealthcareService.providedBy FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ SYNC httpstatuscheck400 WITH_PROPERTYSET base+webservices+get WITH_HTTPHEADERS credentials+default_accept+Oauth2AccessToken+integrity TEXT "HTTP Response must be HTTP 400 SCAL BR_SLOT_UNK"
+
 SFFSWithValidParameters_search_for_free_slots_with_gzip_encoding SEND_TKW empty_file TO __TO_ENDPOINT__/Slot?Schedule.actor%3AHealthcareService=__HCS__&start=ge__START_SLOT_TIME__&start=le__END_SLOT_TIME__&status=free&_include=Slot%3Aschedule&_include=Schedule%3Aactor%3APractitioner&_include=Schedule%3Aactor%3APractitionerRole&_include=Schedule%3Aactor%3AHealthcareService&_include=HealthcareService.location&_include=HealthcareService.providedBy FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ SYNC ok WITH_PROPERTYSET base+webservices+get WITH_HTTPHEADERS credentials+Oauth2AccessToken+accept_gzip+integrity TEXT "HTTP Response must be HTTP 200"
 
 SFFS_no_include_slots_only SEND_TKW empty_file TO __TO_ENDPOINT__/Slot?Schedule.actor%3AHealthcareService=__HCS_SLOTS_ONLY__&start=ge__START_SLOT_TIME__&start=le__END_SLOT_TIME__&status=free FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ SYNC httpstatuscheck400 WITH_PROPERTYSET base+webservices+get WITH_HTTPHEADERS credentials+default_accept+Oauth2AccessToken+integrity TEXT "HTTP Response must be HTTP 400 SCAL BR_SLOT_UNK"
@@ -165,6 +163,8 @@ SFFS_no_include_slots_only SEND_TKW empty_file TO __TO_ENDPOINT__/Slot?Schedule.
 SFFS_no_healthcare_service SEND_TKW empty_file TO __TO_ENDPOINT__/Slot?Schedule.actor%3AHealthcareService=__HCS__&start=ge__START_SLOT_TIME__&start=le__END_SLOT_TIME__&status=free&_include=Slot%3Aschedule&_include=Schedule%3Aactor%3APractitioner&_include=Schedule%3Aactor%3APractitionerRole&_include=Schedule%3Aactor%3AHealthcareService&_include=HealthcareService.location&_include=HealthcareService.providedBy FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ SYNC httpstatuscheck400 WITH_PROPERTYSET base+webservices+get WITH_HTTPHEADERS credentials+default_accept+Oauth2AccessToken+integrity TEXT "HTTP Response must be HTTP 400 SCAL BR_SLOT_UNK"
 
 SFFS_invalid_healthcare_service SEND_TKW empty_file TO __TO_ENDPOINT__/Slot?Schedule.actor%3AHealthcareService=XXXXXXX&start=ge__START_SLOT_TIME__&start=le__END_SLOT_TIME__&status=free&_include=Slot%3Aschedule&_include=Schedule%3Aactor%3APractitioner&_include=Schedule%3Aactor%3APractitionerRole&_include=Schedule%3Aactor%3AHealthcareService&_include=HealthcareService.location&_include=HealthcareService.providedBy FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ SYNC httpstatuscheck400 WITH_PROPERTYSET base+webservices+get WITH_HTTPHEADERS credentials+default_accept+Oauth2AccessToken+integrity TEXT "HTTP Response must be HTTP 400 SCAL BR_SLOT_VALID"
+
+SFFS_healthcare_service_not_found SEND_TKW empty_file TO __TO_ENDPOINT__/Slot?Schedule.actor%3AHealthcareService=9999999999999999999&start=ge__START_SLOT_TIME__&start=le__END_SLOT_TIME__&status=free&_include=Slot%3Aschedule&_include=Schedule%3Aactor%3APractitioner&_include=Schedule%3Aactor%3APractitionerRole&_include=Schedule%3Aactor%3AHealthcareService&_include=HealthcareService.location&_include=HealthcareService.providedBy FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ SYNC httpstatuscheck404 WITH_PROPERTYSET base+webservices+get WITH_HTTPHEADERS credentials+default_accept+Oauth2AccessToken+integrity TEXT "HTTP Response must be HTTP 404 SCAL BR_SLOT_VALID"
 
 SFFS_no_status SEND_TKW empty_file TO __TO_ENDPOINT__/Slot?Schedule.actor%3AHealthcareService=__HCS__&start=ge__START_SLOT_TIME__&start=le__END_SLOT_TIME__&_include=Slot%3Aschedule&_include=Schedule%3Aactor%3APractitioner&_include=Schedule%3Aactor%3APractitionerRole&_include=Schedule%3Aactor%3AHealthcareService&_include=HealthcareService.location&_include=HealthcareService.providedBy FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ SYNC httpstatuscheck400 WITH_PROPERTYSET base+webservices+get WITH_HTTPHEADERS credentials+default_accept+Oauth2AccessToken+integrity TEXT "HTTP Response must be HTTP 400 SCAL BR_SLOT_UNK"
 
@@ -195,5 +195,5 @@ orgs_returned synchronousxpath boolean(count(for $r in /fhir:Bundle/fhir:entry/f
 #for each reference to an HealthcareService that HealthcareService should be present in the response
 healthcare_returned synchronousxpath boolean(count(for $r in /fhir:Bundle/fhir:entry/fhir:resource/fhir:Schedule/fhir:actor/fhir:reference/@value[starts-with(.,'HealthcareService/')] return /fhir:Bundle/fhir:entry/fhir:resource/fhir:HealthcareService[fhir:id/@value=substring($r,19)]) = count(/fhir:Bundle/fhir:entry/fhir:resource/fhir:Schedule)) matches "^true$"
 
-
 END PASSFAIL
+
