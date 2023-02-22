@@ -37,21 +37,26 @@ OperationOutcomeSystemCodeIsSpine CHAIN SYNC operation_outcome_system_code_is_sp
 #
 # OO issue/details/code checks May not be required for BaRS
 IssueDetailsCodeBadRequest CHAIN SYNC issue_details_code_bad_request TEXT "Response contains a root fhir:OperationOutcome reporting a REC_BAD_REQUEST issue details code"
-IssueDetailsCodeUnprocessableEntity CHAIN SYNC issue_details_code_bad_request TEXT "Response contains a root fhir:OperationOutcome reporting a REC_UNPROCESSABLE_ENTITY issue details code"
+IssueDetailsCodeSendBadRequest CHAIN SYNC issue_details_code_send_bad_request TEXT "Response contains a root fhir:OperationOutcome reporting a SEND_BAD_REQUEST issue details code"
+IssueDetailsCodeSendOrRecBadRequest CHAIN SYNC issue_details_code_send_or_rec_bad_request TEXT "Response contains a root fhir:OperationOutcome reporting a SEND_BAD_REQUEST/REC_BAD_REQUEST issue details code"
+IssueDetailsCodeUnprocessableEntity CHAIN SYNC issue_details_code_unprocessable_entity TEXT "Response contains a root fhir:OperationOutcome reporting a REC_UNPROCESSABLE_ENTITY issue details code"
 IssueDetailsCodeConflict CHAIN SYNC issue_details_code_conflict TEXT "Response contains a root fhir:OperationOutcome reporting a REC_CONFLICT issue details code"
 IssueDetailsCodeMethodNotAllowed CHAIN SYNC issue_details_code_method_not_allowed TEXT "Response contains a root fhir:OperationOutcome reporting a REC_METHOD_NOT_ALLOWED issue details code"
+IssueDetailsCodeNotFound CHAIN SYNC issue_details_code_not_found TEXT "Response contains a root fhir:OperationOutcome reporting a REC_NOT_FOUND issue details code"
 
 #
 # OO issue code/checks
 IssueCodeNotSupported CHAIN SYNC issue_code_not_supported  TEXT "Response contains a root fhir:OperationOutcome reporting 'not-supported' issue code"
 IssueCodeRequired CHAIN SYNC issue_code_required  TEXT "Response contains a root fhir:OperationOutcome reporting 'required' issue code"
 IssueCodeInvariant CHAIN SYNC issue_code_invariant  TEXT "Response contains a root fhir:OperationOutcome reporting 'invariant' issue code"
+IssueCodeValue CHAIN SYNC issue_code_value  TEXT "Response contains a root fhir:OperationOutcome reporting 'value' issue code"
 IssueCodeValueOrInvalid CHAIN SYNC issue_code_value_or_invalid  TEXT "Response contains a root fhir:OperationOutcome reporting 'value' or 'invalid' issue code"
-IssueCodeRequired CHAIN SYNC issue_code_required  TEXT "Response contains a root fhir:OperationOutcome reporting 'required' issue code"
+IssueCodeValueOrInvariant CHAIN SYNC issue_code_value_or_invariant  TEXT "Response contains a root fhir:OperationOutcome reporting 'value' or 'invariant' issue code"
 IssueCodeNotFound CHAIN SYNC issue_code_not_found  TEXT "Response contains a root fhir:OperationOutcome reporting 'not-found' issue code"
 IssueCodeInvalid CHAIN SYNC issue_code_invalid  TEXT "Response contains a root fhir:OperationOutcome reporting 'invalid' issue code"
 IssueCodeConflict CHAIN SYNC issue_code_conflict  TEXT "Response contains a root fhir:OperationOutcome reporting 'conflict' issue code"
 IssueCodeDuplicate CHAIN SYNC issue_code_duplicate  TEXT "Response contains a root fhir:OperationOutcome reporting 'duplicate' issue code"
+IssueCodeTooCostly CHAIN SYNC issue_code_too_costly  TEXT "Response contains a root fhir:OperationOutcome reporting 'too-costly' issue code"
 
 ResponseIsAppointment CHAIN SYNC response_is_appt TEXT "Response contains a root fhir:Appointment element"
 ResponseIsAppointmentExtracting1 CHAIN SYNC response_is_appt_extracting1 TEXT "Response Bundle contains a fhir:Appointment element"
@@ -242,19 +247,25 @@ operation_outcome_system_code_is_spine synchronousxpath /fhir:OperationOutcome/f
 issue_code_not_supported synchronousxpath /fhir:OperationOutcome/fhir:issue/fhir:code/@value matches "^not-supported$"
 issue_code_required synchronousxpath /fhir:OperationOutcome/fhir:issue/fhir:code/@value matches "^required$"
 issue_code_invariant synchronousxpath /fhir:OperationOutcome/fhir:issue/fhir:code/@value matches "^invariant$"
+issue_code_value synchronousxpath /fhir:OperationOutcome/fhir:issue/fhir:code/@value matches "^value$"
 issue_code_value_or_invalid synchronousxpath /fhir:OperationOutcome/fhir:issue/fhir:code/@value matches "^(value|invalid)$"
+issue_code_value_or_invariant synchronousxpath /fhir:OperationOutcome/fhir:issue/fhir:code/@value matches "^(value|invariant)$"
 issue_code_required synchronousxpath /fhir:OperationOutcome/fhir:issue/fhir:code/@value matches "^required$"
 issue_code_not_found synchronousxpath /fhir:OperationOutcome/fhir:issue/fhir:code/@value matches "^not-found$"
 issue_code_not_supported synchronousxpath /fhir:OperationOutcome/fhir:issue/fhir:code/@value matches "^not-supported$"
 issue_code_invalid synchronousxpath /fhir:OperationOutcome/fhir:issue/fhir:code/@value matches "^invalid$"
 issue_code_conflict synchronousxpath /fhir:OperationOutcome/fhir:issue/fhir:code/@value matches "^conflict$"
 issue_code_duplicate synchronousxpath /fhir:OperationOutcome/fhir:issue/fhir:code/@value matches "^duplicate$"
+issue_code_too_costly synchronousxpath /fhir:OperationOutcome/fhir:issue/fhir:code/@value matches "^too-costly$"
 
 # NB issue/details/code not details/code 
 issue_details_code_bad_request synchronousxpath /fhir:OperationOutcome/fhir:issue/fhir:details/fhir:coding/fhir:code/@value matches "^REC_BAD_REQUEST$"
+issue_details_code_send_bad_request synchronousxpath /fhir:OperationOutcome/fhir:issue/fhir:details/fhir:coding/fhir:code/@value matches "^SEND_BAD_REQUEST$"
+issue_details_code_send_or_rec_bad_request synchronousxpath /fhir:OperationOutcome/fhir:issue/fhir:details/fhir:coding/fhir:code/@value matches "^(SEND|REC)_BAD_REQUEST$"
 issue_details_code_unprocessable_entity synchronousxpath /fhir:OperationOutcome/fhir:issue/fhir:details/fhir:coding/fhir:code/@value matches "^REC_UNPROCESSABLE_ENTITY$"
 issue_details_code_conflict synchronousxpath /fhir:OperationOutcome/fhir:issue/fhir:details/fhir:coding/fhir:code/@value matches "^REC_CONFLICT$"
 issue_details_code_method_not_allowed synchronousxpath /fhir:OperationOutcome/fhir:issue/fhir:details/fhir:coding/fhir:code/@value matches "^REC_METHOD_NOT_ALLOWED$"
+issue_details_code_not_found synchronousxpath /fhir:OperationOutcome/fhir:issue/fhir:details/fhir:coding/fhir:code/@value matches "^REC_NOT_FOUND$"
 #
 #
 # http status code checks
