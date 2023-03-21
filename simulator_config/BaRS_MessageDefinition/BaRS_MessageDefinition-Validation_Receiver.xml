@@ -1,7 +1,6 @@
 <Bundle xmlns="http://hl7.org/fhir">
    <id value="ded3119d-41c9-41ee-ad66-3e21596b5199"/>
    <meta>
-      <versionId value="1.0.0-alpha"/>
       <lastUpdated value="2022-07-21T13:50:50Z"/>
       <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-Bundle"/>
    </meta>
@@ -10,14 +9,18 @@
    <total value="2"/>
    <link>
       <relation value="self"/>
-      <url value="https://localhost/R4/MessageDefinition?context=2000008878"/>
+      <url value="https://localhost/R4/MessageDefinition?context=2000003366"/>
    </link>
    <entry>
       <fullUrl value="urn:uuid:e7a5a0df-fd70-4097-9ed4-0b7e54323ce4"/>
       <resource>
          <MessageDefinition xmlns="http://hl7.org/fhir">
             <id value="7731af63-04ed-47d9-8f05-e510dece3b3f"/>
-            <version value="1.0.0-alpha"/>
+            <meta>
+               <versionId value="1.0.0-alpha"/>
+               <lastUpdated value="2021-10-11T15:23:30+00:00"/>
+               <profile value="https://fhir.nhs.uk/StructureDefinition/BARSMessageDefinition-ServiceRequest-Request"/>
+            </meta>
             <url value="https://fhir.nhs.uk/MessageDefinition/bars-message-servicerequest-request-validation"/>
             <name value="BARS Message Definition ServiceRequest - Request Validation"/>
             <title value="BARS Message Definition ServiceRequest - Request Validation"/>
@@ -27,7 +30,7 @@
                <!-- We are expecting the UseContext to be a DOS ID -->
                <code>
                   <system value="https://fhir.nhs.uk/CodeSystem/dos-id"/>
-                  <code value="2000008878"/>
+                  <code value="2000003366"/>
                </code>
                <valueCodeableConcept>
                   <coding>
@@ -107,9 +110,8 @@
                <max value="*"/>
             </focus>
             <focus>
-               <!-- Add StructDef for scene safety flag TBD -->
                <code value="Flag"/>
-               <profile value="http://hl7.org/fhir/StructureDefinition/Flag"/>
+               <profile value="https://fhir.nhs.uk/StructureDefinition/BARSFlag-scene-safety"/>
                <min value="1"/>
                <max value="*"/>
             </focus>
@@ -151,7 +153,11 @@
       <resource>
          <MessageDefinition xmlns="http://hl7.org/fhir">
             <id value="11882ae2-211f-49ee-acbe-e319304d80cd"/>
-            <version value="1.0.0-alpha"/>
+            <meta>
+               <versionId value="1.0.0-alpha"/>
+               <lastUpdated value="2021-10-11T15:23:30+00:00"/>
+               <profile value="https://fhir.nhs.uk/StructureDefinition/BARSMessageDefinition-ServiceRequest-Request"/>
+            </meta>
             <url value="https://fhir.nhs.uk/MessageDefinition/bars-message-servicerequest-request-referral"/>
             <name value="BARS Message Definition ServiceRequest - Request Referral"/>
             <title value="BARS Message Definition ServiceRequest - Request Referral"/>
@@ -161,7 +167,7 @@
                <!-- We are expecting the UseContext to be a DOS ID -->
                <code>
                   <system value="https://fhir.nhs.uk/CodeSystem/dos-id"/>
-                  <code value="2000008878"/>
+                  <code value="2000003366"/>
                </code>
                <valueCodeableConcept>
                   <coding>
