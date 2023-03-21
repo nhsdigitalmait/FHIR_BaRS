@@ -426,21 +426,21 @@ END RULE
 
 BEGIN RULE
 PUT
-IF passthrough THEN Operation_Outcome_405
+IF passthrough THEN notFound_Response
 END RULE
 
 BEGIN RULE
 DELETE
-IF passthrough THEN Operation_Outcome_405
+IF passthrough THEN notFound_Response
 END RULE
 
 BEGIN RULE
 PATCH
-IF passthrough THEN Operation_Outcome_405
+IF passthrough THEN notFound_Response
 END RULE
 
 BEGIN RULE
 OPTIONS
-IF passthrough THEN Operation_Outcome_405
+IF passthrough THEN notFound_Response
 END RULE
 #=========================================================================================
