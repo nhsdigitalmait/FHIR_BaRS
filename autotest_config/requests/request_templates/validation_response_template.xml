@@ -3,7 +3,7 @@
   <id value="__BUNDLE_ID__" />
   <meta>
     <versionId value="1.0.0-alpha" />
-    <lastUpdated value="2021-11-26T15:15:00+00:00" />
+    <lastUpdated value="2021-11-26T15:15:00.000000+00:00" />
     <profile value="https://fhir.nhs.uk/StructureDefinition/BARSBundleMessage" />
   </meta>
   <type value="message" />
@@ -14,7 +14,7 @@
       <MessageHeader>
         <id value="1cbdfb97-5859-48a4-8301-d54eab818d68" />
         <meta>
-          <lastUpdated value="2021-11-26T15:00:00+00:00" />
+          <lastUpdated value="2021-11-26T15:00:00.000000+00:00" />
           <profile value="https://fhir.nhs.uk/StructureDefinition/BARSMessageHeader-servicerequest-response" />
         </meta>
         <extension url="https://fhir.nhs.uk/StructureDefinition/CDSSExtension">
@@ -77,7 +77,7 @@
       <ServiceRequest>
         <id value="236bb75d-90ef-461f-b71e-fde7f899802c" />
         <meta>
-          <lastUpdated value="2021-11-26T15:15:00+00:00" />
+          <lastUpdated value="2021-11-26T15:15:00.000000+00:00" />
           <profile value="https://fhir.nhs.uk/StructureDefinition/BARSServiceRequest-request-validation" />
         </meta>
         <basedOn>
@@ -128,7 +128,7 @@
       <HealthcareService>
         <id value="d482d092-6efc-4eef-b4a0-730718b1fbfd" />
         <meta>
-          <lastUpdated value="2021-11-26T15:15:00+00:00" />
+          <lastUpdated value="2021-11-26T15:15:00.000000+00:00" />
           <profile value="http://hl7.org/fhir/StructureDefinition/HealthcareService" />
           <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-HealthcareService" />
         </meta>
@@ -150,7 +150,7 @@
       <Encounter>
         <id value="8c63d621-4d86-4f57-8699-e8e22d49935d" />
         <meta>
-          <lastUpdated value="2021-11-26T15:15:00+00:00" />
+          <lastUpdated value="2021-11-26T15:15:00.000000+00:00" />
           <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-Encounter" />
         </meta>
         <identifier>
@@ -184,7 +184,7 @@
         <!-- New Encounter for the response -->
         <id value="b83d13e2-8c2e-422c-88ac-63b8e86a4413" />
         <meta>
-          <lastUpdated value="2021-11-26T15:15:00+00:00" />
+          <lastUpdated value="2021-11-26T15:15:00.000000+00:00" />
           <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-Encounter" />
         </meta>
         <identifier>
@@ -224,7 +224,7 @@
       <CarePlan>
         <id value="68d3c42e-f76e-4f66-9498-d96e1040c81c" />
         <meta>
-          <lastUpdated value="2021-11-26T15:15:00+00:00" />
+          <lastUpdated value="2021-11-26T15:15:00.000000+00:00" />
           <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-CarePlan" />
         </meta>
         <status value="active" />
@@ -274,7 +274,7 @@
       <Patient>
         <id value="9589fb37-87a2-48d8-968f-b371429208a8" />
         <meta>
-          <lastUpdated value="2021-11-26T15:15:00+00:00" />
+          <lastUpdated value="2021-11-26T15:15:00.000000+00:00" />
           <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-Patient" />
         </meta>
         <!--   added EthnicCategory extension   -->
@@ -401,7 +401,7 @@
       <Organization>
         <id value="b5e27389-3ca5-4cbc-9173-73f0c74915d9" />
         <meta>
-          <lastUpdated value="2021-11-26T15:15:00+00:00" />
+          <lastUpdated value="2021-11-26T15:15:00.000000+00:00" />
           <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-Organization" />
         </meta>
         <name value="Practitioner Org" />
@@ -414,7 +414,7 @@
       <Organization>
         <id value="d5ffd0cd-ec7e-48a1-84f1-91f4c0eb8fc5" />
         <meta>
-          <lastUpdated value="2021-11-26T15:15:00+00:00" />
+          <lastUpdated value="2021-11-26T15:15:00.000000+00:00" />
           <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-Organization" />
         </meta>
         <identifier>
@@ -431,7 +431,7 @@
       <Organization>
         <id value="10397afd-479c-42ea-9d5d-e4024481e0f8" />
         <meta>
-          <lastUpdated value="2021-11-26T15:15:00+00:00" />
+          <lastUpdated value="2021-11-26T15:15:00.000000+00:00" />
           <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-Organization" />
         </meta>
         <name value="Receiver Organization" />
@@ -444,7 +444,7 @@
       <Organization>
         <id value="07939a0c-2854-46ff-9282-ad906bc93679" />
         <meta>
-          <lastUpdated value="2021-11-26T15:15:00+00:00" />
+          <lastUpdated value="2021-11-26T15:15:00.000000+00:00" />
           <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-Organization" />
         </meta>
         <identifier>
@@ -462,7 +462,7 @@
       <Location>
         <id value="2ec99e82-a0af-4b70-bd53-1869d84b2ad1" />
         <meta>
-          <lastUpdated value="2021-11-26T15:15:00+00:00" />
+          <lastUpdated value="2021-11-26T15:15:00.000000+00:00" />
           <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-Location" />
         </meta>
         <extension url="https://fhir.nhs.uk/StructureDefinition/LocationExtension">
@@ -497,7 +497,7 @@
       <Practitioner>
         <id value="7d948662-bade-450e-b6c5-9bb6ee39cb56" />
         <meta>
-          <lastUpdated value="2021-11-26T15:15:00+00:00" />
+          <lastUpdated value="2021-11-26T15:15:00.000000+00:00" />
           <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-Practitioner" />
         </meta>
         <identifier>
@@ -522,7 +522,7 @@
       <PractitionerRole>
         <id value="b923aa53-2376-4015-a07d-afe8bf2310eb" />
         <meta>
-          <lastUpdated value="2021-11-26T15:15:00+00:00" />
+          <lastUpdated value="2021-11-26T15:15:00.000000+00:00" />
           <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-PractitionerRole" />
         </meta>
         <practitioner>
@@ -555,7 +555,7 @@
       <Observation>
         <id value="c584542a-a1c6-4b77-a3e8-4a5b0b9cea09" />
         <meta>
-          <lastUpdated value="2021-11-26T15:15:00+00:00" />
+          <lastUpdated value="2021-11-26T15:15:00.000000+00:00" />
           <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-Observation" />
         </meta>
         <status value="final" />
@@ -579,7 +579,7 @@
       <Flag>
         <id value="5b94d980-b9b6-42ce-8ca3-56676af6c0a7" />
         <meta>
-          <lastUpdated value="2021-11-26T15:15:00+00:00" />
+          <lastUpdated value="2021-11-26T15:15:00.000000+00:00" />
           <profile value="http://hl7.org/fhir/StructureDefinition/Flag" />
           <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-Flag" />
         </meta>
@@ -613,7 +613,7 @@
       <Consent>
         <id value="1e91008e-96d0-438b-873c-c6d2c007fc29" />
         <meta>
-          <lastUpdated value="2021-11-26T15:00:00+00:00" />
+          <lastUpdated value="2021-11-26T15:00:00.000000+00:00" />
           <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-Consent" />
         </meta>
         <status value="active" />
