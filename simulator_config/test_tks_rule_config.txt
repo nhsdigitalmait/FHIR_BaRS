@@ -81,6 +81,7 @@ ReferralServiceRequest_HappyPath_Response TKW_ROOT/config/FHIR_BaRS/simulator_co
 BookingAppointment_HappyPath_Response TKW_ROOT/config/FHIR_BaRS/simulator_config/BaRS_Booking/Booking_Appointment_Response.xml "200 OK" WITH_HTTP_HEADERS ( X-Request-Id : "__XREQID_ECHO__" X-Correlation-Id : "__XCORRID_ECHO__" Date : "__RFC822TIMESTAMP__" )
 
 MessageDefinition_HappyPath_Response TKW_ROOT/config/FHIR_BaRS/simulator_config/BaRS_MessageDefinition/MessageDefinition.xml "200 OK" WITH_HTTP_HEADERS ( X-Request-Id : "__XREQID_ECHO__" X-Correlation-Id : "__XCORRID_ECHO__" Date : "__RFC822TIMESTAMP__" )
+MessageDefinition_bad_resource_Response TKW_ROOT/config/FHIR_BaRS/simulator_config/BaRS_MessageDefinition/MessageDefinition_bad_resource.xml "200 OK" WITH_HTTP_HEADERS ( X-Request-Id : "__XREQID_ECHO__" X-Correlation-Id : "__XCORRID_ECHO__" Date : "__RFC822TIMESTAMP__" )
 MessageDefinition_HappyPath_BookingAndReferral_Response	TKW_ROOT/config/FHIR_BaRS/simulator_config/BaRS_MessageDefinition/BaRS_MessageDefinition-Booking_and_Referral_Receiver.xml "200 OK" WITH_HTTP_HEADERS ( X-Request-Id : "__XREQID_ECHO__" X-Correlation-Id : "__XCORRID_ECHO__" Date : "__RFC822TIMESTAMP__" )
 MessageDefinition_HappyPath_ReferralReceiver_Response	TKW_ROOT/config/FHIR_BaRS/simulator_config/BaRS_MessageDefinition/BaRS_MessageDefinition-Referral_Receiver.xml "200 OK" WITH_HTTP_HEADERS ( X-Request-Id : "__XREQID_ECHO__" X-Correlation-Id : "__XCORRID_ECHO__" Date : "__RFC822TIMESTAMP__" )
 MessageDefinition_HappyPath_BookingAndReferralSender_Response	TKW_ROOT/config/FHIR_BaRS/simulator_config/BaRS_MessageDefinition/BaRS_MessageDefinition-Booking_and_Referral_Sender.xml "200 OK" WITH_HTTP_HEADERS ( X-Request-Id : "__XREQID_ECHO__" X-Correlation-Id : "__XCORRID_ECHO__" Date : "__RFC822TIMESTAMP__" )
@@ -184,6 +185,7 @@ SERVICEREQUEST				context_path matches ^.*/R4/ServiceRequest.*$
 MESSAGEDEFINITION			context_path matches ^.*/R4/MessageDefinition\?context=.*$
 MESSAGEDEFINITION401			context_path matches ^.*/R4/MessageDefinition\?context=FAIL0401.*$
 MESSAGEDEFINITION404			context_path matches ^.*/R4/MessageDefinition\?context=FAIL0404.*$
+MESSAGEDEFINITIONBAD			context_path matches ^.*/R4/MessageDefinition\?context=BAD.*$
 INCLUDES						context_path matches ^.*_include.*$
 
 VALIDATIONSERVICEREQUEST001				context_path matches ^.*/R4/ServiceRequest/0b42eac3-0175-43c8-bbab-efaa8ca31ccf.*$
@@ -403,6 +405,7 @@ IF	MESSAGEDEFINITION	AND	CONTEXT2000076289							THEN	MessageDefinition_HappyPat
 IF	MESSAGEDEFINITION	AND	CONTEXT2000093816							THEN	MessageDefinition_HappyPath_BookingAndReferralSender_Response	ELSE	NEXT
 IF	MESSAGEDEFINITION	AND	CONTEXT2000003366							THEN	MessageDefinition_HappyPath_ValidationReceiver_Response		ELSE	NEXT
 IF	MESSAGEDEFINITION	AND	CONTEXT1374839566							THEN	MessageDefinition_HappyPath_ValidationSender_Response		ELSE	NEXT
+IF	MESSAGEDEFINITIONBAD											THEN	MessageDefinition_bad_resource_Response				ELSE	NEXT
 IF	MESSAGEDEFINITION											THEN	MessageDefinition_HappyPath_Response					ELSE	NEXT
 IF 	SLOT	AND	HEALTHCARESERVICE_MISSING								THEN	Operation_Outcome_400						ELSE	NEXT
 IF	SLOT	AND	FREEANDBUSY	AND	HEALTHCARESERVICE2000072489					THEN	SearchSlots_HappyPath_FreeBusy_Response			ELSE	NEXT
