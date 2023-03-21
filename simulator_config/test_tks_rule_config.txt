@@ -104,6 +104,7 @@ __UUID7__	uuid
 __UUID8__	uuid
 __UUID9__	uuid
 __TIMESTAMP__	ISO8601datetime
+__TIMESTAMP_NO_TZ__	Class uk.nhs.digital.mait.tkwx.tk.internalservices.rules.FormattedTimeSubstitution "yyyy-MM-dd'T'HH:mm:ss Europe/London 0 0"
 __XREQID__	uuid
 __XCORRID__ reg_exp http_header X-Request-ID "." "$0"
 __XREQID_ECHO__	reg_exp http_header X-Request-Id "." "$0"

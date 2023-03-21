@@ -1,7 +1,7 @@
 <ServiceRequest>
   <id value="0b42eac3-0175-43c8-bbab-efaa8ca31ccf" />
   <meta>
-    <lastUpdated value="__YESTERDAY__T12:00:00+00:00" />
+    <lastUpdated value="__YESTERDAY__T12:00:00.000000+00:00" />
     <profile value="https://fhir.nhs.uk/StructureDefinition/BARSServiceRequest-request-validation" />
   </meta>
   <basedOn>

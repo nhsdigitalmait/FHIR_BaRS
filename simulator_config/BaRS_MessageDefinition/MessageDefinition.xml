@@ -2,7 +2,7 @@
    <id value="ded3119d-41c9-41ee-ad66-3e21596b5199"/>
    <meta>
       <versionId value="1.0.0-alpha"/>
-      <lastUpdated value="2022-07-21T13:50:50Z"/>
+      <lastUpdated value="2022-07-21T13:50:50.000000+00:00"/>
       <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-Bundle"/>
    </meta>
   <type value="searchset" />
