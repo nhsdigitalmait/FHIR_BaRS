@@ -375,7 +375,7 @@ IF passthrough THEN notFound_Response
 END RULE
 BEGIN RULE
 POST
-IF passthrough THEN Operation_Outcome_405
+IF passthrough THEN notFound_Response
 END RULE
 
 #=========================================================================================
