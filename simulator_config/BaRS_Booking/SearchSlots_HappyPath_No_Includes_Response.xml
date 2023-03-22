@@ -2,7 +2,7 @@
 <!--     BOOKREQRESP01  git commit 1458db7    -->
   <id value="__MESSAGEID__" />
   <meta>
-    <lastUpdated value="__TIMESTAMP_NO_TZ__.000000+00:00" />
+    <lastUpdated value="__TIMESTAMP_NO_TZ__.1234567+00:00" />
     <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-Bundle" />
   </meta>
   <type value="searchset" />
@@ -18,7 +18,7 @@
       <Slot>
         <id value="da83ae28-46f0-4aad-9c54-dcad462cafcb" />
         <meta>
-          <lastUpdated value="__YESTERDAY__T15:01:30.000000+00:00" />
+          <lastUpdated value="__YESTERDAY__T15:01:30.1234567+00:00" />
           <profile value="http://hl7.org/fhir/StructureDefinition/Slot" />
         </meta>
         <serviceCategory>
@@ -48,7 +48,7 @@
       <Slot>
         <id value="c413ac51-df9b-45be-b413-d7548406a4fb" />
         <meta>
-          <lastUpdated value="__YESTERDAY__T15:01:30.000000+00:00" />
+          <lastUpdated value="__YESTERDAY__T15:01:30.1234567+00:00" />
           <profile value="http://hl7.org/fhir/StructureDefinition/Slot" />
         </meta>
         <serviceCategory>
@@ -78,7 +78,7 @@
       <Schedule>
         <id value="7e8c4baa-b7a7-4a7c-bb8c-8c8426ad7781" />
         <meta>
-          <lastUpdated value="__YESTERDAY__T15:01:30.000000+00:00" />
+          <lastUpdated value="__YESTERDAY__T15:01:30.1234567+00:00" />
           <profile value="http://hl7.org/fhir/StructureDefinition/Schedule" />
         </meta>
         <identifier>
@@ -106,7 +106,7 @@
       <HealthcareService>
         <id value="5088769a-491e-463f-a167-fff78bb472d9" />
         <meta>
-          <lastUpdated value="__YESTERDAY__T15:01:30.000000+00:00" />
+          <lastUpdated value="__YESTERDAY__T15:01:30.1234567+00:00" />
           <profile value="http://hl7.org/fhir/StructureDefinition/HealthcareService" />
         </meta>
         <identifier>

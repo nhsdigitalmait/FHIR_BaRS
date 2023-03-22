@@ -1,7 +1,7 @@
 <Appointment>
   <id value="ce1c4ced-2a84-4198-9982-9caf894d0bb7" />
   <meta>
-    <lastUpdated value="__YESTERDAY__T15:01:30.000000+00:00" />
+    <lastUpdated value="__YESTERDAY__T15:01:30.1234567+00:00" />
     <profile value="http://hl7.org/fhir/StructureDefinition/Appointment" />
   </meta>
   <status value="booked" />

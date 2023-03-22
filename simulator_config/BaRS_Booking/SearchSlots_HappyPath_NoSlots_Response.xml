@@ -2,7 +2,7 @@
 <!--     BOOKREQRESP01  git commit 1458db7    -->
   <id value="__MESSAGEID__" />
   <meta>
-    <lastUpdated value="__TIMESTAMP_NO_TZ__.000000+00:00" />
+    <lastUpdated value="__TIMESTAMP_NO_TZ__.1234567+00:00" />
     <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-Bundle" />
   </meta>
   <type value="searchset" />
