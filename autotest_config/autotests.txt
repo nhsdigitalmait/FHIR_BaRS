@@ -73,6 +73,8 @@ ReferralRequest_999toCAS_TwoRank1 \
 ReferralRequest_999toCAS_Update \
 ReferralRequest_999toCAS_Update_InvalidLastUpdated \
 ReferralRequest_999toCAS_Cancel \
+ReferralRequest_999toCAS_Cancel_InvalidStatus \
+ReferralRequest_999toCAS_Cancel_ChangeCategory
 ReferralRequest_999toCAS_Ignore_IDs \
 ReferralRequest_999toCAS_WithResentRequestID \
 ReferralRequest_999toCAS_WithNoRequestID \
@@ -83,6 +85,9 @@ ReferralRequest_999toCAS_InvalidEventCode \
 ReferralRequest_999toCAS_InvalidReasonCode \
 ReferralRequest_999toCAS_WrongMethod \
 ReferralRequest_999toCAS_NoVersionID \
+ReferralRequest_999toCAS_CarePlanNotComplete \
+ReferralRequest_999toCAS_EncounterChanged \
+ReferralRequest_999toCAS_ChangeCategory \
 ReferralRequest_111toED_xml_accept \
 ReferralRequest_111toED_json_accept \
 ReferralRequest_111toED_Basic \
@@ -91,6 +96,8 @@ ReferralRequest_111toED_Rank1NotOneself \
 ReferralRequest_111toED_NoRank1 \
 ReferralRequest_111toED_TwoRank1 \
 ReferralRequest_111toED_Cancel \
+ReferralRequest_111toED_Cancel_InvalidStatus \
+ReferralRequest_111toED_Cancel_ChangeCategory \
 ReferralRequest_111toED_Ignore_IDs \
 ReferralRequest_111toED_WithResentRequestID \
 ReferralRequest_111toED_WithNoRequestID \
@@ -101,6 +108,9 @@ ReferralRequest_111toED_InvalidEventCode \
 ReferralRequest_111toED_InvalidReasonCode \
 ReferralRequest_111toED_WrongMethod \
 ReferralRequest_111toED_NoVersionID \
+ReferralRequest_111toED_CarePlanNotComplete \
+ReferralRequest_111toED_EncounterChanged \
+ReferralRequest_111toED_ChangeCategory \
 GetServiceRequestPathIdMissing \
 GetServiceRequestPathIdInvalid \
 GetServiceRequestPathIdNotFound \
@@ -131,6 +141,7 @@ ValidationRequest_NoLocationAddressPostcodeEastingsNorthings \
 ValidationRequest_Update \
 ValidationRequest_Update_InvalidLastUpdated \
 ValidationRequest_Cancel \
+ValidationRequest_Cancel_InvalidStatus \
 ValidationRequest_Ignore_IDs \
 ValidationRequest_WithResentRequestID \
 ValidationRequest_WithNoRequestID \
@@ -141,6 +152,8 @@ ValidationRequest_WithInvalidEventCode \
 ValidationRequest_WithInvalidReasonCode \
 ValidationRequest_WrongMethod \
 ValidationRequest_NoVersionID \
+ValidationRequest_CarePlanNotActive \
+ValidationRequest_EncounterChanged \
 UnsolicitedReferralResponse_xml_accept \
 UnsolicitedReferralResponse_json_accept \
 UnsolicitedValidationResponse_xml_accept \
