@@ -185,7 +185,7 @@ SERVICEREQUEST				context_path matches ^.*/R4/ServiceRequest.*$
 MESSAGEDEFINITION			context_path matches ^.*/R4/MessageDefinition\?context=.*$
 MESSAGEDEFINITION401			context_path matches ^.*/R4/MessageDefinition\?context=FAIL0401.*$
 MESSAGEDEFINITION404			context_path matches ^.*/R4/MessageDefinition\?context=FAIL0404.*$
-MESSAGEDEFINITIONBAD			context_path matches ^.*/R4/MessageDefinition\?context=BAD.*$
+MESSAGEDEFINITIONBAD			context_path matches ^.*/R4/MessageDefinition\?context=(BAD|2000071898).*$
 INCLUDES						context_path matches ^.*_include.*$
 
 VALIDATIONSERVICEREQUEST001				context_path matches ^.*/R4/ServiceRequest/0b42eac3-0175-43c8-bbab-efaa8ca31ccf.*$
