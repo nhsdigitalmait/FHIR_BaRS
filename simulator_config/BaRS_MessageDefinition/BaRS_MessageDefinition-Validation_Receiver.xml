@@ -1,12 +1,12 @@
 <Bundle xmlns="http://hl7.org/fhir">
    <id value="ded3119d-41c9-41ee-ad66-3e21596b5199"/>
    <meta>
-      <lastUpdated value="2022-07-21T13:50:50.1234567+00:00"/>
+      <lastUpdated value="2022-07-21T13:50:50Z"/>
       <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-Bundle"/>
    </meta>
    <type value="searchset"/>
    <timestamp value="2022-07-21T13:50:50Z"/>
-   <total value="2"/>
+   <total value="3"/>
    <link>
       <relation value="self"/>
       <url value="https://localhost/R4/MessageDefinition?context=2000003366"/>
@@ -17,8 +17,8 @@
          <MessageDefinition xmlns="http://hl7.org/fhir">
             <id value="7731af63-04ed-47d9-8f05-e510dece3b3f"/>
             <meta>
-               <versionId value="1.0.0-alpha"/>
-               <lastUpdated value="2021-10-11T15:23:30.1234567+00:00"/>
+               <versionId value="1.0.0"/>
+               <lastUpdated value="2021-10-11T15:23:30+00:00"/>
                <profile value="https://fhir.nhs.uk/StructureDefinition/BARSMessageDefinition-ServiceRequest-Request"/>
             </meta>
             <url value="https://fhir.nhs.uk/MessageDefinition/bars-message-servicerequest-request-validation"/>
@@ -154,8 +154,8 @@
          <MessageDefinition xmlns="http://hl7.org/fhir">
             <id value="11882ae2-211f-49ee-acbe-e319304d80cd"/>
             <meta>
-               <versionId value="1.0.0-alpha"/>
-               <lastUpdated value="2021-10-11T15:23:30.1234567+00:00"/>
+               <versionId value="1.0.0"/>
+               <lastUpdated value="2021-10-11T15:23:30+00:00"/>
                <profile value="https://fhir.nhs.uk/StructureDefinition/BARSMessageDefinition-ServiceRequest-Request"/>
             </meta>
             <url value="https://fhir.nhs.uk/MessageDefinition/bars-message-servicerequest-request-referral"/>
@@ -285,4 +285,5 @@
          </MessageDefinition>
       </resource>
    </entry>
+   <entry id="11882ae2-211f-49ee-acbe-e319304d80cd"/>
 </Bundle>

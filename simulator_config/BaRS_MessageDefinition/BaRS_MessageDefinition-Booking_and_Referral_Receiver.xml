@@ -1,13 +1,12 @@
 <Bundle xmlns="http://hl7.org/fhir">
-	<id value="ded3119d-41c9-41ee-ad66-3e21596b5199"/>
+   <id value="ded3119d-41c9-41ee-ad66-3e21596b5199"/>
    <meta>
-      <versionId value="1.0.0-alpha"/>
-      <lastUpdated value="2022-07-21T13:50:50.1234567+00:00"/>
+      <lastUpdated value="2022-07-21T13:50:50Z"/>
       <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-Bundle"/>
    </meta>
    <type value="searchset"/>
    <timestamp value="2022-07-21T13:50:50Z"/>
-   <total value="6"/>
+   <total value="4"/>
    <link>
       <relation value="self"/>
       <url value="https://localhost/R4/MessageDefinition?context=2000011147"/>
@@ -17,7 +16,11 @@
       <resource>
          <MessageDefinition xmlns="http://hl7.org/fhir">
             <id value="11882ae2-211f-49ee-acbe-e319304d80cd"/>
-            <version value="1.0.0-alpha"/>
+            <meta>
+               <versionId value="1.0.0"/>
+               <lastUpdated value="2021-10-11T15:23:30+00:00"/>
+               <profile value="https://fhir.nhs.uk/StructureDefinition/BARSMessageDefinition-ServiceRequest-Request"/>
+            </meta>
             <url value="https://fhir.nhs.uk/MessageDefinition/bars-message-servicerequest-request-referral"/>
             <name value="BARS Message Definition ServiceRequest - Request Referral"/>
             <title value="BARS Message Definition ServiceRequest - Request Referral"/>
@@ -145,12 +148,17 @@
          </MessageDefinition>
       </resource>
    </entry>
+   <entry id="11882ae2-211f-49ee-acbe-e319304d80cd"/>
    <entry>
       <fullUrl value="urn:uuid:1a32a1c1-2097-4989-9fce-70b1c37dcb86"/>
       <resource>
          <MessageDefinition xmlns="http://hl7.org/fhir">
             <id value="95b337c0-9644-4b5e-accf-246636e55905"/>
-            <version value="1.0.0-alpha"/>
+            <meta>
+               <versionId value="1.0.0"/>
+               <lastUpdated value="2021-10-11T15:23:30+00:00"/>
+               <profile value="https://fhir.nhs.uk/StructureDefinition/BARSMessageDefinition-Booking-Request"/>
+            </meta>
             <url value="https://fhir.nhs.uk/MessageDefinition/bars-message-booking-request"/>
             <name value="BARS Message Definition Booking - Request"/>
             <title value="BARS Message Definition Booking - Request"/>
@@ -254,4 +262,5 @@
          </MessageDefinition>
       </resource>
    </entry>
+   <entry id="95b337c0-9644-4b5e-accf-246636e55905"/>
 </Bundle>

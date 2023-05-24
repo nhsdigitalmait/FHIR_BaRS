@@ -1,459 +1,69 @@
 <Bundle xmlns="http://hl7.org/fhir">
    <id value="ded3119d-41c9-41ee-ad66-3e21596b5199"/>
    <meta>
-      <versionId value="1.0.0-alpha"/>
-      <lastUpdated value="2022-07-21T13:50:50.1234567+00:00"/>
+      <lastUpdated value="2022-07-21T13:50:50Z"/>
       <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-Bundle"/>
    </meta>
-  <type value="searchset" />
+   <type value="searchset"/>
    <timestamp value="2022-07-21T13:50:50Z"/>
-  <total value="6" />
-  <link>
-    <relation value="self" />
+   <total value="8"/>
+   <link>
+      <relation value="self"/>
       <url value="https://localhost/R4/MessageDefinition?context=2000072489"/>
-  </link>
-  <entry>
+   </link>
+   <entry>
       <fullUrl value="urn:uuid:f20803ed-32be-43fc-b4c3-dea161ab5db6"/>
-    <resource>
-      <MessageDefinition xmlns="http://hl7.org/fhir">
-        <id value="11882ae2-211f-49ee-acbe-e319304d80cd" />
-        <version value="1.0.0-alpha"/>
-        <url value="https://fhir.nhs.uk/MessageDefinition/bars-message-servicerequest-request-referral" />
-        <name value="BARS Message Definition ServiceRequest - Request Referral" />
-        <title value="BARS Message Definition ServiceRequest - Request Referral" />
-        <status value="active" />
-        <date value="2022-02-11" />
-        <useContext>
-          <!-- We are expecting the UseContext to be a DOS ID -->
-          <code>
-                  <system value="https://fhir.nhs.uk/CodeSystem/dos-id"/>
-                  <code value="2000072489"/>
-          </code>
-          <valueCodeableConcept>
-            <coding>
-              <system value="http://terminology.hl7.org/CodeSystem/variant-state" />
-              <code value="positive" />
-            </coding>
-          </valueCodeableConcept>
-        </useContext>
-            <eventCoding>
-               <system value="https://fhir.nhs.uk/CodeSystem/message-events-bars"/>
-               <code value="servicerequest-request"/>
-            </eventCoding>
-        <focus>
-          <code value="Bundle" />
-          <profile value="https://fhir.nhs.uk/StructureDefinition/BARSBundleMessage" />
-          <min value="1" />
-          <max value="1" />
-        </focus>
-        <focus>
-          <code value="MessageHeader" />
-          <profile value="https://fhir.nhs.uk/StructureDefinition/BARSMessageHeader-servicerequest-request" />
-          <min value="1" />
-          <max value="1" />
-        </focus>
-        <focus>
-          <code value="ServiceRequest" />
-          <profile value="https://fhir.nhs.uk/StructureDefinition/BARSServiceRequest-request-referral" />
-          <min value="1" />
-          <max value="1" />
-        </focus>
-        <focus>
-          <code value="Patient" />
-          <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-Patient" />
-          <min value="1" />
-          <max value="1" />
-        </focus>
-        <focus>
-          <code value="Encounter" />
-          <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-Encounter" />
-          <min value="1" />
-          <max value="1" />
-        </focus>
-        <focus>
-          <code value="CarePlan" />
-          <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-CarePlan" />
-          <min value="1" />
-          <max value="1" />
-        </focus>
-        <focus>
-          <code value="Location" />
-          <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-Location" />
-          <min value="0" />
-          <max value="1" />
-        </focus>
-        <focus>
-          <code value="Organization" />
-          <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-Organization" />
-          <min value="2" />
-          <max value="*" />
-        </focus>
-        <focus>
-          <code value="Practitioner" />
-          <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-Practitioner" />
-          <min value="1" />
-          <max value="*" />
-        </focus>
-        <focus>
-          <code value="PractitionerRole" />
-          <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-PractitionerRole" />
-          <min value="1" />
-          <max value="*" />
-        </focus>
-        <focus>
-          <code value="Observation" />
-          <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-Observation" />
-          <min value="0" />
-          <max value="*" />
-        </focus>
-        <focus>
-          <code value="Flag" />
-          <profile value="http://hl7.org/fhir/StructureDefinition/Flag" />
-          <min value="0" />
-          <max value="*" />
-        </focus>
-        <focus>
-          <code value="MedicationStatement" />
-          <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-MedicationStatement" />
-          <min value="0" />
-          <max value="*" />
-        </focus>
-        <focus>
-          <code value="AllergyIntolerance" />
-          <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-AllergyIntolerance" />
-          <min value="0" />
-          <max value="*" />
-        </focus>
-        <focus>
-          <code value="QuestionnaireResponse" />
-          <profile value="http://hl7.org/fhir/StructureDefinition/QuestionnaireResponse" />
-          <min value="0" />
-          <max value="*" />
-        </focus>
-        <focus>
-          <code value="Consent" />
-          <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-Consent" />
-          <min value="1" />
-          <max value="*" />
-        </focus>
-        <focus>
-          <code value="HealthcareService" />
-          <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-HealthcareService" />
-          <min value="1" />
-          <max value="1" />
-        </focus>
-      </MessageDefinition>
-    </resource>
-  </entry>
-  <entry>
-      <fullUrl value="urn:uuid:1a32a1c1-2097-4989-9fce-70b1c37dcb86"/>
-    <resource>
-      <MessageDefinition xmlns="http://hl7.org/fhir">
-            <id value="95b337c0-9644-4b5e-accf-246636e55905"/>
+      <resource>
+         <MessageDefinition xmlns="http://hl7.org/fhir">
+            <id value="11882ae2-211f-49ee-acbe-e319304d80cd"/>
             <meta>
-               <versionId value="1.0.0-alpha"/>
-               <lastUpdated value="2021-10-11T15:23:30+00:00"/>
-               <profile value="https://fhir.nhs.uk/StructureDefinition/BARSMessageDefinition-Booking-Request"/>
-            </meta>
-            <url value="https://fhir.nhs.uk/MessageDefinition/bars-message-booking-request"/>
-            <name value="BARS Message Definition Booking - Request"/>
-            <title value="BARS Message Definition Booking - Request"/>
-        <status value="active" />
-            <date value="2022-02-11"/>
-        <useContext>
-          <!-- We are expecting the UseContext to be a DOS ID -->
-          <code>
-                  <system value="https://fhir.nhs.uk/CodeSystem/dos-id"/>
-                  <code value="2000072489"/>
-          </code>
-          <valueCodeableConcept>
-            <coding>
-              <system value="http://terminology.hl7.org/CodeSystem/variant-state" />
-              <code value="positive" />
-            </coding>
-          </valueCodeableConcept>
-        </useContext>
-            <eventCoding>
-               <system value="https://fhir.nhs.uk/CodeSystem/message-events-bars"/>
-               <code value="booking-request"/>
-            </eventCoding>
-        <focus>
-          <code value="Bundle" />
-          <profile value="https://fhir.nhs.uk/StructureDefinition/BARSBundleMessage" />
-          <min value="1" />
-          <max value="1" />
-        </focus>
-        <focus>
-          <code value="MessageHeader" />
-               <profile value="https://fhir.nhs.uk/StructureDefinition/BARSMessageHeader-booking-request"/>
-          <min value="1" />
-          <max value="1" />
-        </focus>
-        <focus>
-          <code value="ServiceRequest" />
-               <profile value="https://fhir.nhs.uk/StructureDefinition/BARSServiceRequest-request-referral"/>
-               <min value="0"/>
-          <max value="1" />
-        </focus>
-        <focus>
-          <code value="Patient" />
-          <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-Patient" />
-          <min value="1" />
-          <max value="1" />
-        </focus>
-        <focus>
-          <code value="Location" />
-          <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-Location" />
-               <min value="0"/>
-          <max value="1" />
-        </focus>
-        <focus>
-          <code value="Organization" />
-          <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-Organization" />
-          <min value="2" />
-          <max value="*" />
-        </focus>
-        <focus>
-          <code value="Practitioner" />
-          <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-Practitioner" />
-               <min value="0"/>
-          <max value="*" />
-        </focus>
-        <focus>
-          <code value="PractitionerRole" />
-          <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-PractitionerRole" />
-               <min value="0"/>
-          <max value="*" />
-        </focus>
-        <focus>
-               <code value="Consent"/>
-               <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-Consent"/>
-          <min value="0" />
-          <max value="*" />
-        </focus>
-        <focus>
-               <code value="HealthcareService"/>
-               <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-HealthcareService"/>
-          <min value="1" />
-               <max value="1"/>
-        </focus>
-        <focus>
-               <code value="Appointment"/>
-               <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-Appointment"/>
-               <min value="1"/>
-               <max value="1"/>
-        </focus>
-        <focus>
-               <code value="Slot"/>
-               <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-Slot"/>
-          <min value="1" />
-               <max value="1"/>
-        </focus>
-        <focus>
-               <code value="Schedule"/>
-               <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-Schedule"/>
-          <min value="1" />
-          <max value="1" />
-        </focus>
-      </MessageDefinition>
-    </resource>
-  </entry>
-  <entry>
-      <fullUrl value="urn:uuid:4926d4a5-e3fa-4e25-b619-cb3bbcb2ea09"/>
-    <resource>
-      <MessageDefinition xmlns="http://hl7.org/fhir">
-        <id value="2a2ff4ff-47cd-4094-a95e-e8179e6f48b8" />
-            <meta>
-               <versionId value="1.0.0-alpha"/>
-               <lastUpdated value="2021-10-11T15:23:30+00:00"/>
-               <profile value="https://fhir.nhs.uk/StructureDefinition/BARSMessageDefinition-ServiceRequest-Response"/>
-            </meta>
-        <url value="https://fhir.nhs.uk/MessageDefinition/bars-message-servicerequest-response-referral" />
-        <name value="BARS Message Definition ServiceRequest - Response Referral" />
-        <title value="BARS Message Definition ServiceRequest - Response Referral" />
-        <status value="active" />
-        <date value="2022-02-11" />
-        <useContext>
-          <!-- We are expecting the UseContext to be a DOS ID -->
-          <code>
-                  <system value="https://fhir.nhs.uk/CodeSystem/dos-id"/>
-                  <code value="2000072489"/>
-          </code>
-          <valueCodeableConcept>
-            <coding>
-              <system value="http://terminology.hl7.org/CodeSystem/variant-state" />
-              <code value="positive" />
-            </coding>
-          </valueCodeableConcept>
-        </useContext>
-            <eventCoding>
-               <system value="https://fhir.nhs.uk/CodeSystem/message-events-bars"/>
-               <code value="servicerequest-response"/>
-            </eventCoding>
-        <focus>
-          <code value="Bundle" />
-          <profile value="https://fhir.nhs.uk/StructureDefinition/BARSBundleMessage" />
-          <min value="1" />
-          <max value="1" />
-        </focus>
-        <focus>
-          <code value="MessageHeader" />
-          <profile value="https://fhir.nhs.uk/StructureDefinition/BARSMessageHeader-servicerequest-request" />
-          <min value="1" />
-          <max value="1" />
-        </focus>
-        <focus>
-          <code value="ServiceRequest" />
-          <profile value="https://fhir.nhs.uk/StructureDefinition/BARSServiceRequest-request-referral" />
-          <min value="1" />
-          <max value="1" />
-        </focus>
-        <focus>
-          <code value="Patient" />
-          <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-Patient" />
-          <min value="1" />
-          <max value="1" />
-        </focus>
-        <focus>
-          <code value="Encounter" />
-          <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-Encounter" />
-          <min value="0" />
-          <max value="1" />
-        </focus>
-        <focus>
-          <code value="CarePlan" />
-          <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-CarePlan" />
-          <min value="0" />
-          <max value="1" />
-        </focus>
-        <focus>
-          <code value="Location" />
-          <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-Location" />
-          <min value="0" />
-          <max value="1" />
-        </focus>
-        <focus>
-          <code value="Organization" />
-          <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-Organization" />
-          <min value="2" />
-          <max value="*" />
-        </focus>
-        <focus>
-          <code value="Practitioner" />
-          <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-Practitioner" />
-          <min value="1" />
-          <max value="*" />
-        </focus>
-        <focus>
-          <code value="PractitionerRole" />
-          <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-PractitionerRole" />
-          <min value="1" />
-          <max value="*" />
-        </focus>
-        <focus>
-          <code value="Observation" />
-          <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-Observation" />
-          <min value="0" />
-          <max value="*" />
-        </focus>
-        <focus>
-          <code value="Flag" />
-          <profile value="http://hl7.org/fhir/StructureDefinition/Flag" />
-          <min value="0" />
-          <max value="*" />
-        </focus>
-        <focus>
-          <code value="MedicationStatement" />
-          <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-MedicationStatement" />
-          <min value="0" />
-          <max value="*" />
-        </focus>
-        <focus>
-          <code value="AllergyIntolerance" />
-          <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-AllergyIntolerance" />
-          <min value="0" />
-          <max value="*" />
-        </focus>
-        <focus>
-          <code value="QuestionnaireResponse" />
-          <profile value="http://hl7.org/fhir/StructureDefinition/QuestionnaireResponse" />
-          <min value="0" />
-          <max value="*" />
-        </focus>
-        <focus>
-          <code value="Consent" />
-          <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-Consent" />
-          <min value="1" />
-          <max value="*" />
-        </focus>
-        <focus>
-          <code value="HealthcareService" />
-          <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-HealthcareService" />
-          <min value="1" />
-          <max value="1" />
-        </focus>
-        <focus>
-          <code value="Appointment" />
-          <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-Appointment" />
-          <min value="0" />
-          <max value="1" />
-        </focus>
-      </MessageDefinition>
-    </resource>
-  </entry>
-  <entry>
-      <fullUrl value="urn:uuid:e7a5a0df-fd70-4097-9ed4-0b7e54323ce4"/>
-    <resource>
-      <MessageDefinition xmlns="http://hl7.org/fhir">
-            <id value="7731af63-04ed-47d9-8f05-e510dece3b3f"/>
-            <meta>
-               <versionId value="1.0.0-alpha"/>
+               <versionId value="1.0.0"/>
                <lastUpdated value="2021-10-11T15:23:30+00:00"/>
                <profile value="https://fhir.nhs.uk/StructureDefinition/BARSMessageDefinition-ServiceRequest-Request"/>
             </meta>
-            <url value="https://fhir.nhs.uk/MessageDefinition/bars-message-servicerequest-request-validation"/>
-            <name value="BARS Message Definition ServiceRequest - Request Validation"/>
-            <title value="BARS Message Definition ServiceRequest - Request Validation"/>
-        <status value="active" />
-            <date value="2021-12-08"/>
-        <useContext>
-          <!-- We are expecting the UseContext to be a DOS ID -->
-          <code>
+            <url value="https://fhir.nhs.uk/MessageDefinition/bars-message-servicerequest-request-referral"/>
+            <name value="BARS Message Definition ServiceRequest - Request Referral"/>
+            <title value="BARS Message Definition ServiceRequest - Request Referral"/>
+            <status value="active"/>
+            <date value="2022-02-11"/>
+            <useContext>
+               <!-- We are expecting the UseContext to be a DOS ID -->
+               <code>
                   <system value="https://fhir.nhs.uk/CodeSystem/dos-id"/>
                   <code value="2000072489"/>
-          </code>
-          <valueCodeableConcept>
-            <coding>
-              <system value="http://terminology.hl7.org/CodeSystem/variant-state" />
-              <code value="positive" />
-            </coding>
-          </valueCodeableConcept>
-        </useContext>
+               </code>
+               <valueCodeableConcept>
+                  <coding>
+                     <system value="http://terminology.hl7.org/CodeSystem/variant-state"/>
+                     <code value="positive"/>
+                  </coding>
+               </valueCodeableConcept>
+            </useContext>
             <eventCoding>
                <system value="https://fhir.nhs.uk/CodeSystem/message-events-bars"/>
                <code value="servicerequest-request"/>
             </eventCoding>
-        <focus>
-          <code value="Bundle" />
-          <profile value="https://fhir.nhs.uk/StructureDefinition/BARSBundleMessage" />
-          <min value="1" />
-          <max value="1" />
-        </focus>
-        <focus>
-          <code value="MessageHeader" />
-               <profile value="https://fhir.nhs.uk/StructureDefinition/BARSMessageHeader-servicerequest-request"/>
-          <min value="1" />
-          <max value="1" />
-        </focus>
-        <focus>
-          <code value="ServiceRequest" />
-               <profile value="https://fhir.nhs.uk/StructureDefinition/BARSServiceRequest-request-validation"/>
+            <focus>
+               <code value="Bundle"/>
+               <profile value="https://fhir.nhs.uk/StructureDefinition/BARSBundleMessage"/>
                <min value="1"/>
-          <max value="1" />
-        </focus>
-        <focus>
-          <code value="Patient" />
-          <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-Patient" />
+               <max value="1"/>
+            </focus>
+            <focus>
+               <code value="MessageHeader"/>
+               <profile value="https://fhir.nhs.uk/StructureDefinition/BARSMessageHeader-servicerequest-request"/>
+               <min value="1"/>
+               <max value="1"/>
+            </focus>
+            <focus>
+               <code value="ServiceRequest"/>
+               <profile value="https://fhir.nhs.uk/StructureDefinition/BARSServiceRequest-request-referral"/>
+               <min value="1"/>
+               <max value="1"/>
+            </focus>
+            <focus>
+               <code value="Patient"/>
+               <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-Patient"/>
                <min value="1"/>
                <max value="1"/>
             </focus>
@@ -466,59 +76,453 @@
             <focus>
                <code value="CarePlan"/>
                <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-CarePlan"/>
-          <min value="1" />
-          <max value="1" />
-        </focus>
-        <focus>
-          <code value="Location" />
-          <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-Location" />
                <min value="1"/>
-          <max value="1" />
-        </focus>
-        <focus>
-          <code value="Organization" />
-          <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-Organization" />
-          <min value="2" />
-          <max value="*" />
-        </focus>
-        <focus>
-          <code value="Practitioner" />
-          <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-Practitioner" />
+               <max value="1"/>
+            </focus>
+            <focus>
+               <code value="Location"/>
+               <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-Location"/>
+               <min value="0"/>
+               <max value="1"/>
+            </focus>
+            <focus>
+               <code value="Organization"/>
+               <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-Organization"/>
+               <min value="2"/>
+               <max value="*"/>
+            </focus>
+            <focus>
+               <code value="Practitioner"/>
+               <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-Practitioner"/>
                <min value="1"/>
-          <max value="*" />
-        </focus>
-        <focus>
-          <code value="PractitionerRole" />
-          <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-PractitionerRole" />
+               <max value="*"/>
+            </focus>
+            <focus>
+               <code value="PractitionerRole"/>
+               <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-PractitionerRole"/>
                <min value="1"/>
-          <max value="*" />
-        </focus>
-        <focus>
+               <max value="*"/>
+            </focus>
+            <focus>
                <code value="Observation"/>
                <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-Observation"/>
-          <min value="0" />
-          <max value="*" />
-        </focus>
-        <focus>
-               <!-- Add StructDef for scene safety flag TBD -->
-               <code value="Flag"/>
-               <profile value="http://hl7.org/fhir/StructureDefinition/Flag"/>
-          <min value="1" />
+               <min value="0"/>
                <max value="*"/>
-        </focus>
-        <focus>
+            </focus>
+            <focus>
                <code value="Flag"/>
                <profile value="http://hl7.org/fhir/StructureDefinition/Flag"/>
                <min value="0"/>
                <max value="*"/>
-        </focus>
-        <focus>
+            </focus>
+            <focus>
+               <code value="MedicationStatement"/>
+               <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-MedicationStatement"/>
+               <min value="0"/>
+               <max value="*"/>
+            </focus>
+            <focus>
+               <code value="AllergyIntolerance"/>
+               <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-AllergyIntolerance"/>
+               <min value="0"/>
+               <max value="*"/>
+            </focus>
+            <focus>
+               <code value="QuestionnaireResponse"/>
+               <profile value="http://hl7.org/fhir/StructureDefinition/QuestionnaireResponse"/>
+               <min value="0"/>
+               <max value="*"/>
+            </focus>
+            <focus>
                <code value="Consent"/>
                <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-Consent"/>
-          <min value="1" />
+               <min value="1"/>
                <max value="*"/>
-        </focus>
-        <focus>
+            </focus>
+            <focus>
+               <code value="HealthcareService"/>
+               <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-HealthcareService"/>
+               <min value="1"/>
+               <max value="1"/>
+            </focus>
+         </MessageDefinition>
+      </resource>
+   </entry>
+   <entry id="11882ae2-211f-49ee-acbe-e319304d80cd"/>
+   <entry>
+      <fullUrl value="urn:uuid:1a32a1c1-2097-4989-9fce-70b1c37dcb86"/>
+      <resource>
+         <MessageDefinition xmlns="http://hl7.org/fhir">
+            <id value="95b337c0-9644-4b5e-accf-246636e55905"/>
+            <meta>
+               <versionId value="1.0.0"/>
+               <lastUpdated value="2021-10-11T15:23:30+00:00"/>
+               <profile value="https://fhir.nhs.uk/StructureDefinition/BARSMessageDefinition-Booking-Request"/>
+            </meta>
+            <url value="https://fhir.nhs.uk/MessageDefinition/bars-message-booking-request"/>
+            <name value="BARS Message Definition Booking - Request"/>
+            <title value="BARS Message Definition Booking - Request"/>
+            <status value="active"/>
+            <date value="2022-02-11"/>
+            <useContext>
+               <!-- We are expecting the UseContext to be a DOS ID -->
+               <code>
+                  <system value="https://fhir.nhs.uk/CodeSystem/dos-id"/>
+                  <code value="2000072489"/>
+               </code>
+               <valueCodeableConcept>
+                  <coding>
+                     <system value="http://terminology.hl7.org/CodeSystem/variant-state"/>
+                     <code value="positive"/>
+                  </coding>
+               </valueCodeableConcept>
+            </useContext>
+            <eventCoding>
+               <system value="https://fhir.nhs.uk/CodeSystem/message-events-bars"/>
+               <code value="booking-request"/>
+            </eventCoding>
+            <focus>
+               <code value="Bundle"/>
+               <profile value="https://fhir.nhs.uk/StructureDefinition/BARSBundleMessage"/>
+               <min value="1"/>
+               <max value="1"/>
+            </focus>
+            <focus>
+               <code value="MessageHeader"/>
+               <profile value="https://fhir.nhs.uk/StructureDefinition/BARSMessageHeader-booking-request"/>
+               <min value="1"/>
+               <max value="1"/>
+            </focus>
+            <focus>
+               <code value="ServiceRequest"/>
+               <profile value="https://fhir.nhs.uk/StructureDefinition/BARSServiceRequest-request-referral"/>
+               <min value="0"/>
+               <max value="1"/>
+            </focus>
+            <focus>
+               <code value="Patient"/>
+               <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-Patient"/>
+               <min value="1"/>
+               <max value="1"/>
+            </focus>
+            <focus>
+               <code value="Location"/>
+               <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-Location"/>
+               <min value="0"/>
+               <max value="1"/>
+            </focus>
+            <focus>
+               <code value="Organization"/>
+               <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-Organization"/>
+               <min value="2"/>
+               <max value="*"/>
+            </focus>
+            <focus>
+               <code value="Practitioner"/>
+               <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-Practitioner"/>
+               <min value="0"/>
+               <max value="*"/>
+            </focus>
+            <focus>
+               <code value="PractitionerRole"/>
+               <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-PractitionerRole"/>
+               <min value="0"/>
+               <max value="*"/>
+            </focus>
+            <focus>
+               <code value="Consent"/>
+               <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-Consent"/>
+               <min value="0"/>
+               <max value="*"/>
+            </focus>
+            <focus>
+               <code value="HealthcareService"/>
+               <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-HealthcareService"/>
+               <min value="1"/>
+               <max value="1"/>
+            </focus>
+            <focus>
+               <code value="Appointment"/>
+               <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-Appointment"/>
+               <min value="1"/>
+               <max value="1"/>
+            </focus>
+            <focus>
+               <code value="Slot"/>
+               <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-Slot"/>
+               <min value="1"/>
+               <max value="1"/>
+            </focus>
+            <focus>
+               <code value="Schedule"/>
+               <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-Schedule"/>
+               <min value="1"/>
+               <max value="1"/>
+            </focus>
+         </MessageDefinition>
+      </resource>
+   </entry>
+   <entry id="95b337c0-9644-4b5e-accf-246636e55905"/>
+   <entry>
+      <fullUrl value="urn:uuid:4926d4a5-e3fa-4e25-b619-cb3bbcb2ea09"/>
+      <resource>
+         <MessageDefinition xmlns="http://hl7.org/fhir">
+            <id value="2a2ff4ff-47cd-4094-a95e-e8179e6f48b8"/>
+            <meta>
+               <versionId value="1.0.0"/>
+               <lastUpdated value="2021-10-11T15:23:30+00:00"/>
+               <profile value="https://fhir.nhs.uk/StructureDefinition/BARSMessageDefinition-ServiceRequest-Response"/>
+            </meta>
+            <url value="https://fhir.nhs.uk/MessageDefinition/bars-message-servicerequest-response-referral"/>
+            <name value="BARS Message Definition ServiceRequest - Response Referral"/>
+            <title value="BARS Message Definition ServiceRequest - Response Referral"/>
+            <status value="active"/>
+            <date value="2022-02-11"/>
+            <useContext>
+               <!-- We are expecting the UseContext to be a DOS ID -->
+               <code>
+                  <system value="https://fhir.nhs.uk/CodeSystem/dos-id"/>
+                  <code value="2000072489"/>
+               </code>
+               <valueCodeableConcept>
+                  <coding>
+                     <system value="http://terminology.hl7.org/CodeSystem/variant-state"/>
+                     <code value="positive"/>
+                  </coding>
+               </valueCodeableConcept>
+            </useContext>
+            <eventCoding>
+               <system value="https://fhir.nhs.uk/CodeSystem/message-events-bars"/>
+               <code value="servicerequest-response"/>
+            </eventCoding>
+            <focus>
+               <code value="Bundle"/>
+               <profile value="https://fhir.nhs.uk/StructureDefinition/BARSBundleMessage"/>
+               <min value="1"/>
+               <max value="1"/>
+            </focus>
+            <focus>
+               <code value="MessageHeader"/>
+               <profile value="https://fhir.nhs.uk/StructureDefinition/BARSMessageHeader-servicerequest-request"/>
+               <min value="1"/>
+               <max value="1"/>
+            </focus>
+            <focus>
+               <code value="ServiceRequest"/>
+               <profile value="https://fhir.nhs.uk/StructureDefinition/BARSServiceRequest-request-referral"/>
+               <min value="1"/>
+               <max value="1"/>
+            </focus>
+            <focus>
+               <code value="Patient"/>
+               <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-Patient"/>
+               <min value="1"/>
+               <max value="1"/>
+            </focus>
+            <focus>
+               <code value="Encounter"/>
+               <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-Encounter"/>
+               <min value="0"/>
+               <max value="1"/>
+            </focus>
+            <focus>
+               <code value="CarePlan"/>
+               <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-CarePlan"/>
+               <min value="0"/>
+               <max value="1"/>
+            </focus>
+            <focus>
+               <code value="Location"/>
+               <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-Location"/>
+               <min value="0"/>
+               <max value="1"/>
+            </focus>
+            <focus>
+               <code value="Organization"/>
+               <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-Organization"/>
+               <min value="2"/>
+               <max value="*"/>
+            </focus>
+            <focus>
+               <code value="Practitioner"/>
+               <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-Practitioner"/>
+               <min value="1"/>
+               <max value="*"/>
+            </focus>
+            <focus>
+               <code value="PractitionerRole"/>
+               <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-PractitionerRole"/>
+               <min value="1"/>
+               <max value="*"/>
+            </focus>
+            <focus>
+               <code value="Observation"/>
+               <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-Observation"/>
+               <min value="0"/>
+               <max value="*"/>
+            </focus>
+            <focus>
+               <code value="Flag"/>
+               <profile value="http://hl7.org/fhir/StructureDefinition/Flag"/>
+               <min value="0"/>
+               <max value="*"/>
+            </focus>
+            <focus>
+               <code value="MedicationStatement"/>
+               <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-MedicationStatement"/>
+               <min value="0"/>
+               <max value="*"/>
+            </focus>
+            <focus>
+               <code value="AllergyIntolerance"/>
+               <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-AllergyIntolerance"/>
+               <min value="0"/>
+               <max value="*"/>
+            </focus>
+            <focus>
+               <code value="QuestionnaireResponse"/>
+               <profile value="http://hl7.org/fhir/StructureDefinition/QuestionnaireResponse"/>
+               <min value="0"/>
+               <max value="*"/>
+            </focus>
+            <focus>
+               <code value="Consent"/>
+               <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-Consent"/>
+               <min value="1"/>
+               <max value="*"/>
+            </focus>
+            <focus>
+               <code value="HealthcareService"/>
+               <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-HealthcareService"/>
+               <min value="1"/>
+               <max value="1"/>
+            </focus>
+            <focus>
+               <code value="Appointment"/>
+               <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-Appointment"/>
+               <min value="0"/>
+               <max value="1"/>
+            </focus>
+         </MessageDefinition>
+      </resource>
+   </entry>
+   <entry>
+      <fullUrl value="urn:uuid:e7a5a0df-fd70-4097-9ed4-0b7e54323ce4"/>
+      <resource>
+         <MessageDefinition xmlns="http://hl7.org/fhir">
+            <id value="7731af63-04ed-47d9-8f05-e510dece3b3f"/>
+            <meta>
+               <versionId value="1.0.0"/>
+               <lastUpdated value="2021-10-11T15:23:30+00:00"/>
+               <profile value="https://fhir.nhs.uk/StructureDefinition/BARSMessageDefinition-ServiceRequest-Request"/>
+            </meta>
+            <url value="https://fhir.nhs.uk/MessageDefinition/bars-message-servicerequest-request-validation"/>
+            <name value="BARS Message Definition ServiceRequest - Request Validation"/>
+            <title value="BARS Message Definition ServiceRequest - Request Validation"/>
+            <status value="active"/>
+            <date value="2021-12-08"/>
+            <useContext>
+               <!-- We are expecting the UseContext to be a DOS ID -->
+               <code>
+                  <system value="https://fhir.nhs.uk/CodeSystem/dos-id"/>
+                  <code value="2000072489"/>
+               </code>
+               <valueCodeableConcept>
+                  <coding>
+                     <system value="http://terminology.hl7.org/CodeSystem/variant-state"/>
+                     <code value="positive"/>
+                  </coding>
+               </valueCodeableConcept>
+            </useContext>
+            <eventCoding>
+               <system value="https://fhir.nhs.uk/CodeSystem/message-events-bars"/>
+               <code value="servicerequest-request"/>
+            </eventCoding>
+            <focus>
+               <code value="Bundle"/>
+               <profile value="https://fhir.nhs.uk/StructureDefinition/BARSBundleMessage"/>
+               <min value="1"/>
+               <max value="1"/>
+            </focus>
+            <focus>
+               <code value="MessageHeader"/>
+               <profile value="https://fhir.nhs.uk/StructureDefinition/BARSMessageHeader-servicerequest-request"/>
+               <min value="1"/>
+               <max value="1"/>
+            </focus>
+            <focus>
+               <code value="ServiceRequest"/>
+               <profile value="https://fhir.nhs.uk/StructureDefinition/BARSServiceRequest-request-validation"/>
+               <min value="1"/>
+               <max value="1"/>
+            </focus>
+            <focus>
+               <code value="Patient"/>
+               <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-Patient"/>
+               <min value="1"/>
+               <max value="1"/>
+            </focus>
+            <focus>
+               <code value="Encounter"/>
+               <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-Encounter"/>
+               <min value="1"/>
+               <max value="1"/>
+            </focus>
+            <focus>
+               <code value="CarePlan"/>
+               <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-CarePlan"/>
+               <min value="1"/>
+               <max value="1"/>
+            </focus>
+            <focus>
+               <code value="Location"/>
+               <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-Location"/>
+               <min value="1"/>
+               <max value="1"/>
+            </focus>
+            <focus>
+               <code value="Organization"/>
+               <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-Organization"/>
+               <min value="2"/>
+               <max value="*"/>
+            </focus>
+            <focus>
+               <code value="Practitioner"/>
+               <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-Practitioner"/>
+               <min value="1"/>
+               <max value="*"/>
+            </focus>
+            <focus>
+               <code value="PractitionerRole"/>
+               <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-PractitionerRole"/>
+               <min value="1"/>
+               <max value="*"/>
+            </focus>
+            <focus>
+               <code value="Observation"/>
+               <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-Observation"/>
+               <min value="0"/>
+               <max value="*"/>
+            </focus>
+            <focus>
+               <code value="Flag"/>
+               <profile value="https://fhir.nhs.uk/StructureDefinition/BARSFlag-scene-safety"/>
+               <min value="1"/>
+               <max value="*"/>
+            </focus>
+            <focus>
+               <code value="Flag"/>
+               <profile value="http://hl7.org/fhir/StructureDefinition/Flag"/>
+               <min value="0"/>
+               <max value="*"/>
+            </focus>
+            <focus>
+               <code value="Consent"/>
+               <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-Consent"/>
+               <min value="1"/>
+               <max value="*"/>
+            </focus>
+            <focus>
                <code value="MedicationStatement"/>
                <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-MedicationStatement"/>
                <min value="0"/>
@@ -533,213 +537,212 @@
             <focus>
                <code value="HealthcareService"/>
                <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-HealthcareService"/>
-          <min value="1" />
-          <max value="1" />
-        </focus>
-      </MessageDefinition>
-    </resource>
-  </entry>
-  <entry>
+               <min value="1"/>
+               <max value="1"/>
+            </focus>
+         </MessageDefinition>
+      </resource>
+   </entry>
+   <entry>
       <fullUrl value="urn:uuid:45621b72-690b-4a8c-8ab3-94ea6095f032"/>
-    <resource>
-      <MessageDefinition xmlns="http://hl7.org/fhir">
-        <id value="15b429dc-2464-42ca-b401-4c2a5e8320aa" />
+      <resource>
+         <MessageDefinition xmlns="http://hl7.org/fhir">
+            <id value="15b429dc-2464-42ca-b401-4c2a5e8320aa"/>
             <meta>
-               <versionId value="1.0.0-alpha"/>
+               <versionId value="1.0.0"/>
                <lastUpdated value="2021-10-11T15:23:30+00:00"/>
                <profile value="https://fhir.nhs.uk/StructureDefinition/BARSMessageDefinition-ServiceRequest-Response"/>
             </meta>
             <url value="https://fhir.nhs.uk/MessageDefinition/bars-message-servicerequest-response-validation"/>
-        <name value="BARS Message Definition ServiceRequest - Response Validation Full" />
-        <title value="BARS Message Definition ServiceRequest - Response Validation Full" />
-        <status value="active" />
+            <name value="BARS Message Definition ServiceRequest - Response Validation Full"/>
+            <title value="BARS Message Definition ServiceRequest - Response Validation Full"/>
+            <status value="active"/>
             <date value="2022-03-01"/>
-        <useContext>
-          <!-- We are expecting the UseContext to be a DOS ID -->
-          <code>
+            <useContext>
+               <!-- We are expecting the UseContext to be a DOS ID -->
+               <code>
                   <system value="https://fhir.nhs.uk/CodeSystem/dos-id"/>
                   <code value="2000072489"/>
-          </code>
-          <valueCodeableConcept>
-            <coding>
-              <system value="http://terminology.hl7.org/CodeSystem/variant-state" />
-              <code value="positive" />
-            </coding>
-          </valueCodeableConcept>
-        </useContext>
+               </code>
+               <valueCodeableConcept>
+                  <coding>
+                     <system value="http://terminology.hl7.org/CodeSystem/variant-state"/>
+                     <code value="positive"/>
+                  </coding>
+               </valueCodeableConcept>
+            </useContext>
             <eventCoding>
                <system value="https://fhir.nhs.uk/CodeSystem/message-events-bars"/>
                <code value="servicerequest-response"/>
             </eventCoding>
-        <focus>
-          <code value="Bundle" />
-          <profile value="https://fhir.nhs.uk/StructureDefinition/BARSBundleMessage" />
-          <min value="1" />
-          <max value="1" />
-        </focus>
-        <focus>
-          <code value="MessageHeader" />
-          <profile value="https://fhir.nhs.uk/StructureDefinition/BARSMessageHeader-servicerequest-response" />
-          <min value="1" />
-          <max value="1" />
-        </focus>
-        <focus>
-          <code value="ServiceRequest" />
-          <profile value="https://fhir.nhs.uk/StructureDefinition/BARSServiceRequest-request-validation" />
-          <min value="1" />
-          <max value="1" />
-        </focus>
-        <focus>
-          <code value="Patient" />
-          <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-Patient" />
-          <min value="1" />
-          <max value="1" />
-        </focus>
-        <focus>
-          <code value="Encounter" />
-          <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-Encounter" />
-          <min value="2" />
-          <max value="3" />
-        </focus>
-        <focus>
-          <code value="CarePlan" />
-          <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-CarePlan" />
-          <min value="1" />
-          <max value="1" />
-        </focus>
-        <focus>
-          <code value="Location" />
-          <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-Location" />
-          <min value="1" />
-          <max value="1" />
-        </focus>
-        <focus>
-          <code value="Organization" />
-          <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-Organization" />
-          <min value="2" />
-          <max value="*" />
-        </focus>
-        <focus>
-          <code value="Practitioner" />
-          <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-Practitioner" />
-          <min value="1" />
-          <max value="*" />
-        </focus>
-        <focus>
-          <code value="PractitionerRole" />
-          <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-PractitionerRole" />
-          <min value="1" />
-          <max value="*" />
-        </focus>
-        <focus>
-          <code value="Observation" />
-          <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-Observation" />
-          <min value="0" />
-          <max value="*" />
-        </focus>
-        <focus>
-          <!-- Add StructDef for scene safety flag TBD -->
-          <code value="Flag" />
-          <profile value="http://hl7.org/fhir/StructureDefinition/Flag" />
-          <min value="1" />
-          <max value="*" />
-        </focus>
-        <focus>
-          <code value="Flag" />
-          <profile value="http://hl7.org/fhir/StructureDefinition/Flag" />
-          <min value="0" />
-          <max value="*" />
-        </focus>
-        <focus>
-          <code value="Consent" />
-          <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-Consent" />
-          <min value="1" />
-          <max value="*" />
-        </focus>
-        <focus>
-          <code value="MedicationStatement" />
-          <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-MedicationStatement" />
-          <min value="0" />
-          <max value="*" />
-        </focus>
-        <focus>
-          <code value="AllergyIntolerance" />
-          <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-AllergyIntolerance" />
-          <min value="0" />
-          <max value="*" />
-        </focus>
-        <focus>
-          <code value="HealthcareService" />
-          <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-HealthcareService" />
-          <min value="1" />
-          <max value="1" />
-        </focus>
-      </MessageDefinition>
-    </resource>
-  </entry>
-  <entry>
+            <focus>
+               <code value="Bundle"/>
+               <profile value="https://fhir.nhs.uk/StructureDefinition/BARSBundleMessage"/>
+               <min value="1"/>
+               <max value="1"/>
+            </focus>
+            <focus>
+               <code value="MessageHeader"/>
+               <profile value="https://fhir.nhs.uk/StructureDefinition/BARSMessageHeader-servicerequest-response"/>
+               <min value="1"/>
+               <max value="1"/>
+            </focus>
+            <focus>
+               <code value="ServiceRequest"/>
+               <profile value="https://fhir.nhs.uk/StructureDefinition/BARSServiceRequest-request-validation"/>
+               <min value="1"/>
+               <max value="1"/>
+            </focus>
+            <focus>
+               <code value="Patient"/>
+               <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-Patient"/>
+               <min value="1"/>
+               <max value="1"/>
+            </focus>
+            <focus>
+               <code value="Encounter"/>
+               <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-Encounter"/>
+               <min value="2"/>
+               <max value="3"/>
+            </focus>
+            <focus>
+               <code value="CarePlan"/>
+               <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-CarePlan"/>
+               <min value="1"/>
+               <max value="1"/>
+            </focus>
+            <focus>
+               <code value="Location"/>
+               <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-Location"/>
+               <min value="1"/>
+               <max value="1"/>
+            </focus>
+            <focus>
+               <code value="Organization"/>
+               <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-Organization"/>
+               <min value="2"/>
+               <max value="*"/>
+            </focus>
+            <focus>
+               <code value="Practitioner"/>
+               <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-Practitioner"/>
+               <min value="1"/>
+               <max value="*"/>
+            </focus>
+            <focus>
+               <code value="PractitionerRole"/>
+               <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-PractitionerRole"/>
+               <min value="1"/>
+               <max value="*"/>
+            </focus>
+            <focus>
+               <code value="Observation"/>
+               <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-Observation"/>
+               <min value="0"/>
+               <max value="*"/>
+            </focus>
+            <focus>
+               <code value="Flag"/>
+               <profile value="https://fhir.nhs.uk/StructureDefinition/BARSFlag-scene-safety"/>
+               <min value="1"/>
+               <max value="*"/>
+            </focus>
+            <focus>
+               <code value="Flag"/>
+               <profile value="http://hl7.org/fhir/StructureDefinition/Flag"/>
+               <min value="0"/>
+               <max value="*"/>
+            </focus>
+            <focus>
+               <code value="Consent"/>
+               <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-Consent"/>
+               <min value="1"/>
+               <max value="*"/>
+            </focus>
+            <focus>
+               <code value="MedicationStatement"/>
+               <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-MedicationStatement"/>
+               <min value="0"/>
+               <max value="*"/>
+            </focus>
+            <focus>
+               <code value="AllergyIntolerance"/>
+               <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-AllergyIntolerance"/>
+               <min value="0"/>
+               <max value="*"/>
+            </focus>
+            <focus>
+               <code value="HealthcareService"/>
+               <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-HealthcareService"/>
+               <min value="1"/>
+               <max value="1"/>
+            </focus>
+         </MessageDefinition>
+      </resource>
+   </entry>
+   <entry>
       <fullUrl value="urn:uuid:76823ecb-084a-4de9-9ca1-5a2704a78cca"/>
-    <resource>
-      <MessageDefinition xmlns="http://hl7.org/fhir">
-        <id value="15b429dc-2464-42ca-b401-4c2a5e8320bb" />
+      <resource>
+         <MessageDefinition xmlns="http://hl7.org/fhir">
+            <id value="15b429dc-2464-42ca-b401-4c2a5e8320bb"/>
             <meta>
-               <versionId value="1.0.0-alpha"/>
+               <versionId value="1.0.0"/>
                <lastUpdated value="2021-10-11T15:23:30+00:00"/>
                <profile value="https://fhir.nhs.uk/StructureDefinition/BARSMessageDefinition-ServiceRequest-Response"/>
             </meta>
             <url value="https://fhir.nhs.uk/MessageDefinition/bars-message-servicerequest-response-validation"/>
-        <name value="BARS Message Definition ServiceRequest - Response Validation Interim" />
-        <title value="BARS Message Definition ServiceRequest - Response Validation Interim" />
-        <status value="active" />
+            <name value="BARS Message Definition ServiceRequest - Response Validation Interim"/>
+            <title value="BARS Message Definition ServiceRequest - Response Validation Interim"/>
+            <status value="active"/>
             <date value="2022-03-01"/>
-        <useContext>
-          <!--  We are expecting the UseContext to be a DOS ID  -->
-          <code>
+            <useContext>
+               <!--  We are expecting the UseContext to be a DOS ID  -->
+               <code>
                   <system value="https://fhir.nhs.uk/CodeSystem/dos-id"/>
                   <code value="2000072489"/>
-          </code>
-          <valueCodeableConcept>
-            <coding>
-              <system value="http://terminology.hl7.org/CodeSystem/variant-state" />
-              <code value="positive" />
-            </coding>
-          </valueCodeableConcept>
-        </useContext>
-        <eventCoding>
-          <system value="https://fhir.nhs.uk/CodeSystem/message-events-bars" />
-          <code value="servicerequest-response" />
-        </eventCoding>
-        <focus>
-          <code value="Bundle" />
-          <profile value="https://fhir.nhs.uk/StructureDefinition/BARSBundleMessage" />
-          <min value="1" />
-          <max value="1" />
-        </focus>
-        <focus>
-          <code value="MessageHeader" />
-          <profile value="https://fhir.nhs.uk/StructureDefinition/BARSMessageHeader-servicerequest-response" />
-          <min value="1" />
-          <max value="1" />
-        </focus>
-        <focus>
-          <code value="ServiceRequest" />
-          <profile value="https://fhir.nhs.uk/StructureDefinition/BARSServiceRequest-request-validation" />
-          <min value="1" />
-          <max value="1" />
-        </focus>
-        <focus>
-          <code value="Patient" />
-          <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-Patient" />
-          <min value="1" />
-          <max value="1" />
-        </focus>
-        <focus>
-          <code value="Encounter" />
-          <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-Encounter" />
-          <min value="2" />
-          <max value="3" />
-        </focus>
-      </MessageDefinition>
-    </resource>
-  </entry>
+               </code>
+               <valueCodeableConcept>
+                  <coding>
+                     <system value="http://terminology.hl7.org/CodeSystem/variant-state"/>
+                     <code value="positive"/>
+                  </coding>
+               </valueCodeableConcept>
+            </useContext>
+            <eventCoding>
+               <system value="https://fhir.nhs.uk/CodeSystem/message-events-bars"/>
+               <code value="servicerequest-response"/>
+            </eventCoding>
+            <focus>
+               <code value="Bundle"/>
+               <profile value="https://fhir.nhs.uk/StructureDefinition/BARSBundleMessage"/>
+               <min value="1"/>
+               <max value="1"/>
+            </focus>
+            <focus>
+               <code value="MessageHeader"/>
+               <profile value="https://fhir.nhs.uk/StructureDefinition/BARSMessageHeader-servicerequest-response"/>
+               <min value="1"/>
+               <max value="1"/>
+            </focus>
+            <focus>
+               <code value="ServiceRequest"/>
+               <profile value="https://fhir.nhs.uk/StructureDefinition/BARSServiceRequest-request-validation"/>
+               <min value="1"/>
+               <max value="1"/>
+            </focus>
+            <focus>
+               <code value="Patient"/>
+               <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-Patient"/>
+               <min value="1"/>
+               <max value="1"/>
+            </focus>
+            <focus>
+               <code value="Encounter"/>
+               <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-Encounter"/>
+               <min value="2"/>
+               <max value="3"/>
+            </focus>
+         </MessageDefinition>
+      </resource>
+   </entry>
 </Bundle>

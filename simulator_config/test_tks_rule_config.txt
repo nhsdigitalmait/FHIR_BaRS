@@ -217,12 +217,14 @@ DOSID2000093816 http_header b64 NHSD-Target-Identifier jsonpathequals $.value 20
 DOSID2000076289 http_header b64 NHSD-Target-Identifier jsonpathequals $.value 2000076289
 DOSID2000003366 http_header b64 NHSD-Target-Identifier jsonpathequals $.value 2000003366
 DOSID1374839566 http_header b64 NHSD-Target-Identifier jsonpathequals $.value 1374839566
+DOSID2000072489 http_header b64 NHSD-Target-Identifier jsonpathequals $.value 2000072489
 
 CONTEXT2000011147 context_path matches ^.*/R4/MessageDefinition\?context=2000011147$
 CONTEXT2000093816 context_path matches ^.*/R4/MessageDefinition\?context=2000093816$
 CONTEXT2000076289 context_path matches ^.*/R4/MessageDefinition\?context=2000076289$
 CONTEXT2000003366 context_path matches ^.*/R4/MessageDefinition\?context=2000003366$
 CONTEXT1374839566 context_path matches ^.*/R4/MessageDefinition\?context=1374839566$
+CONTEXT2000072489 context_path matches ^.*/R4/MessageDefinition\?context=2000072489$
 
 #Service Request Category
 SR_CATEGORY_VALIDATION	xpathmatches //fhir:Bundle/fhir:entry/fhir:resource/fhir:ServiceRequest/fhir:category/fhir:coding/fhir:code/@value validation
@@ -385,10 +387,11 @@ BEGIN RULE
 GET
 IF	METADATA	AND	DOSID2000011147										THEN	Capability_HappyPath_BookingAndReferral_Response	ELSE	NEXT
 IF	METADATA	AND	DOSID2000076289										THEN	Capability_HappyPath_ReferralReceiver_Response		ELSE	NEXT
-IF	METADATA	AND	DOSID2000093816										THEN	Capability_HappyPath_BookingAndReferralSender_Response		ELSE	NEXT
+IF	METADATA	AND	DOSID2000093816										THEN	Capability_HappyPath_BookingAndReferralSender_Response	ELSE	NEXT
 IF	METADATA	AND	DOSID2000003366										THEN	Capability_HappyPath_ValidationReceiver_Response	ELSE	NEXT
 IF	METADATA	AND	DOSID1374839566										THEN	Capability_HappyPath_ValidationSender_Response		ELSE	NEXT
-IF	METADATA															THEN	Capability_HappyPath_Response				ELSE	NEXT
+IF	METADATA	AND	DOSID2000072489										THEN	Capability_HappyPath_Response				ELSE	NEXT
+IF	METADATA													THEN	Capability_HappyPath_Response				ELSE	NEXT
 IF	SERVICEREQUEST	AND	VALIDATIONSERVICEREQUEST001						THEN	ValidationServiceRequest_HappyPath_Response	ELSE	NEXT
 IF	SERVICEREQUEST	AND	VALIDATIONSERVICEREQUEST408						THEN	Operation_Outcome_408						ELSE	NEXT
 IF	SERVICEREQUEST	AND	VALIDATIONSERVICEREQUEST501						THEN	Operation_Outcome_501						ELSE	NEXT
@@ -406,7 +409,8 @@ IF	MESSAGEDEFINITION	AND	CONTEXT2000093816							THEN	MessageDefinition_HappyPat
 IF	MESSAGEDEFINITION	AND	CONTEXT2000003366							THEN	MessageDefinition_HappyPath_ValidationReceiver_Response		ELSE	NEXT
 IF	MESSAGEDEFINITION	AND	CONTEXT1374839566							THEN	MessageDefinition_HappyPath_ValidationSender_Response		ELSE	NEXT
 IF	MESSAGEDEFINITIONBAD											THEN	MessageDefinition_bad_resource_Response				ELSE	NEXT
-IF	MESSAGEDEFINITION											THEN	MessageDefinition_HappyPath_Response					ELSE	NEXT
+IF	MESSAGEDEFINITION	AND	CONTEXT2000072489							THEN	MessageDefinition_HappyPath_Response				ELSE	NEXT
+IF	MESSAGEDEFINITION											THEN	MessageDefinition_HappyPath_Response				ELSE	NEXT
 IF 	SLOT	AND	HEALTHCARESERVICE_MISSING								THEN	Operation_Outcome_400						ELSE	NEXT
 IF	SLOT	AND	FREEANDBUSY	AND	HEALTHCARESERVICE2000072489					THEN	SearchSlots_HappyPath_FreeBusy_Response			ELSE	NEXT
 IF	SLOT	AND	FREEANDBUSY	AND	HEALTHCARESERVICE2000071234					THEN	SearchSlots_HappyPath_FreeBusy_BusyOnly_Response		ELSE	NEXT

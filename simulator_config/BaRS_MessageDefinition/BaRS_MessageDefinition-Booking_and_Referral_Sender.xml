@@ -1,23 +1,26 @@
 <Bundle xmlns="http://hl7.org/fhir">
    <id value="ded3119d-41c9-41ee-ad66-3e21596b5199"/>
    <meta>
-      <versionId value="1.0.0-alpha"/>
-      <lastUpdated value="2022-07-21T13:50:50.1234567+00:00"/>
+      <lastUpdated value="2022-07-21T13:50:50Z"/>
       <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-Bundle"/>
    </meta>
    <type value="searchset"/>
    <timestamp value="2022-07-21T13:50:50Z"/>
-   <total value="6"/>
+   <total value="1"/>
    <link>
       <relation value="self"/>
-      <url value="https://localhost/R4/MessageDefinition?context=2000094704"/>
+      <url value="https://localhost/R4/MessageDefinition?context=2000093816"/>
    </link>
    <entry>
       <fullUrl value="urn:uuid:4926d4a5-e3fa-4e25-b619-cb3bbcb2ea09"/>
       <resource>
          <MessageDefinition xmlns="http://hl7.org/fhir">
             <id value="2a2ff4ff-47cd-4094-a95e-e8179e6f48b8"/>
-            <version value="1.0.0-alpha"/>
+            <meta>
+               <versionId value="1.0.0"/>
+               <lastUpdated value="2021-10-11T15:23:30+00:00"/>
+               <profile value="https://fhir.nhs.uk/StructureDefinition/BARSMessageDefinition-ServiceRequest-Response"/>
+            </meta>
             <url value="https://fhir.nhs.uk/MessageDefinition/bars-message-servicerequest-response-referral"/>
             <name value="BARS Message Definition ServiceRequest - Response Referral"/>
             <title value="BARS Message Definition ServiceRequest - Response Referral"/>
@@ -27,7 +30,7 @@
                <!-- We are expecting the UseContext to be a DOS ID -->
                <code>
                   <system value="https://fhir.nhs.uk/CodeSystem/dos-id"/>
-                  <code value="2000094704"/>
+                  <code value="2000093816"/>
                </code>
                <valueCodeableConcept>
                   <coding>

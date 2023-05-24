@@ -1,26 +1,61 @@
 <CapabilityStatement xmlns="http://hl7.org/fhir">
    <id value="BaRS-FHIR-Server"/>
-   <url value="https://MyService.nhs.uk/FHIR-Server"/>
-   <version value="1.0.0-alpha"/>
+   <url value="https://int.api.service.nhs.uk/booking-and-referral/FHIR/R4"/>
+   <version value="1.0.0"/>
    <name value="BaRS FHIR Server CapabilityStatement"/>
    <status value="active"/>
    <experimental value="false"/>
-   <date value="2022-06-15T15:30:15Z"/>
-   <publisher value="My Publisher"/>
+   <date value="2022-09-16T15:00:00+01:00"/>
+   <publisher value="NHS Digital"/>
+   <contact>
+      <name value="NHS Booking and Referral Standard"/>
+      <telecom>
+         <system value="email"/>
+         <value value="bookingandreferralstandard@nhs.net"/>
+      </telecom>
+   </contact>
    <kind value="instance"/>
    <software>
-      <name value="My Software"/>
-      <version value="1.0"/>
+      <name value="BaRS API"/>
+      <version value="1.0.0"/>
    </software>
    <implementation>
       <description value="BaRS FHIR Server"/>
-      <url value="https://MyService.nhs.uk/FHIR-Server"/>
+      <url value="https://int.api.service.nhs.uk/booking-and-referral/FHIR/R4"/>
    </implementation>
    <fhirVersion value="4.0.1"/>
    <format value="xml"/>
    <format value="json"/>
    <rest>
       <mode value="server"/>
+      <security>
+         <service>
+            <coding>
+               <system value="http://terminology.hl7.org/CodeSystem/restful-security-service"/>
+               <code value="OAuth"/>
+               <display value="OAuth"/>
+            </coding>
+         </service>
+      </security>
+      <resource>
+         <type value="CapabilityStatement"/>
+         <interaction>
+            <code value="read"/>
+         </interaction>
+         <versioning value="no-version"/>
+      </resource>
+      <resource>
+         <type value="MessageDefinition"/>
+         <interaction>
+            <code value="search-type"/>
+         </interaction>
+         <versioning value="no-version"/>
+         <searchParam>
+            <name value="useContext:identifier"/>
+            <type value="token"/>
+            <documentation value="The target service identifier. Allowing the ability to filter returned message definitions by the specified service id."/>
+         </searchParam>
+      </resource>
       <resource>
          <type value="Appointment"/>
          <interaction>
@@ -33,7 +68,6 @@
             <code value="search-type"/>
          </interaction>
          <versioning value="no-version"/>
-         <searchInclude value="Appointment:participant:Patient"/>
          <searchParam>
             <name value="_id"/>
             <type value="token"/>
@@ -61,17 +95,11 @@
          <interaction>
             <code value="search-type"/>
          </interaction>
-         <versioning value="versioned-update"/>
-         <searchInclude value="ServiceRequest:subject:Patient"/>
+         <versioning value="no-version"/>
          <searchParam>
             <name value="_id"/>
             <type value="token"/>
             <documentation value="Unique identifier for a ServiceRequest"/>
-         </searchParam>
-         <searchParam>
-            <name value="occurrence"/>
-            <type value="date"/>
-            <documentation value="ServiceRequest start date"/>
          </searchParam>
          <searchParam>
             <name value="patient:identifier"/>
@@ -87,12 +115,10 @@
          <versioning value="no-version"/>
          <searchInclude value="Slot:schedule"/>
          <searchInclude value="Schedule:actor:Practitioner"/>
+         <searchInclude value="Schedule:actor:PractitionerRole"/>
          <searchInclude value="Schedule:actor:HealthcareService"/>
-         <searchParam>
-            <name value="_id"/>
-            <type value="token"/>
-            <documentation value="Unique identifier for a slot"/>
-         </searchParam>
+         <searchInclude value="HealthcareService.providedBy"/>
+         <searchInclude value="HealthcareService:location"/>
          <searchParam>
             <name value="start"/>
             <type value="date"/>
@@ -102,10 +128,57 @@
             <type value="token"/>
          </searchParam>
          <searchParam>
-            <name value="schedule.actor:healthcareservice"/>
+            <name value="Schedule.actor:HealthcareService"/>
             <type value="token"/>
          </searchParam>
       </resource>
+      <interaction>
+         <code value="transaction"/>
+      </interaction>
+      <interaction>
+         <code value="search-system"/>
+      </interaction>
+      <operation>
+         <name value="$process-message"/>
+         <definition value="http://hl7.org/fhir/OperationDefinition/MessageHeader-process-message"/>
+      </operation>
+   </rest>
+   <rest>
+      <mode value="client"/>
+      <security>
+         <service>
+            <coding>
+               <system value="http://terminology.hl7.org/CodeSystem/restful-security-service"/>
+               <code value="Certificates"/>
+               <display value="Certificates"/>
+            </coding>
+         </service>
+      </security>
+      <resource>
+         <type value="CapabilityStatement"/>
+         <interaction>
+            <code value="read"/>
+         </interaction>
+         <versioning value="no-version"/>
+      </resource>
+      <resource>
+         <type value="MessageDefinition"/>
+         <interaction>
+            <code value="search-type"/>
+         </interaction>
+         <versioning value="no-version"/>
+         <searchParam>
+            <name value="useContext:identifier"/>
+            <type value="token"/>
+            <documentation value="The target service identifier. Allowing the ability to filter returned message definitions by the specified service id."/>
+         </searchParam>
+      </resource>
+      <interaction>
+         <code value="transaction"/>
+      </interaction>
+      <interaction>
+         <code value="search-system"/>
+      </interaction>
       <operation>
          <name value="$process-message"/>
          <definition value="http://hl7.org/fhir/OperationDefinition/MessageHeader-process-message"/>
@@ -116,19 +189,27 @@
          <protocol>
             <code value="http"/>
          </protocol>
-         <address value="https://MyService.nhs.uk/FHIR-Server"/>
+         <address value="https://int.api.service.nhs.uk/booking-and-referral/FHIR/R4"/>
       </endpoint>
       <supportedMessage>
          <mode value="receiver"/>
-         <definition value="https://fhir.nhs.uk/MessageDefinition/bars-message-servicerequest-request-referral"/>
-      </supportedMessage>
-      <supportedMessage>
-         <mode value="sender"/>
-         <definition value="https://fhir.nhs.uk/MessageDefinition/bars-message-servicerequest-response-referral"/>
+         <definition value="MessageDefinition/bars-message-booking-request"/>
       </supportedMessage>
       <supportedMessage>
          <mode value="receiver"/>
-         <definition value="https://fhir.nhs.uk/MessageDefinition/bars-message-booking-request"/>
+         <definition value="MessageDefinition/bars-message-booking-request-cancelled"/>
+      </supportedMessage>
+      <supportedMessage>
+         <mode value="receiver"/>
+         <definition value="MessageDefinition/bars-message-servicerequest-request-referral"/>
+      </supportedMessage>
+      <supportedMessage>
+         <mode value="receiver"/>
+         <definition value="MessageDefinition/bars-message-servicerequest-request-cancelled"/>
+      </supportedMessage>
+      <supportedMessage>
+         <mode value="sender"/>
+         <definition value="MessageDefinition/bars-message-servicerequest-response-referral"/>
       </supportedMessage>
    </messaging>
 </CapabilityStatement>
