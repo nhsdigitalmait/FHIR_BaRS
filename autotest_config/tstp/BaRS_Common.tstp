@@ -171,12 +171,12 @@ unsupported_content
 xml_content
 	Content-type "application/fhir+xml"
 xml_accept
-	Accept "application/fhir+xml"
+	Accept "application/fhir+xml; version=1.0.0"
 
 json_content
 	Content-type "application/fhir+json"
 json_accept
-	Accept "application/fhir+json"
+	Accept "application/fhir+json; version=1.0.0"
 
 default_content
 	Content-type "application/fhir+json"
