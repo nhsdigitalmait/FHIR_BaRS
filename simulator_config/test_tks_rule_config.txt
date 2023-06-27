@@ -1,7 +1,6 @@
 # Simulator rule definition file for ITK Testbench
 #  FHIR BaRS
-#	Richard Robinson 14/10/2020
-#	Simon Farrow 1/02/2022
+#
 #
 BEGIN RESPONSES
 
