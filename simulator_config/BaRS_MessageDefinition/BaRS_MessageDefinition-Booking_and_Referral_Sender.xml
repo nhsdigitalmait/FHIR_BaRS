@@ -5,7 +5,7 @@
       <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-Bundle"/>
    </meta>
    <type value="searchset"/>
-   <timestamp value="2022-07-21T13:50:50Z"/>
+   <timestamp value="2022-07-21T13:50:50.1234567+00:00"/>
    <total value="1"/>
    <link>
       <relation value="self"/>
@@ -16,12 +16,8 @@
       <resource>
          <MessageDefinition xmlns="http://hl7.org/fhir">
             <id value="2a2ff4ff-47cd-4094-a95e-e8179e6f48b8"/>
-            <meta>
-               <versionId value="1.0.0"/>
-               <lastUpdated value="2021-10-11T15:23:30.1234567+00:00"/>
-               <profile value="https://fhir.nhs.uk/StructureDefinition/BARSMessageDefinition-ServiceRequest-Response"/>
-            </meta>
             <url value="https://fhir.nhs.uk/MessageDefinition/bars-message-servicerequest-response-referral"/>
+            <version value="1.0.0"/>
             <name value="BARS Message Definition ServiceRequest - Response Referral"/>
             <title value="BARS Message Definition ServiceRequest - Response Referral"/>
             <status value="active"/>

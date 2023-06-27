@@ -200,6 +200,7 @@ REFERRALSERVICEREQUEST503				context_path matches ^.*/R4/ServiceRequest/4d65ddaa
 BOOKINGAPPOINTMENT001					context_path matches ^.*/R4/Appointment/ce1c4ced-2a84-4198-9982-9caf894d0bb7.*$
 BOOKINGAPPOINTMENT501				context_path matches ^.*/R4/Appointment/0d440c22-7f25-4c6c-905d-2213d197d02a.*$
 
+# sentinel values for SFFS (search for free slots)
 #HappyPath Free and Free & Busy	2000072489
 #HappyPath Free & Busy (Busy Only)	2000071234
 #HappyPath NoSlots 			2000073917
@@ -212,6 +213,7 @@ HEALTHCARESERVICE1503499715		context_path matches ^.*Schedule.actor%3AHealthcare
 HEALTHCARESERVICE2000081230		context_path matches ^.*Schedule.actor%3AHealthcareService=2000081230.*$
 HEALTHCARESERVICE2000011147		context_path matches ^.*Schedule.actor%3AHealthcareService=2000011147.*$
 
+# sentinel values for CSs (capability statements)
 DOSID2000011147 http_header b64 NHSD-Target-Identifier jsonpathequals $.value 2000011147
 DOSID2000093816 http_header b64 NHSD-Target-Identifier jsonpathequals $.value 2000093816
 DOSID2000076289 http_header b64 NHSD-Target-Identifier jsonpathequals $.value 2000076289
@@ -219,6 +221,7 @@ DOSID2000003366 http_header b64 NHSD-Target-Identifier jsonpathequals $.value 20
 DOSID1374839566 http_header b64 NHSD-Target-Identifier jsonpathequals $.value 1374839566
 DOSID2000072489 http_header b64 NHSD-Target-Identifier jsonpathequals $.value 2000072489
 
+# sentinel values for MDs (message definitions)
 CONTEXT2000011147 context_path matches ^.*/R4/MessageDefinition\?context=2000011147$
 CONTEXT2000093816 context_path matches ^.*/R4/MessageDefinition\?context=2000093816$
 CONTEXT2000076289 context_path matches ^.*/R4/MessageDefinition\?context=2000076289$
