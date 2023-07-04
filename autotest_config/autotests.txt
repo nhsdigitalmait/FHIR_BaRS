@@ -62,7 +62,6 @@ GetAppointmentPathIdNotFound \
 GetAppointmentPatientParameterMissing \
 GetAppointmentPatientParameterInvalid \
 CancelAppointment_HappyPath \
-CancelAppointment_DifferencesDetected \
 ReferralRequest_999toCAS_xml_accept \
 ReferralRequest_999toCAS_json_accept \
 ReferralRequest_999toCAS_Basic \
