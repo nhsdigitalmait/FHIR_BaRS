@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 
-<!-- sets the message header code to update and servicerequest status to revoked -->
+<!-- sets the message header code to update and servicerequest status to revoked and remove extra elements -->
 
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fhir="http://hl7.org/fhir" version="1.0">
 
@@ -17,5 +17,17 @@
 	<xsl:template match="fhir:ServiceRequest/fhir:status/@value">
 		<xsl:attribute name="value">revoked</xsl:attribute>
 	</xsl:template>
+
+	<xsl:template match="fhir:entry[fhir:resource/fhir:Encounter]"/>
+	<xsl:template match="fhir:entry[fhir:resource/fhir:CarePlan]"/>
+	<xsl:template match="fhir:entry[fhir:resource/fhir:HealthcareService]"/>
+	<xsl:template match="fhir:entry[fhir:resource/fhir:PractitionerRole]"/>
+	<xsl:template match="fhir:entry[fhir:resource/fhir:Practitioner]"/>
+	<xsl:template match="fhir:entry[fhir:resource/fhir:MedicationStatement]"/>
+	<xsl:template match="fhir:entry[fhir:resource/fhir:AllergyIntolerance]"/>
+	<xsl:template match="fhir:entry[fhir:resource/fhir:Flag]"/>
+	<xsl:template match="fhir:entry[fhir:resource/fhir:QuestionnaireResponse]"/>
+	<xsl:template match="fhir:entry[fhir:resource/fhir:Observation]"/>
+	<xsl:template match="fhir:entry[fhir:resource/fhir:Consent]"/>
 
 </xsl:stylesheet>

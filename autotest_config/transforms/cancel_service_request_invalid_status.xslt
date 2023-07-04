@@ -18,4 +18,16 @@
 		<xsl:attribute name="value">completed</xsl:attribute>
 	</xsl:template>
 
+	<xsl:template match="fhir:entry[fhir:resource/fhir:Encounter]"/>
+	<xsl:template match="fhir:entry[fhir:resource/fhir:CarePlan]"/>
+	<xsl:template match="fhir:entry[fhir:resource/fhir:HealthcareService]"/>
+	<xsl:template match="fhir:entry[fhir:resource/fhir:PractitionerRole]"/>
+	<xsl:template match="fhir:entry[fhir:resource/fhir:Practitioner]"/>
+	<xsl:template match="fhir:entry[fhir:resource/fhir:MedicationStatement]"/>
+	<xsl:template match="fhir:entry[fhir:resource/fhir:AllergyIntolerance]"/>
+	<xsl:template match="fhir:entry[fhir:resource/fhir:Flag]"/>
+	<xsl:template match="fhir:entry[fhir:resource/fhir:QuestionnaireResponse]"/>
+	<xsl:template match="fhir:entry[fhir:resource/fhir:Observation]"/>
+	<xsl:template match="fhir:entry[fhir:resource/fhir:Consent]"/>
+
 </xsl:stylesheet>

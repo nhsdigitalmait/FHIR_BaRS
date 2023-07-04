@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 
-<!-- sets the appointment status to cancelled -->
+<!-- sets the appointment status to cancelled and remove extra elements -->
 
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fhir="http://hl7.org/fhir" version="1.0">
 
@@ -18,12 +18,11 @@
 		<xsl:attribute name="value">cancelled</xsl:attribute>
 	</xsl:template>
 
-	<!-- put slot back to free ??? -->
-	<xsl:template match="fhir:Slot/fhir:status/@value">
-		<xsl:attribute name="value">free</xsl:attribute>
-	</xsl:template>
-
-	<!-- don't send any empty id fields -->
-	<xsl:template match="//fhir:id[@value='']"/>
+	<xsl:template match="fhir:entry[fhir:resource/fhir:Slot]"/>
+	<xsl:template match="fhir:entry[fhir:resource/fhir:Schedule]"/>
+	<xsl:template match="fhir:entry[fhir:resource/fhir:HealthcareService]"/>
+	<xsl:template match="fhir:entry[fhir:resource/fhir:PractitionerRole]"/>
+	<xsl:template match="fhir:entry[fhir:resource/fhir:Practitioner]"/>
+	<xsl:template match="fhir:entry[fhir:resource/fhir:Location]"/>
 
 </xsl:stylesheet>
