@@ -50,4 +50,50 @@
       <xsl:apply-templates select="@*|node()" />
     </xsl:copy>
   </xsl:template>
+  <xsl:template match="/fhir:Bundle">
+    <Bundle xmlns="http://hl7.org/fhir">
+      <xsl:apply-templates select="@* | *"/>
+      <entry xmlns="http://hl7.org/fhir">
+        <xsl:variable name="uuid" select="lower-case(uuid:get-uuid(.))"/>
+        <fullUrl xmlns="http://hl7.org/fhir" value="urn:uuid:{$uuid}"/>
+        <resource xmlns="http://hl7.org/fhir">
+          <Encounter xmlns="http://hl7.org/fhir">
+            <xsl:variable name="uuid" select="lower-case(uuid:get-uuid(..))"/>
+            <id xmlns="http://hl7.org/fhir" value="{$uuid}"/>
+            <meta xmlns="http://hl7.org/fhir">
+               <xsl:variable name="now" select="format-dateTime(current-dateTime(), '[Y0001]-[M01]-[D01]T[H01]:[m01]:[s01].[f][Z]')"/>
+               <lastUpdated xmlns="http://hl7.org/fhir" value="{$now}"/>
+               <profile xmlns="http://hl7.org/fhir" value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-Encounter"/>
+            </meta>
+            <identifier xmlns="http://hl7.org/fhir">
+              <system xmlns="http://hl7.org/fhir" value="https://receiver.url/Id/case-number"/>
+              <xsl:variable name="day" select="number(format-dateTime(current-dateTime(), '[D]'))"/>
+              <xsl:variable name="sec" select="number(format-dateTime(current-dateTime(), '[s]'))"/>
+              <xsl:variable name="frac" select="number(format-dateTime(current-dateTime(), '[f]'))"/>
+              <xsl:variable name="readableIdentifier" select="(number(9) + $sec) * (number(99) + $day) * (number(999) + $frac) mod 100000"/>
+              <value xmlns="http://hl7.org/fhir" value="10{$readableIdentifier}"/>
+            </identifier>
+            <status xmlns="http://hl7.org/fhir" value="planned"/>
+            <class xmlns="http://hl7.org/fhir">
+              <system xmlns="http://hl7.org/fhir" value="http://terminology.hl7.org/CodeSystem/v3-ActCode"/>
+              <code xmlns="http://hl7.org/fhir" value="EMER"/>
+              <display xmlns="http://hl7.org/fhir" value="emergency"/>
+            </class>
+            <subject xmlns="http://hl7.org/fhir">
+              <xsl:variable name="reference" select="/fhir:Bundle/fhir:entry/fhir:resource/fhir:ServiceRequest/fhir:subject/fhir:reference/@value"/>
+              <reference xmlns="http://hl7.org/fhir" value="{$reference}"/>
+            </subject>
+            <episodeOfCare xmlns="http://hl7.org/fhir">
+              <xsl:variable name="reference" select="//fhir:episodeOfCare/fhir:reference/@value"/>
+              <reference xmlns="http://hl7.org/fhir" value="{$reference}"/>
+            </episodeOfCare>
+            <period xmlns="http://hl7.org/fhir">
+              <xsl:variable name="now" select="format-dateTime(current-dateTime(), '[Y0001]-[M01]-[D01]T[H01]:[m01]:[s01][Z]')"/>
+              <start xmlns="http://hl7.org/fhir" value="{$now}"/>
+            </period>
+          </Encounter>
+        </resource>
+      </entry>
+    </Bundle>
+  </xsl:template>
 </xsl:stylesheet>
