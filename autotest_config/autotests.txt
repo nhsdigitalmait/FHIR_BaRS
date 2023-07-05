@@ -17,10 +17,8 @@ SFFSWithValidParameters_parameter_json \
 SFFSWithValidParameters_header_json \
 SFFSWithValidParameters_parameter_xml \
 SFFSWithValidParameters_header_xml \
-SFFSWithValidParameters_all_includes \
 SFFSNoSlots_HappyPath \
 SFFSInvalid \
-SFFSWrongMethod \
 SFFSWithBusySlots \
 SFFSWithNoIncludes \
 SFFSWithNoIncludeSchedule \

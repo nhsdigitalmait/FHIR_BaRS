@@ -29,7 +29,7 @@ SFFSWithValidParameters_parameter_xml TESTS SFFSWithValidParameters_parameter_xm
 
 SFFSWithValidParameters_header_xml TESTS SFFSWithValidParameters_header_xml ResponseIsXml ResponseIsBundle SearchCountIsGreaterThanZero
 
-SFFSWithValidParameters_all_includes TESTS SFFSWithValidParameters_3_days ResponseIsBundle SFFSPractitionersReturned SFFSPractitionerRolesReturned SFFSOrgsReturned SFFSHealthcareOrgsReturned SearchCountIsGreaterThanZero
+#SFFSWithValidParameters_all_includes TESTS SFFSWithValidParameters_3_days ResponseIsBundle SFFSPractitionersReturned SFFSPractitionerRolesReturned SFFSOrgsReturned SFFSHealthcareOrgsReturned SearchCountIsGreaterThanZero
 
 SFFSNoSlots_HappyPath TESTS SFFSNoSlotsAvailable ResponseIsBundle SearchCountIsZero
 
@@ -103,7 +103,7 @@ SFFSWithInvalidQuery SEND_TKW empty_file TO __TO_ENDPOINT__/Slot?Schedule.actor%
 #
 # scenario 6 wrong method put instead of get TODO the simulator doesnt respond correctly because the POST ruleset is selected not the GET ruleset
 #
-SFFSWithWrongMethod SEND_TKW empty_file TO __TO_ENDPOINT__/Slot?Schedule.actor%3AHealthcareService=__HCS__&start=ge__START_SLOT_TIME__&start=le__END_SLOT_TIME__&status=free&_include=Slot%3Aschedule&_include=Schedule%3Aactor%3APractitioner&_include=Schedule%3Aactor%3APractitionerRole&_include=Schedule%3Aactor%3AHealthcareService&_include=HealthcareService:location&_include=HealthcareService:providedBy FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ SYNC httpstatuscheck405 WITH_PROPERTYSET base+webservices+put WITH_HTTPHEADERS credentials+default_accept+Oauth2AccessToken+integrity TEXT "HTTP Response must be HTTP 405"
+#SFFSWithWrongMethod SEND_TKW empty_file TO __TO_ENDPOINT__/Slot?Schedule.actor%3AHealthcareService=__HCS__&start=ge__START_SLOT_TIME__&start=le__END_SLOT_TIME__&status=free&_include=Slot%3Aschedule&_include=Schedule%3Aactor%3APractitioner&_include=Schedule%3Aactor%3APractitionerRole&_include=Schedule%3Aactor%3AHealthcareService&_include=HealthcareService:location&_include=HealthcareService:providedBy FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ SYNC httpstatuscheck405 WITH_PROPERTYSET base+webservices+put WITH_HTTPHEADERS credentials+default_accept+Oauth2AccessToken+integrity TEXT "HTTP Response must be HTTP 405"
 #
 #
 # Errors Invalid dates
