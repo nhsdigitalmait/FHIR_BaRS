@@ -128,6 +128,7 @@ __DOC_REF_IDENTIFIER__	Xpath //fhir:Appointment/fhir:contained/fhir:DocumentRefe
 __FULL_CONTEXT_PATH__ reg_exp context_path "&" "&amp;" ALL
 __HOST__ reg_exp http_header Host "." "$0"
 __APPOINTMENT_ID__	reg_exp context_path "^.*/R4/Appointment/(([0-9]|[a-f]){8}-([0-9]|[a-f]){4}-([0-9]|[a-f]){4}-([0-9]|[a-f]){4}-([0-9]|[a-f]){12}).*$" "$1"
+__DOSID__	reg_exp context_path "^.*/R4/MessageDefinition\?context=http%3A%2F%2Ffhir\.nhs\.uk%2FId%2Fdos-service-id%7C(.*)$" "$1"
 __DOCUMENT_REF_NODE__	Class uk.nhs.digital.mait.tkwx.tk.internalservices.rules.XmlFragmentSubstitution "//fhir:Appointment/fhir:contained[fhir:DocumentReference]"
 __SLOT_NODE__	Class uk.nhs.digital.mait.tkwx.tk.internalservices.rules.XmlFragmentSubstitution "//fhir:Appointment/fhir:contained[fhir:Slot]"
 __PATIENT_NODE__	Class uk.nhs.digital.mait.tkwx.tk.internalservices.rules.XmlFragmentSubstitution "//fhir:Appointment/fhir:contained[fhir:Patient]"
@@ -182,9 +183,9 @@ METADATA					context_path matches ^.*/R4/metadata.*$
 APPOINTMENT					context_path matches ^.*/R4/Appointment.*$
 SERVICEREQUEST				context_path matches ^.*/R4/ServiceRequest.*$
 MESSAGEDEFINITION			context_path matches ^.*/R4/MessageDefinition\?context=.*$
-MESSAGEDEFINITION401			context_path matches ^.*/R4/MessageDefinition\?context=FAIL0401.*$
-MESSAGEDEFINITION404			context_path matches ^.*/R4/MessageDefinition\?context=FAIL0404.*$
-MESSAGEDEFINITIONBAD			context_path matches ^.*/R4/MessageDefinition\?context=(BAD|2000071898).*$
+MESSAGEDEFINITION401			context_path matches ^.*/R4/MessageDefinition\?context=http%3A%2F%2Ffhir.nhs.uk%2FId%2Fdos-service-id%7CFAIL0401.*$
+MESSAGEDEFINITION404			context_path matches ^.*/R4/MessageDefinition\?context=http%3A%2F%2Ffhir.nhs.uk%2FId%2Fdos-service-id%7CFAIL0404.*$
+MESSAGEDEFINITIONBAD			context_path matches ^.*/R4/MessageDefinition\?context=http%3A%2F%2Ffhir.nhs.uk%2FId%2Fdos-service-id%7C(BAD|2000071898).*$
 INCLUDES						context_path matches ^.*_include.*$
 
 VALIDATIONSERVICEREQUEST001				context_path matches ^.*/R4/ServiceRequest/0b42eac3-0175-43c8-bbab-efaa8ca31ccf.*$
@@ -221,12 +222,12 @@ DOSID1374839566 http_header b64 NHSD-Target-Identifier jsonpathequals $.value 13
 DOSID2000072489 http_header b64 NHSD-Target-Identifier jsonpathequals $.value 2000072489
 
 # sentinel values for MDs (message definitions)
-CONTEXT2000011147 context_path matches ^.*/R4/MessageDefinition\?context=2000011147$
-CONTEXT2000093816 context_path matches ^.*/R4/MessageDefinition\?context=2000093816$
-CONTEXT2000076289 context_path matches ^.*/R4/MessageDefinition\?context=2000076289$
-CONTEXT2000003366 context_path matches ^.*/R4/MessageDefinition\?context=2000003366$
-CONTEXT1374839566 context_path matches ^.*/R4/MessageDefinition\?context=1374839566$
-CONTEXT2000072489 context_path matches ^.*/R4/MessageDefinition\?context=2000072489$
+CONTEXT2000011147 context_path matches ^.*/R4/MessageDefinition\?context=http%3A%2F%2Ffhir\.nhs\.uk%2FId%2Fdos-service-id%7C2000011147$
+CONTEXT2000093816 context_path matches ^.*/R4/MessageDefinition\?context=http%3A%2F%2Ffhir\.nhs\.uk%2FId%2Fdos-service-id%7C2000093816$
+CONTEXT2000076289 context_path matches ^.*/R4/MessageDefinition\?context=http%3A%2F%2Ffhir\.nhs\.uk%2FId%2Fdos-service-id%7C2000076289$
+CONTEXT2000003366 context_path matches ^.*/R4/MessageDefinition\?context=http%3A%2F%2Ffhir\.nhs\.uk%2FId%2Fdos-service-id%7C2000003366$
+CONTEXT1374839566 context_path matches ^.*/R4/MessageDefinition\?context=http%3A%2F%2Ffhir\.nhs\.uk%2FId%2Fdos-service-id%7C1374839566$
+CONTEXT2000072489 context_path matches ^.*/R4/MessageDefinition\?context=http%3A%2F%2Ffhir\.nhs\.uk%2FId%2Fdos-service-id%7C2000072489$
 
 #Service Request Category
 SR_CATEGORY_VALIDATION	xpathmatches //fhir:Bundle/fhir:entry/fhir:resource/fhir:ServiceRequest/fhir:category/fhir:coding/fhir:code/@value validation

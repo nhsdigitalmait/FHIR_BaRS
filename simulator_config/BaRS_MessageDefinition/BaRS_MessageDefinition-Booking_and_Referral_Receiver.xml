@@ -9,7 +9,7 @@
    <total value="4"/>
    <link>
       <relation value="self"/>
-      <url value="https://localhost/R4/MessageDefinition?context=2000011147"/>
+      <url value="https://localhost/R4/MessageDefinition?context=http%3A%2F%2Ffhir.nhs.uk%2FId%2Fdos-service-id%7C__DOSID__"/>
    </link>
    <entry>
       <fullUrl value="urn:uuid:f20803ed-32be-43fc-b4c3-dea161ab5db6"/>
@@ -26,7 +26,7 @@
                <!-- We are expecting the UseContext to be a DOS ID -->
                <code>
                   <system value="https://fhir.nhs.uk/CodeSystem/dos-id"/>
-                  <code value="2000011147"/>
+                  <code value="__DOSID__"/>
                </code>
                <valueCodeableConcept>
                   <coding>
@@ -158,7 +158,7 @@
             <useContext>
                <code>
                   <system value="https://fhir.nhs.uk/CodeSystem/dos-id"/>
-                  <code value="2000011147"/>
+                  <code value="__DOSID__"/>
                </code>
                <valueCodeableConcept>
                   <coding>
@@ -219,7 +219,7 @@
                <!-- We are expecting the UseContext to be a DOS ID -->
                <code>
                   <system value="https://fhir.nhs.uk/CodeSystem/dos-id"/>
-                  <code value="2000011147"/>
+                  <code value="__DOSID__"/>
                </code>
                <valueCodeableConcept>
                   <coding>
@@ -327,7 +327,7 @@
             <useContext>
                <code>
                   <system value="https://fhir.nhs.uk/CodeSystem/dos-id"/>
-                  <code value="2000011147"/>
+                  <code value="__DOSID__"/>
                </code>
                <valueCodeableConcept>
                   <coding>
