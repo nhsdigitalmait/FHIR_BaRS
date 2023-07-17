@@ -17,12 +17,9 @@ WORKDIR $TKWROOT/config/FHIR_BaRS
 COPY --chown=service:service autotest_config autotest_config
 COPY --chown=service:service validator_config validator_config
 COPY --chown=service:service simulator_config simulator_config
-RUN mkdir -p transmitter_sent_messages messages_for_validation transmitter_source autotest_config/tst validator_reports && chown -R service:service .
+RUN mkdir -p transmitter_source all_evidence autotest_config/tst && chown -R service:service .
 
 COPY --chown=service:service version_string.txt .
-
-# show all the folders created
-#RUN sh -c 'find /home/service/TKW/config/FHIR_BaRS -type f'
 
 USER service
 ENTRYPOINT ["bash", "/home/service/TKW/config/FHIR_BaRS/autotest_config/run_autotest.sh"]
