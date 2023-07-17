@@ -5,7 +5,6 @@
 !/simulator_config/**
 !/validator_config/**
 !/external_configs/**
-!/autotest_config/**
 !/tkw-x_provider_simulator.properties
 !/set-all-configurations.sh
 !/runtkwfhirvalidator.sh
