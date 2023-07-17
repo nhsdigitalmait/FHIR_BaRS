@@ -6,7 +6,10 @@
       "value": "__VALUE__"
     }
   ],
-  "deviceName": "Supplier product name",
+  "deviceName": {
+      "name": "Supplier product name",
+      "type": "Manufacturer name"
+  },
   "version": {
       "value" : "1.0.0"
   }
