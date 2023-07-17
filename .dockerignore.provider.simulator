@@ -5,6 +5,7 @@
 !/simulator_config/**
 !/validator_config/**
 !/external_configs/**
+!/autotest_config/**
 !/tkw-x_provider_simulator.properties
 !/set-all-configurations.sh
 !/runtkwfhirvalidator.sh
@@ -13,3 +14,23 @@
 !/ITK_Autotest/test_tks_rule_config.txt
 !/ITK_Autotest/validator.conf
 !/BARSResponseImporter.jar
+
+# file types
+.git
+autotest_config/endpoint_configs/.git
+**/*.log
+autotest_config/extractor_configs/*.backup
+
+# folders
+autotest_config/autotest_logs/**
+autotest_config/auto_tests/**
+autotest_config/tst/**
+
+# specific files
+autotest_config/gen_slots_free.sh
+autotest_config/slots_free_template.cfg
+autotest_config/mergedfile.tstp
+autotest_config/schedules.txt
+autotest_config/extractor_configs/zap_slot.sh
+autotest_config/tstp/*.log
+
