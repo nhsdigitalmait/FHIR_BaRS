@@ -409,6 +409,10 @@
                     <lastUpdated value="2021-11-26T15:00:00.8185338+00:00" />
                     <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-Organization" />
                 </meta>
+                <identifier>
+                    <system value="https://fhir.nhs.uk/id/ods-organization-code" />
+                    <value value="F82080" />
+                </identifier>
                 <name value="Practitioner Org" />
             </Organization>
         </resource>

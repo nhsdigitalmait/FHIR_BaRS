@@ -367,6 +367,10 @@
                     <lastUpdated value="2021-10-11T15:23:30.8185338+00:00" />
                     <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-Organization" />
                 </meta>
+                <identifier>
+                    <system value="https://fhir.nhs.uk/id/ods-organization-code" />
+                    <value value="H82080" />
+                </identifier>
                 <name value="ORIGINAL Receiving/performing Organization" />
             </Organization>
         </resource>
@@ -380,6 +384,10 @@
                     <lastUpdated value="2021-10-11T15:23:30.8185338+00:00" />
                     <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-Organization" />
                 </meta>
+                <identifier>
+                    <system value="https://fhir.nhs.uk/id/ods-organization-code" />
+                    <value value="I82080" />
+                </identifier>
                 <name value="ORIGINAL Sender Organization" />
             </Organization>
         </resource>
