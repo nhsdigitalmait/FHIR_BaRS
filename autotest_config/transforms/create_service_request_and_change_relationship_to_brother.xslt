@@ -25,9 +25,12 @@
 		</xsl:copy>
 	</xsl:template>
 
-	<!-- change the rank 1 relationship to BROTHER -->
-	<xsl:template match="fhir:Patient/fhir:contact[fhir:extension/@url='https://fhir.hl7.org.uk/StructureDefinition/Extension-UKCore-ContactRank'][fhir:extension/fhir:valuePositiveInt/@value='1']/fhir:relationship/fhir:coding[fhir:system/@value='https://fhir.hl7.org.uk/ValueSet/UKCore-PersonRelationshipType']/fhir:code/@value">
-		<xsl:attribute name="value"><xsl:value-of select="'BROTHER'"/></xsl:attribute>
+	<!-- change the rank 1 relationship to BRO -->
+	<xsl:template match="fhir:Patient/fhir:contact[fhir:extension/@url='https://fhir.hl7.org.uk/StructureDefinition/Extension-UKCore-ContactRank'][fhir:extension/fhir:valuePositiveInt/@value='1']/fhir:relationship/fhir:coding[fhir:system/@value='http://terminology.hl7.org/CodeSystem/v3-RoleCode']/fhir:code/@value">
+		<xsl:attribute name="value"><xsl:value-of select="'BRO'"/></xsl:attribute>
+	</xsl:template>
+	<xsl:template match="fhir:Patient/fhir:contact[fhir:extension/@url='https://fhir.hl7.org.uk/StructureDefinition/Extension-UKCore-ContactRank'][fhir:extension/fhir:valuePositiveInt/@value='1']/fhir:relationship/fhir:coding[fhir:system/@value='http://terminology.hl7.org/CodeSystem/v3-RoleCode']/fhir:display/@value">
+		<xsl:attribute name="value"><xsl:value-of select="'brother'"/></xsl:attribute>
 	</xsl:template>
 
 </xsl:stylesheet>
