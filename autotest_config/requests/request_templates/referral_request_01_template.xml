@@ -1018,6 +1018,9 @@
                     </valueCodeableConcept>
                 </extension>
                 <status value="completed" />
+                <subject>
+                    <reference value="urn:uuid:9589fb37-87a2-48d8-968f-b371429208a8" />
+                </subject>
                 <authored value="2021-10-13T16:28:00+07:00" />
                 <author>
                     <reference value="urn:uuid:7d948662-bade-450e-b6c5-9bb6ee39cb56" />
