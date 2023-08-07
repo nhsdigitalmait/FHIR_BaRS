@@ -11,7 +11,7 @@
 	<xsl:include href="autotest_config/transforms/remove_listed_ids.xslt"/>
 
 	<xsl:template match="fhir:Patient/fhir:identifier/fhir:value/@value">
-		<xsl:attribute name="value">9933902830</xsl:attribute>
+		<xsl:attribute name="value">9658499023</xsl:attribute>
 	</xsl:template>
 
 	<xsl:include href="autotest_config/transforms/common_message_transforms.xslt"/>

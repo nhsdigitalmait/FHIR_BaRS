@@ -9,8 +9,8 @@
 	<xsl:variable name="nnn" select="/fhir:Bundle/fhir:entry/fhir:resource/fhir:Patient/fhir:identifier[fhir:system/@value='https://fhir.nhs.uk/Id/nhs-number']/fhir:value/@value"/>
 
 	<!-- sentinel values -->
-	<xsl:variable name="full" select="$nnn = '9091510129'"/>
-	<xsl:variable name="interim" select="$nnn = '9706161317'"/>
+	<xsl:variable name="full" select="$nnn = '9658499147'"/>
+	<xsl:variable name="interim" select="$nnn = '9658499155'"/>
 
 	<!--
 	<xsl:include href="autotest_config/transforms/patient_is_traced.xslt"/>
