@@ -181,7 +181,7 @@ json_accept
 default_content
 	Content-type "application/fhir+json"
 default_accept
-	Accept "application/fhir+json"
+	Accept "application/fhir+json; version=1.0.0"
 
 content_gzip
 	Content-Encoding "gzip"
