@@ -166,7 +166,7 @@
                         <system value="email" />
                         <value value="jjones@hotmail.co.uk" />
                         <use value="home" />
-                        <rank value="1" />
+                        <rank value="3" />
                     </telecom>
                 </contact>
                 <contact>
@@ -315,6 +315,10 @@
                     <lastUpdated value="2021-10-11T15:01:30.8185338+00:00" />
                     <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-Practitioner" />
                 </meta>
+                <identifier>
+                    <system value="https://fhir.nhs.uk/Id/sds-role-profile-id" />
+                    <value value="H823658" />
+                </identifier>
                 <name>
                     <family value="Bloggs" />
                     <given value="Joe" />
