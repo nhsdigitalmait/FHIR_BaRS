@@ -20,4 +20,4 @@ services:
         - ${TKWROOT}/config/FHIR_BaRS/autotest_config/autotest_logs:/home/service/TKW/config/FHIR_BaRS/autotest_config/autotest_logs
     environment:
       - TZ=Europe/London
-    image: nhsdigitalmait/tkw_bars_consumer_simulator:0.9.4
+    image: nhsdigitalmait/tkw_bars_consumer_simulator:0.9.5
