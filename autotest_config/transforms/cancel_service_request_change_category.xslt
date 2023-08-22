@@ -33,5 +33,7 @@
 	<xsl:template match="fhir:entry[fhir:resource/fhir:QuestionnaireResponse]"/>
 	<xsl:template match="fhir:entry[fhir:resource/fhir:Observation]"/>
 	<xsl:template match="fhir:entry[fhir:resource/fhir:Consent]"/>
+	<xsl:template match="fhir:entry[fhir:resource/fhir:Task]"/>
+	<xsl:template match="fhir:entry[fhir:resource/fhir:Condition]"/>
 
 </xsl:stylesheet>

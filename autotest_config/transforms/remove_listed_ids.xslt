@@ -22,4 +22,7 @@
 	<xsl:template match="fhir:AllergyIntolerance/fhir:id"/>
 	<xsl:template match="fhir:QuestionnaireResponse/fhir:id"/>
 
+	<xsl:template match="fhir:Task/fhir:id"/>
+	<xsl:template match="fhir:Condition/fhir:id"/>
+
 </xsl:stylesheet>

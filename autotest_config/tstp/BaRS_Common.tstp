@@ -120,6 +120,7 @@ validation_request USING validation_request_template WITH validation_service_req
 validation_response USING validation_response_template WITH NULL
 referral_request_01 USING referral_request_01_template WITH referral_service_request_ds ID s1
 referral_request_02 USING referral_request_02_template WITH referral_service_request_ds ID s1
+referral_request_03 USING referral_request_03_template WITH referral_service_request_ds ID s1
 END MESSAGES
 
 BEGIN TEMPLATES
@@ -132,6 +133,7 @@ validation_request_template __TKWROOT__/config/FHIR_BaRS/autotest_config/request
 validation_response_template __TKWROOT__/config/FHIR_BaRS/autotest_config/requests/validation_response___TO_SERVICE__.xml
 referral_request_01_template __TKWROOT__/config/FHIR_BaRS/autotest_config/requests/referral_request_01___TO_SERVICE__.xml
 referral_request_02_template __TKWROOT__/config/FHIR_BaRS/autotest_config/requests/referral_request_02___TO_SERVICE__.xml
+referral_request_03_template __TKWROOT__/config/FHIR_BaRS/autotest_config/requests/referral_request_03___TO_SERVICE__.xml
 END TEMPLATES
 
 # if chunking required
@@ -172,16 +174,22 @@ xml_content
 	Content-type "application/fhir+xml"
 xml_accept
 	Accept "application/fhir+xml; version=1.0.0"
+xml_accept_new_version
+	Accept "application/fhir+xml; version=1.1.0"
 
 json_content
 	Content-type "application/fhir+json"
 json_accept
 	Accept "application/fhir+json; version=1.0.0"
+json_accept_new_version
+	Accept "application/fhir+json; version=1.1.0"
 
 default_content
 	Content-type "application/fhir+json"
 default_accept
 	Accept "application/fhir+json; version=1.0.0"
+default_accept_new_version
+	Accept "application/fhir+json; version=1.1.0"
 
 content_gzip
 	Content-Encoding "gzip"

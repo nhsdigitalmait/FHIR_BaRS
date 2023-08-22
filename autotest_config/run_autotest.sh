@@ -12,6 +12,7 @@
 #  VALRP => Validation Response
 #  999_REFRQ => 999 to CAS Referral Request
 #  111_REFRQ => 111 to ED Referral Request
+#  GP_REFRQ => GP to Pharm Referral Request
 #  REFRP => Referral Response
 #  No Parameter => All
 #
@@ -69,6 +70,7 @@ then
 		BaRS_CancelAppointment.tstp \
 		BaRS_999_ReferralRequest.tstp \
 		BaRS_111_ReferralRequest.tstp \
+		BaRS_GP_ReferralRequest.tstp \
 		BaRS_ValidationRequest.tstp \
 		BaRS_ReferralResponse.tstp \
 		BaRS_ValidationResponse.tstp \
@@ -101,6 +103,10 @@ else
 
 			111_REFRQ|111_refrq)
 			TSTP_FILES+=' BaRS_111_ReferralRequest.tstp'
+			;;
+
+			GP_REFRQ|gp_refrq)
+			TSTP_FILES+=' BaRS_GP_ReferralRequest.tstp'
 			;;
 
 			VALRQ|valrq)
