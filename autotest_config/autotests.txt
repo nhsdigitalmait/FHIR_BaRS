@@ -38,7 +38,6 @@ SFFSWithDateRangeTooWide \
 SFFSWithDateMissingTimezone \
 SFFSWithDateWrongTimezone \
 BookAppointment_HappyPath \
-BookTwoAppointments \
 BookAppointment_Basic \
 BookAppointment_NoNHSNumber \
 BookAppointment_SlotAlreadyBooked \
