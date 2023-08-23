@@ -23,4 +23,4 @@ services:
             - ${TKWROOT}/config/FHIR_BaRS/autotest_config/autotest_logs:/home/service/TKW/config/FHIR_BaRS/autotest_config/autotest_logs
         environment:
             - INHIBIT_RESPONSE_IMPORTER=false
-        image: 'nhsdigitalmait/tkw_bars_provider_simulator:1.0.0'
+        image: 'nhsdigitalmait/tkw_bars_provider_simulator:1.0.1'
