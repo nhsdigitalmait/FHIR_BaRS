@@ -4,7 +4,7 @@
 # BaRS_111_ReferralRequest tstp file
 #
 SCRIPT BaRS_111_ReferralRequest
-
+#NBRS-3303 referral_request_01_extracted_cancel added and used in ReferralRequest_111toED_Cance
 BEGIN SCHEDULES
 # full referral request 01 111 to ED
 ReferralRequest_111toED_xml_accept TESTS ReferralRequest_01_Test_xml_accept ResponseIsXml IntegrityRequestIDHeaderIsPresent IntegrityCorrelationIDHeaderIsPresent IntegrityRequestIDHeadersMatch IntegrityCorrelationIDHeadersMatch ResponseIsBundle_ExtractingReferralServiceID BundleIDsCorrelate
@@ -90,7 +90,7 @@ ReferralRequest_01_Test_TwoRank1 SEND_TKW referral_request_01 TO __TO_ENDPOINT__
 ReferralRequest_01_Test_Update SEND_TKW referral_request_01_extracted TO __TO_ENDPOINT__/$process-message FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ PRETRANSFORM __TKWROOT__/config/FHIR_BaRS/autotest_config/transforms/update_service_request.xslt APPLYPRETRANSFORMTO data SYNC ok WITH_PROPERTYSET base+webservices+post WITH_HTTPHEADERS credentials+Oauth2AccessToken+default_accept+default_content+integrity TEXT "HTTP Response must be HTTP 200 SCAL RR-SERV-REQ-CONSUME RR-PAT-REG"
 
 # cancel, ReasonCode = update, SR status = revoked, Encounter status = triaged
-ReferralRequest_01_Test_Cancel SEND_TKW referral_request_01_extracted TO __TO_ENDPOINT__/$process-message FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ PRETRANSFORM __TKWROOT__/config/FHIR_BaRS/autotest_config/transforms/cancel_service_request.xslt APPLYPRETRANSFORMTO data SYNC ok WITH_PROPERTYSET base+webservices+post WITH_HTTPHEADERS credentials+Oauth2AccessToken+default_accept+default_content+cancel_cr_id TEXT "HTTP Response must be HTTP 200 SCAL RR-SERV-REQ-CONSUME RR-PAT-REG"
+ReferralRequest_01_Test_Cancel SEND_TKW referral_request_01_extracted_cancel TO __TO_ENDPOINT__/$process-message FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ PRETRANSFORM __TKWROOT__/config/FHIR_BaRS/autotest_config/transforms/cancel_service_request.xslt APPLYPRETRANSFORMTO data SYNC ok WITH_PROPERTYSET base+webservices+post WITH_HTTPHEADERS credentials+Oauth2AccessToken+default_accept+default_content+cancel_cr_id TEXT "HTTP Response must be HTTP 200 SCAL RR-SERV-REQ-CONSUME RR-PAT-REG"
 
 ReferralRequest_01_Test_Cancel_InvalidStatus SEND_TKW referral_request_01_extracted TO __TO_ENDPOINT__/$process-message FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ PRETRANSFORM __TKWROOT__/config/FHIR_BaRS/autotest_config/transforms/cancel_service_request_invalid_status.xslt APPLYPRETRANSFORMTO data SYNC httpstatuscheck400 WITH_PROPERTYSET base+webservices+post WITH_HTTPHEADERS credentials+Oauth2AccessToken+default_accept+default_content+cancel_cr_id TEXT "HTTP Response must be HTTP 400"
 
@@ -129,12 +129,13 @@ GetServiceRequestPathIdInvalid SEND_TKW empty_file TO __TO_ENDPOINT__/ServiceReq
 GetServiceRequestPathIdNotFound SEND_TKW empty_file TO __TO_ENDPOINT__/ServiceRequest/95e58add-0b10-4a8c-817c-2729eb0cab75 FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ SYNC httpstatuscheck404 WITH_PROPERTYSET base+webservices+get WITH_HTTPHEADERS credentials+default_accept+Oauth2AccessToken+integrity TEXT "HTTP Response must be HTTP 404"
 
 GetServiceRequestPatientParameterMissing SEND_TKW empty_file TO __TO_ENDPOINT__/ServiceRequest?https%3A%2F%2Ffhir.nhs.uk%2FId%2Fnhs-number%7C FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ SYNC httpstatuscheck400 WITH_PROPERTYSET base+webservices+get WITH_HTTPHEADERS credentials+default_accept+Oauth2AccessToken+integrity TEXT "HTTP Response must be HTTP 400"
-
-GetServiceRequestPatientParameterInvalid SEND_TKW empty_file TO __TO_ENDPOINT__/ServiceRequest?https%3A%2F%2Ffhir.nhs.uk%2FId%2Fnhs-number%7CXXXXXX FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ SYNC httpstatuscheck400 WITH_PROPERTYSET base+webservices+get WITH_HTTPHEADERS credentials+default_accept+Oauth2AccessToken+integrity TEXT "HTTP Response must be HTTP 400"
+#NBRS-3304 - Amended GetServiceRequestPatientParameterInvalid
+GetServiceRequestPatientParameterInvalid SEND_TKW empty_file TO __TO_ENDPOINT__/ServiceRequest?patient:identifier=https%3A%2F%2Ffhir.nhs.uk%2FId%2Fnhs-number%7CXXXXXX FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ SYNC httpstatuscheck400 WITH_PROPERTYSET base+webservices+get WITH_HTTPHEADERS credentials+default_accept+Oauth2AccessToken+integrity TEXT "HTTP Response must be HTTP 400"
 
 END TESTS
 
 BEGIN MESSAGES
 referral_request_01_extracted USING referral_request_01_template WITH referral_service_request_ds ID s1
+referral_request_01_extracted_cancel USING referral_request_01_template_cancel WITH referral_service_request_ds ID s1
 referral_request_01_no_ds USING referral_request_01_template WITH NULL
 END MESSAGES

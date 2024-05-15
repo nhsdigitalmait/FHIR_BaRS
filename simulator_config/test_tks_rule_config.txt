@@ -1,7 +1,9 @@
 # Simulator rule definition file for ITK Testbench
 #  FHIR BaRS
 #
-#
+#NBRS-3310 Replaced http%3A%2F%2Ffhir.nhs.uk%2FId%2Fdos-service-id% with https%3A%2F%2Ffhir.nhs.uk%2FId%2Fdos-service-id% throughout (also fo rescaped regexes)
+#NBRS-3311 Update Message Definitions for QuestionnaireResponse
+
 BEGIN RESPONSES
 
 #NEW
@@ -128,7 +130,9 @@ __DOC_REF_IDENTIFIER__	Xpath //fhir:Appointment/fhir:contained/fhir:DocumentRefe
 __FULL_CONTEXT_PATH__ reg_exp context_path "&" "&amp;" ALL
 __HOST__ reg_exp http_header Host "." "$0"
 __APPOINTMENT_ID__	reg_exp context_path "^.*/R4/Appointment/(([0-9]|[a-f]){8}-([0-9]|[a-f]){4}-([0-9]|[a-f]){4}-([0-9]|[a-f]){4}-([0-9]|[a-f]){12}).*$" "$1"
-__DOSID__	reg_exp context_path "^.*/R4/MessageDefinition\?context=http%3A%2F%2Ffhir\.nhs\.uk%2FId%2Fdos-service-id%7C(.*)$" "$1"
+#__DOSID__	reg_exp context_path "^.*/R4/MessageDefinition\?context=http%3A%2F%2Ffhir\.nhs\.uk%2FId%2Fdos-service-id%7C(.*)$" "$1"
+#NBRS-3309 - Simplified DOSID regex
+__DOSID__	reg_exp context_path "^.*dos-service-id%7C(.*)$" "$1"
 __DOCUMENT_REF_NODE__	Class uk.nhs.digital.mait.tkwx.tk.internalservices.rules.XmlFragmentSubstitution "//fhir:Appointment/fhir:contained[fhir:DocumentReference]"
 __SLOT_NODE__	Class uk.nhs.digital.mait.tkwx.tk.internalservices.rules.XmlFragmentSubstitution "//fhir:Appointment/fhir:contained[fhir:Slot]"
 __PATIENT_NODE__	Class uk.nhs.digital.mait.tkwx.tk.internalservices.rules.XmlFragmentSubstitution "//fhir:Appointment/fhir:contained[fhir:Patient]"
@@ -182,10 +186,11 @@ SLOT						context_path matches ^.*/R4/Slot.*$
 METADATA					context_path matches ^.*/R4/metadata.*$
 APPOINTMENT					context_path matches ^.*/R4/Appointment.*$
 SERVICEREQUEST				context_path matches ^.*/R4/ServiceRequest.*$
+#NBRS-3310 hhtps
 MESSAGEDEFINITION			context_path matches ^.*/R4/MessageDefinition\?context=.*$
-MESSAGEDEFINITION401			context_path matches ^.*/R4/MessageDefinition\?context=http%3A%2F%2Ffhir.nhs.uk%2FId%2Fdos-service-id%7CFAIL0401.*$
-MESSAGEDEFINITION404			context_path matches ^.*/R4/MessageDefinition\?context=http%3A%2F%2Ffhir.nhs.uk%2FId%2Fdos-service-id%7CFAIL0404.*$
-MESSAGEDEFINITIONBAD			context_path matches ^.*/R4/MessageDefinition\?context=http%3A%2F%2Ffhir.nhs.uk%2FId%2Fdos-service-id%7C(BAD|2000071898).*$
+MESSAGEDEFINITION401			context_path matches ^.*/R4/MessageDefinition\?context=https%3A%2F%2Ffhir.nhs.uk%2FId%2Fdos-service-id%7CFAIL0401.*$
+MESSAGEDEFINITION404			context_path matches ^.*/R4/MessageDefinition\?context=https%3A%2F%2Ffhir.nhs.uk%2FId%2Fdos-service-id%7CFAIL0404.*$
+MESSAGEDEFINITIONBAD			context_path matches ^.*/R4/MessageDefinition\?context=https%3A%2F%2Ffhir.nhs.uk%2FId%2Fdos-service-id%7C(BAD|2000071898).*$
 INCLUDES						context_path matches ^.*_include.*$
 
 VALIDATIONSERVICEREQUEST001				context_path matches ^.*/R4/ServiceRequest/0b42eac3-0175-43c8-bbab-efaa8ca31ccf.*$
@@ -222,12 +227,13 @@ DOSID1374839566 http_header b64 NHSD-Target-Identifier jsonpathequals $.value 13
 DOSID2000072489 http_header b64 NHSD-Target-Identifier jsonpathequals $.value 2000072489
 
 # sentinel values for MDs (message definitions)
-CONTEXT2000011147 context_path matches ^.*/R4/MessageDefinition\?context=http%3A%2F%2Ffhir\.nhs\.uk%2FId%2Fdos-service-id%7C2000011147$
-CONTEXT2000093816 context_path matches ^.*/R4/MessageDefinition\?context=http%3A%2F%2Ffhir\.nhs\.uk%2FId%2Fdos-service-id%7C2000093816$
-CONTEXT2000076289 context_path matches ^.*/R4/MessageDefinition\?context=http%3A%2F%2Ffhir\.nhs\.uk%2FId%2Fdos-service-id%7C2000076289$
-CONTEXT2000003366 context_path matches ^.*/R4/MessageDefinition\?context=http%3A%2F%2Ffhir\.nhs\.uk%2FId%2Fdos-service-id%7C2000003366$
-CONTEXT1374839566 context_path matches ^.*/R4/MessageDefinition\?context=http%3A%2F%2Ffhir\.nhs\.uk%2FId%2Fdos-service-id%7C1374839566$
-CONTEXT2000072489 context_path matches ^.*/R4/MessageDefinition\?context=http%3A%2F%2Ffhir\.nhs\.uk%2FId%2Fdos-service-id%7C2000072489$
+#NBRS-3310 hhtps
+CONTEXT2000011147 context_path matches ^.*/R4/MessageDefinition\?context=https%3A%2F%2Ffhir\.nhs\.uk%2FId%2Fdos-service-id%7C2000011147$
+CONTEXT2000093816 context_path matches ^.*/R4/MessageDefinition\?context=https%3A%2F%2Ffhir\.nhs\.uk%2FId%2Fdos-service-id%7C2000093816$
+CONTEXT2000076289 context_path matches ^.*/R4/MessageDefinition\?context=https%3A%2F%2Ffhir\.nhs\.uk%2FId%2Fdos-service-id%7C2000076289$
+CONTEXT2000003366 context_path matches ^.*/R4/MessageDefinition\?context=https%3A%2F%2Ffhir\.nhs\.uk%2FId%2Fdos-service-id%7C2000003366$
+CONTEXT1374839566 context_path matches ^.*/R4/MessageDefinition\?context=https%3A%2F%2Ffhir\.nhs\.uk%2FId%2Fdos-service-id%7C1374839566$
+CONTEXT2000072489 context_path matches ^.*/R4/MessageDefinition\?context=https%3A%2F%2Ffhir\.nhs\.uk%2FId%2Fdos-service-id%7C2000072489$
 
 #Service Request Category
 SR_CATEGORY_VALIDATION	xpathmatches //fhir:Bundle/fhir:entry/fhir:resource/fhir:ServiceRequest/fhir:category/fhir:coding/fhir:code/@value validation
@@ -262,6 +268,11 @@ PATIENT503			xpathmatches //fhir:Bundle/fhir:entry/fhir:resource/fhir:Patient/fh
 
 PATIENT9728928254	xpathmatches //fhir:Bundle/fhir:entry/fhir:resource/fhir:Patient/fhir:identifier/fhir:value/@value 9728928254
 
+#Validation specific Patient Sentinels
+VAL_PATIENT409			xpathmatches //fhir:Bundle/fhir:entry/fhir:resource/fhir:Patient/fhir:identifier/fhir:value/@value 9658499112
+VAL_PATIENT422			xpathmatches //fhir:Bundle/fhir:entry/fhir:resource/fhir:Patient/fhir:identifier/fhir:value/@value 9658499120
+
+
 #PATIENTBOOKANDREF	xpathmatches //fhir:Bundle/fhir:entry/fhir:resource/fhir:Patient/fhir:identifier/fhir:value/@value 9658499007
 
 #Stateful Variable setting
@@ -282,11 +293,15 @@ END EXPRESSIONS
 
 BEGIN RULE
 POST+urn:nhs:names:services:bars:fhir:messaging:new:servicerequest-request
+IF  UNAUTH_ORG	THEN	Operation_Outcome_401 ELSE NEXT
 IF	SR_CATEGORY_VALIDATION	AND	PATIENT408	THEN	ValidationRequest_HappyPath_for_408_Response ELSE NEXT
 IF	SR_CATEGORY_VALIDATION	AND	PATIENT501	THEN	ValidationRequest_HappyPath_for_501_Response ELSE NEXT
 IF	SR_CATEGORY_VALIDATION	AND	PATIENT404	THEN	Operation_Outcome_404 ELSE NEXT
 IF	SR_CATEGORY_VALIDATION	AND	PATIENT409	THEN	Operation_Outcome_409 ELSE NEXT
 IF	SR_CATEGORY_VALIDATION	AND	PATIENT422	THEN	Operation_Outcome_422 ELSE NEXT
+IF	SR_CATEGORY_VALIDATION	AND	PATIENT401	THEN	Operation_Outcome_401 ELSE NEXT
+IF	SR_CATEGORY_VALIDATION	AND	VAL_PATIENT409	THEN	Operation_Outcome_409 ELSE NEXT
+IF	SR_CATEGORY_VALIDATION	AND	VAL_PATIENT422	THEN	Operation_Outcome_422 ELSE NEXT
 #Catch all Validation response
 IF	SR_CATEGORY_VALIDATION					THEN	ValidationRequest_HappyPath_Response ELSE NEXT
 IF	SR_CATEGORY_REFERRAL	AND	PATIENT400	THEN	Operation_Outcome_400 ELSE NEXT

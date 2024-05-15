@@ -111,7 +111,7 @@ fi
 
 echo "writing transformed requests"
 # name templates for dest id for reentrancy
-for f in book_appt referral_request_01 referral_request_02 referral_request_03 referral_response validation_request validation_response
+for f in book_appt referral_request_01 referral_request_02 referral_request_03 referral_response validation_request validation_response referral_request_01_cancel
 do
 	echo $f 
 	sed -e s!__FROM_SERVICE__!$fromservice!g \
