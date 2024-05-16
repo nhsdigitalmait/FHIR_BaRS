@@ -13,7 +13,7 @@
     <url value="https://__HOST____FULL_CONTEXT_PATH__" />
   </link>
   <entry>
-    <fullUrl value="https://directory.spineservices.nhs.uk/Slot/da83ae28-46f0-4aad-9c54-dcad462cafcb" />
+    <fullUrl value="urn:uuid:da83ae28-46f0-4aad-9c54-dcad462cafcb" />
     <resource>
       <Slot>
         <id value="da83ae28-46f0-4aad-9c54-dcad462cafcb" />
@@ -34,7 +34,7 @@
           </coding>
         </appointmentType>
         <schedule>
-          <reference value="Schedule/7e8c4baa-b7a7-4a7c-bb8c-8c8426ad7781" />
+          <reference value="urn:uuid:7e8c4baa-b7a7-4a7c-bb8c-8c8426ad7781" />
         </schedule>
         <status value="free" />
         <start value="__TOMORROW__T10:00:00.000+00:00" />
@@ -43,7 +43,7 @@
     </resource>
   </entry>
   <entry>
-    <fullUrl value="https://directory.spineservices.nhs.uk/Slot/c413ac51-df9b-45be-b413-d7548406a4fb" />
+    <fullUrl value="urn:uuid:c413ac51-df9b-45be-b413-d7548406a4fb" />
     <resource>
       <Slot>
         <id value="c413ac51-df9b-45be-b413-d7548406a4fb" />
@@ -64,7 +64,7 @@
           </coding>
         </appointmentType>
         <schedule>
-          <reference value="Schedule/7e8c4baa-b7a7-4a7c-bb8c-8c8426ad7781" />
+          <reference value="urn:uuid:7e8c4baa-b7a7-4a7c-bb8c-8c8426ad7781" />
         </schedule>
         <status value="free" />
         <start value="__TOMORROW__T10:15:00.000+00:00" />
@@ -73,7 +73,7 @@
     </resource>
   </entry>
   <entry>
-    <fullUrl value="https://directory.spineservices.nhs.uk/Slot/3f5dd95a-68a5-44ec-a234-3b28a24dad33" />
+    <fullUrl value="urn:uuid:3f5dd95a-68a5-44ec-a234-3b28a24dad33" />
     <resource>
       <Slot>
         <id value="3f5dd95a-68a5-44ec-a234-3b28a24dad33" />
@@ -94,7 +94,7 @@
           </coding>
         </appointmentType>
         <schedule>
-          <reference value="Schedule/7e8c4baa-b7a7-4a7c-bb8c-8c8426ad7781" />
+          <reference value="urn:uuid:7e8c4baa-b7a7-4a7c-bb8c-8c8426ad7781" />
         </schedule>
         <status value="busy" />
         <start value="__TOMORROW__T10:45:00.000+00:00" />
@@ -117,21 +117,21 @@
         </identifier>
         <actor>
           <!--  HealthcareService  -->
-          <reference value="HealthcareService/5088769a-491e-463f-a167-fff78bb472d9" />
+          <reference value="urn:uuid:5088769a-491e-463f-a167-fff78bb472d9" />
         </actor>
         <actor>
           <!--  PractitionerRole  -->
-          <reference value="PractitionerRole/6bea99e7-b97f-4ee1-980d-05f997afff4f" />
+          <reference value="urn:uuid:6bea99e7-b97f-4ee1-980d-05f997afff4f" />
         </actor>
         <actor>
           <!--  Practitioner  -->
-          <reference value="Practitioner/cad5a61c-3797-4f26-8921-ae4bc7f75eb6" />
+          <reference value="urn:uuid:cad5a61c-3797-4f26-8921-ae4bc7f75eb6" />
         </actor>
       </Schedule>
     </resource>
   </entry>
   <entry>
-    <fullUrl value="https://directory.spineservices.nhs.uk/HealthcareService/5088769a-491e-463f-a167-fff78bb472d9" />
+    <fullUrl value="urn:uuid:5088769a-491e-463f-a167-fff78bb472d9" />
     <resource>
       <HealthcareService>
         <id value="5088769a-491e-463f-a167-fff78bb472d9" />
@@ -144,14 +144,14 @@
           <value value="100" />
         </identifier>
         <location>
-          <reference value="Location/d23eac9a-12e7-46c5-8781-c3c1d9b1d3c5" />
+          <reference value="urn:uuid:d23eac9a-12e7-46c5-8781-c3c1d9b1d3c5" />
         </location>
         <name value="Healthcare Service Name" />
       </HealthcareService>
     </resource>
   </entry>
   <entry>
-    <fullUrl value="https://directory.spineservices.nhs.uk/Practitioner/cad5a61c-3797-4f26-8921-ae4bc7f75eb6" />
+    <fullUrl value="urn:uuid:cad5a61c-3797-4f26-8921-ae4bc7f75eb6" />
     <resource>
       <Practitioner>
         <id value="cad5a61c-3797-4f26-8921-ae4bc7f75eb6" />
@@ -176,7 +176,7 @@
     </resource>
   </entry>
   <entry>
-    <fullUrl value="https://directory.spineservices.nhs.uk/PractitionerRole/6bea99e7-b97f-4ee1-980d-05f997afff4f" />
+    <fullUrl value="urn:uuid:6bea99e7-b97f-4ee1-980d-05f997afff4f" />
     <resource>
       <PractitionerRole>
         <id value="6bea99e7-b97f-4ee1-980d-05f997afff4f" />
@@ -185,7 +185,7 @@
           <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-PractitionerRole" />
         </meta>
         <practitioner>
-          <reference value="Practitioner/cad5a61c-3797-4f26-8921-ae4bc7f75eb6" />
+          <reference value="urn:uuid:cad5a61c-3797-4f26-8921-ae4bc7f75eb6" />
         </practitioner>
         <code>
           <coding>
@@ -199,7 +199,7 @@
     </resource>
   </entry>
   <entry>
-    <fullUrl value="https://directory.spineservices.nhs.uk/Location/d23eac9a-12e7-46c5-8781-c3c1d9b1d3c5" />
+    <fullUrl value="urn:uuid:d23eac9a-12e7-46c5-8781-c3c1d9b1d3c5" />
     <resource>
       <Location>
         <id value="d23eac9a-12e7-46c5-8781-c3c1d9b1d3c5" />
