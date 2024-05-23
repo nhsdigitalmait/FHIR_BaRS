@@ -88,7 +88,7 @@ MessageDefinition_HappyPath_ReferralReceiver_Response	TKW_ROOT/config/FHIR_BaRS/
 MessageDefinition_HappyPath_BookingAndReferralSender_Response	TKW_ROOT/config/FHIR_BaRS/simulator_config/BaRS_MessageDefinition/BaRS_MessageDefinition-Booking_and_Referral_Sender.xml "200 OK" WITH_HTTP_HEADERS ( X-Request-Id : "__XREQID_ECHO__" X-Correlation-Id : "__XCORRID_ECHO__" Date : "__RFC822TIMESTAMP__" )
 MessageDefinition_HappyPath_ValidationReceiver_Response	TKW_ROOT/config/FHIR_BaRS/simulator_config/BaRS_MessageDefinition/BaRS_MessageDefinition-Validation_Receiver.xml "200 OK" WITH_HTTP_HEADERS ( X-Request-Id : "__XREQID_ECHO__" X-Correlation-Id : "__XCORRID_ECHO__" Date : "__RFC822TIMESTAMP__" )
 MessageDefinition_HappyPath_ValidationSender_Response	TKW_ROOT/config/FHIR_BaRS/simulator_config/BaRS_MessageDefinition/BaRS_MessageDefinition-Validation_Sender.xml "200 OK" WITH_HTTP_HEADERS ( X-Request-Id : "__XREQID_ECHO__" X-Correlation-Id : "__XCORRID_ECHO__" Date : "__RFC822TIMESTAMP__" )
-
+MessageDefinition_HappyPath_GPtoPharm_Response 	TKW_ROOT/config/FHIR_BaRS/simulator_config/BaRS_MessageDefinition/BaRS_MessageDefinition-GPtoPharm.xml "200 OK" WITH_HTTP_HEADERS ( X-Request-Id : "__XREQID_ECHO__" X-Correlation-Id : "__XCORRID_ECHO__" Date : "__RFC822TIMESTAMP__" )
 
 do_process	NONE	0
 END RESPONSES
@@ -130,7 +130,7 @@ __DOC_REF_IDENTIFIER__	Xpath //fhir:Appointment/fhir:contained/fhir:DocumentRefe
 __FULL_CONTEXT_PATH__ reg_exp context_path "&" "&amp;" ALL
 __HOST__ reg_exp http_header Host "." "$0"
 __APPOINTMENT_ID__	reg_exp context_path "^.*/R4/Appointment/(([0-9]|[a-f]){8}-([0-9]|[a-f]){4}-([0-9]|[a-f]){4}-([0-9]|[a-f]){4}-([0-9]|[a-f]){12}).*$" "$1"
-#__DOSID__	reg_exp context_path "^.*/R4/MessageDefinition\?context=http%3A%2F%2Ffhir\.nhs\.uk%2FId%2Fdos-service-id%7C(.*)$" "$1"
+#__DOSID__	reg_exp context_path "^.*/R4/MessageDefinition\?context=http%3A%2F%2Ffhir\.nhs\.uk%2FId%2Fdos-service-id%(.*)$" "$1"
 #NBRS-3309 - Simplified DOSID regex
 __DOSID__	reg_exp context_path "^.*dos-service-id%7C(.*)$" "$1"
 __DOCUMENT_REF_NODE__	Class uk.nhs.digital.mait.tkwx.tk.internalservices.rules.XmlFragmentSubstitution "//fhir:Appointment/fhir:contained[fhir:DocumentReference]"
@@ -228,13 +228,15 @@ DOSID2000072489 http_header b64 NHSD-Target-Identifier jsonpathequals $.value 20
 
 # sentinel values for MDs (message definitions)
 #NBRS-3310 hhtps
-CONTEXT2000011147 context_path matches ^.*/R4/MessageDefinition\?context=https%3A%2F%2Ffhir\.nhs\.uk%2FId%2Fdos-service-id%7C2000011147$
-CONTEXT2000093816 context_path matches ^.*/R4/MessageDefinition\?context=https%3A%2F%2Ffhir\.nhs\.uk%2FId%2Fdos-service-id%7C2000093816$
-CONTEXT2000076289 context_path matches ^.*/R4/MessageDefinition\?context=https%3A%2F%2Ffhir\.nhs\.uk%2FId%2Fdos-service-id%7C2000076289$
-CONTEXT2000003366 context_path matches ^.*/R4/MessageDefinition\?context=https%3A%2F%2Ffhir\.nhs\.uk%2FId%2Fdos-service-id%7C2000003366$
-CONTEXT1374839566 context_path matches ^.*/R4/MessageDefinition\?context=https%3A%2F%2Ffhir\.nhs\.uk%2FId%2Fdos-service-id%7C1374839566$
-CONTEXT2000072489 context_path matches ^.*/R4/MessageDefinition\?context=https%3A%2F%2Ffhir\.nhs\.uk%2FId%2Fdos-service-id%7C2000072489$
-
+CONTEXT2000011147 context_path matches ^.*\/R4\/MessageDefinition\?context=https%3A%2F%2Ffhir\.nhs\.uk%2FId%2Fdos-service-id%7C2000011147$
+#CONTEXT2000011147 context_path matches ^.*\/R4\/MessageDefinition\?context=https%3A%2F%2Ffhir\.nhs\.uk%2FId%2Fdos-service-id%7C2000011147$
+CONTEXT2000093816 context_path matches ^.*\/R4\/MessageDefinition\?context=https%3A%2F%2Ffhir\.nhs\.uk%2FId%2Fdos-service-id%7C2000093816$
+CONTEXT2000076289 context_path matches ^.*\/R4\/MessageDefinition\?context=https%3A%2F%2Ffhir\.nhs\.uk%2FId%2Fdos-service-id%7C2000076289$
+CONTEXT2000003366 context_path matches ^.*\/R4\/MessageDefinition\?context=https%3A%2F%2Ffhir\.nhs\.uk%2FId%2Fdos-service-id%7C2000003366$
+CONTEXT1374839566 context_path matches ^.*\/R4\/MessageDefinition\?context=https%3A%2F%2Ffhir\.nhs\.uk%2FId%2Fdos-service-id%7C1374839566$
+CONTEXT2000072489 context_path matches ^.*\/R4\/MessageDefinition\?context=https%3A%2F%2Ffhir\.nhs\.uk%2FId%2Fdos-service-id%7C2000072489$
+CONTEXT2000070513 context_path matches ^.*\/R4\/MessageDefinition\?context=https%3A%2F%2Ffhir\.nhs\.uk%2FId%2Fdos-service-id%7C2000070513$
+                                         
 #Service Request Category
 SR_CATEGORY_VALIDATION	xpathmatches //fhir:Bundle/fhir:entry/fhir:resource/fhir:ServiceRequest/fhir:category/fhir:coding/fhir:code/@value validation
 SR_CATEGORY_REFERRAL	xpathmatches //fhir:Bundle/fhir:entry/fhir:resource/fhir:ServiceRequest/fhir:category/fhir:coding/fhir:code/@value referral
@@ -426,6 +428,7 @@ IF	MESSAGEDEFINITION	AND	CONTEXT2000076289							THEN	MessageDefinition_HappyPat
 IF	MESSAGEDEFINITION	AND	CONTEXT2000093816							THEN	MessageDefinition_HappyPath_BookingAndReferralSender_Response	ELSE	NEXT
 IF	MESSAGEDEFINITION	AND	CONTEXT2000003366							THEN	MessageDefinition_HappyPath_ValidationReceiver_Response		ELSE	NEXT
 IF	MESSAGEDEFINITION	AND	CONTEXT1374839566							THEN	MessageDefinition_HappyPath_ValidationSender_Response		ELSE	NEXT
+IF	MESSAGEDEFINITION	AND	CONTEXT2000070513							THEN	MessageDefinition_HappyPath_GPtoPharm_Response		ELSE	NEXT
 IF	MESSAGEDEFINITIONBAD											THEN	MessageDefinition_bad_resource_Response				ELSE	NEXT
 IF	MESSAGEDEFINITION	AND	CONTEXT2000072489							THEN	MessageDefinition_HappyPath_Response				ELSE	NEXT
 IF	MESSAGEDEFINITION											THEN	MessageDefinition_HappyPath_Response				ELSE	NEXT

@@ -41,8 +41,13 @@ CapabilityTest_xml_accept_gzip SEND_TKW empty_file TO __TO_ENDPOINT__/metadata F
 MessageDefinitionTest_xml_accept SEND_TKW empty_file TO __TO_ENDPOINT__/MessageDefinition?context=http%3A%2F%2Ffhir.nhs.uk%2FId%2Fdos-service-id%7C__TO_SERVICE__ FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ SYNC ok WITH_PROPERTYSET base+webservices+get WITH_HTTPHEADERS credentials+Oauth2AccessToken+xml_accept+integrity TEXT "HTTP Response must be HTTP 200 SCAL RR-MSG-DEF-RESO"
 MessageDefinitionTest_json_accept SEND_TKW empty_file TO __TO_ENDPOINT__/MessageDefinition?context=http%3A%2F%2Ffhir.nhs.uk%2FId%2Fdos-service-id%7C__TO_SERVICE__ FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ SYNC ok WITH_PROPERTYSET base+webservices+get WITH_HTTPHEADERS credentials+Oauth2AccessToken+json_accept+integrity TEXT "HTTP Response must be HTTP 200 SCAL RR-MSG-DEF-RESO"
 
-MessageDefinitionTest_xml_accept SEND_TKW empty_file TO __TO_ENDPOINT__/MessageDefinition?context=https%3A%2F%2Ffhir.nhs.uk%2FCodeSystem%2Fusecases-categories-bars%7Creferraltopharmacy%26__TO_SERVICE__ FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ SYNC ok WITH_PROPERTYSET base+webservices+get WITH_HTTPHEADERS credentials+Oauth2AccessToken+xml_accept+integrity TEXT "HTTP Response must be HTTP 200 SCAL RR-MSG-DEF-RESO"
-MessageDefinitionTest_json_accept SEND_TKW empty_file TO __TO_ENDPOINT__/MessageDefinition?context=https%3A%2F%2Ffhir.nhs.uk%2FCodeSystem%2Fusecases-categories-bars%7Creferraltopharmacy%26__TO_SERVICE__ FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ SYNC ok WITH_PROPERTYSET base+webservices+get WITH_HTTPHEADERS credentials+Oauth2AccessToken+json_accept+integrity TEXT "HTTP Response must be HTTP 200 SCAL RR-MSG-DEF-RESO"
+####NBRS-3312
+MessageDefinitionTest_xml_accept_GPtoPharm_usecasecat SEND_TKW empty_file TO __TO_ENDPOINT__/MessageDefinition?context=https%3A%2F%2Ffhir.nhs.uk%2FCodeSystem%2Fusecases-categories-bars%7Creferraltopharmacy%26context=http%3A%2F%2Ffhir.nhs.uk%2FId%2Fdos-service-id%7C__TO_SERVICE__ FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ SYNC ok WITH_PROPERTYSET base+webservices+get WITH_HTTPHEADERS credentials+Oauth2AccessToken+xml_accept+integrity TEXT "HTTP Response must be HTTP 200 SCAL RR-MSG-DEF-RESO"
+MessageDefinitionTest_json_accept_GPtoPharm_usecasecat SEND_TKW empty_file TO __TO_ENDPOINT__/MessageDefinition?context=https%3A%2F%2Ffhir.nhs.uk%2FCodeSystem%2Fusecases-categories-bars%7Creferraltopharmacy%26context=http%3A%2F%2Ffhir.nhs.uk%2FId%2Fdos-service-id%7C__TO_SERVICE__ FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ SYNC ok WITH_PROPERTYSET base+webservices+get WITH_HTTPHEADERS credentials+Oauth2AccessToken+json_accept+integrity TEXT "HTTP Response must be HTTP 200 SCAL RR-MSG-DEF-RESO"
+
+MessageDefinitionTest_xml_accept_GPtoPharm_usecasecode SEND_TKW empty_file TO __TO_ENDPOINT__/MessageDefinition?context=https%3A%2F%2Ffhir.nhs.uk%2FCodeSystem%2Fusecases-categories-bars%7Creferraltopharmacy%26context=http%3A%2F%2Ffhir.nhs.uk%2FId%2Fdos-service-id%7C__TO_SERVICE__ FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ SYNC ok WITH_PROPERTYSET base+webservices+get WITH_HTTPHEADERS credentials+Oauth2AccessToken+xml_accept+integrity TEXT "HTTP Response must be HTTP 200 SCAL RR-MSG-DEF-RESO"
+MessageDefinitionTest_json_accept_GPtoPharm_usecasecode SEND_TKW empty_file TO __TO_ENDPOINT__/MessageDefinition?context=https%3A%2F%2Ffhir.nhs.uk%2FCodeSystem%2Fusecases-categories-bars%7Ca5t1%26context=http%3A%2F%2Ffhir.nhs.uk%2FId%2Fdos-service-id%7C__TO_SERVICE__ FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ SYNC ok WITH_PROPERTYSET base+webservices+get WITH_HTTPHEADERS credentials+Oauth2AccessToken+json_accept+integrity TEXT "HTTP Response must be HTTP 200 SCAL RR-MSG-DEF-RESO"
+
 
 
 MessageDefinitionTest_no_context SEND_TKW empty_file TO __TO_ENDPOINT__/MessageDefinition FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ SYNC httpstatuscheck400 WITH_PROPERTYSET base+webservices+get WITH_HTTPHEADERS credentials+Oauth2AccessToken+json_accept+integrity TEXT "HTTP Response must be HTTP 400"
@@ -50,6 +55,10 @@ MessageDefinitionTest_no_context SEND_TKW empty_file TO __TO_ENDPOINT__/MessageD
 MessageDefinitionTest_context_does_not_exist SEND_TKW empty_file TO __TO_ENDPOINT__/MessageDefinition?context=http%3A%2F%2Ffhir.nhs.uk%2FId%2Fdos-service-id%7C99999999999999 FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ SYNC httpstatuscheck404 WITH_PROPERTYSET base+webservices+get WITH_HTTPHEADERS credentials+Oauth2AccessToken+json_accept+integrity TEXT "HTTP Response must be HTTP 404"
 
 MessageDefinition_context_is_invalid SEND_TKW empty_file TO __TO_ENDPOINT__/MessageDefinition?context=XXXXXXX FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ SYNC httpstatuscheck400 WITH_PROPERTYSET base+webservices+get WITH_HTTPHEADERS credentials+Oauth2AccessToken+json_accept+integrity TEXT "HTTP Response must be HTTP 400"
+
+messagedefinition_hasusecasecategory CHAIN SYNC referralrequest_messagedefinition_has_usecase TEXT "MessageDefinition must include use case category"
+
+ResponseIsMessageDefinition CHAIN SYNC response_is_messagedefinition TEXT "Response must be a MessageDefinition"
 
 END TESTS
 
@@ -61,4 +70,7 @@ capability_format_json synchronousxpath /fhir:CapabilityStatement/fhir:format[ma
 capability_software_name synchronousxpath /fhir:CapabilityStatement/fhir:software/fhir:name exists
 capability_software_version synchronousxpath /fhir:CapabilityStatement/fhir:software/fhir:version exists
 
+
+response_is_messagedefinition synchronousxpath //fhir:MessageDefinition exists
+referralrequest_messagedefinition_has_usecase synchronousxpath //fhir:useContext/fhir:code[fhir:system/@value='https://fhir.nhs.uk/CodeSystem/usecases-categories-bars'] exists
 END PASSFAIL

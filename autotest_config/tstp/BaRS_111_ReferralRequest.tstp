@@ -6,6 +6,12 @@
 SCRIPT BaRS_111_ReferralRequest
 #NBRS-3303 referral_request_01_extracted_cancel added and used in ReferralRequest_111toED_Cance
 BEGIN SCHEDULES
+
+###NBRS-3329
+ReferralRequest_111toED_GetMessageDefinition_xml_accept TESTS MessageDefinitionTest_xml_accept ResponseIsXml ResponseIsBundle SearchCountIsGreaterThanZero ResponseIsMessageDefinition messagedefinition_hasusecasecategory referralrequest_111toED_usecasecode
+ReferralRequest_111toED_GetMessageDefinition_json_accept TESTS MessageDefinitionTest_json_accept ResponseIsJson ResponseIsBundle SearchCountIsGreaterThanZero ResponseIsMessageDefinition messagedefinition_hasusecasecategory referralrequest_111toED_usecasecode
+###
+
 # full referral request 01 111 to ED
 ReferralRequest_111toED_xml_accept TESTS ReferralRequest_01_Test_xml_accept ResponseIsXml IntegrityRequestIDHeaderIsPresent IntegrityCorrelationIDHeaderIsPresent IntegrityRequestIDHeadersMatch IntegrityCorrelationIDHeadersMatch ResponseIsBundle_ExtractingReferralServiceID BundleIDsCorrelate
 
@@ -73,6 +79,13 @@ END SCHEDULES
 BEGIN TESTS
 # 01 111 to ED
 # new SR status = active, SR Category = referral, Encounter Status = triaged/completed
+
+#
+
+
+referralrequest_111toED_usecasecode CHAIN SYNC referralrequest_usecase_includes_a1t TEXT "Use case category code beginning a1t is present"
+
+
 ReferralRequest_01_Test_xml_accept SEND_TKW referral_request_01 TO __TO_ENDPOINT__/$process-message FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ PRETRANSFORM __TKWROOT__/config/FHIR_BaRS/autotest_config/transforms/create_service_request.xslt APPLYPRETRANSFORMTO data SYNC ok WITH_PROPERTYSET base+webservices+post WITH_HTTPHEADERS credentials+Oauth2AccessToken+xml_accept+xml_content+integrity TEXT "HTTP Response must be HTTP 200 SCAL RR-SERV-REQ-CONSUME RR-PAT-REG"
 ReferralRequest_01_Test_json_accept SEND_TKW referral_request_01 TO __TO_ENDPOINT__/$process-message FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ PRETRANSFORM __TKWROOT__/config/FHIR_BaRS/autotest_config/transforms/create_service_request.xslt APPLYPRETRANSFORMTO data SYNC ok WITH_PROPERTYSET base+webservices+post WITH_HTTPHEADERS credentials+Oauth2AccessToken+json_accept+json_content+integrity TEXT "HTTP Response must be HTTP 200 SCAL RR-SERV-REQ-CONSUME RR-PAT-REG"
 
@@ -139,3 +152,8 @@ referral_request_01_extracted USING referral_request_01_template WITH referral_s
 referral_request_01_extracted_cancel USING referral_request_01_template_cancel WITH referral_service_request_ds ID s1
 referral_request_01_no_ds USING referral_request_01_template WITH NULL
 END MESSAGES
+
+
+BEGIN PASSFAIL
+referralrequest_usecase_includes_a1t synchronousxpath //fhir:useContext/fhir:code[fhir:system/@value='https://fhir.nhs.uk/CodeSystem/usecases-categories-bars']/fhir:code[starts-with(@value, 'a1t')] exists
+END PASSFAIL
