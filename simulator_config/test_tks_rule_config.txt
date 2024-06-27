@@ -295,7 +295,7 @@ END EXPRESSIONS
 
 BEGIN RULE
 POST+urn:nhs:names:services:bars:fhir:messaging:new:servicerequest-request
-IF  UNAUTH_ORG	THEN	Operation_Outcome_401 ELSE NEXT
+#IF  UNAUTH_ORG	THEN	Operation_Outcome_401 ELSE NEXT
 IF	SR_CATEGORY_VALIDATION	AND	PATIENT408	THEN	ValidationRequest_HappyPath_for_408_Response ELSE NEXT
 IF	SR_CATEGORY_VALIDATION	AND	PATIENT501	THEN	ValidationRequest_HappyPath_for_501_Response ELSE NEXT
 IF	SR_CATEGORY_VALIDATION	AND	PATIENT404	THEN	Operation_Outcome_404 ELSE NEXT
