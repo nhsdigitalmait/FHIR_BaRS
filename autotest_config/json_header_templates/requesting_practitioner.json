@@ -1,5 +1,5 @@
   {
-    "resourceType": "Practitioner",
+    "resourceType": "PractitionerRole",
     "identifier": [
       {
         "value": "__VALUE__",
