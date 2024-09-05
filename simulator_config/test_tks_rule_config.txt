@@ -5,7 +5,7 @@
 #NBRS-3311 Update Message Definitions for QuestionnaireResponse
 
 BEGIN RESPONSES
-
+                    
 #NEW
 #Search
 notFound_Response						TKW_ROOT/config/FHIR_BaRS/simulator_config/operation_outcomes/NotFound_Trigger.xml "400 Bad Request"

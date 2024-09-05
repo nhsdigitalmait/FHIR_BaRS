@@ -71,6 +71,7 @@ then
 		BaRS_999_ReferralRequest.tstp \
 		BaRS_111_ReferralRequest.tstp \
 		BaRS_GP_ReferralRequest.tstp \
+		BaRS_CADtoCAD_ReferralRequest.tstp \
 		BaRS_ValidationRequest.tstp \
 		BaRS_ReferralResponse.tstp \
 		BaRS_ValidationResponse.tstp \
@@ -107,6 +108,10 @@ else
 
 			GP_REFRQ|gp_refrq)
 			TSTP_FILES+=' BaRS_GP_ReferralRequest.tstp'
+			;;
+
+			CADtoCAD|cadtocad)
+			TSTP_FILES+=' BaRS_CADtoCAD_ReferralRequest.tstp'
 			;;
 
 			VALRQ|valrq)
