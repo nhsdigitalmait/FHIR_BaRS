@@ -123,6 +123,7 @@ validation_response USING validation_response_template WITH NULL
 referral_request_01 USING referral_request_01_template WITH referral_service_request_ds ID s1
 referral_request_02 USING referral_request_02_template WITH referral_service_request_ds ID s1
 referral_request_03 USING referral_request_03_template WITH referral_service_request_ds ID s1
+referral_request_04 USING referral_request_04_template WITH referral_service_request_ds ID s1
 END MESSAGES
 
 BEGIN TEMPLATES
@@ -137,6 +138,7 @@ referral_request_01_template __TKWROOT__/config/FHIR_BaRS/autotest_config/reques
 referral_request_01_template_cancel __TKWROOT__/config/FHIR_BaRS/autotest_config/requests/referral_request_01_cancel___TO_SERVICE__.xml
 referral_request_02_template __TKWROOT__/config/FHIR_BaRS/autotest_config/requests/referral_request_02___TO_SERVICE__.xml
 referral_request_03_template __TKWROOT__/config/FHIR_BaRS/autotest_config/requests/referral_request_03___TO_SERVICE__.xml
+referral_request_04_template __TKWROOT__/config/FHIR_BaRS/autotest_config/requests/referral_request_04___TO_SERVICE__.xml
 END TEMPLATES
 
 # if chunking required
