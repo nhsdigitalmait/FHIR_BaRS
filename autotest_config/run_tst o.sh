@@ -14,8 +14,10 @@ fi
 
 #OPTIONS+=" -Djavax.net.debug=all"
 
-
 OPTIONS+=" -Djava.net.preferIPv4Stack=true -XX:+UseContainerSupport"
+#OPTIONS+=" -Djavax.net.debug=all"
+#OPTIONS+=" -Djavax.net.debug=ssl"
+#OPTIONS+=" -Djavax.net.debug=ssl:handshake"
 OPTIONS+=" -Djavax.net.ssl.trustStore=$TKWROOT/config/FHIR_BaRS/autotest_config/endpoint_configs/certs/nis.jks"
 OPTIONS+=" -Djavax.net.ssl.trustStorePassword=password"
 
