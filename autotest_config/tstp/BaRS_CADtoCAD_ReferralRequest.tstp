@@ -81,7 +81,7 @@ BEGIN TESTS
 
 referralrequest_CADtoCAD_usecasecode CHAIN SYNC referralrequest_usecase_includes_a3t TEXT "Use case category code beginning a3t is present"
 
-ReferralRequest_CADtoCAD_MessageDefinitionTest_xml_accept SEND_TKW empty_file TO __TO_ENDPOINT__/MessageDefinition?context=https%3A%2F%2Ffhir.nhs.uk%2FId%2Fdos-service-id%2000076289 FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ SYNC ok WITH_PROPERTYSET base+webservices+get WITH_HTTPHEADERS credentials+Oauth2AccessToken+xml_accept+integrity TEXT "HTTP Response must be HTTP 200 SCAL RR-MSG-DEF-RESO"
+ReferralRequest_CADtoCAD_MessageDefinitionTest_xml_accept SEND_TKW empty_file TO __TO_ENDPOINT__/MessageDefinition?context=https%3A%2F%2Ffhir.nhs.uk%2FId%2Fdos-service-id%2000076289 FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ SYNC ok WITH_PROPERTYSET base+webservices+get WITH_HTTPHEADERS credentials+Oauth2AccessToken+xml_accept+integrity TEXT "HTTP Response must be HTTP 200 SCAL RR-MSG-DEF-RESO referralrequest_messagedefinition_has_eventCode_code referralrequest_messagedefinition_has_eventCode_system referralrequest_messagedefinition_has_definition referralrequest_messagedefinition_has_timestamp referralrequest_messagedefinition_has_patient referralrequest_messagedefinition_has_condition "
 ReferralRequest_CADtoCAD_MessageDefinitionTest_json_accept SEND_TKW empty_file TO __TO_ENDPOINT__/MessageDefinition?context=https%3A%2F%2Ffhir.nhs.uk%2FId%2Fdos-service-id%2000076289 FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ SYNC ok WITH_PROPERTYSET base+webservices+get WITH_HTTPHEADERS credentials+Oauth2AccessToken+json_accept+integrity TEXT "HTTP Response must be HTTP 200 SCAL RR-MSG-DEF-RESO"
 
 

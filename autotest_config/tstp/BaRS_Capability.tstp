@@ -73,4 +73,16 @@ capability_software_version synchronousxpath /fhir:CapabilityStatement/fhir:soft
 
 response_is_messagedefinition synchronousxpath //fhir:MessageDefinition exists
 referralrequest_messagedefinition_has_usecase synchronousxpath //fhir:useContext/fhir:code[fhir:system/@value='https://fhir.nhs.uk/CodeSystem/usecases-categories-bars'] exists
+referralrequest_messagedefinition_has_eventCode_code synchronousxpath //fhir:eventCoding/fhir:code[fhir:code/@value='servicerequest-request'] exists
+referralrequest_messagedefinition_has_eventCode_system synchronousxpath //fhir:eventCoding/fhir:code[fhir:system/@value='https://fhir.nhs.uk/CodeSystem/message-events-bars'] exists
+referralrequest_messagedefinition_has_definition synchronousxpath //fhir:useContext/fhir:definition[fhir:system/@value='https://fhir.nhs.uk/MessageDefinition/bars-message-servicerequest-request-referral'] exists
+
+referralrequest_messagedefinition_has_timestamp synchronousxpath //fhir:useContext/fhir:CarePlan[fhir:period[fhir:start/@value matches "(\d{4})(0\d|1[0-2])([0-2]\d|3[0-1])([0-1]\d|2[0-3])([0-5]\d)([0-5]\d)
+"]]exists
+referralrequest_messagedefinition_has_definition synchronousxpath //fhir:useContext/fhir:definition[fhir:system/@value='https://fhir.nhs.uk/MessageDefinition/bars-message-servicerequest-request-referral'] exists
+referralrequest_messagedefinition_has_patient synchronousxpath /fhir:resource/fhir:Patient exists
+referralrequest_messagedefinition_has_condition synchronousxpath /fhir:resource/fhir:Condition exists
+
+
+
 END PASSFAIL
