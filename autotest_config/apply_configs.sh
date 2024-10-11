@@ -34,6 +34,7 @@ requestingsoftware=SUPP-APP-1
 # not required for EB since it relates to async but is required for TKW
 from_ep=http://127.0.0.1
 from_ep_port=4000
+from_ep_a_port=4001
 
 #============================================================================================================
 
@@ -111,7 +112,7 @@ fi
 
 echo "writing transformed requests"
 # name templates for dest id for reentrancy
-for f in book_appt referral_request_01 referral_request_02 referral_request_03 referral_request_04 referral_response validation_request validation_response referral_request_01_cancel
+for f in book_appt referral_request_01 referral_request_02 referral_request_03 referral_request_04 referral_response validation_request validation_response referral_request_01_cancel 6_OOA_1 6_OOA_2 6_OOA_3
 do
 	echo $f 
 	sed -e s!__FROM_SERVICE__!$fromservice!g \

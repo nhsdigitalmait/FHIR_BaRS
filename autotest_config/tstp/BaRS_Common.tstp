@@ -124,6 +124,9 @@ referral_request_01 USING referral_request_01_template WITH referral_service_req
 referral_request_02 USING referral_request_02_template WITH referral_service_request_ds ID s1
 referral_request_03 USING referral_request_03_template WITH referral_service_request_ds ID s1
 referral_request_04 USING referral_request_04_template WITH referral_service_request_ds ID s1
+
+
+
 END MESSAGES
 
 BEGIN TEMPLATES
@@ -139,6 +142,10 @@ referral_request_01_template_cancel __TKWROOT__/config/FHIR_BaRS/autotest_config
 referral_request_02_template __TKWROOT__/config/FHIR_BaRS/autotest_config/requests/referral_request_02___TO_SERVICE__.xml
 referral_request_03_template __TKWROOT__/config/FHIR_BaRS/autotest_config/requests/referral_request_03___TO_SERVICE__.xml
 referral_request_04_template __TKWROOT__/config/FHIR_BaRS/autotest_config/requests/referral_request_04___TO_SERVICE__.xml
+
+6_OOA_1_template __TKWROOT__/config/FHIR_BaRS/autotest_config/requests/6_OOA_1___TO_SERVICE__.xml
+6_OOA_2_template __TKWROOT__/config/FHIR_BaRS/autotest_config/requests/6_OOA_2___TO_SERVICE__.xml
+6_OOA_3_template __TKWROOT__/config/FHIR_BaRS/autotest_config/requests/6_OOA_3___TO_SERVICE__.xml
 END TEMPLATES
 
 # if chunking required
