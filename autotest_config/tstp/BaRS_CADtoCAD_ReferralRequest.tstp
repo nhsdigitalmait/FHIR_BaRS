@@ -76,6 +76,8 @@ ReferralRequest_CADtoCAD_EncounterChanged TESTS ReferralRequest_04_Test_Encounte
 
 ReferralRequest_CADtoCAD_ChangeCategory TESTS ReferralRequest_04_Test_ChangeCategory ResponseIsJson ResponseIsOperationOutcome IssueCodeInvariant IssueDetailsCodeBadRequest
 
+ReferralRequest_04_Test_NoLocation TESTS ReferralRequest_04_Test_NoLocation ResponseIsJson ResponseIsOperationOutcome IssueCodeInvariant IssueDetailsCodeBadRequest
+
 END SCHEDULES
 
 BEGIN TESTS
@@ -158,6 +160,8 @@ ReferralRequest_04_Test_CarePlanNotComplete SEND_TKW referral_request_04 TO __TO
 ReferralRequest_04_Test_EncounterChanged SEND_TKW referral_request_04 TO __TO_ENDPOINT__/$process-message FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ PRETRANSFORM __TKWROOT__/config/FHIR_BaRS/autotest_config/transforms/create_service_request_change_encounter_status.xslt APPLYPRETRANSFORMTO data SYNC httpstatuscheck400 WITH_PROPERTYSET base+webservices+post WITH_HTTPHEADERS credentials+Oauth2AccessToken+default_accept+default_content+integrity  TEXT "HTTP Response must be HTTP 400"
 
 ReferralRequest_04_Test_ChangeCategory SEND_TKW referral_request_04 TO __TO_ENDPOINT__/$process-message FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ PRETRANSFORM __TKWROOT__/config/FHIR_BaRS/autotest_config/transforms/create_service_request_change_category.xslt APPLYPRETRANSFORMTO data SYNC httpstatuscheck400 WITH_PROPERTYSET base+webservices+post WITH_HTTPHEADERS credentials+Oauth2AccessToken+default_accept+default_content+integrity  TEXT "HTTP Response must be HTTP 400"
+
+ReferralRequest_04_Test_NoLocation SEND_TKW referral_request_04 TO __TO_ENDPOINT__/$process-message FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ PRETRANSFORM __TKWROOT__/config/FHIR_BaRS/autotest_config/transforms/create_service_request_no_location.xslt APPLYPRETRANSFORMTO data SYNC httpstatuscheck400 WITH_PROPERTYSET base+webservices+post WITH_HTTPHEADERS credentials+Oauth2AccessToken+default_accept+default_content+integrity  TEXT "HTTP Response must be HTTP 400"
 
 END TESTS
 

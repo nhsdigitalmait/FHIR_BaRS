@@ -307,6 +307,7 @@ SR_FULLURL_CADTOCAD_S2_UPDATE_RECEIVER_ENCOUNTER_TO_IN_PROGRESS xpathequals bool
 SR_FULLURL_CADTOCAD_SC2   xpathequals boolean(//fhir:Patient//fhir:name[fhir:family/@value='Grayson'] and //fhir:Condition/fhir:code[fhir:text/@value='Maternity Complications']) true
 #SR_FULLURL_CADTOCAD_SC3   xpathmatches //fhir:entry[fhir:resource/fhir:ServiceRequest]/fhir:fullUrl/@value UNKNOWN
 
+NO_LOCATION	xpathequals boolean(//fhir:entry/fhir:resource/fhir:Location) false
 
 
 passthrough	Always
@@ -354,6 +355,7 @@ IF	SR_CATEGORY_REFERRAL AND SR_CATEGORY_CODE_CADTOCAD AND SR_FULLURL_CADTOCAD_SC
 IF	SR_CATEGORY_REFERRAL AND SR_CATEGORY_CODE_CADTOCAD AND SR_FULLURL_CADTOCAD_SC2	THEN	ReferralRequest_HappyPath_for_CADtoCAD_SC2_Response ELSE NEXT
 #IF	SR_CATEGORY_REFERRAL AND SR_CATEGORY_CODE_CADTOCAD AND SR_FULLURL_CADTOCAD_SC3	THEN	ReferralRequest_HappyPath_Response ELSE NEXT
 
+IF	SR_CATEGORY_REFERRAL AND SR_CATEGORY_CODE_CADTOCAD AND NO_LOCATION THEN Operation_Outcome_400
 
 #Catch all Referral response
 IF	SR_CATEGORY_REFERRAL					THEN	ReferralRequest_HappyPath_Response ELSE NEXT
