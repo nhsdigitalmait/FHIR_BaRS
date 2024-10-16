@@ -68,7 +68,7 @@
                 <start value="__START_DATE____APPT_START_DATE__" />
                 <end value="__END_DATE____APPT_END_DATE__" />
                 <slot>
-                    <reference value="urn:uuid:deb4c4b3-870b-4599-84df-5e54cef7afda" />
+                    <reference value="Slot/urn:uuid:deb4c4b3-870b-4599-84df-5e54cef7afda" />
                 </slot>
                 <created value="__APPT_CREATED__" />
                 <participant>
