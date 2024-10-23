@@ -98,7 +98,7 @@ MessageDefinition_HappyPath_BookingAndReferralSender_Response	TKW_ROOT/config/FH
 MessageDefinition_HappyPath_ValidationReceiver_Response	TKW_ROOT/config/FHIR_BaRS/simulator_config/BaRS_MessageDefinition/BaRS_MessageDefinition-Validation_Receiver.xml "200 OK" WITH_HTTP_HEADERS ( X-Request-Id : "__XREQID_ECHO__" X-Correlation-Id : "__XCORRID_ECHO__" Date : "__RFC822TIMESTAMP__" )
 MessageDefinition_HappyPath_ValidationSender_Response	TKW_ROOT/config/FHIR_BaRS/simulator_config/BaRS_MessageDefinition/BaRS_MessageDefinition-Validation_Sender.xml "200 OK" WITH_HTTP_HEADERS ( X-Request-Id : "__XREQID_ECHO__" X-Correlation-Id : "__XCORRID_ECHO__" Date : "__RFC822TIMESTAMP__" )
 MessageDefinition_HappyPath_GPtoPharm_Response 	TKW_ROOT/config/FHIR_BaRS/simulator_config/BaRS_MessageDefinition/BaRS_MessageDefinition-GPtoPharm.xml "200 OK" WITH_HTTP_HEADERS ( X-Request-Id : "__XREQID_ECHO__" X-Correlation-Id : "__XCORRID_ECHO__" Date : "__RFC822TIMESTAMP__" )
-
+MessageDefinition_HappyPath_CADtoCAD_Response 	TKW_ROOT/config/FHIR_BaRS/simulator_config/BaRS_MessageDefinition/BaRS_MessageDefinition-ServiceRequest-Request_Referral.xml "200 OK" WITH_HTTP_HEADERS ( X-Request-Id : "__XREQID_ECHO__" X-Correlation-Id : "__XCORRID_ECHO__" Date : "__RFC822TIMESTAMP__" )
 do_process	NONE	0
 END RESPONSES
 
@@ -249,6 +249,7 @@ CONTEXT2000003366 context_path matches ^.*\/R4\/MessageDefinition\?context=https
 CONTEXT1374839566 context_path matches ^.*\/R4\/MessageDefinition\?context=https%3A%2F%2Ffhir\.nhs\.uk%2FId%2Fdos-service-id%7C1374839566$
 CONTEXT2000072489 context_path matches ^.*\/R4\/MessageDefinition\?context=https%3A%2F%2Ffhir\.nhs\.uk%2FId%2Fdos-service-id%7C2000072489$
 CONTEXT2000070513 context_path matches ^.*\/R4\/MessageDefinition\?context=https%3A%2F%2Ffhir\.nhs\.uk%2FId%2Fdos-service-id%7C2000070513$
+CONTEXT2000159909 context_path matches ^.*\/R4\/MessageDefinition\?context=https%3A%2F%2Ffhir\.nhs\.uk%2FId%2Fdos-service-id%7C2000159909$
                                          
 #Service Request Category
 SR_CATEGORY_VALIDATION	xpathmatches //fhir:Bundle/fhir:entry/fhir:resource/fhir:ServiceRequest/fhir:category/fhir:coding/fhir:code/@value validation
@@ -467,6 +468,7 @@ IF	MESSAGEDEFINITION	AND	CONTEXT2000093816							THEN	MessageDefinition_HappyPat
 IF	MESSAGEDEFINITION	AND	CONTEXT2000003366							THEN	MessageDefinition_HappyPath_ValidationReceiver_Response		ELSE	NEXT
 IF	MESSAGEDEFINITION	AND	CONTEXT1374839566							THEN	MessageDefinition_HappyPath_ValidationSender_Response		ELSE	NEXT
 IF	MESSAGEDEFINITION	AND	CONTEXT2000070513							THEN	MessageDefinition_HappyPath_GPtoPharm_Response		ELSE	NEXT
+IF	MESSAGEDEFINITION	AND	CONTEXT2000159909						THEN	MessageDefinition_HappyPath_CADtoCAD_Response		ELSE	NEXT
 IF	MESSAGEDEFINITIONBAD											THEN	MessageDefinition_bad_resource_Response				ELSE	NEXT
 IF	MESSAGEDEFINITION	AND	CONTEXT2000072489							THEN	MessageDefinition_HappyPath_Response				ELSE	NEXT
 IF	MESSAGEDEFINITION											THEN	MessageDefinition_HappyPath_Response				ELSE	NEXT

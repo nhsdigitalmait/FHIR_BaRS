@@ -15,8 +15,8 @@ ReferralRequest_CADtoCAD_json_Scenario_2 TESTS ReferralRequest_04_Test_json_acce
 ReferralRequest_CADtoCAD_json_Scenario_3 TESTS ReferralRequest_04_Test_json_accept_6_OOA_3_1 ResponseIsJson IntegrityRequestIDHeaderIsPresent IntegrityCorrelationIDHeaderIsPresent IntegrityRequestIDHeadersMatch IntegrityCorrelationIDHeadersMatch ResponseIsBundle_ExtractingReferralServiceID ReferralRequest_04_Test_json_accept_6_OOA_3_2 ResponseIsJson IntegrityRequestIDHeaderIsPresent IntegrityCorrelationIDHeaderIsPresent IntegrityRequestIDHeadersMatch IntegrityCorrelationIDHeadersMatch ResponseIsBundle_ExtractingReferralServiceID BundleIDsCorrelate
 
 ###NBRS-3330
-ReferralRequest_CADtoCAD_GetMessageDefinition_xml_accept TESTS MessageDefinitionTest_xml_accept ResponseIsXml ResponseIsBundle SearchCountIsGreaterThanZero ResponseIsMessageDefinition messagedefinition_hasusecasecategory referralrequest_CADtoCAD_usecasecode
-ReferralRequest_CADtoCAD_GetMessageDefinition_json_accept TESTS MessageDefinitionTest_json_accept ResponseIsJson ResponseIsBundle SearchCountIsGreaterThanZero ResponseIsMessageDefinition messagedefinition_hasusecasecategory referralrequest_CADtoCAD_usecasecode
+ReferralRequest_CADtoCAD_GetMessageDefinition_xml_accept TESTS MessageDefinitionTest_xml_accept ResponseIsXml ResponseIsBundle SearchCountIsGreaterThanZero ResponseIsMessageDefinition messagedefinition_hasusecasecategory messagedefinition_CADtoCAD_usecasecode_a6t1 messagedefinition_CADtoCAD_usecasecode_a6t2 messagedefinition_CADtoCAD_usecasecode_a6t3 messagedefinition_CADtoCAD_procedure_reference messagedefinition_CADtoCAD_communication_reference
+ReferralRequest_CADtoCAD_GetMessageDefinition_json_accept TESTS MessageDefinitionTest_json_accept ResponseIsJson ResponseIsBundle SearchCountIsGreaterThanZero ResponseIsMessageDefinition messagedefinition_hasusecasecategory messagedefinition_CADtoCAD_usecasecode_a6t1 messagedefinition_CADtoCAD_usecasecode_a6t2 messagedefinition_CADtoCAD_usecasecode_a6t3 messagedefinition_CADtoCAD_procedure_reference messagedefinition_CADtoCAD_communication_reference
 ###
 
 # full referral request 04 999 to CAS
@@ -84,10 +84,16 @@ BEGIN TESTS
 # 04 CAD to CAD Out Of Area
 # new SR status = active, SR Category = referral, Encounter Status = triaged/completed
 
-referralrequest_CADtoCAD_usecasecode CHAIN SYNC referralrequest_usecase_includes_a6t1 TEXT "Use case category code beginning a6t1 is present"
+messagedefinition_CADtoCAD_usecasecode_a6t1 CHAIN SYNC messagedefinition_includes_a6t1 TEXT "Use case category code a6t1 is present"
+messagedefinition_CADtoCAD_usecasecode_a6t2 CHAIN SYNC messagedefinition_includes_a6t2 TEXT "Use case category code a6t2 is present"
+messagedefinition_CADtoCAD_usecasecode_a6t3 CHAIN SYNC messagedefinition_includes_a6t3 TEXT "Use case category code a6t3 is present"
+messagedefinition_CADtoCAD_procedure_reference CHAIN SYNC messagedefinition_includes_procedure TEXT "Procedure profile reference is present"
+messagedefinition_CADtoCAD_communication_reference CHAIN SYNC messagedefinition_includes_communication TEXT "Communication profile reference is present"
 
-ReferralRequest_CADtoCAD_MessageDefinitionTest_xml_accept SEND_TKW empty_file TO __TO_ENDPOINT__/MessageDefinition?context=https%3A%2F%2Ffhir.nhs.uk%2FId%2Fdos-service-id%2000076289 FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ SYNC ok WITH_PROPERTYSET base+webservices+get WITH_HTTPHEADERS credentials+Oauth2AccessToken+xml_accept+integrity TEXT "HTTP Response must be HTTP 200 SCAL RR-MSG-DEF-RESO"
-ReferralRequest_CADtoCAD_MessageDefinitionTest_json_accept SEND_TKW empty_file TO __TO_ENDPOINT__/MessageDefinition?context=https%3A%2F%2Ffhir.nhs.uk%2FId%2Fdos-service-id%2000076289 FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ SYNC ok WITH_PROPERTYSET base+webservices+get WITH_HTTPHEADERS credentials+Oauth2AccessToken+json_accept+integrity TEXT "HTTP Response must be HTTP 200 SCAL RR-MSG-DEF-RESO"
+
+
+ReferralRequest_CADtoCAD_MessageDefinitionTest_xml_accept SEND_TKW empty_file TO __TO_ENDPOINT__/MessageDefinition?context=https%3A%2F%2Ffhir.nhs.uk%2FId%2Fdos-service-id%7C2000070514 FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ SYNC ok WITH_PROPERTYSET base+webservices+get WITH_HTTPHEADERS credentials+Oauth2AccessToken+xml_accept+integrity TEXT "HTTP Response must be HTTP 200 SCAL RR-MSG-DEF-RESO"
+ReferralRequest_CADtoCAD_MessageDefinitionTest_json_accept SEND_TKW empty_file TO __TO_ENDPOINT__/MessageDefinition?context=https%3A%2F%2Ffhir.nhs.uk%2FId%2Fdos-service-id%7C2000070514 FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ SYNC ok WITH_PROPERTYSET base+webservices+get WITH_HTTPHEADERS credentials+Oauth2AccessToken+json_accept+integrity TEXT "HTTP Response must be HTTP 200 SCAL RR-MSG-DEF-RESO"
 
 #Response Test
 #ReferralRequest_04_Test_xml_accept SEND_TKW referral_request_04 TO __TO_ENDPOINT_A__/$process-message FROM  __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT_A__ PRETRANSFORM __TKWROOT__/config/FHIR_BaRS/autotest_config/transforms/create_referral_request.xslt APPLYPRETRANSFORMTO data SYNC ok WITH_PROPERTYSET base+webservices+post WITH_HTTPHEADERS credentials+Oauth2AccessToken+xml_accept+xml_content+integrity TEXT "HTTP Response must be HTTP 200 SCAL RR-SERV-REQ-CONSUME RR-PAT-REG"
@@ -179,6 +185,12 @@ referral_request_04_no_ds USING referral_request_04_template WITH NULL
 END MESSAGES
 
 BEGIN PASSFAIL
+
+messagedefinition_includes_procedure synchronousxpath //fhir:MessageDefinition/fhir:focus/fhir:profile[@value='https://fhir.hl7.org.uk/StructureDefinition/UKCore-Procedure'] exists
+messagedefinition_includes_communication synchronousxpath //fhir:MessageDefinition/fhir:focus/fhir:profile[@value='https://fhir.hl7.org.uk/StructureDefinition/UKCore-Communication'] exists
+messagedefinition_includes_a6t1 synchronousxpath //fhir:MessageDefinition/fhir:useContext/fhir:code/fhir:code[@value='a6t1'] exists
+messagedefinition_includes_a6t2 synchronousxpath //fhir:MessageDefinition/fhir:useContext/fhir:code/fhir:code[@value='a6t2'] exists
+messagedefinition_includes_a6t3 synchronousxpath //fhir:MessageDefinition/fhir:useContext/fhir:code/fhir:code[@value='a6t3'] exists
 
 referralrequest_usecase_includes_a6t1 synchronousxpath //fhir:category/fhir:coding[fhir:system/@value='https://fhir.nhs.uk/CodeSystem/usecases-categories-bars']/fhir:code[@value='a6t1'] exists
 referralrequest_servicerequest_status_revoked synchronousxpath //fhir:ServiceRequest[fhir:status/@value='revoked'] exists
