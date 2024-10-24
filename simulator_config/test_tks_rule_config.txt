@@ -5,7 +5,7 @@
 #NBRS-3311 Update Message Definitions for QuestionnaireResponse
 
 BEGIN RESPONSES
-                    
+
 #NEW
 #Search
 notFound_Response						TKW_ROOT/config/FHIR_BaRS/simulator_config/operation_outcomes/NotFound_Trigger.xml "400 Bad Request"
@@ -43,6 +43,13 @@ ValidationRequest_HappyPath_for_408_Response	TKW_ROOT/config/FHIR_BaRS/simulator
 ValidationRequest_HappyPath_for_501_Response	TKW_ROOT/config/FHIR_BaRS/simulator_config/BaRS_Validation/999_to_111_ValidationRequest_for_501_Response.xml "200 OK"  WITH_HTTP_HEADERS ( X-Request-Id : "__XREQID_ECHO__" X-Correlation-Id : "__XCORRID_ECHO__" Date : "__RFC822TIMESTAMP__" )
 
 ReferralRequest_HappyPath_Response	TKW_ROOT/config/FHIR_BaRS/simulator_config/BaRS_Referral/ReferralRequest_Response.xml "200 OK"  WITH_HTTP_HEADERS ( X-Request-Id : "__XREQID_ECHO__" X-Correlation-Id : "__XCORRID_ECHO__" Date : "__RFC822TIMESTAMP__" )
+
+ReferralRequest_HappyPath_for_CADtoCAD_SC1_Response	TKW_ROOT/config/FHIR_BaRS/simulator_config/BaRS_Referral/ReferralRequest_Response_for_CADtoCAD_SC1.xml "200 OK"  WITH_HTTP_HEADERS ( X-Request-Id : "__XREQID_ECHO__" X-Correlation-Id : "__XCORRID_ECHO__" Date : "__RFC822TIMESTAMP__" )
+ReferralRequest_HappyPath_for_CADtoCAD_SC2_Response	TKW_ROOT/config/FHIR_BaRS/simulator_config/BaRS_Referral/ReferralRequest_Response_for_CADtoCAD_SC2.xml "200 OK"  WITH_HTTP_HEADERS ( X-Request-Id : "__XREQID_ECHO__" X-Correlation-Id : "__XCORRID_ECHO__" Date : "__RFC822TIMESTAMP__" )
+ReferralRequest_HappyPath_for_CADtoCAD_Updates_Response TKW_ROOT/config/FHIR_BaRS/simulator_config/BaRS_Referral/ReferralRequest_Response_for_CADtoCAD_Updates.xml "200 OK"  WITH_HTTP_HEADERS ( X-Request-Id : "__XREQID_ECHO__" X-Correlation-Id : "__XCORRID_ECHO__" Date : "__RFC822TIMESTAMP__" )
+ReferralRequest_HappyPath_for_CADtoCAD_Update_Receiver_Encounter_in-progress_Response	TKW_ROOT/config/FHIR_BaRS/simulator_config/BaRS_Referral/ReferralRequest_Response_for_CADtoCAD_Update_Receiver_Encounter_in-progress.xml "200 OK"  WITH_HTTP_HEADERS ( X-Request-Id : "__XREQID_ECHO__" X-Correlation-Id : "__XCORRID_ECHO__" Date : "__RFC822TIMESTAMP__" )
+
+
 ReferralRequest_HappyPath_for_405_Response	TKW_ROOT/config/FHIR_BaRS/simulator_config/BaRS_Referral/ReferralRequest_for_405_Response.xml "200 OK"  WITH_HTTP_HEADERS ( X-Request-Id : "__XREQID_ECHO__" X-Correlation-Id : "__XCORRID_ECHO__" Date : "__RFC822TIMESTAMP__" )
 ReferralRequest_HappyPath_for_429_Response	TKW_ROOT/config/FHIR_BaRS/simulator_config/BaRS_Referral/ReferralRequest_for_429_Response.xml "200 OK"  WITH_HTTP_HEADERS ( X-Request-Id : "__XREQID_ECHO__" X-Correlation-Id : "__XCORRID_ECHO__" Date : "__RFC822TIMESTAMP__" )
 ReferralRequest_HappyPath_for_503_Response	TKW_ROOT/config/FHIR_BaRS/simulator_config/BaRS_Referral/ReferralRequest_for_503_Response.xml "200 OK"  WITH_HTTP_HEADERS ( X-Request-Id : "__XREQID_ECHO__" X-Correlation-Id : "__XCORRID_ECHO__" Date : "__RFC822TIMESTAMP__" )
@@ -75,6 +82,8 @@ ValidationResponse_HappyPath_Response	TKW_ROOT/config/FHIR_BaRS/simulator_config
 
 ReferralResponse_HappyPath_Response	TKW_ROOT/config/FHIR_BaRS/simulator_config/BaRS_Referral/ReferralResponse_Response.xml "200 OK"  WITH_HTTP_HEADERS ( X-Request-Id : "__XREQID_ECHO__" X-Correlation-Id : "__XCORRID_ECHO__" Date : "__RFC822TIMESTAMP__" )
 
+
+
 ValidationServiceRequest_HappyPath_Response TKW_ROOT/config/FHIR_BaRS/simulator_config/BaRS_Validation/999_to_CAS_Validation_ServiceRequest_Response.xml "200 OK" WITH_HTTP_HEADERS ( X-Request-Id : "__XREQID_ECHO__" X-Correlation-Id : "__XCORRID_ECHO__" Date : "__RFC822TIMESTAMP__" )
 
 ReferralServiceRequest_HappyPath_Response TKW_ROOT/config/FHIR_BaRS/simulator_config/BaRS_Referral/Referral_ServiceRequest_Response.xml "200 OK" WITH_HTTP_HEADERS ( X-Request-Id : "__XREQID_ECHO__" X-Correlation-Id : "__XCORRID_ECHO__" Date : "__RFC822TIMESTAMP__" )
@@ -89,7 +98,7 @@ MessageDefinition_HappyPath_BookingAndReferralSender_Response	TKW_ROOT/config/FH
 MessageDefinition_HappyPath_ValidationReceiver_Response	TKW_ROOT/config/FHIR_BaRS/simulator_config/BaRS_MessageDefinition/BaRS_MessageDefinition-Validation_Receiver.xml "200 OK" WITH_HTTP_HEADERS ( X-Request-Id : "__XREQID_ECHO__" X-Correlation-Id : "__XCORRID_ECHO__" Date : "__RFC822TIMESTAMP__" )
 MessageDefinition_HappyPath_ValidationSender_Response	TKW_ROOT/config/FHIR_BaRS/simulator_config/BaRS_MessageDefinition/BaRS_MessageDefinition-Validation_Sender.xml "200 OK" WITH_HTTP_HEADERS ( X-Request-Id : "__XREQID_ECHO__" X-Correlation-Id : "__XCORRID_ECHO__" Date : "__RFC822TIMESTAMP__" )
 MessageDefinition_HappyPath_GPtoPharm_Response 	TKW_ROOT/config/FHIR_BaRS/simulator_config/BaRS_MessageDefinition/BaRS_MessageDefinition-GPtoPharm.xml "200 OK" WITH_HTTP_HEADERS ( X-Request-Id : "__XREQID_ECHO__" X-Correlation-Id : "__XCORRID_ECHO__" Date : "__RFC822TIMESTAMP__" )
-
+MessageDefinition_HappyPath_CADtoCAD_Response 	TKW_ROOT/config/FHIR_BaRS/simulator_config/BaRS_MessageDefinition/BaRS_MessageDefinition-ServiceRequest-Request_Referral.xml "200 OK" WITH_HTTP_HEADERS ( X-Request-Id : "__XREQID_ECHO__" X-Correlation-Id : "__XCORRID_ECHO__" Date : "__RFC822TIMESTAMP__" )
 do_process	NONE	0
 END RESPONSES
 
@@ -144,6 +153,10 @@ __VALIDATIONBUNDLEREQUEST_NODE__	Class uk.nhs.digital.mait.tkwx.tk.internalservi
 __VALIDATIONBUNDLEREQUEST_FOR_408_NODE__	Class uk.nhs.digital.mait.tkwx.tk.internalservices.rules.XmlFragmentSubstitution "/fhir:Bundle TKW_ROOT/config/FHIR_BaRS/simulator_config/transforms/validation_bundle_insert_uuid_id_and_encounter.xsl servicerequest_uuid 9e595424-9d67-45db-9a90-03259653cd37"
 __VALIDATIONBUNDLEREQUEST_FOR_501_NODE__	Class uk.nhs.digital.mait.tkwx.tk.internalservices.rules.XmlFragmentSubstitution "/fhir:Bundle TKW_ROOT/config/FHIR_BaRS/simulator_config/transforms/validation_bundle_insert_uuid_id_and_encounter.xsl servicerequest_uuid c337e8d8-fd5b-4a13-a8e4-0f6f4ac1bb1a"
 __REFERRALBUNDLEREQUEST_NODE__	Class uk.nhs.digital.mait.tkwx.tk.internalservices.rules.XmlFragmentSubstitution "/fhir:Bundle TKW_ROOT/config/FHIR_BaRS/simulator_config/transforms/referral_bundle_insert_uuid_id_and_encounter.xsl servicerequest_uuid 79120f41-a431-4f08-bcc5-1e67006fcae0"
+__REFERRALBUNDLEREQUEST_FOR_CADTOCAD_SC1_NODE__	Class uk.nhs.digital.mait.tkwx.tk.internalservices.rules.XmlFragmentSubstitution "/fhir:Bundle TKW_ROOT/config/FHIR_BaRS/simulator_config/transforms/referral_bundle_insert_uuid_id_and_encounter.xsl servicerequest_uuid 02b3eea8-014c-42f6-944e-af562e9631a1"
+__REFERRALBUNDLEREQUEST_FOR_CADTOCAD_SC2_NODE__	Class uk.nhs.digital.mait.tkwx.tk.internalservices.rules.XmlFragmentSubstitution "/fhir:Bundle TKW_ROOT/config/FHIR_BaRS/simulator_config/transforms/referral_bundle_insert_uuid_id_and_encounter.xsl servicerequest_uuid 1118ec8e-0602-4d02-af8a-7b3cb72be619"
+__REFERRALBUNDLEREQUEST_FOR_CADTOCAD_UPDATE_RECEIVER_ENCOUNTER_INPROGRESS_NODE__	Class uk.nhs.digital.mait.tkwx.tk.internalservices.rules.XmlFragmentSubstitution "/fhir:Bundle TKW_ROOT/config/FHIR_BaRS/simulator_config/transforms/referral_bundle_insert_uuid_id_and_update_encounter_in-progress.xsl"
+__REFERRALBUNDLEREQUEST_FOR_CADTOCAD_UPDATES_NODE__	Class uk.nhs.digital.mait.tkwx.tk.internalservices.rules.XmlFragmentSubstitution "/fhir:Bundle TKW_ROOT/config/FHIR_BaRS/simulator_config/transforms/referral_bundle_insert_uuid_id.xsl"
 __REFERRALBUNDLEREQUEST_FOR_405_NODE__	Class uk.nhs.digital.mait.tkwx.tk.internalservices.rules.XmlFragmentSubstitution "/fhir:Bundle TKW_ROOT/config/FHIR_BaRS/simulator_config/transforms/referral_bundle_insert_uuid_id_and_encounter.xsl servicerequest_uuid 61215702-0049-4d76-9807-2123f0a6ca15"
 __REFERRALBUNDLEREQUEST_FOR_429_NODE__	Class uk.nhs.digital.mait.tkwx.tk.internalservices.rules.XmlFragmentSubstitution "/fhir:Bundle TKW_ROOT/config/FHIR_BaRS/simulator_config/transforms/referral_bundle_insert_uuid_id_and_encounter.xsl servicerequest_uuid 9d280ad9-6dda-46d2-a75e-f5b47b2f4e87"
 __REFERRALBUNDLEREQUEST_FOR_503_NODE__	Class uk.nhs.digital.mait.tkwx.tk.internalservices.rules.XmlFragmentSubstitution "/fhir:Bundle TKW_ROOT/config/FHIR_BaRS/simulator_config/transforms/referral_bundle_insert_uuid_id_and_encounter.xsl servicerequest_uuid 4d65ddaa-4d09-41cd-87c9-aeb9c0c96352"
@@ -236,6 +249,7 @@ CONTEXT2000003366 context_path matches ^.*\/R4\/MessageDefinition\?context=https
 CONTEXT1374839566 context_path matches ^.*\/R4\/MessageDefinition\?context=https%3A%2F%2Ffhir\.nhs\.uk%2FId%2Fdos-service-id%7C1374839566$
 CONTEXT2000072489 context_path matches ^.*\/R4\/MessageDefinition\?context=https%3A%2F%2Ffhir\.nhs\.uk%2FId%2Fdos-service-id%7C2000072489$
 CONTEXT2000070513 context_path matches ^.*\/R4\/MessageDefinition\?context=https%3A%2F%2Ffhir\.nhs\.uk%2FId%2Fdos-service-id%7C2000070513$
+CONTEXT2000159909 context_path matches ^.*\/R4\/MessageDefinition\?context=https%3A%2F%2Ffhir\.nhs\.uk%2FId%2Fdos-service-id%7C2000159909$
                                          
 #Service Request Category
 SR_CATEGORY_VALIDATION	xpathmatches //fhir:Bundle/fhir:entry/fhir:resource/fhir:ServiceRequest/fhir:category/fhir:coding/fhir:code/@value validation
@@ -286,6 +300,17 @@ VAL_PATIENT422			xpathmatches //fhir:Bundle/fhir:entry/fhir:resource/fhir:Patien
 Booking_and_Referral_Linked xpathequals /fhir:Bundle/fhir:entry/fhir:resource/fhir:ServiceRequest/fhir:supportingInfo[starts-with(fhir:reference/@value,'Appointment/')]/fhir:reference/@value Appointment/9a8df080-bfbc-457f-b30f-664bba7760a4
 Booking_and_Referral_MisLinked xpathexists /fhir:Bundle/fhir:entry/fhir:resource/fhir:ServiceRequest/fhir:supportingInfo[starts-with(fhir:reference/@value,'Appointment/')]/fhir:reference/@value 
 
+#CADTOCAD APP6  
+SR_CATEGORY_CODE_CADTOCAD	xpathequals //fhir:entry/fhir:resource/fhir:ServiceRequest/fhir:category/fhir:coding[fhir:system/@value='https://fhir.nhs.uk/CodeSystem/usecases-categories-bars']/fhir:code/@value a6t1
+SR_FULLURL_CADTOCAD_SC1   xpathequals boolean(//fhir:Patient//fhir:name[fhir:family/@value='Grayson'] and //fhir:Condition/fhir:code[fhir:text/@value='Arrest/ Peri Arrest']) true
+SR_FULLURL_CADTOCAD_S1_UPDATE_RECEIVER_ENCOUNTER_TO_IN_PROGRESS xpathequals boolean(not(//fhir:entry/fhir:resource/fhir:Flag/fhir:code/fhir:coding/fhir:code[@value='S'])and not(//fhir:entry/fhir:resource/fhir:Encounter/fhir:status[@value='finished'])) true
+SR_FULLURL_CADTOCAD_S2_UPDATE_RECEIVER_ENCOUNTER_TO_IN_PROGRESS xpathequals boolean((//fhir:entry/fhir:resource/fhir:Flag/fhir:code/fhir:coding/fhir:code[@value='S'])and not(//fhir:entry/fhir:resource/fhir:Encounter/fhir:status[@value='finished'])) true
+SR_FULLURL_CADTOCAD_SC2   xpathequals boolean(//fhir:Patient//fhir:name[fhir:family/@value='Grayson'] and //fhir:Condition/fhir:code[fhir:text/@value='Maternity Complications']) true
+#SR_FULLURL_CADTOCAD_SC3   xpathmatches //fhir:entry[fhir:resource/fhir:ServiceRequest]/fhir:fullUrl/@value UNKNOWN
+
+NO_LOCATION	xpathequals boolean(//fhir:entry/fhir:resource/fhir:Location) false
+
+
 passthrough	Always
 dontpassthrough	Never
 #
@@ -326,6 +351,13 @@ IF	SR_CATEGORY_REFERRAL	AND	PATIENT9728928254	AND 111_TO_ED_Variable_Appointment
 # 111toED - Initial / Create Linked Referral Request  matching correct state 
 IF	SR_CATEGORY_REFERRAL	AND	PATIENT9728928254 AND Booking_and_Referral_MisLinked THEN	ReferralRequest_Operation_Outcome_1_4 ELSE NEXT
 
+#CADTOCAD
+IF	SR_CATEGORY_REFERRAL AND SR_CATEGORY_CODE_CADTOCAD AND SR_FULLURL_CADTOCAD_SC1	THEN	ReferralRequest_HappyPath_for_CADtoCAD_SC1_Response ELSE NEXT
+IF	SR_CATEGORY_REFERRAL AND SR_CATEGORY_CODE_CADTOCAD AND SR_FULLURL_CADTOCAD_SC2	THEN	ReferralRequest_HappyPath_for_CADtoCAD_SC2_Response ELSE NEXT
+#IF	SR_CATEGORY_REFERRAL AND SR_CATEGORY_CODE_CADTOCAD AND SR_FULLURL_CADTOCAD_SC3	THEN	ReferralRequest_HappyPath_Response ELSE NEXT
+
+IF	SR_CATEGORY_REFERRAL AND SR_CATEGORY_CODE_CADTOCAD AND NO_LOCATION THEN Operation_Outcome_400
+
 #Catch all Referral response
 IF	SR_CATEGORY_REFERRAL					THEN	ReferralRequest_HappyPath_Response ELSE NEXT
 IF passthrough THEN notFound_Response
@@ -341,6 +373,13 @@ IF	SR_CATEGORY_REFERRAL	AND PATIENT9728928254	AND 111_TO_ED_Variable_New_Referra
 IF	SR_CATEGORY_REFERRAL	AND PATIENT9728928254	AND 111_TO_ED_Variable_Appointment_Booked	THEN	ReferralRequest_Operation_Outcome_2_5 ELSE NEXT
 # 111toED - Initial / Cancel Referral Request
 IF	SR_CATEGORY_REFERRAL	AND PATIENT9728928254	THEN	ReferralRequest_Operation_Outcome_1_5 ELSE NEXT
+
+#CADTOCAD
+IF	SR_CATEGORY_REFERRAL AND SR_CATEGORY_CODE_CADTOCAD AND SR_FULLURL_CADTOCAD_SC1 AND SR_FULLURL_CADTOCAD_S1_UPDATE_RECEIVER_ENCOUNTER_TO_IN_PROGRESS	THEN	ReferralRequest_HappyPath_for_CADtoCAD_Update_Receiver_Encounter_in-progress_Response ELSE NEXT
+IF	SR_CATEGORY_REFERRAL AND SR_CATEGORY_CODE_CADTOCAD AND SR_FULLURL_CADTOCAD_SC2 AND SR_FULLURL_CADTOCAD_S2_UPDATE_RECEIVER_ENCOUNTER_TO_IN_PROGRESS	THEN	ReferralRequest_HappyPath_for_CADtoCAD_Update_Receiver_Encounter_in-progress_Response ELSE NEXT
+IF	SR_CATEGORY_REFERRAL AND SR_CATEGORY_CODE_CADTOCAD AND SR_FULLURL_CADTOCAD_SC1	THEN	ReferralRequest_HappyPath_for_CADtoCAD_Updates_Response ELSE NEXT
+IF	SR_CATEGORY_REFERRAL AND SR_CATEGORY_CODE_CADTOCAD AND SR_FULLURL_CADTOCAD_SC2	THEN	ReferralRequest_HappyPath_for_CADtoCAD_Updates_Response ELSE NEXT
+#IF	SR_CATEGORY_REFERRAL AND SR_CATEGORY_CODE_CADTOCAD AND SR_FULLURL_CADTOCAD_SC3	THEN	ReferralRequest_HappyPath_Response ELSE NEXT
 
 #Catch all Referral response
 IF	SR_CATEGORY_REFERRAL	THEN	ReferralRequest_HappyPath_Response ELSE NEXT
@@ -429,6 +468,7 @@ IF	MESSAGEDEFINITION	AND	CONTEXT2000093816							THEN	MessageDefinition_HappyPat
 IF	MESSAGEDEFINITION	AND	CONTEXT2000003366							THEN	MessageDefinition_HappyPath_ValidationReceiver_Response		ELSE	NEXT
 IF	MESSAGEDEFINITION	AND	CONTEXT1374839566							THEN	MessageDefinition_HappyPath_ValidationSender_Response		ELSE	NEXT
 IF	MESSAGEDEFINITION	AND	CONTEXT2000070513							THEN	MessageDefinition_HappyPath_GPtoPharm_Response		ELSE	NEXT
+IF	MESSAGEDEFINITION	AND	CONTEXT2000159909						THEN	MessageDefinition_HappyPath_CADtoCAD_Response		ELSE	NEXT
 IF	MESSAGEDEFINITIONBAD											THEN	MessageDefinition_bad_resource_Response				ELSE	NEXT
 IF	MESSAGEDEFINITION	AND	CONTEXT2000072489							THEN	MessageDefinition_HappyPath_Response				ELSE	NEXT
 IF	MESSAGEDEFINITION											THEN	MessageDefinition_HappyPath_Response				ELSE	NEXT
