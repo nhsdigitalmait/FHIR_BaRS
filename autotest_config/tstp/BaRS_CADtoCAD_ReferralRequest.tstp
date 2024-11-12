@@ -195,5 +195,11 @@ messagedefinition_includes_a6t3 synchronousxpath //fhir:MessageDefinition/fhir:u
 referralrequest_usecase_includes_a6t1 synchronousxpath //fhir:category/fhir:coding[fhir:system/@value='https://fhir.nhs.uk/CodeSystem/usecases-categories-bars']/fhir:code[@value='a6t1'] exists
 referralrequest_servicerequest_status_revoked synchronousxpath //fhir:ServiceRequest[fhir:status/@value='revoked'] exists
 referralrequest_encounter_status_cancelled synchronousxpath //fhir:Encounter[fhir:status/@value='cancelled'] exists
+referralrequest_location_meta_exists synchronousxpath //fhir:Bundle/fhir:entry/fhir:resource/fhir:Location/fhir:meta exists 
+referralrequest_location_address_exists synchronousxpath //fhir:Bundle/fhir:entry/fhir:resource/fhir:Location/fhir:address exists 
+referralrequest_location_position_exists synchronousxpath //fhir:Bundle/fhir:entry/fhir:resource/fhir:Location/fhir:position exists 
+referralrequest_location_extension_exists synchronousxpath //fhir:Bundle/fhir:entry/fhir:resource/fhir:Location/fhir:extension exists 
+referralrequest_safety_exists synchronousxpath //fhir:Bundle/fhir:entry/fhir:resource/fhir:Flag exists 
+
 
 END PASSFAIL
