@@ -14,6 +14,10 @@
 		<xsl:attribute name="value">update</xsl:attribute>
 	</xsl:template>
 
+	<xsl:template match="fhir:MessageHeader/fhir:definition/@value">
+		<xsl:attribute name="value">https://fhir.nhs.uk/MessageDefinition/bars-message-servicerequest-request-cancelled</xsl:attribute>
+	</xsl:template>
+
 	<xsl:template match="fhir:ServiceRequest/fhir:status/@value">
 		<xsl:attribute name="value">completed</xsl:attribute>
 	</xsl:template>

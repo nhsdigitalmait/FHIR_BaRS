@@ -1,4 +1,4 @@
-#
+#APPLICATION 6
 # Use Case 
 # CAD to CAD request 04 (Out of Area Use Case)
 # BaRS_ReferralRequest tstp file
@@ -94,6 +94,10 @@ messagedefinition_CADtoCAD_communication_reference CHAIN SYNC messagedefinition_
 
 ReferralRequest_CADtoCAD_MessageDefinitionTest_xml_accept SEND_TKW empty_file TO __TO_ENDPOINT__/MessageDefinition?context=https%3A%2F%2Ffhir.nhs.uk%2FId%2Fdos-service-id%7C2000070514 FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ SYNC ok WITH_PROPERTYSET base+webservices+get WITH_HTTPHEADERS credentials+Oauth2AccessToken+xml_accept+integrity TEXT "HTTP Response must be HTTP 200 SCAL RR-MSG-DEF-RESO"
 ReferralRequest_CADtoCAD_MessageDefinitionTest_json_accept SEND_TKW empty_file TO __TO_ENDPOINT__/MessageDefinition?context=https%3A%2F%2Ffhir.nhs.uk%2FId%2Fdos-service-id%7C2000070514 FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ SYNC ok WITH_PROPERTYSET base+webservices+get WITH_HTTPHEADERS credentials+Oauth2AccessToken+json_accept+integrity TEXT "HTTP Response must be HTTP 200 SCAL RR-MSG-DEF-RESO"
+
+ReferralRequest_CADtoCAD_MessageDefinitionTest_no_context SEND_TKW empty_file TO __TO_ENDPOINT__/MessageDefinition FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ SYNC httpstatuscheck400 WITH_PROPERTYSET base+webservices+get WITH_HTTPHEADERS credentials+Oauth2AccessToken+json_accept+integrity TEXT "HTTP Response must be HTTP 400"
+ReferralRequest_CADtoCAD_MessageDefinitionTest_context_does_not_exist SEND_TKW empty_file TO __TO_ENDPOINT__/MessageDefinition?context=http%3A%2F%2Ffhir.nhs.uk%2FId%2Fdos-service-id%7C99999999999999 FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ SYNC httpstatuscheck404 WITH_PROPERTYSET base+webservices+get WITH_HTTPHEADERS credentials+Oauth2AccessToken+json_accept+integrity TEXT "HTTP Response must be HTTP 404"
+ReferralRequest_CADtoCAD_MessageDefinition_context_is_invalid SEND_TKW empty_file TO __TO_ENDPOINT__/MessageDefinition?context=XXXXXXX FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ SYNC httpstatuscheck400 WITH_PROPERTYSET base+webservices+get WITH_HTTPHEADERS credentials+Oauth2AccessToken+json_accept+integrity TEXT "HTTP Response must be HTTP 400"
 
 #Response Test
 #ReferralRequest_04_Test_xml_accept SEND_TKW referral_request_04 TO __TO_ENDPOINT_A__/$process-message FROM  __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT_A__ PRETRANSFORM __TKWROOT__/config/FHIR_BaRS/autotest_config/transforms/create_referral_request.xslt APPLYPRETRANSFORMTO data SYNC ok WITH_PROPERTYSET base+webservices+post WITH_HTTPHEADERS credentials+Oauth2AccessToken+xml_accept+xml_content+integrity TEXT "HTTP Response must be HTTP 200 SCAL RR-SERV-REQ-CONSUME RR-PAT-REG"

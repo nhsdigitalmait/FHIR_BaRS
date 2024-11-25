@@ -1,4 +1,4 @@
-#
+# APPLICATION 3
 # Use Case 
 # 999 to CAS request 02
 # BaRS_ReferralRequest tstp file
@@ -83,6 +83,10 @@ referralrequest_999toCAS_usecasecode CHAIN SYNC referralrequest_usecase_includes
 
 ReferralRequest_999toCAS_MessageDefinitionTest_xml_accept SEND_TKW empty_file TO __TO_ENDPOINT__/MessageDefinition?context=https%3A%2F%2Ffhir.nhs.uk%2FId%2Fdos-service-id%2000076289 FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ SYNC ok WITH_PROPERTYSET base+webservices+get WITH_HTTPHEADERS credentials+Oauth2AccessToken+xml_accept+integrity TEXT "HTTP Response must be HTTP 200 SCAL RR-MSG-DEF-RESO"
 ReferralRequest_999toCAS_MessageDefinitionTest_json_accept SEND_TKW empty_file TO __TO_ENDPOINT__/MessageDefinition?context=https%3A%2F%2Ffhir.nhs.uk%2FId%2Fdos-service-id%2000076289 FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ SYNC ok WITH_PROPERTYSET base+webservices+get WITH_HTTPHEADERS credentials+Oauth2AccessToken+json_accept+integrity TEXT "HTTP Response must be HTTP 200 SCAL RR-MSG-DEF-RESO"
+
+ReferralRequest_999toCAS_MessageDefinitionTest_no_context SEND_TKW empty_file TO __TO_ENDPOINT__/MessageDefinition FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ SYNC httpstatuscheck400 WITH_PROPERTYSET base+webservices+get WITH_HTTPHEADERS credentials+Oauth2AccessToken+json_accept+integrity TEXT "HTTP Response must be HTTP 400"
+ReferralRequest_999toCAS_MessageDefinitionTest_context_does_not_exist SEND_TKW empty_file TO __TO_ENDPOINT__/MessageDefinition?context=http%3A%2F%2Ffhir.nhs.uk%2FId%2Fdos-service-id%7C99999999999999 FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ SYNC httpstatuscheck404 WITH_PROPERTYSET base+webservices+get WITH_HTTPHEADERS credentials+Oauth2AccessToken+json_accept+integrity TEXT "HTTP Response must be HTTP 404"
+ReferralRequest_999toCAS_MessageDefinition_context_is_invalid SEND_TKW empty_file TO __TO_ENDPOINT__/MessageDefinition?context=XXXXXXX FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ SYNC httpstatuscheck400 WITH_PROPERTYSET base+webservices+get WITH_HTTPHEADERS credentials+Oauth2AccessToken+json_accept+integrity TEXT "HTTP Response must be HTTP 400"
 
 
 ReferralRequest_02_Test_xml_accept SEND_TKW referral_request_02 TO __TO_ENDPOINT__/$process-message FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ PRETRANSFORM __TKWROOT__/config/FHIR_BaRS/autotest_config/transforms/create_service_request.xslt APPLYPRETRANSFORMTO data SYNC ok WITH_PROPERTYSET base+webservices+post WITH_HTTPHEADERS credentials+Oauth2AccessToken+xml_accept+xml_content+integrity TEXT "HTTP Response must be HTTP 200 SCAL RR-SERV-REQ-CONSUME RR-PAT-REG"
