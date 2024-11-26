@@ -10,6 +10,7 @@ BEGIN RESPONSES
 #Search
 notFound_Response						TKW_ROOT/config/FHIR_BaRS/simulator_config/operation_outcomes/NotFound_Trigger.xml "400 Bad Request"
 
+Operation_Outcome_400_invariant			TKW_ROOT/config/FHIR_BaRS/simulator_config/operation_outcomes/operation_outcome_400_invariant.xml "400 Bad Request"  WITH_HTTP_HEADERS ( X-Request-Id : "__XREQID_ECHO__" X-Correlation-Id : "__XCORRID_ECHO__" Date : "__RFC822TIMESTAMP__" )
 Operation_Outcome_400					TKW_ROOT/config/FHIR_BaRS/simulator_config/operation_outcomes/operation_outcome_400.xml "400 Bad Request"  WITH_HTTP_HEADERS ( X-Request-Id : "__XREQID_ECHO__" X-Correlation-Id : "__XCORRID_ECHO__" Date : "__RFC822TIMESTAMP__" )
 Operation_Outcome_401					TKW_ROOT/config/FHIR_BaRS/simulator_config/operation_outcomes/operation_outcome_401.xml "401 Unauthorized"  WITH_HTTP_HEADERS ( X-Request-Id : "__XREQID_ECHO__" X-Correlation-Id : "__XCORRID_ECHO__" Date : "__RFC822TIMESTAMP__" )
 Operation_Outcome_404					TKW_ROOT/config/FHIR_BaRS/simulator_config/operation_outcomes/operation_outcome_404.xml "404 Not Found"  WITH_HTTP_HEADERS ( X-Request-Id : "__XREQID_ECHO__" X-Correlation-Id : "__XCORRID_ECHO__" Date : "__RFC822TIMESTAMP__" )
@@ -263,6 +264,8 @@ SR_STATUS_COMPLETED	xpathmatches //fhir:Bundle/fhir:entry/fhir:resource/fhir:Ser
 APPOINTMENT_STATUS_BOOKED xpathmatches //fhir:Bundle/fhir:entry/fhir:resource/fhir:Appointment/fhir:status/@value booked
 APPOINTMENT_STATUS_CANCELLED xpathmatches //fhir:Bundle/fhir:entry/fhir:resource/fhir:Appointment/fhir:status/@value cancelled
 
+TWOAPPOINTMENTS xpathequals boolean(count(//fhir:Bundle/fhir:entry/fhir:resource/fhir:Appointment)>1) true
+
 # There are 3 slots returned by the simulataor in SFFS
 #SLOT 1 = da83ae28-46f0-4aad-9c54-dcad462cafcb
 #SLOT 2 = c413ac51-df9b-45be-b413-d7548406a4fb - used for returning a response in preparation for the GET appointment responded with a 501
@@ -405,6 +408,7 @@ END RULE
 
 BEGIN RULE
 POST+urn:nhs:names:services:bars:fhir:messaging:new:booking-request
+IF TWOAPPOINTMENTS THEN Operation_Outcome_400_invariant ELSE NEXT
 IF	PATIENT404	AND APPOINTMENT_STATUS_BOOKED		THEN	Operation_Outcome_404 ELSE NEXT
 IF	PATIENT409	AND APPOINTMENT_STATUS_BOOKED		THEN	Operation_Outcome_409 ELSE NEXT
 IF	PATIENT422	AND APPOINTMENT_STATUS_BOOKED		THEN	Operation_Outcome_422 ELSE NEXT
