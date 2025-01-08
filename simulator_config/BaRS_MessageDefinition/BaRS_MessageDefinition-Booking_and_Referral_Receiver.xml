@@ -24,8 +24,8 @@
 				<status value="active"/>
 				<date value="2024-04-26"/>
 				<useContext>
+					<!--  Incorrect format ServiceId (existing) to be maintained  -->
 					<code>
-						<!--  We are expecting the UseContext to be a DOS ID  -->
 						<system value="https://fhir.nhs.uk/CodeSystem/dos-id"/>
 						<code value="__DOSID__"/>
 					</code>
@@ -37,16 +37,71 @@
 					</valueCodeableConcept>
 				</useContext>
 				<useContext>
+					<!--  New format ServiceId  -->
 					<code>
-						<!--   Use cases supported by this MessageDefinition for Application 1   -->
-						<system value="https://fhir.nhs.uk/CodeSystem/usecases-categories-bars"/>
-						<code value="a1t1"/>
-						<display value="111 - ED"/>
+						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
+						<code value="workflow"/>
 					</code>
 					<valueCodeableConcept>
 						<coding>
-							<system value="http://terminology.hl7.org/CodeSystem/variant-state"/>
-							<code value="positive"/>
+							<system value="https://fhir.nhs.uk/CodeSystem/dos-id"/>
+							<code value="__DOSID__"/>
+						</coding>
+					</valueCodeableConcept>
+				</useContext>
+				<useContext>
+					<code>
+						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
+						<code value="workflow"/>
+					</code>
+					<valueCodeableConcept>
+						<coding>
+							<!--   Use cases supported by this MessageDefinition for Application 1   -->
+							<system value="https://fhir.nhs.uk/CodeSystem/usecases-categories-bars"/>
+							<code value="a1t1"/>
+							<display value="111 - ED"/>
+						</coding>
+					</valueCodeableConcept>
+				</useContext>
+				<useContext>
+					<code>
+						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
+						<code value="workflow"/>
+					</code>
+					<valueCodeableConcept>
+						<coding>
+							<!--   Use cases supported by this MessageDefinition for Application 1   -->
+							<system value="https://fhir.nhs.uk/CodeSystem/usecases-categories-bars"/>
+							<code value="a1t3"/>
+							<display value="CAS - ED"/>
+						</coding>
+					</valueCodeableConcept>
+				</useContext>
+				<useContext>
+					<code>
+						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
+						<code value="workflow"/>
+					</code>
+					<valueCodeableConcept>
+						<coding>
+							<!--   Use cases supported by this MessageDefinition for Application 2   -->
+							<system value="https://fhir.nhs.uk/CodeSystem/usecases-categories-bars"/>
+							<code value="a2t1"/>
+							<display value="111 Online - ED"/>
+						</coding>
+					</valueCodeableConcept>
+				</useContext>
+				<useContext>
+					<code>
+						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
+						<code value="workflow"/>
+					</code>
+					<valueCodeableConcept>
+						<coding>
+							<!--   Use cases supported by this MessageDefinition for Application 2   -->
+							<system value="https://fhir.nhs.uk/CodeSystem/usecases-categories-bars"/>
+							<code value="a2t3"/>
+							<display value="S and R - UTC"/>
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
@@ -214,7 +269,7 @@
 				<status value="active"/>
 				<date value="2023-10-16"/>
 				<useContext>
-					<!--  We are expecting the UseContext to be a DOS ID  -->
+					<!--  Incorrect format ServiceId (existing) to be maintained  -->
 					<code>
 						<system value="https://fhir.nhs.uk/CodeSystem/dos-id"/>
 						<code value="__DOSID__"/>
@@ -227,16 +282,71 @@
 					</valueCodeableConcept>
 				</useContext>
 				<useContext>
+					<!--  New format ServiceId  -->
 					<code>
-						<!--   Use cases supported by this MessageDefinition for Application   -->
-						<system value="https://fhir.nhs.uk/CodeSystem/usecases-categories-bars"/>
-						<code value="a1t1"/>
-						<display value="111 - ED"/>
+						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
+						<code value="workflow"/>
 					</code>
 					<valueCodeableConcept>
 						<coding>
-							<system value="http://terminology.hl7.org/CodeSystem/variant-state"/>
-							<code value="positive"/>
+							<system value="https://fhir.nhs.uk/CodeSystem/dos-id"/>
+							<code value="__DOSID__"/>
+						</coding>
+					</valueCodeableConcept>
+				</useContext>
+				<useContext>
+					<code>
+						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
+						<code value="workflow"/>
+					</code>
+					<valueCodeableConcept>
+						<coding>
+							<!--   Use cases supported by this MessageDefinition for Application 1   -->
+							<system value="https://fhir.nhs.uk/CodeSystem/usecases-categories-bars"/>
+							<code value="a1t1"/>
+							<display value="111 - ED"/>
+						</coding>
+					</valueCodeableConcept>
+				</useContext>
+				<useContext>
+					<code>
+						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
+						<code value="workflow"/>
+					</code>
+					<valueCodeableConcept>
+						<coding>
+							<!--   Use cases supported by this MessageDefinition for Application 1   -->
+							<system value="https://fhir.nhs.uk/CodeSystem/usecases-categories-bars"/>
+							<code value="a1t3"/>
+							<display value="CAS - ED"/>
+						</coding>
+					</valueCodeableConcept>
+				</useContext>
+				<useContext>
+					<code>
+						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
+						<code value="workflow"/>
+					</code>
+					<valueCodeableConcept>
+						<coding>
+							<!--   Use cases supported by this MessageDefinition for Application 2   -->
+							<system value="https://fhir.nhs.uk/CodeSystem/usecases-categories-bars"/>
+							<code value="a2t1"/>
+							<display value="111 Online - ED"/>
+						</coding>
+					</valueCodeableConcept>
+				</useContext>
+				<useContext>
+					<code>
+						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
+						<code value="workflow"/>
+					</code>
+					<valueCodeableConcept>
+						<coding>
+							<!--   Use cases supported by this MessageDefinition for Application 2   -->
+							<system value="https://fhir.nhs.uk/CodeSystem/usecases-categories-bars"/>
+							<code value="a2t3"/>
+							<display value="S and R - UTC"/>
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
@@ -290,7 +400,7 @@
 				<status value="active"/>
 				<date value="2023-10-16"/>
 				<useContext>
-					<!--  We are expecting the UseContext to be a DOS ID  -->
+					<!--  Incorrect format ServiceId (existing) to be maintained  -->
 					<code>
 						<system value="https://fhir.nhs.uk/CodeSystem/dos-id"/>
 						<code value="__DOSID__"/>
@@ -299,6 +409,75 @@
 						<coding>
 							<system value="http://terminology.hl7.org/CodeSystem/variant-state"/>
 							<code value="positive"/>
+						</coding>
+					</valueCodeableConcept>
+				</useContext>
+				<useContext>
+					<!--  New format ServiceId  -->
+					<code>
+						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
+						<code value="workflow"/>
+					</code>
+					<valueCodeableConcept>
+						<coding>
+							<system value="https://fhir.nhs.uk/CodeSystem/dos-id"/>
+							<code value="__DOSID__"/>
+						</coding>
+					</valueCodeableConcept>
+				</useContext>
+				<useContext>
+					<code>
+						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
+						<code value="workflow"/>
+					</code>
+					<valueCodeableConcept>
+						<coding>
+							<!--   Use cases supported by this MessageDefinition for Application 1   -->
+							<system value="https://fhir.nhs.uk/CodeSystem/usecases-categories-bars"/>
+							<code value="a1t1"/>
+							<display value="111 - ED"/>
+						</coding>
+					</valueCodeableConcept>
+				</useContext>
+				<useContext>
+					<code>
+						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
+						<code value="workflow"/>
+					</code>
+					<valueCodeableConcept>
+						<coding>
+							<!--   Use cases supported by this MessageDefinition for Application 1   -->
+							<system value="https://fhir.nhs.uk/CodeSystem/usecases-categories-bars"/>
+							<code value="a1t3"/>
+							<display value="CAS - ED"/>
+						</coding>
+					</valueCodeableConcept>
+				</useContext>
+				<useContext>
+					<code>
+						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
+						<code value="workflow"/>
+					</code>
+					<valueCodeableConcept>
+						<coding>
+							<!--   Use cases supported by this MessageDefinition for Application 2   -->
+							<system value="https://fhir.nhs.uk/CodeSystem/usecases-categories-bars"/>
+							<code value="a2t1"/>
+							<display value="111 Online - ED"/>
+						</coding>
+					</valueCodeableConcept>
+				</useContext>
+				<useContext>
+					<code>
+						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
+						<code value="workflow"/>
+					</code>
+					<valueCodeableConcept>
+						<coding>
+							<!--   Use cases supported by this MessageDefinition for Application 2   -->
+							<system value="https://fhir.nhs.uk/CodeSystem/usecases-categories-bars"/>
+							<code value="a2t3"/>
+							<display value="S and R - UTC"/>
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
@@ -400,7 +579,7 @@
 				<status value="active"/>
 				<date value="2023-10-16"/>
 				<useContext>
-					<!--  We are expecting the UseContext to be a DOS ID  -->
+					<!--  Incorrect format ServiceId (existing) to be maintained  -->
 					<code>
 						<system value="https://fhir.nhs.uk/CodeSystem/dos-id"/>
 						<code value="__DOSID__"/>
@@ -409,6 +588,75 @@
 						<coding>
 							<system value="http://terminology.hl7.org/CodeSystem/variant-state"/>
 							<code value="positive"/>
+						</coding>
+					</valueCodeableConcept>
+				</useContext>
+				<useContext>
+					<!--  New format ServiceId  -->
+					<code>
+						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
+						<code value="workflow"/>
+					</code>
+					<valueCodeableConcept>
+						<coding>
+							<system value="https://fhir.nhs.uk/CodeSystem/dos-id"/>
+							<code value="__DOSID__"/>
+						</coding>
+					</valueCodeableConcept>
+				</useContext>
+				<useContext>
+					<code>
+						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
+						<code value="workflow"/>
+					</code>
+					<valueCodeableConcept>
+						<coding>
+							<!--   Use cases supported by this MessageDefinition for Application 1   -->
+							<system value="https://fhir.nhs.uk/CodeSystem/usecases-categories-bars"/>
+							<code value="a1t1"/>
+							<display value="111 - ED"/>
+						</coding>
+					</valueCodeableConcept>
+				</useContext>
+				<useContext>
+					<code>
+						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
+						<code value="workflow"/>
+					</code>
+					<valueCodeableConcept>
+						<coding>
+							<!--   Use cases supported by this MessageDefinition for Application 1   -->
+							<system value="https://fhir.nhs.uk/CodeSystem/usecases-categories-bars"/>
+							<code value="a1t3"/>
+							<display value="CAS - ED"/>
+						</coding>
+					</valueCodeableConcept>
+				</useContext>
+				<useContext>
+					<code>
+						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
+						<code value="workflow"/>
+					</code>
+					<valueCodeableConcept>
+						<coding>
+							<!--   Use cases supported by this MessageDefinition for Application 2   -->
+							<system value="https://fhir.nhs.uk/CodeSystem/usecases-categories-bars"/>
+							<code value="a2t1"/>
+							<display value="111 Online - ED"/>
+						</coding>
+					</valueCodeableConcept>
+				</useContext>
+				<useContext>
+					<code>
+						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
+						<code value="workflow"/>
+					</code>
+					<valueCodeableConcept>
+						<coding>
+							<!--   Use cases supported by this MessageDefinition for Application 2   -->
+							<system value="https://fhir.nhs.uk/CodeSystem/usecases-categories-bars"/>
+							<code value="a2t3"/>
+							<display value="S and R - UTC"/>
 						</coding>
 					</valueCodeableConcept>
 				</useContext>

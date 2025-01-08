@@ -201,10 +201,10 @@ METADATA					context_path matches ^.*/R4/metadata.*$
 APPOINTMENT					context_path matches ^.*/R4/Appointment.*$
 SERVICEREQUEST				context_path matches ^.*/R4/ServiceRequest.*$
 #NBRS-3310 hhtps
-MESSAGEDEFINITION			context_path matches ^.*/R4/MessageDefinition\?context=.*$
-MESSAGEDEFINITION401			context_path matches ^.*/R4/MessageDefinition\?context=https%3A%2F%2Ffhir.nhs.uk%2FId%2Fdos-service-id%7CFAIL0401.*$
-MESSAGEDEFINITION404			context_path matches ^.*/R4/MessageDefinition\?context=https%3A%2F%2Ffhir.nhs.uk%2FId%2Fdos-service-id%7CFAIL0404.*$
-MESSAGEDEFINITIONBAD			context_path matches ^.*/R4/MessageDefinition\?context=https%3A%2F%2Ffhir.nhs.uk%2FId%2Fdos-service-id%7C(BAD|2000071898).*$
+MESSAGEDEFINITION				context_path matches ^.*/R4/MessageDefinition\?context=.*$
+MESSAGEDEFINITION401			context_path matches ^.*/R4/MessageDefinition\?context=https://fhir\.nhs\.uk/Id/dos-service-id\|FAIL0401.*$
+MESSAGEDEFINITION404			context_path matches ^.*/R4/MessageDefinition\?context=https://fhir\.nhs\.uk/Id/dos-service-id\|FAIL0404.*$
+MESSAGEDEFINITIONBAD			context_path matches ^.*/R4/MessageDefinition\?context=https://fhir\.nhs\.uk/Id/dos-service-id\|(BAD|2000071898).*$
 INCLUDES						context_path matches ^.*_include.*$
 
 VALIDATIONSERVICEREQUEST001				context_path matches ^.*/R4/ServiceRequest/0b42eac3-0175-43c8-bbab-efaa8ca31ccf.*$
@@ -225,12 +225,12 @@ BOOKINGAPPOINTMENT501				context_path matches ^.*/R4/Appointment/0d440c22-7f25-4
 #HappyPath NoSlots 			2000073917
 #HappyPath Only Slots			1503499715
 #HTTP 408 				2000081230
-HEALTHCARESERVICE2000072489		context_path matches ^.*Schedule.actor%3AHealthcareService=2000072489.*$
-HEALTHCARESERVICE2000071234		context_path matches ^.*Schedule.actor%3AHealthcareService=2000071234.*$
-HEALTHCARESERVICE2000073917		context_path matches ^.*Schedule.actor%3AHealthcareService=2000073917.*$
-HEALTHCARESERVICE1503499715		context_path matches ^.*Schedule.actor%3AHealthcareService=1503499715.*$
-HEALTHCARESERVICE2000081230		context_path matches ^.*Schedule.actor%3AHealthcareService=2000081230.*$
-HEALTHCARESERVICE2000011147		context_path matches ^.*Schedule.actor%3AHealthcareService=2000011147.*$
+HEALTHCARESERVICE2000072489		context_path matches ^.*Schedule.actor:HealthcareService=2000072489.*$
+HEALTHCARESERVICE2000071234		context_path matches ^.*Schedule.actor%:HealthcareService=2000071234.*$
+HEALTHCARESERVICE2000073917		context_path matches ^.*Schedule.actor:HealthcareService=2000073917.*$
+HEALTHCARESERVICE1503499715		context_path matches ^.*Schedule.actor:HealthcareService=1503499715.*$
+HEALTHCARESERVICE2000081230		context_path matches ^.*Schedule.actor:HealthcareService=2000081230.*$
+HEALTHCARESERVICE2000011147		context_path matches ^.*Schedule.actor:HealthcareService=2000011147.*$
 
 # sentinel values for CSs (capability statements)
 DOSID2000011147 http_header b64 NHSD-Target-Identifier jsonpathequals $.value 2000011147
@@ -242,15 +242,14 @@ DOSID2000072489 http_header b64 NHSD-Target-Identifier jsonpathequals $.value 20
 
 # sentinel values for MDs (message definitions)
 #NBRS-3310 hhtps
-CONTEXT2000011147 context_path matches ^.*\/R4\/MessageDefinition\?context=https%3A%2F%2Ffhir\.nhs\.uk%2FId%2Fdos-service-id%7C2000011147$
-#CONTEXT2000011147 context_path matches ^.*\/R4\/MessageDefinition\?context=https%3A%2F%2Ffhir\.nhs\.uk%2FId%2Fdos-service-id%7C2000011147$
-CONTEXT2000093816 context_path matches ^.*\/R4\/MessageDefinition\?context=https%3A%2F%2Ffhir\.nhs\.uk%2FId%2Fdos-service-id%7C2000093816$
-CONTEXT2000076289 context_path matches ^.*\/R4\/MessageDefinition\?context=https%3A%2F%2Ffhir\.nhs\.uk%2FId%2Fdos-service-id%7C2000076289$
-CONTEXT2000003366 context_path matches ^.*\/R4\/MessageDefinition\?context=https%3A%2F%2Ffhir\.nhs\.uk%2FId%2Fdos-service-id%7C2000003366$
-CONTEXT1374839566 context_path matches ^.*\/R4\/MessageDefinition\?context=https%3A%2F%2Ffhir\.nhs\.uk%2FId%2Fdos-service-id%7C1374839566$
-CONTEXT2000072489 context_path matches ^.*\/R4\/MessageDefinition\?context=https%3A%2F%2Ffhir\.nhs\.uk%2FId%2Fdos-service-id%7C2000072489$
-CONTEXT2000070513 context_path matches ^.*\/R4\/MessageDefinition\?context=https%3A%2F%2Ffhir\.nhs\.uk%2FId%2Fdos-service-id%7C2000070513$
-CONTEXT2000159909 context_path matches ^.*\/R4\/MessageDefinition\?context=https%3A%2F%2Ffhir\.nhs\.uk%2FId%2Fdos-service-id%7C2000159909$
+CONTEXT2000011147 context_path matches ^.*/R4/MessageDefinition\?context=https://fhir\.nhs\.uk/Id/dos-service-id\|2000011147$
+CONTEXT2000093816 context_path matches ^.*/R4/MessageDefinition\?context=https://fhir\.nhs\.uk/Id/dos-service-id\|2000093816$
+CONTEXT2000076289 context_path matches ^.*/R4/MessageDefinition\?context=https://fhir\.nhs\.uk/Id/dos-service-id\|2000076289$
+CONTEXT2000003366 context_path matches ^.*/R4/MessageDefinition\?context=https://fhir\.nhs\.uk/Id/dos-service-id\|2000003366$
+CONTEXT1374839566 context_path matches ^.*/R4/MessageDefinition\?context=https://fhir\.nhs\.uk/Id/dos-service-id\|1374839566$
+CONTEXT2000072489 context_path matches ^.*/R4/MessageDefinition\?context=https://fhir\.nhs\.uk/Id/dos-service-id\|2000072489$
+CONTEXT2000070513 context_path matches ^.*/R4/MessageDefinition\?context=https://fhir\.nhs\.uk/Id/dos-service-id\|2000070513$
+CONTEXT2000159909 context_path matches ^.*/R4/MessageDefinition\?context=https://fhir\.nhs\.uk/Id/dos-service-id\|2000159909$
                                          
 #Service Request Category
 SR_CATEGORY_VALIDATION	xpathmatches //fhir:Bundle/fhir:entry/fhir:resource/fhir:ServiceRequest/fhir:category/fhir:coding/fhir:code/@value validation

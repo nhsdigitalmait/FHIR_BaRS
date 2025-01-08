@@ -86,6 +86,11 @@
                         <!--    Important for driving workflow, determining the type of referral being requested    -->
                         <display value="Transfer of Care" />
                     </coding>
+                    <coding>
+                        <system value="https://fhir.nhs.uk/CodeSystem/usecases-categories-bars" />
+                        <code value="a1t1" />
+                        <display value="111 to ED" />
+                    </coding>                    
                 </category>
                 <subject>
                     <reference value="urn:uuid:9589fb37-87a2-48d8-968f-b371429208a8" />

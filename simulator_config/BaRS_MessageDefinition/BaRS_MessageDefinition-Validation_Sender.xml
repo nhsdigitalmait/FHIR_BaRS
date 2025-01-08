@@ -24,7 +24,7 @@
 				<status value="active"/>
 				<date value="2023-10-16"/>
 				<useContext>
-					<!--  We are expecting the UseContext to be a DOS ID  -->
+					<!--  Incorrect format ServiceId (existing) to be maintained  -->
 					<code>
 						<system value="https://fhir.nhs.uk/CodeSystem/dos-id"/>
 						<code value="__DOSID__"/>
@@ -37,16 +37,57 @@
 					</valueCodeableConcept>
 				</useContext>
 				<useContext>
+					<!--  New format ServiceId  -->
 					<code>
-						<!--   Use cases supported by this MessageDefinition for Application 6   -->
-						<system value="https://fhir.nhs.uk/CodeSystem/usecases-categories-bars"/>
-						<code value="a4t1"/>
-						<display value="999-CAS Validation"/>
+						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
+						<code value="workflow"/>
 					</code>
 					<valueCodeableConcept>
 						<coding>
-							<system value="http://terminology.hl7.org/CodeSystem/variant-state"/>
-							<code value="positive"/>
+							<system value="https://fhir.nhs.uk/CodeSystem/dos-id"/>
+							<code value="__DOSID__"/>
+						</coding>
+					</valueCodeableConcept>
+				</useContext>
+				<useContext>
+					<code>
+						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
+						<code value="workflow"/>
+					</code>
+					<valueCodeableConcept>
+						<coding>
+							<!--   Use cases supported by this MessageDefinition for Application 1   -->
+							<system value="https://fhir.nhs.uk/CodeSystem/usecases-categories-bars"/>
+							<code value="a4t1"/>
+							<display value="999 - CAS Validation"/>
+						</coding>
+					</valueCodeableConcept>
+				</useContext>
+				<useContext>
+					<code>
+						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
+						<code value="workflow"/>
+					</code>
+					<valueCodeableConcept>
+						<coding>
+							<!--   Use cases supported by this MessageDefinition for Application 1   -->
+							<system value="https://fhir.nhs.uk/CodeSystem/usecases-categories-bars"/>
+							<code value="a4t2"/>
+							<display value="999 - Falls"/>
+						</coding>
+					</valueCodeableConcept>
+				</useContext>
+				<useContext>
+					<code>
+						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
+						<code value="workflow"/>
+					</code>
+					<valueCodeableConcept>
+						<coding>
+							<!--   Use cases supported by this MessageDefinition for Application 1   -->
+							<system value="https://fhir.nhs.uk/CodeSystem/usecases-categories-bars"/>
+							<code value="a4t3"/>
+							<display value="999 - Community Services"/>
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
@@ -172,7 +213,7 @@
 				<status value="active"/>
 				<date value="2024-01-11"/>
 				<useContext>
-					<!--   We are expecting the UseContext to be a DOS ID   -->
+					<!--  Incorrect format ServiceId (existing) to be maintained  -->
 					<code>
 						<system value="https://fhir.nhs.uk/CodeSystem/dos-id"/>
 						<code value="__DOSID__"/>
@@ -185,16 +226,57 @@
 					</valueCodeableConcept>
 				</useContext>
 				<useContext>
+					<!--  New format ServiceId  -->
 					<code>
-						<!--   Use cases supported by this MessageDefinition for Application 6   -->
-						<system value="https://fhir.nhs.uk/CodeSystem/usecases-categories-bars"/>
-						<code value="a4t1"/>
-						<display value="999-CAS Validation"/>
+						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
+						<code value="workflow"/>
 					</code>
 					<valueCodeableConcept>
 						<coding>
-							<system value="http://terminology.hl7.org/CodeSystem/variant-state"/>
-							<code value="positive"/>
+							<system value="https://fhir.nhs.uk/CodeSystem/dos-id"/>
+							<code value="__DOSID__"/>
+						</coding>
+					</valueCodeableConcept>
+				</useContext>
+				<useContext>
+					<code>
+						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
+						<code value="workflow"/>
+					</code>
+					<valueCodeableConcept>
+						<coding>
+							<!--   Use cases supported by this MessageDefinition for Application 1   -->
+							<system value="https://fhir.nhs.uk/CodeSystem/usecases-categories-bars"/>
+							<code value="a4t1"/>
+							<display value="999 - CAS Validation"/>
+						</coding>
+					</valueCodeableConcept>
+				</useContext>
+				<useContext>
+					<code>
+						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
+						<code value="workflow"/>
+					</code>
+					<valueCodeableConcept>
+						<coding>
+							<!--   Use cases supported by this MessageDefinition for Application 1   -->
+							<system value="https://fhir.nhs.uk/CodeSystem/usecases-categories-bars"/>
+							<code value="a4t2"/>
+							<display value="999 - Falls"/>
+						</coding>
+					</valueCodeableConcept>
+				</useContext>
+				<useContext>
+					<code>
+						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
+						<code value="workflow"/>
+					</code>
+					<valueCodeableConcept>
+						<coding>
+							<!--   Use cases supported by this MessageDefinition for Application 1   -->
+							<system value="https://fhir.nhs.uk/CodeSystem/usecases-categories-bars"/>
+							<code value="a4t3"/>
+							<display value="999 - Community Services"/>
 						</coding>
 					</valueCodeableConcept>
 				</useContext>

@@ -1,5 +1,5 @@
 <Bundle xmlns="http://hl7.org/fhir">
-	<!-- this is based on simplifier example REFREQ04 CAD to OutofArea -->
+	<!-- this is based on simplifier example REFREQ8A - Referral Service Request - CAD Out of Area C1(1 of 4 - Initial) -->
 	<id value="__BUNDLE_ID__"/>
 	<meta>
 		<versionId value="1.0.0-beta"/>

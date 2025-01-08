@@ -81,8 +81,8 @@
                </coding>
                <coding>
                   <system value="https://fhir.nhs.uk/CodeSystem/usecases-categories-bars"/>
-                  <code value="referraltopharmacy"/>
-                  <display value="Referral to Pharmacy"/>
+                  <code value="a5t1"/>
+                  <display value="Primary Care to Community Pharmacy"/>
                </coding>
             </category>
             <subject>
