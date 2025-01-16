@@ -11,6 +11,13 @@ END SCHEDULES
 
 BEGIN TESTS
 # new, SR status = complete, SR Category = validation, Encounter status = finished, Care Plan status = completed This is unsolicited so should fail
-UnsolicitedValidationResponseTest_xml_accept SEND_TKW validation_response TO __TO_ENDPOINT__/$process-message FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ SYNC httpstatuscheck400 WITH_PROPERTYSET base+webservices+post WITH_HTTPHEADERS credentials+Oauth2AccessToken+xml_accept+xml_content+integrity TEXT "HTTP Response must be HTTP 400"
-UnsolicitedValidationResponseTest_json_accept SEND_TKW validation_response TO __TO_ENDPOINT__/$process-message FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ SYNC httpstatuscheck400 WITH_PROPERTYSET base+webservices+post WITH_HTTPHEADERS credentials+Oauth2AccessToken+json_accept+json_content+integrity TEXT "HTTP Response must be HTTP 400"
+UnsolicitedValidationResponseTest_xml_accept SEND_TKW validation_response TO __TO_ENDPOINT__/$process-message FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ SYNC httpstatuscheck400 WITH_PROPERTYSET base+webservices+post WITH_HTTPHEADERS credentials+Oauth2AccessToken+xml_accept+xml_content+integrity+use_context_a4t1_response_new TEXT "HTTP Response must be HTTP 400"
+UnsolicitedValidationResponseTest_json_accept SEND_TKW validation_response TO __TO_ENDPOINT__/$process-message FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ SYNC httpstatuscheck400 WITH_PROPERTYSET base+webservices+post WITH_HTTPHEADERS credentials+Oauth2AccessToken+json_accept+json_content+integrity+use_context_a4t1_response_new TEXT "HTTP Response must be HTTP 400"
 END TESTS
+
+BEGIN HTTPHEADERS
+use_context_a4t1_response_new
+	use-context "a4t1|validation|servicerequest-response|new"
+use_context_a4t1_response_update
+	use-context "a4t1|validation|servicerequest-response|update"
+END HTTPHEADERS

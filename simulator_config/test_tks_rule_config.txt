@@ -311,6 +311,8 @@ SR_FULLURL_CADTOCAD_SC2   xpathequals boolean(//fhir:Patient//fhir:name[fhir:fam
 #SR_FULLURL_CADTOCAD_SC3   xpathmatches //fhir:entry[fhir:resource/fhir:ServiceRequest]/fhir:fullUrl/@value UNKNOWN
 
 NO_LOCATION	xpathequals boolean(//fhir:entry/fhir:resource/fhir:Location) false
+NO_USECASECATEGORY xpathnotexists /fhir:Bundle/fhir:entry/fhir:resource/fhir:ServiceRequest/fhir:category/fhir:coding[fhir:system/@value='https://fhir.nhs.uk/CodeSystem/usecases-categories-bars']
+INVALID_USECASECATEGORY xpathequals /fhir:Bundle/fhir:entry/fhir:resource/fhir:ServiceRequest/fhir:category/fhir:coding[fhir:system/@value='https://fhir.nhs.uk/CodeSystem/usecases-categories-bars']/fhir:code/@value xxxxxxxxxxxxxxxxxxx
 
 
 passthrough	Always
@@ -323,6 +325,10 @@ END EXPRESSIONS
 BEGIN RULE
 POST+urn:nhs:names:services:bars:fhir:messaging:new:servicerequest-request
 #IF  UNAUTH_ORG	THEN	Operation_Outcome_401 ELSE NEXT
+IF	SR_CATEGORY_REFERRAL	AND	NO_USECASECATEGORY 	THEN	Operation_Outcome_400 ELSE NEXT
+IF	SR_CATEGORY_VALIDATION	AND	NO_USECASECATEGORY 	THEN	Operation_Outcome_400 ELSE NEXT
+IF	SR_CATEGORY_REFERRAL	AND	INVALID_USECASECATEGORY 	THEN	Operation_Outcome_400 ELSE NEXT
+IF	SR_CATEGORY_VALIDATION	AND	INVALID_USECASECATEGORY 	THEN	Operation_Outcome_400 ELSE NEXT
 IF	SR_CATEGORY_VALIDATION	AND	PATIENT408	THEN	ValidationRequest_HappyPath_for_408_Response ELSE NEXT
 IF	SR_CATEGORY_VALIDATION	AND	PATIENT501	THEN	ValidationRequest_HappyPath_for_501_Response ELSE NEXT
 IF	SR_CATEGORY_VALIDATION	AND	PATIENT404	THEN	Operation_Outcome_404 ELSE NEXT
