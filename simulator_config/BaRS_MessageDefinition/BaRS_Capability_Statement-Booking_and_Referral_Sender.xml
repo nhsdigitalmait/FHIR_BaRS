@@ -193,23 +193,23 @@
       </endpoint>
       <supportedMessage>
          <mode value="receiver"/>
-         <definition value="MessageDefinition/bars-message-servicerequest-response-referral"/>
+         <definition value="https://fhir.nhs.uk/MessageDefinition/bars-message-servicerequest-response-referral"/>
       </supportedMessage>
       <supportedMessage>
          <mode value="sender"/>
-         <definition value="MessageDefinition/bars-message-booking-request"/>
+         <definition value="https://fhir.nhs.uk/MessageDefinition/bars-message-booking-request"/>
       </supportedMessage>
       <supportedMessage>
          <mode value="sender"/>
-         <definition value="MessageDefinition/bars-message-booking-request-cancelled"/>
+         <definition value="https://fhir.nhs.uk/MessageDefinition/bars-message-booking-request-cancelled"/>
       </supportedMessage>
       <supportedMessage>
          <mode value="sender"/>
-         <definition value="MessageDefinition/bars-message-servicerequest-request-referral"/>
+         <definition value="https://fhir.nhs.uk/MessageDefinition/bars-message-servicerequest-request-referral"/>
       </supportedMessage>
       <supportedMessage>
          <mode value="sender"/>
-         <definition value="MessageDefinition/bars-message-servicerequest-request-cancelled"/>
+         <definition value="https://fhir.nhs.uk/MessageDefinition/bars-message-servicerequest-request-cancelled"/>
       </supportedMessage>
    </messaging>
 </CapabilityStatement>

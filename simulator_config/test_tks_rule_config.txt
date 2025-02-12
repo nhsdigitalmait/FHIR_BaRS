@@ -142,7 +142,7 @@ __HOST__ reg_exp http_header Host "." "$0"
 __APPOINTMENT_ID__	reg_exp context_path "^.*/R4/Appointment/(([0-9]|[a-f]){8}-([0-9]|[a-f]){4}-([0-9]|[a-f]){4}-([0-9]|[a-f]){4}-([0-9]|[a-f]){12}).*$" "$1"
 #__DOSID__	reg_exp context_path "^.*/R4/MessageDefinition\?context=http%3A%2F%2Ffhir\.nhs\.uk%2FId%2Fdos-service-id%(.*)$" "$1"
 #NBRS-3309 - Simplified DOSID regex
-__DOSID__	reg_exp context_path "^.*dos-service-id%7C(.*)$" "$1"
+__DOSID__	reg_exp context_path "^.*dos-service-id(\||%7C)([0-9]{10}).*$" "$2"
 __DOCUMENT_REF_NODE__	Class uk.nhs.digital.mait.tkwx.tk.internalservices.rules.XmlFragmentSubstitution "//fhir:Appointment/fhir:contained[fhir:DocumentReference]"
 __SLOT_NODE__	Class uk.nhs.digital.mait.tkwx.tk.internalservices.rules.XmlFragmentSubstitution "//fhir:Appointment/fhir:contained[fhir:Slot]"
 __PATIENT_NODE__	Class uk.nhs.digital.mait.tkwx.tk.internalservices.rules.XmlFragmentSubstitution "//fhir:Appointment/fhir:contained[fhir:Patient]"
@@ -201,10 +201,21 @@ METADATA					context_path matches ^.*/R4/metadata.*$
 APPOINTMENT					context_path matches ^.*/R4/Appointment.*$
 SERVICEREQUEST				context_path matches ^.*/R4/ServiceRequest.*$
 #NBRS-3310 hhtps
-MESSAGEDEFINITION				context_path matches ^.*/R4/MessageDefinition\?context=.*$
-MESSAGEDEFINITION401			context_path matches ^.*/R4/MessageDefinition\?context=https://fhir\.nhs\.uk/Id/dos-service-id\|FAIL0401.*$
-MESSAGEDEFINITION404			context_path matches ^.*/R4/MessageDefinition\?context=https://fhir\.nhs\.uk/Id/dos-service-id\|FAIL0404.*$
-MESSAGEDEFINITIONBAD			context_path matches ^.*/R4/MessageDefinition\?context=https://fhir\.nhs\.uk/Id/dos-service-id\|(BAD|2000071898).*$
+#MESSAGEDEFINITION				context_path matches ^.*/R4/MessageDefinition\?context=.*$
+#MESSAGEDEFINITION401			context_path matches ^.*/R4/MessageDefinition\?context=https://fhir\.nhs\.uk/Id/dos-service-id\|FAIL0401.*$
+#MESSAGEDEFINITION404			context_path matches ^.*/R4/MessageDefinition\?context=https://fhir\.nhs\.uk/Id/dos-service-id\|FAIL0404.*$
+#MESSAGEDEFINITIONBAD			context_path matches ^.*/R4/MessageDefinition\?context=https://fhir\.nhs\.uk/Id/dos-service-id\|(BAD|2000071898).*$
+
+#NBRS-3964
+MESSAGEDEFINITION				context_path matches ^.*/R4/MessageDefinition\?context(=|%3D).*$
+MESSAGEDEFINITION401			context_path matches ^.*/R4/MessageDefinition\?context(=|%3D).*dos-service-id(\||%7C)FAIL0401.*$
+MESSAGEDEFINITION404			context_path matches ^.*/R4/MessageDefinition\?context(=|%3D).*dos-service-id(\||%7C)FAIL0404.*$
+MESSAGEDEFINITIONBAD			context_path matches ^.*/R4/MessageDefinition\?context(=|%3D).*dos-service-id(\||%7C)(BAD|2000071898).*$
+
+
+#####^.*/R4/MessageDefinition\?context[=|%3D].*$
+
+
 INCLUDES						context_path matches ^.*_include.*$
 
 VALIDATIONSERVICEREQUEST001				context_path matches ^.*/R4/ServiceRequest/0b42eac3-0175-43c8-bbab-efaa8ca31ccf.*$

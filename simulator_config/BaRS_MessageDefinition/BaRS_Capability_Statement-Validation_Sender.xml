@@ -140,23 +140,23 @@
       </endpoint>
       <supportedMessage>
          <mode value="receiver"/>
-         <definition value="MessageDefinition/bars-message-servicerequest-response-validation-full"/>
+         <definition value="https://fhir.nhs.uk/MessageDefinition/bars-message-servicerequest-response-validation-full"/>
       </supportedMessage>
       <supportedMessage>
          <mode value="receiver"/>
-         <definition value="MessageDefinition/bars-message-servicerequest-response-validation-interim"/>
+         <definition value="https://fhir.nhs.uk/MessageDefinition/bars-message-servicerequest-response-validation-interim"/>
       </supportedMessage>
       <supportedMessage>
          <mode value="sender"/>
-         <definition value="MessageDefinition/bars-message-servicerequest-request-referral"/>
+         <definition value="https://fhir.nhs.uk/MessageDefinition/bars-message-servicerequest-request-referral"/>
       </supportedMessage>
       <supportedMessage>
          <mode value="sender"/>
-         <definition value="MessageDefinition/bars-message-servicerequest-request-cancelled"/>
+         <definition value="https://fhir.nhs.uk/MessageDefinition/bars-message-servicerequest-request-cancelled"/>
       </supportedMessage>
       <supportedMessage>
          <mode value="sender"/>
-         <definition value="MessageDefinition/bars-message-servicerequest-request-validation"/>
+         <definition value="https://fhir.nhs.uk/MessageDefinition/bars-message-servicerequest-request-validation"/>
       </supportedMessage>
    </messaging>
 </CapabilityStatement>
