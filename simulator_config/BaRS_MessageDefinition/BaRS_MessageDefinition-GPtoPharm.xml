@@ -1,31 +1,29 @@
 <Bundle xmlns="http://hl7.org/fhir">
-   <id value="ded3119d-41c9-41ee-ad66-3e21596b5199"/>
-   <meta>
-      <lastUpdated value="2022-07-21T13:50:50.1234567+00:00"/>
-      <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-Bundle"/>
-   </meta>
-   <type value="searchset"/>
-   <timestamp value="2022-07-21T13:50:50.1234567+00:00"/>
-   <total value="2"/>
-   <link>
-      <relation value="self"/>
-      <url value="https://localhost/R4/MessageDefinition?context=http%3A%2F%2Ffhir.nhs.uk%2FId%2Fdos-service-id%7C__DOSID__"/>
-   </link>
-   <entry>
-      <fullUrl value="urn:uuid:f20803ed-32be-43fc-b4c3-dea161ab5db6"/>
-      <resource>
- 		<MessageDefinition xmlns="http://hl7.org/fhir">
+	<id value="ded3119d-41c9-41ee-ad66-3e21596b5199"/>
+	<meta>
+		<lastUpdated value="2022-07-21T13:50:50.1234567+00:00"/>
+		<profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-Bundle"/>
+	</meta>
+	<type value="searchset"/>
+	<timestamp value="2022-07-21T13:50:50.1234567+00:00"/>
+	<total value="2"/>
+	<link>
+		<relation value="self"/>
+		<url value="https://localhost/R4/MessageDefinition?context=http%3A%2F%2Ffhir.nhs.uk%2FId%2Fdos-service-id%7C__DOSID__"/>
+	</link>
+	<entry>
+		<fullUrl value="urn:uuid:f20803ed-32be-43fc-b4c3-dea161ab5db6"/>
+		<resource>
+			<MessageDefinition xmlns="http://hl7.org/fhir">
 				<id value="11882ae2-211f-49ee-acbe-e319304d80cd"/>
 				<url value="https://fhir.nhs.uk/MessageDefinition/bars-message-servicerequest-request-referral"/>
-				<!--  This is the version number of Application 6 (currently in development on Simplifier)  -->
-				<version value="1.0.0-beta"/>
+				<version value="1.0.0"/>
 				<name value="BARS Message Definition ServiceRequest - Request Referral"/>
 				<title value="BARS Message Definition ServiceRequest - Request Referral"/>
 				<status value="active"/>
 				<date value="2024-04-26"/>
 				<useContext>
 					<code>
-						<!--  We are expecting the UseContext to be a DOS ID  -->
 						<system value="https://fhir.nhs.uk/CodeSystem/dos-id"/>
 						<code value="__DOSID__"/>
 					</code>
@@ -36,10 +34,8 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--  Application 6 supports multiple use-case categories, hence three being displayed here. Applications will have a mixture of single or multiple use-case categoreis supported. If a supplier solution supports multiple Applications (1,3,6, etc.), it would be expected each Application would have a different MessageDefinition, even if the Application versions were currently the same. Application versions will diverge and it would be coincidence for them to be the same.   -->
 				<useContext>
 					<code>
-						<!--   Use cases supported by this MessageDefinition for Application 5   -->
 						<system value="https://fhir.nhs.uk/CodeSystem/usecases-categories-bars"/>
 						<code value="referraltopharmacy"/>
 						<display value="Referral to Pharmacy - Deprecated"/>
@@ -50,22 +46,46 @@
 							<code value="positive"/>
 						</coding>
 					</valueCodeableConcept>
-				</useContext>				
+				</useContext>
 				<useContext>
 					<code>
-						<!--   Use cases supported by this MessageDefinition for Application 5   -->
-						<system value="https://fhir.nhs.uk/CodeSystem/usecases-categories-bars"/>
-						<code value="a5t1"/>
-						<display value="GP to Pharmacy CPCS Minor Illness"/>
+						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
+						<code value="workflow"/>
 					</code>
 					<valueCodeableConcept>
 						<coding>
-							<system value="http://terminology.hl7.org/CodeSystem/variant-state"/>
-							<code value="positive"/>
+							<system value="https://fhir.nhs.uk/CodeSystem/dos-id"/>
+							<code value="__DOSID__"/>
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-			<eventCoding>
+				<useContext>
+					<code>
+						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
+						<code value="workflow"/>
+					</code>
+					<valueCodeableConcept>
+						<coding>
+							<system value="https://fhir.nhs.uk/CodeSystem/usecases-categories-bars"/>
+							<code value="referraltopharmacy"/>
+							<display value="Referral to Pharmacy - Deprecated"/>
+						</coding>
+					</valueCodeableConcept>
+				</useContext>
+				<useContext>
+					<code>
+						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
+						<code value="workflow"/>
+					</code>
+					<valueCodeableConcept>
+						<coding>
+							<system value="https://fhir.nhs.uk/CodeSystem/usecases-categories-bars"/>
+							<code value="a5t1"/>
+							<display value="GP to Pharmacy CPCS Minor Illness"/>
+						</coding>
+					</valueCodeableConcept>
+				</useContext>
+				<eventCoding>
 					<system value="https://fhir.nhs.uk/CodeSystem/message-events-bars"/>
 					<code value="servicerequest-request"/>
 				</eventCoding>
@@ -222,14 +242,12 @@
 			<MessageDefinition xmlns="http://hl7.org/fhir">
 				<id value="11882ae2-211f-49ee-acbe-e319304d80cd"/>
 				<url value="https://fhir.nhs.uk/MessageDefinition/bars-message-servicerequest-request-cancelled"/>
-				<!--  This is the version number of Application (currently in development on Simplifier)  -->
 				<version value="1.0.0"/>
 				<name value="BARS Message Definition ServiceRequest - Request - Cancelled"/>
 				<title value="BARS Message Definition ServiceRequest - Request - Cancelled"/>
 				<status value="active"/>
 				<date value="2023-10-16"/>
 				<useContext>
-					<!--  We are expecting the UseContext to be a DOS ID  -->
 					<code>
 						<system value="https://fhir.nhs.uk/CodeSystem/dos-id"/>
 						<code value="__DOSID__"/>
@@ -243,7 +261,6 @@
 				</useContext>
 				<useContext>
 					<code>
-						<!--   Use cases supported by this MessageDefinition for Application 5   -->
 						<system value="https://fhir.nhs.uk/CodeSystem/usecases-categories-bars"/>
 						<code value="referraltopharmacy"/>
 						<display value="Referral to Pharmacy - Deprecated"/>
@@ -257,15 +274,39 @@
 				</useContext>
 				<useContext>
 					<code>
-						<!--   Use cases supported by this MessageDefinition for Application   -->
-						<system value="https://fhir.nhs.uk/CodeSystem/usecases-categories-bars"/>
-						<code value="a5t1"/>
-						<display value="GP to Pharmacy CPCS Minor Illness"/>
+						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
+						<code value="workflow"/>
 					</code>
 					<valueCodeableConcept>
 						<coding>
-							<system value="http://terminology.hl7.org/CodeSystem/variant-state"/>
-							<code value="positive"/>
+							<system value="https://fhir.nhs.uk/CodeSystem/dos-id"/>
+							<code value="__DOSID__"/>
+						</coding>
+					</valueCodeableConcept>
+				</useContext>
+				<useContext>
+					<code>
+						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
+						<code value="workflow"/>
+					</code>
+					<valueCodeableConcept>
+						<coding>
+							<system value="https://fhir.nhs.uk/CodeSystem/usecases-categories-bars"/>
+							<code value="referraltopharmacy"/>
+							<display value="Referral to Pharmacy - Deprecated"/>
+						</coding>
+					</valueCodeableConcept>
+				</useContext>
+				<useContext>
+					<code>
+						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
+						<code value="workflow"/>
+					</code>
+					<valueCodeableConcept>
+						<coding>
+							<system value="https://fhir.nhs.uk/CodeSystem/usecases-categories-bars"/>
+							<code value="a5t1"/>
+							<display value="GP to Pharmacy CPCS Minor Illness"/>
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
@@ -304,6 +345,6 @@
 					<max value="*"/>
 				</focus>
 			</MessageDefinition>
-      </resource>
-   </entry>
+		</resource>
+	</entry>
 </Bundle>

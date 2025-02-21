@@ -17,14 +17,12 @@
 			<MessageDefinition xmlns="http://hl7.org/fhir">
 				<id value="11882ae2-211f-49ee-acbe-e319304d80cd"/>
 				<url value="https://fhir.nhs.uk/MessageDefinition/bars-message-servicerequest-request-referral"/>
-				<!--  This is the version number of Application 6 (currently in development on Simplifier)  -->
-				<version value="1.0.0-beta"/>
+				<version value="1.0.0"/>
 				<name value="BARS Message Definition ServiceRequest - Request Referral"/>
 				<title value="BARS Message Definition ServiceRequest - Request Referral"/>
 				<status value="active"/>
 				<date value="2024-04-26"/>
 				<useContext>
-					<!--  Incorrect format ServiceId (existing) to be maintained  -->
 					<code>
 						<system value="https://fhir.nhs.uk/CodeSystem/dos-id"/>
 						<code value="__DOSID__"/>
@@ -37,7 +35,6 @@
 					</valueCodeableConcept>
 				</useContext>
 				<useContext>
-					<!--  New format ServiceId  -->
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
 						<code value="workflow"/>
@@ -56,7 +53,6 @@
 					</code>
 					<valueCodeableConcept>
 						<coding>
-							<!--   Use cases supported by this MessageDefinition for Application 1   -->
 							<system value="https://fhir.nhs.uk/CodeSystem/usecases-categories-bars"/>
 							<code value="a1t1"/>
 							<display value="111 - ED"/>
@@ -70,7 +66,6 @@
 					</code>
 					<valueCodeableConcept>
 						<coding>
-							<!--   Use cases supported by this MessageDefinition for Application 1   -->
 							<system value="https://fhir.nhs.uk/CodeSystem/usecases-categories-bars"/>
 							<code value="a1t3"/>
 							<display value="CAS - ED"/>
@@ -84,7 +79,6 @@
 					</code>
 					<valueCodeableConcept>
 						<coding>
-							<!--   Use cases supported by this MessageDefinition for Application 2   -->
 							<system value="https://fhir.nhs.uk/CodeSystem/usecases-categories-bars"/>
 							<code value="a2t1"/>
 							<display value="111 Online - ED"/>
@@ -98,7 +92,6 @@
 					</code>
 					<valueCodeableConcept>
 						<coding>
-							<!--   Use cases supported by this MessageDefinition for Application 2   -->
 							<system value="https://fhir.nhs.uk/CodeSystem/usecases-categories-bars"/>
 							<code value="a2t3"/>
 							<display value="S and R - UTC"/>
@@ -262,14 +255,12 @@
 			<MessageDefinition xmlns="http://hl7.org/fhir">
 				<id value="11882ae2-211f-49ee-acbe-e319304d80cd"/>
 				<url value="https://fhir.nhs.uk/MessageDefinition/bars-message-servicerequest-request-cancelled"/>
-				<!--  This is the version number of Application (currently in development on Simplifier)  -->
 				<version value="1.0.0"/>
 				<name value="BARS Message Definition ServiceRequest - Request - Cancelled"/>
 				<title value="BARS Message Definition ServiceRequest - Request - Cancelled"/>
 				<status value="active"/>
 				<date value="2023-10-16"/>
 				<useContext>
-					<!--  Incorrect format ServiceId (existing) to be maintained  -->
 					<code>
 						<system value="https://fhir.nhs.uk/CodeSystem/dos-id"/>
 						<code value="__DOSID__"/>
@@ -282,7 +273,6 @@
 					</valueCodeableConcept>
 				</useContext>
 				<useContext>
-					<!--  New format ServiceId  -->
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
 						<code value="workflow"/>
@@ -301,7 +291,6 @@
 					</code>
 					<valueCodeableConcept>
 						<coding>
-							<!--   Use cases supported by this MessageDefinition for Application 1   -->
 							<system value="https://fhir.nhs.uk/CodeSystem/usecases-categories-bars"/>
 							<code value="a1t1"/>
 							<display value="111 - ED"/>
@@ -315,7 +304,6 @@
 					</code>
 					<valueCodeableConcept>
 						<coding>
-							<!--   Use cases supported by this MessageDefinition for Application 1   -->
 							<system value="https://fhir.nhs.uk/CodeSystem/usecases-categories-bars"/>
 							<code value="a1t3"/>
 							<display value="CAS - ED"/>
@@ -329,7 +317,6 @@
 					</code>
 					<valueCodeableConcept>
 						<coding>
-							<!--   Use cases supported by this MessageDefinition for Application 2   -->
 							<system value="https://fhir.nhs.uk/CodeSystem/usecases-categories-bars"/>
 							<code value="a2t1"/>
 							<display value="111 Online - ED"/>
@@ -343,7 +330,6 @@
 					</code>
 					<valueCodeableConcept>
 						<coding>
-							<!--   Use cases supported by this MessageDefinition for Application 2   -->
 							<system value="https://fhir.nhs.uk/CodeSystem/usecases-categories-bars"/>
 							<code value="a2t3"/>
 							<display value="S and R - UTC"/>
@@ -393,14 +379,12 @@
 			<MessageDefinition xmlns="http://hl7.org/fhir">
 				<id value="95b337c0-9644-4b5e-accf-246636e55905"/>
 				<url value="https://fhir.nhs.uk/MessageDefinition/bars-message-booking-request"/>
-				<!--  This is the version number of Application 1  -->
 				<version value="1.0.0"/>
 				<name value="BARS Message Definition Booking - Request"/>
 				<title value="BARS Message Definition Booking - Request"/>
 				<status value="active"/>
 				<date value="2023-10-16"/>
 				<useContext>
-					<!--  Incorrect format ServiceId (existing) to be maintained  -->
 					<code>
 						<system value="https://fhir.nhs.uk/CodeSystem/dos-id"/>
 						<code value="__DOSID__"/>
@@ -413,7 +397,6 @@
 					</valueCodeableConcept>
 				</useContext>
 				<useContext>
-					<!--  New format ServiceId  -->
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
 						<code value="workflow"/>
@@ -432,7 +415,6 @@
 					</code>
 					<valueCodeableConcept>
 						<coding>
-							<!--   Use cases supported by this MessageDefinition for Application 1   -->
 							<system value="https://fhir.nhs.uk/CodeSystem/usecases-categories-bars"/>
 							<code value="a1t1"/>
 							<display value="111 - ED"/>
@@ -446,7 +428,6 @@
 					</code>
 					<valueCodeableConcept>
 						<coding>
-							<!--   Use cases supported by this MessageDefinition for Application 1   -->
 							<system value="https://fhir.nhs.uk/CodeSystem/usecases-categories-bars"/>
 							<code value="a1t3"/>
 							<display value="CAS - ED"/>
@@ -460,7 +441,6 @@
 					</code>
 					<valueCodeableConcept>
 						<coding>
-							<!--   Use cases supported by this MessageDefinition for Application 2   -->
 							<system value="https://fhir.nhs.uk/CodeSystem/usecases-categories-bars"/>
 							<code value="a2t1"/>
 							<display value="111 Online - ED"/>
@@ -474,7 +454,6 @@
 					</code>
 					<valueCodeableConcept>
 						<coding>
-							<!--   Use cases supported by this MessageDefinition for Application 2   -->
 							<system value="https://fhir.nhs.uk/CodeSystem/usecases-categories-bars"/>
 							<code value="a2t3"/>
 							<display value="S and R - UTC"/>
@@ -572,14 +551,12 @@
 			<MessageDefinition xmlns="http://hl7.org/fhir">
 				<id value="95b337c0-9644-4b5e-accf-246636e55905"/>
 				<url value="https://fhir.nhs.uk/MessageDefinition/bars-message-booking-request-cancelled"/>
-				<!--  This is the version number of Application 1  -->
 				<version value="1.0.0"/>
 				<name value="BARS Message Definition Booking - Request - Cancelled"/>
 				<title value="BARS Message Definition Booking - Request - Cancelled"/>
 				<status value="active"/>
 				<date value="2023-10-16"/>
 				<useContext>
-					<!--  Incorrect format ServiceId (existing) to be maintained  -->
 					<code>
 						<system value="https://fhir.nhs.uk/CodeSystem/dos-id"/>
 						<code value="__DOSID__"/>
@@ -592,7 +569,6 @@
 					</valueCodeableConcept>
 				</useContext>
 				<useContext>
-					<!--  New format ServiceId  -->
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
 						<code value="workflow"/>
@@ -611,7 +587,6 @@
 					</code>
 					<valueCodeableConcept>
 						<coding>
-							<!--   Use cases supported by this MessageDefinition for Application 1   -->
 							<system value="https://fhir.nhs.uk/CodeSystem/usecases-categories-bars"/>
 							<code value="a1t1"/>
 							<display value="111 - ED"/>
@@ -625,7 +600,6 @@
 					</code>
 					<valueCodeableConcept>
 						<coding>
-							<!--   Use cases supported by this MessageDefinition for Application 1   -->
 							<system value="https://fhir.nhs.uk/CodeSystem/usecases-categories-bars"/>
 							<code value="a1t3"/>
 							<display value="CAS - ED"/>
@@ -639,7 +613,6 @@
 					</code>
 					<valueCodeableConcept>
 						<coding>
-							<!--   Use cases supported by this MessageDefinition for Application 2   -->
 							<system value="https://fhir.nhs.uk/CodeSystem/usecases-categories-bars"/>
 							<code value="a2t1"/>
 							<display value="111 Online - ED"/>
@@ -653,7 +626,6 @@
 					</code>
 					<valueCodeableConcept>
 						<coding>
-							<!--   Use cases supported by this MessageDefinition for Application 2   -->
 							<system value="https://fhir.nhs.uk/CodeSystem/usecases-categories-bars"/>
 							<code value="a2t3"/>
 							<display value="S and R - UTC"/>

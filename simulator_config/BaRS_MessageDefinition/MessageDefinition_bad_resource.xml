@@ -17,13 +17,13 @@
 			<MessageDefinition xmlns="http://hl7.org/fhir">
 				<id value="11882ae2-211f-49ee-acbe-e319304d80cd"/>
 				<url value="https://fhir.nhs.uk/MessageDefinition/bars-message-servicerequest-request-referral"/>
-				<!--  This is the version number of Application 6 (currently in development on Simplifier)  -->
-				<version value="1.0.0-beta"/>
+				
+				<version value="1.0.0"/>
 				<name value="BARS Message Definition ServiceRequest - Request Referral"/>
 				<title value="BARS Message Definition ServiceRequest - Request Referral"/>
 				<status value="active"/>
 				<date value="2024-04-26"/>
-				<!--Supports Use-Case Category a1t1 : 111 - ED-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -37,7 +37,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a1t2 : 111 - UTC -->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -51,7 +51,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a1t3 : CAS - ED-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -65,7 +65,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a1t4 : CAS - UTC-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -79,7 +79,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a1t5 : 999 - ED-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -93,7 +93,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a1t6 : 999 - UTC-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -107,7 +107,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a1t7 : 111 - SDEC-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -121,7 +121,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a1t8 : CAS - SDEC-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -135,7 +135,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a1t9 : 999 - SDEC-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -149,7 +149,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a2t1 : 111 Online - ED-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -163,7 +163,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a2t2 : 111 Online - UTC-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -177,7 +177,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a2t3 : S and R - ED-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -191,7 +191,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a2t4 : S and R - UTC-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -205,7 +205,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a3t1 : 999 - CAS Referral-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -219,7 +219,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a4t1 : 999 - CAS Validation-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -233,7 +233,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a4t2 : 999 - Falls-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -247,7 +247,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a4t3 : 999 - Community Services-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -261,7 +261,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a5t1 : Primary Care to Pharmacy CPCS Minor Illness-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -275,7 +275,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a5t2 : Primary Care to Pharmacy Oral Contraception-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -289,7 +289,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a5t3 : Primary Care to Pharmacy Blood Pressure-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -303,7 +303,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category referraltopharmacy : Referral to Pharmacy - Deprecated-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -317,7 +317,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a6t1 : CAD to CAD Out of Area Referral-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -331,7 +331,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a6t2 : CAD to CAD Call Assist Request-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -345,7 +345,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a6t3 : CAD to CAD Mutual Aid Request-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -359,7 +359,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--  Incorrect format ServiceId (existing) to be maintained  -->
+				
 				<useContext>
 					<code>
 						<system value="https://fhir.nhs.uk/CodeSystem/dos-id"/>
@@ -373,7 +373,7 @@
 					</valueCodeableConcept>
 				</useContext>
 				<useContext>
-					<!--  New format ServiceId  -->
+					
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
 						<code value="workflow"/>
@@ -542,13 +542,13 @@
 			<MessageDefinition xmlns="http://hl7.org/fhir">
 				<id value="11882ae2-211f-49ee-acbe-e319304d80cd"/>
 				<url value="https://fhir.nhs.uk/MessageDefinition/bars-message-servicerequest-request-cancelled"/>
-				<!--  This is the version number of Application (currently in development on Simplifier)  -->
+				
 				<version value="1.0.0"/>
 				<name value="BARS Message Definition ServiceRequest - Request - Cancelled"/>
 				<title value="BARS Message Definition ServiceRequest - Request - Cancelled"/>
 				<status value="active"/>
 				<date value="2023-10-16"/>
-				<!--Supports Use-Case Category a1t1 : 111 - ED-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -562,7 +562,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a1t2 : 111 - UTC -->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -576,7 +576,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a1t3 : CAS - ED-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -590,7 +590,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a1t4 : CAS - UTC-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -604,7 +604,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a1t5 : 999 - ED-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -618,7 +618,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a1t6 : 999 - UTC-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -632,7 +632,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a1t7 : 111 - SDEC-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -646,7 +646,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a1t8 : CAS - SDEC-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -660,7 +660,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a1t9 : 999 - SDEC-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -674,7 +674,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a2t1 : 111 Online - ED-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -688,7 +688,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a2t2 : 111 Online - UTC-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -702,7 +702,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a2t3 : S and R - ED-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -716,7 +716,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a2t4 : S and R - UTC-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -730,7 +730,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a3t1 : 999 - CAS Referral-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -744,7 +744,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a4t1 : 999 - CAS Validation-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -758,7 +758,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a4t2 : 999 - Falls-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -772,7 +772,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a4t3 : 999 - Community Services-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -786,7 +786,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a5t1 : Primary Care to Pharmacy CPCS Minor Illness-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -800,7 +800,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a5t2 : Primary Care to Pharmacy Oral Contraception-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -814,7 +814,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a5t3 : Primary Care to Pharmacy Blood Pressure-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -828,7 +828,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category referraltopharmacy : Referral to Pharmacy - Deprecated-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -842,7 +842,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a6t1 : CAD to CAD Out of Area Referral-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -856,7 +856,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a6t2 : CAD to CAD Call Assist Request-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -870,7 +870,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a6t3 : CAD to CAD Mutual Aid Request-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -884,7 +884,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--  Incorrect format ServiceId (existing) to be maintained  -->
+				
 				<useContext>
 					<code>
 						<system value="https://fhir.nhs.uk/CodeSystem/dos-id"/>
@@ -898,7 +898,7 @@
 					</valueCodeableConcept>
 				</useContext>
 				<useContext>
-					<!--  New format ServiceId  -->
+					
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
 						<code value="workflow"/>
@@ -953,13 +953,13 @@
 			<MessageDefinition xmlns="http://hl7.org/fhir">
 				<id value="95b337c0-9644-4b5e-accf-246636e55905"/>
 				<url value="https://fhir.nhs.uk/MessageDefinition/bars-message-booking-request"/>
-				<!--  This is the version number of Application 1  -->
+				
 				<version value="1.0.0"/>
 				<name value="BARS Message Definition Booking - Request"/>
 				<title value="BARS Message Definition Booking - Request"/>
 				<status value="active"/>
 				<date value="2023-10-16"/>
-				<!--Supports Use-Case Category a1t1 : 111 - ED-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -973,7 +973,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a1t2 : 111 - UTC -->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -987,7 +987,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a1t3 : CAS - ED-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -1001,7 +1001,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a1t4 : CAS - UTC-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -1015,7 +1015,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a1t5 : 999 - ED-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -1029,7 +1029,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a1t6 : 999 - UTC-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -1043,7 +1043,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a1t7 : 111 - SDEC-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -1057,7 +1057,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a1t8 : CAS - SDEC-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -1071,7 +1071,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a1t9 : 999 - SDEC-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -1085,7 +1085,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a2t1 : 111 Online - ED-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -1099,7 +1099,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a2t2 : 111 Online - UTC-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -1113,7 +1113,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a2t3 : S and R - ED-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -1127,7 +1127,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a2t4 : S and R - UTC-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -1141,7 +1141,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a3t1 : 999 - CAS Referral-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -1155,7 +1155,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a4t1 : 999 - CAS Validation-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -1169,7 +1169,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a4t2 : 999 - Falls-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -1183,7 +1183,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a4t3 : 999 - Community Services-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -1197,7 +1197,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a5t1 : Primary Care to Pharmacy CPCS Minor Illness-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -1211,7 +1211,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a5t2 : Primary Care to Pharmacy Oral Contraception-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -1225,7 +1225,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a5t3 : Primary Care to Pharmacy Blood Pressure-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -1239,7 +1239,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category referraltopharmacy : Referral to Pharmacy - Deprecated-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -1253,7 +1253,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a6t1 : CAD to CAD Out of Area Referral-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -1267,7 +1267,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a6t2 : CAD to CAD Call Assist Request-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -1281,7 +1281,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a6t3 : CAD to CAD Mutual Aid Request-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -1295,7 +1295,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--  Incorrect format ServiceId (existing) to be maintained  -->
+				
 				<useContext>
 					<code>
 						<system value="https://fhir.nhs.uk/CodeSystem/dos-id"/>
@@ -1309,7 +1309,7 @@
 					</valueCodeableConcept>
 				</useContext>
 				<useContext>
-					<!--  New format ServiceId  -->
+					
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
 						<code value="workflow"/>
@@ -1412,13 +1412,13 @@
 			<MessageDefinition xmlns="http://hl7.org/fhir">
 				<id value="95b337c0-9644-4b5e-accf-246636e55905"/>
 				<url value="https://fhir.nhs.uk/MessageDefinition/bars-message-booking-request-cancelled"/>
-				<!--  This is the version number of Application 1  -->
+				
 				<version value="1.0.0"/>
 				<name value="BARS Message Definition Booking - Request - Cancelled"/>
 				<title value="BARS Message Definition Booking - Request - Cancelled"/>
 				<status value="active"/>
 				<date value="2023-10-16"/>
-				<!--Supports Use-Case Category a1t1 : 111 - ED-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -1432,7 +1432,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a1t2 : 111 - UTC -->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -1446,7 +1446,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a1t3 : CAS - ED-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -1460,7 +1460,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a1t4 : CAS - UTC-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -1474,7 +1474,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a1t5 : 999 - ED-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -1488,7 +1488,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a1t6 : 999 - UTC-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -1502,7 +1502,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a1t7 : 111 - SDEC-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -1516,7 +1516,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a1t8 : CAS - SDEC-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -1530,7 +1530,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a1t9 : 999 - SDEC-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -1544,7 +1544,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a2t1 : 111 Online - ED-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -1558,7 +1558,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a2t2 : 111 Online - UTC-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -1572,7 +1572,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a2t3 : S and R - ED-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -1586,7 +1586,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a2t4 : S and R - UTC-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -1600,7 +1600,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a3t1 : 999 - CAS Referral-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -1614,7 +1614,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a4t1 : 999 - CAS Validation-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -1628,7 +1628,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a4t2 : 999 - Falls-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -1642,7 +1642,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a4t3 : 999 - Community Services-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -1656,7 +1656,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a5t1 : Primary Care to Pharmacy CPCS Minor Illness-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -1670,7 +1670,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a5t2 : Primary Care to Pharmacy Oral Contraception-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -1684,7 +1684,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a5t3 : Primary Care to Pharmacy Blood Pressure-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -1698,7 +1698,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category referraltopharmacy : Referral to Pharmacy - Deprecated-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -1712,7 +1712,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a6t1 : CAD to CAD Out of Area Referral-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -1726,7 +1726,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a6t2 : CAD to CAD Call Assist Request-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -1740,7 +1740,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a6t3 : CAD to CAD Mutual Aid Request-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -1754,7 +1754,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--  Incorrect format ServiceId (existing) to be maintained  -->
+				
 				<useContext>
 					<code>
 						<system value="https://fhir.nhs.uk/CodeSystem/dos-id"/>
@@ -1768,7 +1768,7 @@
 					</valueCodeableConcept>
 				</useContext>
 				<useContext>
-					<!--  New format ServiceId  -->
+					
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
 						<code value="workflow"/>
@@ -1823,13 +1823,13 @@
 			<MessageDefinition xmlns="http://hl7.org/fhir">
 				<id value="2a2ff4ff-47cd-4094-a95e-e8179e6f48b8"/>
 				<url value="https://fhir.nhs.uk/MessageDefinition/bars-message-servicerequest-response-referral"/>
-				<!--  This is the version number of Application 6 (currently in development on Simplifier)  -->
-				<version value="1.0.0-beta"/>
+				
+				<version value="1.0.0"/>
 				<name value="BARS Message Definition ServiceRequest - Response Referral"/>
 				<title value="BARS Message Definition ServiceRequest - Response Referral"/>
 				<status value="active"/>
 				<date value="2023-10-16"/>
-				<!--Supports Use-Case Category a1t1 : 111 - ED-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -1843,7 +1843,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a1t2 : 111 - UTC -->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -1857,7 +1857,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a1t3 : CAS - ED-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -1871,7 +1871,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a1t4 : CAS - UTC-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -1885,7 +1885,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a1t5 : 999 - ED-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -1899,7 +1899,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a1t6 : 999 - UTC-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -1913,7 +1913,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a1t7 : 111 - SDEC-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -1927,7 +1927,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a1t8 : CAS - SDEC-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -1941,7 +1941,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a1t9 : 999 - SDEC-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -1955,7 +1955,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a2t1 : 111 Online - ED-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -1969,7 +1969,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a2t2 : 111 Online - UTC-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -1983,7 +1983,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a2t3 : S and R - ED-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -1997,7 +1997,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a2t4 : S and R - UTC-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -2011,7 +2011,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a3t1 : 999 - CAS Referral-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -2025,7 +2025,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a4t1 : 999 - CAS Validation-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -2039,7 +2039,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a4t2 : 999 - Falls-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -2053,7 +2053,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a4t3 : 999 - Community Services-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -2067,7 +2067,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a5t1 : Primary Care to Pharmacy CPCS Minor Illness-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -2081,7 +2081,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a5t2 : Primary Care to Pharmacy Oral Contraception-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -2095,7 +2095,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a5t3 : Primary Care to Pharmacy Blood Pressure-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -2109,7 +2109,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category referraltopharmacy : Referral to Pharmacy - Deprecated-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -2123,7 +2123,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a6t1 : CAD to CAD Out of Area Referral-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -2137,7 +2137,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a6t2 : CAD to CAD Call Assist Request-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -2151,7 +2151,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a6t3 : CAD to CAD Mutual Aid Request-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -2165,7 +2165,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--  Incorrect format ServiceId (existing) to be maintained  -->
+				
 				<useContext>
 					<code>
 						<system value="https://fhir.nhs.uk/CodeSystem/dos-id"/>
@@ -2179,7 +2179,7 @@
 					</valueCodeableConcept>
 				</useContext>
 				<useContext>
-					<!--  New format ServiceId  -->
+					
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
 						<code value="workflow"/>
@@ -2330,13 +2330,13 @@
 			<MessageDefinition xmlns="http://hl7.org/fhir">
 				<id value="7731af63-04ed-47d9-8f05-e510dece3b3f"/>
 				<url value="https://fhir.nhs.uk/MessageDefinition/bars-message-servicerequest-request-validation"/>
-				<!--  This is the version number of Application 4  -->
+				
 				<version value="1.1.0"/>
 				<name value="BARS Message Definition ServiceRequest - Request Validation"/>
 				<title value="BARS Message Definition ServiceRequest - Request Validation"/>
 				<status value="active"/>
 				<date value="2024-02-26"/>
-				<!--Supports Use-Case Category a1t1 : 111 - ED-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -2350,7 +2350,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a1t2 : 111 - UTC -->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -2364,7 +2364,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a1t3 : CAS - ED-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -2378,7 +2378,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a1t4 : CAS - UTC-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -2392,7 +2392,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a1t5 : 999 - ED-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -2406,7 +2406,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a1t6 : 999 - UTC-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -2420,7 +2420,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a1t7 : 111 - SDEC-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -2434,7 +2434,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a1t8 : CAS - SDEC-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -2448,7 +2448,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a1t9 : 999 - SDEC-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -2462,7 +2462,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a2t1 : 111 Online - ED-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -2476,7 +2476,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a2t2 : 111 Online - UTC-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -2490,7 +2490,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a2t3 : S and R - ED-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -2504,7 +2504,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a2t4 : S and R - UTC-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -2518,7 +2518,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a3t1 : 999 - CAS Referral-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -2532,7 +2532,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a4t1 : 999 - CAS Validation-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -2546,7 +2546,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a4t2 : 999 - Falls-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -2560,7 +2560,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a4t3 : 999 - Community Services-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -2574,7 +2574,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a5t1 : Primary Care to Pharmacy CPCS Minor Illness-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -2588,7 +2588,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a5t2 : Primary Care to Pharmacy Oral Contraception-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -2602,7 +2602,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a5t3 : Primary Care to Pharmacy Blood Pressure-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -2616,7 +2616,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category referraltopharmacy : Referral to Pharmacy - Deprecated-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -2630,7 +2630,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a6t1 : CAD to CAD Out of Area Referral-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -2644,7 +2644,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a6t2 : CAD to CAD Call Assist Request-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -2658,7 +2658,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a6t3 : CAD to CAD Mutual Aid Request-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -2672,7 +2672,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--  Incorrect format ServiceId (existing) to be maintained  -->
+				
 				<useContext>
 					<code>
 						<system value="https://fhir.nhs.uk/CodeSystem/dos-id"/>
@@ -2686,7 +2686,7 @@
 					</valueCodeableConcept>
 				</useContext>
 				<useContext>
-					<!--  New format ServiceId  -->
+					
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
 						<code value="workflow"/>
@@ -2813,13 +2813,13 @@
 			<MessageDefinition xmlns="http://hl7.org/fhir">
 				<id value="15b429dc-2464-42ca-b401-4c2a5e8320aa"/>
 				<url value="https://fhir.nhs.uk/MessageDefinition/bars-message-servicerequest-response-validation-full"/>
-				<!--  This is the version number of Application 4  -->
+				
 				<version value="1.1.0"/>
 				<name value="BARS Message Definition ServiceRequest - Response Validation Full"/>
 				<title value="BARS Message Definition ServiceRequest - Response Validation Full"/>
 				<status value="active"/>
 				<date value="2023-10-16"/>
-				<!--Supports Use-Case Category a1t1 : 111 - ED-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -2833,7 +2833,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a1t2 : 111 - UTC -->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -2847,7 +2847,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a1t3 : CAS - ED-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -2861,7 +2861,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a1t4 : CAS - UTC-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -2875,7 +2875,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a1t5 : 999 - ED-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -2889,7 +2889,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a1t6 : 999 - UTC-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -2903,7 +2903,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a1t7 : 111 - SDEC-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -2917,7 +2917,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a1t8 : CAS - SDEC-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -2931,7 +2931,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a1t9 : 999 - SDEC-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -2945,7 +2945,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a2t1 : 111 Online - ED-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -2959,7 +2959,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a2t2 : 111 Online - UTC-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -2973,7 +2973,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a2t3 : S and R - ED-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -2987,7 +2987,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a2t4 : S and R - UTC-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -3001,7 +3001,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a3t1 : 999 - CAS Referral-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -3015,7 +3015,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a4t1 : 999 - CAS Validation-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -3029,7 +3029,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a4t2 : 999 - Falls-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -3043,7 +3043,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a4t3 : 999 - Community Services-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -3057,7 +3057,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a5t1 : Primary Care to Pharmacy CPCS Minor Illness-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -3071,7 +3071,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a5t2 : Primary Care to Pharmacy Oral Contraception-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -3085,7 +3085,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a5t3 : Primary Care to Pharmacy Blood Pressure-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -3099,7 +3099,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category referraltopharmacy : Referral to Pharmacy - Deprecated-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -3113,7 +3113,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a6t1 : CAD to CAD Out of Area Referral-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -3127,7 +3127,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a6t2 : CAD to CAD Call Assist Request-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -3141,7 +3141,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a6t3 : CAD to CAD Mutual Aid Request-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -3155,7 +3155,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--  Incorrect format ServiceId (existing) to be maintained  -->
+				
 				<useContext>
 					<code>
 						<system value="https://fhir.nhs.uk/CodeSystem/dos-id"/>
@@ -3169,7 +3169,7 @@
 					</valueCodeableConcept>
 				</useContext>
 				<useContext>
-					<!--  New format ServiceId  -->
+					
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
 						<code value="workflow"/>
@@ -3296,13 +3296,13 @@
 			<MessageDefinition xmlns="http://hl7.org/fhir">
 				<id value="15b429dc-2464-42ca-b401-4c2a5e8320bb"/>
 				<url value="https://fhir.nhs.uk/MessageDefinition/bars-message-servicerequest-response-validation-interim"/>
-				<!--  This is the version number of Application 4  -->
+				
 				<version value="1.1.0"/>
 				<name value="BARS Message Definition ServiceRequest - Response Validation Interim"/>
 				<title value="BARS Message Definition ServiceRequest - Response Validation Interim"/>
 				<status value="active"/>
 				<date value="2024-01-11"/>
-				<!--Supports Use-Case Category a1t1 : 111 - ED-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -3316,7 +3316,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a1t2 : 111 - UTC -->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -3330,7 +3330,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a1t3 : CAS - ED-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -3344,7 +3344,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a1t4 : CAS - UTC-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -3358,7 +3358,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a1t5 : 999 - ED-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -3372,7 +3372,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a1t6 : 999 - UTC-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -3386,7 +3386,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a1t7 : 111 - SDEC-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -3400,7 +3400,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a1t8 : CAS - SDEC-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -3414,7 +3414,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a1t9 : 999 - SDEC-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -3428,7 +3428,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a2t1 : 111 Online - ED-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -3442,7 +3442,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a2t2 : 111 Online - UTC-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -3456,7 +3456,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a2t3 : S and R - ED-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -3470,7 +3470,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a2t4 : S and R - UTC-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -3484,7 +3484,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a3t1 : 999 - CAS Referral-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -3498,7 +3498,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a4t1 : 999 - CAS Validation-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -3512,7 +3512,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a4t2 : 999 - Falls-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -3526,7 +3526,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a4t3 : 999 - Community Services-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -3540,7 +3540,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a5t1 : Primary Care to Pharmacy CPCS Minor Illness-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -3554,7 +3554,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a5t2 : Primary Care to Pharmacy Oral Contraception-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -3568,7 +3568,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a5t3 : Primary Care to Pharmacy Blood Pressure-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -3582,7 +3582,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category referraltopharmacy : Referral to Pharmacy - Deprecated-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -3596,7 +3596,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a6t1 : CAD to CAD Out of Area Referral-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -3610,7 +3610,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a6t2 : CAD to CAD Call Assist Request-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -3624,7 +3624,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a6t3 : CAD to CAD Mutual Aid Request-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -3638,7 +3638,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--  Incorrect format ServiceId (existing) to be maintained  -->
+				
 				<useContext>
 					<code>
 						<system value="https://fhir.nhs.uk/CodeSystem/dos-id"/>
@@ -3652,7 +3652,7 @@
 					</valueCodeableConcept>
 				</useContext>
 				<useContext>
-					<!--  New format ServiceId  -->
+					
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
 						<code value="workflow"/>
@@ -3731,13 +3731,13 @@
 			<MessageDefinition xmlns="http://hl7.org/fhir">
 				<id value="c925d2af-2903-4760-a6fc-31fb315dd310"/>
 				<url value="https://fhir.nhs.uk/MessageDefinition/bars-message-servicerequest-response-referral-short"/>
-				<!--  This is the version number of Application (currently in development on Simplifier)  -->
-				<version value="1.0.0-beta"/>
+				
+				<version value="1.0.0"/>
 				<name value="BARS Message Definition ServiceRequest - Response Referral Short"/>
 				<title value="BARS Message Definition ServiceRequest - Response Referral Short"/>
 				<status value="active"/>
 				<date value="2024-06-17"/>
-				<!--Supports Use-Case Category a1t1 : 111 - ED-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -3751,7 +3751,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a1t2 : 111 - UTC -->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -3765,7 +3765,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a1t3 : CAS - ED-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -3779,7 +3779,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a1t4 : CAS - UTC-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -3793,7 +3793,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a1t5 : 999 - ED-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -3807,7 +3807,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a1t6 : 999 - UTC-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -3821,7 +3821,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a1t7 : 111 - SDEC-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -3835,7 +3835,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a1t8 : CAS - SDEC-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -3849,7 +3849,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a1t9 : 999 - SDEC-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -3863,7 +3863,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a2t1 : 111 Online - ED-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -3877,7 +3877,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a2t2 : 111 Online - UTC-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -3891,7 +3891,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a2t3 : S and R - ED-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -3905,7 +3905,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a2t4 : S and R - UTC-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -3919,7 +3919,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a3t1 : 999 - CAS Referral-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -3933,7 +3933,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a4t1 : 999 - CAS Validation-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -3947,7 +3947,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a4t2 : 999 - Falls-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -3961,7 +3961,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a4t3 : 999 - Community Services-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -3975,7 +3975,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a5t1 : Primary Care to Pharmacy CPCS Minor Illness-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -3989,7 +3989,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a5t2 : Primary Care to Pharmacy Oral Contraception-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -4003,7 +4003,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a5t3 : Primary Care to Pharmacy Blood Pressure-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -4017,7 +4017,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category referraltopharmacy : Referral to Pharmacy - Deprecated-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -4031,7 +4031,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a6t1 : CAD to CAD Out of Area Referral-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -4045,7 +4045,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a6t2 : CAD to CAD Call Assist Request-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -4059,7 +4059,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--Supports Use-Case Category a6t3 : CAD to CAD Mutual Aid Request-->
+				
 				<useContext>
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -4073,7 +4073,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</useContext>
-				<!--  Incorrect format ServiceId (existing) to be maintained  -->
+				
 				<useContext>
 					<code>
 						<system value="https://fhir.nhs.uk/CodeSystem/dos-id"/>
@@ -4087,7 +4087,7 @@
 					</valueCodeableConcept>
 				</useContext>
 				<useContext>
-					<!--  New format ServiceId  -->
+					
 					<code>
 						<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
 						<code value="workflow"/>
@@ -4158,7 +4158,7 @@
 					<max value="*"/>
 				</focus>
 				<focus>
-					<!-- this is a bad resource which shouldn't be accepted -->
+					
 					<code value="Invoice"/>
 					<profile value="https://fhir.hl7.org.uk/StructureDefinition/Invoice"/>
 					<min value="1"/>
