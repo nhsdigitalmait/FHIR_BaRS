@@ -24,7 +24,7 @@
 				<date value="2024-04-26"/>
 				<useContext>
 					<code>
-						<system value="https://fhir.nhs.uk/CodeSystem/dos-id"/>
+						<system value="https://fhir.nhs.uk/Id/dos-service-id"/>
 						<code value="__DOSID__"/>
 					</code>
 					<valueCodeableConcept>
@@ -41,7 +41,7 @@
 					</code>
 					<valueCodeableConcept>
 						<coding>
-							<system value="https://fhir.nhs.uk/CodeSystem/dos-id"/>
+							<system value="https://fhir.nhs.uk/Id/dos-service-id"/>
 							<code value="__DOSID__"/>
 						</coding>
 					</valueCodeableConcept>
@@ -223,7 +223,7 @@
 				<date value="2024-06-17"/>
 				<useContext>
 					<code>
-						<system value="https://fhir.nhs.uk/CodeSystem/dos-id"/>
+						<system value="https://fhir.nhs.uk/Id/dos-service-id"/>
 						<code value="__DOSID__"/>
 					</code>
 					<valueCodeableConcept>
@@ -240,7 +240,7 @@
 					</code>
 					<valueCodeableConcept>
 						<coding>
-							<system value="https://fhir.nhs.uk/CodeSystem/dos-id"/>
+							<system value="https://fhir.nhs.uk/Id/dos-service-id"/>
 							<code value="__DOSID__"/>
 						</coding>
 					</valueCodeableConcept>
@@ -332,7 +332,7 @@
 				<date value="2023-10-16"/>
 				<useContext>
 					<code>
-						<system value="https://fhir.nhs.uk/CodeSystem/dos-id"/>
+						<system value="https://fhir.nhs.uk/Id/dos-service-id"/>
 						<code value="__DOSID__"/>
 					</code>
 					<valueCodeableConcept>
@@ -349,7 +349,7 @@
 					</code>
 					<valueCodeableConcept>
 						<coding>
-							<system value="https://fhir.nhs.uk/CodeSystem/dos-id"/>
+							<system value="https://fhir.nhs.uk/Id/dos-service-id"/>
 							<code value="__DOSID__"/>
 						</coding>
 					</valueCodeableConcept>

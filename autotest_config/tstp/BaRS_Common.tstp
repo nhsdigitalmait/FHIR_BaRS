@@ -351,8 +351,8 @@ responseisbundle_extracting_validation_serviceid synchronousxpath /fhir:Bundle e
 
 bundleidscorrelate synchronousxpathcorrelationcheck /fhir:Bundle/fhir:id/@value
 
-new_format_serviceid_present synchronousxpath boolean(count(//fhir:MessageDefinition)=count(//fhir:MessageDefinition/fhir:useContext[fhir:valueCodeableConcept/fhir:coding[fhir:system/@value='https://fhir.nhs.uk/CodeSystem/dos-id']/fhir:code/@value][fhir:code/fhir:system/@value='http://terminology.hl7.org/CodeSystem/usage-context-type'])) matches "^true$"
-old_format_serviceid_present synchronousxpath boolean(count(//fhir:MessageDefinition)=count(//fhir:MessageDefinition/fhir:useContext[fhir:code[fhir:system/@value='https://fhir.nhs.uk/CodeSystem/dos-id']/fhir:code/@value][fhir:valueCodeableConcept/fhir:coding/fhir:system/@value='http://terminology.hl7.org/CodeSystem/variant-state'])) matches "^true$"
+new_format_serviceid_present synchronousxpath boolean(count(//fhir:MessageDefinition)=count(//fhir:MessageDefinition/fhir:useContext[fhir:valueCodeableConcept/fhir:coding[fhir:system/@value='https://fhir.nhs.uk/Id/dos-service-id']/fhir:code/@value][fhir:code/fhir:system/@value='http://terminology.hl7.org/CodeSystem/usage-context-type'])) matches "^true$"
+old_format_serviceid_present synchronousxpath boolean(count(//fhir:MessageDefinition)=count(//fhir:MessageDefinition/fhir:useContext[fhir:code[fhir:system/@value='https://fhir.nhs.uk/Id/dos-service-id']/fhir:code/@value][fhir:valueCodeableConcept/fhir:coding/fhir:system/@value='http://terminology.hl7.org/CodeSystem/variant-state'])) matches "^true$"
 
 END PASSFAIL
 
