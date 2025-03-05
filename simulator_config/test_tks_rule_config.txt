@@ -88,6 +88,7 @@ ReferralResponse_HappyPath_Response	TKW_ROOT/config/FHIR_BaRS/simulator_config/B
 ValidationServiceRequest_HappyPath_Response TKW_ROOT/config/FHIR_BaRS/simulator_config/BaRS_Validation/999_to_CAS_Validation_ServiceRequest_Response.xml "200 OK" WITH_HTTP_HEADERS ( X-Request-Id : "__XREQID_ECHO__" X-Correlation-Id : "__XCORRID_ECHO__" Date : "__RFC822TIMESTAMP__" )
 
 ReferralServiceRequest_HappyPath_Response TKW_ROOT/config/FHIR_BaRS/simulator_config/BaRS_Referral/Referral_ServiceRequest_Response.xml "200 OK" WITH_HTTP_HEADERS ( X-Request-Id : "__XREQID_ECHO__" X-Correlation-Id : "__XCORRID_ECHO__" Date : "__RFC822TIMESTAMP__" )
+ReferralServiceRequest_HappyPath_Response_APP5 TKW_ROOT/config/FHIR_BaRS/simulator_config/BaRS_Referral/Referral_ServiceRequest_Response_APP5.xml "200 OK" WITH_HTTP_HEADERS ( X-Request-Id : "__XREQID_ECHO__" X-Correlation-Id : "__XCORRID_ECHO__" Date : "__RFC822TIMESTAMP__" )
 
 BookingAppointment_HappyPath_Response TKW_ROOT/config/FHIR_BaRS/simulator_config/BaRS_Booking/Booking_Appointment_Response.xml "200 OK" WITH_HTTP_HEADERS ( X-Request-Id : "__XREQID_ECHO__" X-Correlation-Id : "__XCORRID_ECHO__" Date : "__RFC822TIMESTAMP__" )
 
@@ -222,7 +223,7 @@ VALIDATIONSERVICEREQUEST001				context_path matches ^.*/R4/ServiceRequest/0b42ea
 VALIDATIONSERVICEREQUEST408				context_path matches ^.*/R4/ServiceRequest/9e595424-9d67-45db-9a90-03259653cd37.*$
 VALIDATIONSERVICEREQUEST501				context_path matches ^.*/R4/ServiceRequest/c337e8d8-fd5b-4a13-a8e4-0f6f4ac1bb1a.*$
 
-REFERRALSERVICEREQUEST001				context_path matches ^.*/R4/ServiceRequest/79120f41-a431-4f08-bcc5-1e67006fcae0.*$
+REFERRALSERVICEREQUESTAPP5				context_path matches ^.*/R4/ServiceRequest/79120f41-a431-4f08-bcc5-1e67006fcae0.*$
 REFERRALSERVICEREQUEST405				context_path matches ^.*/R4/ServiceRequest/61215702-0049-4d76-9807-2123f0a6ca15.*$
 REFERRALSERVICEREQUEST429				context_path matches ^.*/R4/ServiceRequest/9d280ad9-6dda-46d2-a75e-f5b47b2f4e87.*$
 REFERRALSERVICEREQUEST503				context_path matches ^.*/R4/ServiceRequest/4d65ddaa-4d09-41cd-87c9-aeb9c0c96352.*$
@@ -474,7 +475,7 @@ IF	METADATA													THEN	Capability_HappyPath_Response				ELSE	NEXT
 IF	SERVICEREQUEST	AND	VALIDATIONSERVICEREQUEST001						THEN	ValidationServiceRequest_HappyPath_Response	ELSE	NEXT
 IF	SERVICEREQUEST	AND	VALIDATIONSERVICEREQUEST408						THEN	Operation_Outcome_408						ELSE	NEXT
 IF	SERVICEREQUEST	AND	VALIDATIONSERVICEREQUEST501						THEN	Operation_Outcome_501						ELSE	NEXT
-IF	SERVICEREQUEST	AND	REFERRALSERVICEREQUEST001						THEN	ReferralServiceRequest_HappyPath_Response	ELSE	NEXT
+IF	SERVICEREQUEST	AND	REFERRALSERVICEREQUESTAPP5						THEN	ReferralServiceRequest_HappyPath_Response_APP5	ELSE	NEXT
 IF	SERVICEREQUEST	AND	REFERRALSERVICEREQUEST405						THEN	Operation_Outcome_405						ELSE	NEXT
 IF	SERVICEREQUEST	AND	REFERRALSERVICEREQUEST429						THEN	Operation_Outcome_429						ELSE	NEXT
 IF	SERVICEREQUEST	AND	REFERRALSERVICEREQUEST503						THEN	Operation_Outcome_503						ELSE	NEXT
