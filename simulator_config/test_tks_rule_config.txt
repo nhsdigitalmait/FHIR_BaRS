@@ -237,12 +237,12 @@ BOOKINGAPPOINTMENT501				context_path matches ^.*/R4/Appointment/0d440c22-7f25-4
 #HappyPath NoSlots 			2000073917
 #HappyPath Only Slots			1503499715
 #HTTP 408 				2000081230
-HEALTHCARESERVICE2000072489		context_path matches ^.*Schedule.actor:HealthcareService=2000072489.*$
-HEALTHCARESERVICE2000071234		context_path matches ^.*Schedule.actor%:HealthcareService=2000071234.*$
-HEALTHCARESERVICE2000073917		context_path matches ^.*Schedule.actor:HealthcareService=2000073917.*$
-HEALTHCARESERVICE1503499715		context_path matches ^.*Schedule.actor:HealthcareService=1503499715.*$
-HEALTHCARESERVICE2000081230		context_path matches ^.*Schedule.actor:HealthcareService=2000081230.*$
-HEALTHCARESERVICE2000011147		context_path matches ^.*Schedule.actor:HealthcareService=2000011147.*$
+HEALTHCARESERVICE2000072489		context_path matches ^.*2000072489.*$
+HEALTHCARESERVICE2000071234		context_path matches ^.*2000071234.*$
+HEALTHCARESERVICE2000073917		context_path matches ^.*2000073917.*$
+HEALTHCARESERVICE1503499715		context_path matches ^.*1503499715.*$
+HEALTHCARESERVICE2000081230		context_path matches ^.*2000081230.*$
+HEALTHCARESERVICE2000011147		context_path matches ^.*2000011147.*$
 
 # sentinel values for CSs (capability statements)
 DOSID2000011147 http_header b64 NHSD-Target-Identifier jsonpathequals $.value 2000011147
@@ -301,6 +301,10 @@ PATIENT9728928254	xpathmatches //fhir:Bundle/fhir:entry/fhir:resource/fhir:Patie
 #Validation specific Patient Sentinels
 VAL_PATIENT409			xpathmatches //fhir:Bundle/fhir:entry/fhir:resource/fhir:Patient/fhir:identifier/fhir:value/@value 9658499112
 VAL_PATIENT422			xpathmatches //fhir:Bundle/fhir:entry/fhir:resource/fhir:Patient/fhir:identifier/fhir:value/@value 9658499120
+
+
+#Generic rule for cancellation requests to return the request Bundle
+SR_CANCELLATION_MD	xpathmatches //fhir:Bundle/fhir:entry/fhir:resource/fhir:MessageHeader/fhir:definition/@value https://fhir.nhs.uk/MessageDefinition/bars-message-servicerequest-request-cancelled
 
 
 #PATIENTBOOKANDREF	xpathmatches //fhir:Bundle/fhir:entry/fhir:resource/fhir:Patient/fhir:identifier/fhir:value/@value 9658499007
@@ -400,6 +404,8 @@ IF	SR_CATEGORY_REFERRAL AND SR_CATEGORY_CODE_CADTOCAD AND SR_FULLURL_CADTOCAD_SC
 IF	SR_CATEGORY_REFERRAL AND SR_CATEGORY_CODE_CADTOCAD AND SR_FULLURL_CADTOCAD_SC1	THEN	ReferralRequest_HappyPath_for_CADtoCAD_Updates_Response ELSE NEXT
 IF	SR_CATEGORY_REFERRAL AND SR_CATEGORY_CODE_CADTOCAD AND SR_FULLURL_CADTOCAD_SC2	THEN	ReferralRequest_HappyPath_for_CADtoCAD_Updates_Response ELSE NEXT
 #IF	SR_CATEGORY_REFERRAL AND SR_CATEGORY_CODE_CADTOCAD AND SR_FULLURL_CADTOCAD_SC3	THEN	ReferralRequest_HappyPath_Response ELSE NEXT
+
+IF      SR_CATEGORY_REFERRAL AND SR_CANCELLATION_MD THEN ReferralResponse_HappyPath_Response ELSE NEXT
 
 #Catch all Referral response
 IF	SR_CATEGORY_REFERRAL	THEN	ReferralRequest_HappyPath_Response ELSE NEXT

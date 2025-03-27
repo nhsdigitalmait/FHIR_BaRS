@@ -232,7 +232,7 @@
         <fullUrl value="urn:uuid:deb4c4b3-870b-4599-84df-5e54cef7afda" />
         <resource>
             <Slot>
-                <id value="__SLOT_ID____APPT_SLOT_ID__" />
+                <id value="__SLOT_ID____IDENTIFIER_VALUE____APPT_SLOT_ID__" />
                 <meta>
                     <lastUpdated value="2021-10-11T15:01:30.8185338+00:00" />
                     <profile value="http://hl7.org/fhir/StructureDefinition/Slot" />

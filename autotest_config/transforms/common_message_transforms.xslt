@@ -8,6 +8,18 @@
 
 	<xsl:variable name="newbundleid" select="lower-case(document('http://localhost:8001/getuuid?bundleid')/uuid/text())"/>
 
+	
+	
+	
+	<xsl:template match="fhir:Slot/fhir:id/@value">
+		<xsl:variable name="slotid" select="."/>
+		<xsl:attribute name="value">
+			<xsl:value-of select="substring($slotid,0,37)"/>
+		</xsl:attribute>
+	</xsl:template>
+		
+	
+	
 	<xsl:template match="fhir:Bundle/fhir:id/@value">
 		<xsl:if test="not($newbundleid)">
 			<xsl:message>WARNING uuid is empty is uuid handler running on port 8001?</xsl:message>
@@ -16,6 +28,17 @@
 			<xsl:value-of select="$newbundleid"/>
 		</xsl:attribute>
 	</xsl:template>
+	
+	<xsl:template match="fhir:Bundle/fhir:id/@value">
+		<xsl:if test="not($newbundleid)">
+			<xsl:message>WARNING uuid is empty is uuid handler running on port 8001?</xsl:message>
+		</xsl:if>
+		<xsl:attribute name="value">
+			<xsl:value-of select="$newbundleid"/>
+		</xsl:attribute>
+	</xsl:template>
+
+
 
 	<!-- match all atts all nodes -->
 	<xsl:template match="@*|node()">

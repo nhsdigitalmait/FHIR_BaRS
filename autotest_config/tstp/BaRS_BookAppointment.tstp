@@ -5,6 +5,10 @@
 SCRIPT BaRS_BookAppointment
 
 BEGIN SCHEDULES
+
+#TEST ADDED BY CHBE
+BookAppointment_ExtractorTest TESTS SFFSWithValidParameters_3_days_1 ResponseIsBundleExtracting1 
+
 # valid date ranges this tests populates the slot 1 tdv including the etag from the successful book, contact telecom is removed for happy path
 BookAppointment_HappyPath TESTS SFFSWithValidParameters_3_days_1 ResponseIsBundleExtracting1 BookAppointment ResponseIsAppointmentExtracting1 IntegrityRequestIDHeaderIsPresent IntegrityCorrelationIDHeaderIsPresent IntegrityRequestIDHeadersMatch IntegrityCorrelationIDHeadersMatch BundleIDsCorrelate AppointmentIsBooked AppointmentHasId 
 
