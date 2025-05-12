@@ -64,11 +64,13 @@
                     <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-Appointment" />
                 </meta>
                 <status value="booked" />
-                <coding>
-                   <system value="https://fhir.nhs.uk/CodeSystem/usecases-categories-bars" />
-                   <code value="a1t1" />
-                   <display value="111 to ED" />
-                </coding>                
+                <serviceCategory>
+                    <coding>
+                       <system value="https://fhir.nhs.uk/CodeSystem/usecases-categories-bars" />
+                       <code value="a1t1" />
+                       <display value="111 to ED" />
+                    </coding>
+                </serviceCategory>                
                 <description value="Reason for calling-" />
                 <start value="__START_DATE____APPT_START_DATE__" />
                 <end value="__END_DATE____APPT_END_DATE__" />

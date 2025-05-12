@@ -83,6 +83,7 @@ ValidationResponse_HappyPath_Response	TKW_ROOT/config/FHIR_BaRS/simulator_config
 
 ReferralResponse_HappyPath_Response	TKW_ROOT/config/FHIR_BaRS/simulator_config/BaRS_Referral/ReferralResponse_Response.xml "200 OK"  WITH_HTTP_HEADERS ( X-Request-Id : "__XREQID_ECHO__" X-Correlation-Id : "__XCORRID_ECHO__" Date : "__RFC822TIMESTAMP__" )
 
+echotest_response	TKW_ROOT/config/FHIR_BaRS/simulator_config/BaRS_Referral/ReferralResponse_Response.xml "200 OK"  WITH_HTTP_HEADERS ( X-Request-Id : "__XREQID_ECHO__" X-Correlation-Id : "__XCORRID_ECHO__" Date : "__RFC822TIMESTAMP__" )
 
 
 ValidationServiceRequest_HappyPath_Response TKW_ROOT/config/FHIR_BaRS/simulator_config/BaRS_Validation/999_to_CAS_Validation_ServiceRequest_Response.xml "200 OK" WITH_HTTP_HEADERS ( X-Request-Id : "__XREQID_ECHO__" X-Correlation-Id : "__XCORRID_ECHO__" Date : "__RFC822TIMESTAMP__" )
@@ -174,6 +175,7 @@ END SUBSTITUTIONS
 # all the "match/contains" rules apply to the content by default to use eg the context path it must be specified as context_path
 BEGIN EXPRESSIONS
 
+ECHOTEST						http_header echo matches ^.+$
 FREEONLY						context_path matches ^.*&status=free&.*$|^.*&status=free$
 FREEANDBUSY						context_path matches ^.*&status=free%2Cbusy&.*$|^.*&status=free%2Cbusy$|^.*&status=busy%2Cfree&.*$|^.*&status=busy%2Cfree$
 HEALTHCARESERVICE_MISSING		context_path notcontains Schedule.actor%3AHealthcareService
@@ -340,7 +342,7 @@ END EXPRESSIONS
 
 BEGIN RULE
 POST+urn:nhs:names:services:bars:fhir:messaging:new:servicerequest-request
-#IF  UNAUTH_ORG	THEN	Operation_Outcome_401 ELSE NEXT
+IF  ECHOTEST	THEN	echotest_response	ELSE NEXT
 IF	SR_CATEGORY_REFERRAL	AND	NO_USECASECATEGORY 	THEN	Operation_Outcome_400 ELSE NEXT
 IF	SR_CATEGORY_VALIDATION	AND	NO_USECASECATEGORY 	THEN	Operation_Outcome_400 ELSE NEXT
 IF	SR_CATEGORY_REFERRAL	AND	INVALID_USECASECATEGORY 	THEN	Operation_Outcome_400 ELSE NEXT
@@ -389,6 +391,7 @@ END RULE
 
 BEGIN RULE
 POST+urn:nhs:names:services:bars:fhir:messaging:update:servicerequest-request
+IF  ECHOTEST	THEN	echotest_response	ELSE NEXT
 IF	SR_CATEGORY_VALIDATION	THEN	ValidationRequest_HappyPath_Response ELSE NEXT
 
 # 111toED - Referral Created / Cancel Referral Request
@@ -415,6 +418,7 @@ END RULE
 
 BEGIN RULE
 POST+urn:nhs:names:services:bars:fhir:messaging:new:servicerequest-response
+IF  ECHOTEST	THEN	echotest_response	ELSE NEXT
 IF	SR_CATEGORY_VALIDATION	AND	PATIENT401	THEN	Operation_Outcome_401 ELSE NEXT
 IF	SR_CATEGORY_VALIDATION					THEN	ValidationResponse_HappyPath_Response ELSE NEXT
 IF	SR_CATEGORY_REFERRAL	AND	PATIENT401	THEN	Operation_Outcome_401 ELSE NEXT
@@ -424,6 +428,7 @@ END RULE
 
 BEGIN RULE
 POST+urn:nhs:names:services:bars:fhir:messaging:update:servicerequest-response
+IF  ECHOTEST	THEN	echotest_response	ELSE NEXT
 IF	SR_CATEGORY_VALIDATION	THEN	ValidationResponse_HappyPath_Response ELSE NEXT
 IF	SR_CATEGORY_REFERRAL	THEN	ReferralResponse_HappyPath_Response ELSE NEXT
 IF passthrough THEN notFound_Response
@@ -431,6 +436,7 @@ END RULE
 
 BEGIN RULE
 POST+urn:nhs:names:services:bars:fhir:messaging:new:booking-request
+IF  ECHOTEST	THEN	echotest_response	ELSE NEXT
 IF TWOAPPOINTMENTS THEN Operation_Outcome_400_invariant ELSE NEXT
 IF	PATIENT404	AND APPOINTMENT_STATUS_BOOKED		THEN	Operation_Outcome_404 ELSE NEXT
 IF	PATIENT409	AND APPOINTMENT_STATUS_BOOKED		THEN	Operation_Outcome_409 ELSE NEXT
@@ -449,7 +455,7 @@ END RULE
 
 BEGIN RULE
 POST+urn:nhs:names:services:bars:fhir:messaging:update:booking-request
-
+IF  ECHOTEST	THEN	echotest_response	ELSE NEXT
 # 111toED - Referral Created / Cancel a Booking 
 IF	APPOINTMENT_STATUS_CANCELLED	AND PATIENT9728928254	AND 111_TO_ED_Variable_New_Referral_Created	THEN	BookingRequest_HappyPath_Response_3_2 ELSE NEXT
 # 111toED - Appointment Booked / Cancel a Booking 

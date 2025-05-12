@@ -29,3 +29,4 @@ Makefile
 /autotest_config/tstp/TestFileMergerFile.log
 BARSResponseImporter.jar
 /autotest_config/extractor_config/*.tdv
+test_*.*
