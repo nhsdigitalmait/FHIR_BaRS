@@ -106,7 +106,7 @@
                     <reference value="urn:uuid:7d948662-bade-450e-b6c5-9bb6ee39cb56" />
                 </requester>
                 <performer>
-                    <reference value="urn:uuid:d5ffd0cd-ec7e-48a1-84f1-91f4c0eb8fc5" />
+                    <reference value="urn:uuid:d482d092-6efc-4eef-b4a0-730718b1fbfd" />
                 </performer>
                 <patientInstruction value="ADVICE GIVEN: If there are any new symptoms, or if the condition gets worse, changes or you have any other concerns, call us back." />
             </ServiceRequest>
@@ -642,10 +642,6 @@
                 <performer>
                     <reference value="urn:uuid:7d948662-bade-450e-b6c5-9bb6ee39cb56" />
                 </performer>
-                <note>
-                    <authorString value="BLAKE, Marcy" />
-                    <text value="The patient has symptoms concerning the chest which need physical examination" />
-                </note>
             </Observation>
         </resource>
     </entry>
@@ -730,10 +726,6 @@
                 <performer>
                     <reference value="urn:uuid:9589fb37-87a2-48d8-968f-b371429208a8" />
                 </performer>
-                <note>
-                    <authorString value="Mrs Julie Jones" />
-                    <text value="Chest pain on and off for several days. Advised to contact 111" />
-                </note>
             </Observation>
         </resource>
     </entry>
@@ -765,10 +757,6 @@
                 <performer>
                     <reference value="urn:uuid:7d948662-bade-450e-b6c5-9bb6ee39cb56" />
                 </performer>
-                <note>
-                    <authorString value="BLAKE, Marcy" />
-                    <text value="The patient wishes to not be admitted to hospital unless deemed completely necessary. They have long term conditions which are better managed at home" />
-                </note>
             </Observation>
         </resource>
     </entry>

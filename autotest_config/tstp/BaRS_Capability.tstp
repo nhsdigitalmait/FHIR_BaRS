@@ -68,7 +68,7 @@ MessageDefinitionTest_json_accept_CADtoCAD_usecasecode SEND_TKW empty_file TO __
 
 MessageDefinitionTest_no_context SEND_TKW empty_file TO __TO_ENDPOINT__/MessageDefinition FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ SYNC httpstatuscheck400 WITH_PROPERTYSET base+webservices+get WITH_HTTPHEADERS credentials+Oauth2AccessToken+json_accept+integrity TEXT "HTTP Response must be HTTP 400"
 
-MessageDefinitionTest_context_does_not_exist SEND_TKW empty_file TO __TO_ENDPOINT__/MessageDefinition?context=http%3A%2F%2Ffhir.nhs.uk%2FId%2Fdos-service-id%7C99999999999999 FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ SYNC httpstatuscheck404 WITH_PROPERTYSET base+webservices+get WITH_HTTPHEADERS credentials+Oauth2AccessToken+json_accept+integrity TEXT "HTTP Response must be HTTP 404"
+MessageDefinitionTest_context_does_not_exist SEND_TKW empty_file TO __TO_ENDPOINT__/MessageDefinition?context=https%3A%2F%2Ffhir.nhs.uk%2FId%2Fdos-service-id%7C99999999999999 FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ SYNC httpstatuscheck404 WITH_PROPERTYSET base+webservices+get WITH_HTTPHEADERS credentials+Oauth2AccessToken+json_accept+integrity TEXT "HTTP Response must be HTTP 404"
 
 MessageDefinition_context_is_invalid SEND_TKW empty_file TO __TO_ENDPOINT__/MessageDefinition?context=XXXXXXX FROM __FROM_ENDPOINT__:__FROM_ENDPOINT_PORT__ SYNC httpstatuscheck400 WITH_PROPERTYSET base+webservices+get WITH_HTTPHEADERS credentials+Oauth2AccessToken+json_accept+integrity TEXT "HTTP Response must be HTTP 400"
 

@@ -95,6 +95,8 @@ BookingAppointment_HappyPath_Response TKW_ROOT/config/FHIR_BaRS/simulator_config
 
 MessageDefinition_HappyPath_Response TKW_ROOT/config/FHIR_BaRS/simulator_config/BaRS_MessageDefinition/MessageDefinition.xml "200 OK" WITH_HTTP_HEADERS ( X-Request-Id : "__XREQID_ECHO__" X-Correlation-Id : "__XCORRID_ECHO__" Date : "__RFC822TIMESTAMP__" )
 MessageDefinition_bad_resource_Response TKW_ROOT/config/FHIR_BaRS/simulator_config/BaRS_MessageDefinition/MessageDefinition_bad_resource.xml "200 OK" WITH_HTTP_HEADERS ( X-Request-Id : "__XREQID_ECHO__" X-Correlation-Id : "__XCORRID_ECHO__" Date : "__RFC822TIMESTAMP__" )
+
+
 MessageDefinition_HappyPath_BookingAndReferral_Response	TKW_ROOT/config/FHIR_BaRS/simulator_config/BaRS_MessageDefinition/BaRS_MessageDefinition-Booking_and_Referral_Receiver.xml "200 OK" WITH_HTTP_HEADERS ( X-Request-Id : "__XREQID_ECHO__" X-Correlation-Id : "__XCORRID_ECHO__" Date : "__RFC822TIMESTAMP__" )
 MessageDefinition_HappyPath_ReferralReceiver_Response	TKW_ROOT/config/FHIR_BaRS/simulator_config/BaRS_MessageDefinition/BaRS_MessageDefinition-Referral_Receiver.xml "200 OK" WITH_HTTP_HEADERS ( X-Request-Id : "__XREQID_ECHO__" X-Correlation-Id : "__XCORRID_ECHO__" Date : "__RFC822TIMESTAMP__" )
 MessageDefinition_HappyPath_BookingAndReferralSender_Response	TKW_ROOT/config/FHIR_BaRS/simulator_config/BaRS_MessageDefinition/BaRS_MessageDefinition-Booking_and_Referral_Sender.xml "200 OK" WITH_HTTP_HEADERS ( X-Request-Id : "__XREQID_ECHO__" X-Correlation-Id : "__XCORRID_ECHO__" Date : "__RFC822TIMESTAMP__" )
@@ -214,6 +216,10 @@ MESSAGEDEFINITION				context_path matches ^.*/R4/MessageDefinition\?context(=|%3
 MESSAGEDEFINITION401			context_path matches ^.*/R4/MessageDefinition\?context(=|%3D).*dos-service-id(\||%7C)FAIL0401.*$
 MESSAGEDEFINITION404			context_path matches ^.*/R4/MessageDefinition\?context(=|%3D).*dos-service-id(\||%7C)FAIL0404.*$
 MESSAGEDEFINITIONBAD			context_path matches ^.*/R4/MessageDefinition\?context(=|%3D).*dos-service-id(\||%7C)(BAD|2000071898).*$
+
+MESSAGEDEFINITION404_TKW		context_path matches ^.*/R4/MessageDefinition\?context(=|%3D).*(99999999999999|FAIL0401).*$
+MESSAGEDEFINITION400_TKW		context_path matches ^.*/R4/MessageDefinition\?context(=|%3D).*(XXXXXXX|FAIL0404).*$
+
 
 
 #####^.*/R4/MessageDefinition\?context[=|%3D].*$
@@ -493,6 +499,8 @@ IF	SERVICEREQUEST	AND	REFERRALSERVICEREQUEST429						THEN	Operation_Outcome_429	
 IF	SERVICEREQUEST	AND	REFERRALSERVICEREQUEST503						THEN	Operation_Outcome_503						ELSE	NEXT
 IF	APPOINTMENT	AND	BOOKINGAPPOINTMENT501								THEN	Operation_Outcome_501						ELSE	NEXT
 IF	APPOINTMENT															THEN	BookingAppointment_HappyPath_Response		ELSE	NEXT
+IF	MESSAGEDEFINITION400_TKW											THEN	Operation_Outcome_400							ELSE	NEXT
+IF	MESSAGEDEFINITION404_TKW											THEN	Operation_Outcome_404							ELSE	NEXT
 IF	MESSAGEDEFINITION401											THEN	Operation_Outcome_401							ELSE	NEXT
 IF	MESSAGEDEFINITION404											THEN	Operation_Outcome_404							ELSE	NEXT
 IF	MESSAGEDEFINITION	AND	CONTEXT2000011147							THEN	MessageDefinition_HappyPath_BookingAndReferral_Response		ELSE	NEXT
