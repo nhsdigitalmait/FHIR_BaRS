@@ -1,123 +1,1983 @@
 <Bundle xmlns="http://hl7.org/fhir">
-<!--     BOOKREQRESP01  git commit 1458db7    -->
-  <id value="__MESSAGEID__" />
-  <meta>
-    <lastUpdated value="__TIMESTAMP_NO_TZ__.1234567+00:00" />
-    <profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-Bundle" />
-  </meta>
-  <type value="searchset" />
-  <total value="2" />
-  <timestamp value="__TIMESTAMP__" />
-  <link>
-    <relation value="self" />
-    <url value="https://__HOST____FULL_CONTEXT_PATH__" />
-  </link>
-  <entry>
-    <fullUrl value="https://directory.spineservices.nhs.uk/Slot/da83ae28-46f0-4aad-9c54-dcad462cafcb" />
-    <resource>
-      <Slot>
-        <id value="da83ae28-46f0-4aad-9c54-dcad462cafcb" />
-        <meta>
-          <lastUpdated value="__YESTERDAY__T15:01:30.1234567+00:00" />
-          <profile value="http://hl7.org/fhir/StructureDefinition/Slot" />
-        </meta>
-        <serviceCategory>
-          <coding>
-            <code value="14" />
-            <display value="Emergency Department" />
-          </coding>
-        </serviceCategory>
-        <appointmentType>
-          <coding>
-            <code value="EMERGENCY" />
-            <display value="Emergency appointment" />
-          </coding>
-        </appointmentType>
-        <schedule>
-          <reference value="Schedule/7e8c4baa-b7a7-4a7c-bb8c-8c8426ad7781" />
-        </schedule>
-        <status value="free" />
-        <start value="__TOMORROW__T10:00:00.000+00:00" />
-        <end value="__TOMORROW__T10:15:00.000+00:00" />
-      </Slot>
-    </resource>
-  </entry>
-  <entry>
-    <fullUrl value="https://directory.spineservices.nhs.uk/Slot/c413ac51-df9b-45be-b413-d7548406a4fb" />
-    <resource>
-      <Slot>
-        <id value="c413ac51-df9b-45be-b413-d7548406a4fb" />
-        <meta>
-          <lastUpdated value="__YESTERDAY__T15:01:30.1234567+00:00" />
-          <profile value="http://hl7.org/fhir/StructureDefinition/Slot" />
-        </meta>
-        <serviceCategory>
-          <coding>
-            <code value="14" />
-            <display value="Emergency Department" />
-          </coding>
-        </serviceCategory>
-        <appointmentType>
-          <coding>
-            <code value="EMERGENCY" />
-            <display value="Emergency appointment" />
-          </coding>
-        </appointmentType>
-        <schedule>
-          <reference value="Schedule/7e8c4baa-b7a7-4a7c-bb8c-8c8426ad7781" />
-        </schedule>
-        <status value="free" />
-        <start value="__TOMORROW__T10:15:00.000+00:00" />
-        <end value="__TOMORROW__T10:30:00.000+00:00" />
-      </Slot>
-    </resource>
-  </entry>
-  <entry>
-    <fullUrl value="https://directory.spineservices.nhs.uk/Schedule/7e8c4baa-b7a7-4a7c-bb8c-8c8426ad7781" />
-    <resource>
-      <Schedule>
-        <id value="7e8c4baa-b7a7-4a7c-bb8c-8c8426ad7781" />
-        <meta>
-          <lastUpdated value="__YESTERDAY__T15:01:30.1234567+00:00" />
-          <profile value="http://hl7.org/fhir/StructureDefinition/Schedule" />
-        </meta>
-        <identifier>
-          <system value="https://system.supplier.co.uk/Diary/id" />
-          <value value="8622dfdb-dc6a-47b6-b3a7-2eb2829db287" />
-        </identifier>
-        <actor>
-          <!--  HealthcareService  -->
-          <reference value="HealthcareService/5088769a-491e-463f-a167-fff78bb472d9" />
-        </actor>
-        <actor>
-          <!--  PractitionerRole  -->
-          <reference value="PractitionerRole/6bea99e7-b97f-4ee1-980d-05f997afff4f" />
-        </actor>
-        <actor>
-          <!--  Practitioner  -->
-          <reference value="Practitioner/cad5a61c-3797-4f26-8921-ae4bc7f75eb6" />
-        </actor>
-      </Schedule>
-    </resource>
-  </entry>
-  <entry>
-    <fullUrl value="https://directory.spineservices.nhs.uk/HealthcareService/5088769a-491e-463f-a167-fff78bb472d9" />
-    <resource>
-      <HealthcareService>
-        <id value="5088769a-491e-463f-a167-fff78bb472d9" />
-        <meta>
-          <lastUpdated value="__YESTERDAY__T15:01:30.1234567+00:00" />
-          <profile value="http://hl7.org/fhir/StructureDefinition/HealthcareService" />
-        </meta>
-        <identifier>
-          <system value="https://system.supplier.co.uk/My/Healthcare/Services" />
-          <value value="100" />
-        </identifier>
-        <location>
-          <reference value="Location/d23eac9a-12e7-46c5-8781-c3c1d9b1d3c5" />
-        </location>
-        <name value="Healthcare Service Name" />
-      </HealthcareService>
-    </resource>
-  </entry>
+	<!--     BOOKREQRESP01  git commit 1458db7    -->
+	<id value="__MESSAGEID__"/>
+	<meta>
+		<lastUpdated value="__TIMESTAMP_NO_TZ__.1234567+00:00"/>
+		<profile value="https://fhir.hl7.org.uk/StructureDefinition/UKCore-Bundle"/>
+	</meta>
+	<type value="searchset"/>
+	<total value="2"/>
+	<timestamp value="__TIMESTAMP__"/>
+	<link>
+		<relation value="self"/>
+		<url value="https://__HOST____FULL_CONTEXT_PATH__"/>
+	</link>
+	<entry>
+		<fullUrl value="https://directory.spineservices.nhs.uk/Slot/da83ae28-46f0-4aad-9c54-dcad462cafcb"/>
+		<resource>
+			<Slot>
+				<id value="da83ae28-46f0-4aad-9c54-dcad462cafcb"/>
+				<meta>
+					<lastUpdated value="__YESTERDAY__T15:01:30.1234567+00:00"/>
+					<profile value="http://hl7.org/fhir/StructureDefinition/Slot"/>
+				</meta>
+				<serviceCategory>
+					<coding>
+						<code value="14"/>
+						<display value="Emergency Department"/>
+					</coding>
+				</serviceCategory>
+				<appointmentType>
+					<coding>
+						<code value="EMERGENCY"/>
+						<display value="Emergency appointment"/>
+					</coding>
+				</appointmentType>
+				<schedule>
+					<reference value="Schedule/7e8c4baa-b7a7-4a7c-bb8c-8c8426ad7781"/>
+				</schedule>
+				<status value="free"/>
+				<start value="__TOMORROW__T06:00:00.000+00:00"/>
+				<end value="__TOMORROW__T06:15:00.000+00:00"/>
+			</Slot>
+		</resource>
+	</entry>
+	<entry>
+		<fullUrl value="https://directory.spineservices.nhs.uk/Slot/c413ac51-df9b-45be-b413-d7548406a4fb"/>
+		<resource>
+			<Slot>
+				<id value="c413ac51-df9b-45be-b413-d7548406a4fb"/>
+				<meta>
+					<lastUpdated value="__YESTERDAY__T15:01:30.1234567+00:00"/>
+					<profile value="http://hl7.org/fhir/StructureDefinition/Slot"/>
+				</meta>
+				<serviceCategory>
+					<coding>
+						<code value="14"/>
+						<display value="Emergency Department"/>
+					</coding>
+				</serviceCategory>
+				<appointmentType>
+					<coding>
+						<code value="EMERGENCY"/>
+						<display value="Emergency appointment"/>
+					</coding>
+				</appointmentType>
+				<schedule>
+					<reference value="Schedule/7e8c4baa-b7a7-4a7c-bb8c-8c8426ad7781"/>
+				</schedule>
+				<status value="free"/>
+				<start value="__TOMORROW__T06:15:00.000+00:00"/>
+				<end value="__TOMORROW__T06:30:00.000+00:00"/>
+			</Slot>
+		</resource>
+	</entry>
+	<entry>
+		<fullUrl value="https://directory.spineservices.nhs.uk/Slot/81daad92-3e4e-44d1-af96-662ce7a122c7"/>
+		<resource>
+			<Slot>
+				<id value="81daad92-3e4e-44d1-af96-662ce7a122c7"/>
+				<meta>
+					<lastUpdated value="__YESTERDAY__T15:01:30.1234567+00:00"/>
+					<profile value="http://hl7.org/fhir/StructureDefinition/Slot"/>
+				</meta>
+				<serviceCategory>
+					<coding>
+						<code value="14"/>
+						<display value="Emergency Department"/>
+					</coding>
+				</serviceCategory>
+				<appointmentType>
+					<coding>
+						<code value="EMERGENCY"/>
+						<display value="Emergency appointment"/>
+					</coding>
+				</appointmentType>
+				<schedule>
+					<reference value="Schedule/7e8c4baa-b7a7-4a7c-bb8c-8c8426ad7781"/>
+				</schedule>
+				<status value="free"/>
+				<start value="__TOMORROW__T06:30:00.000+00:00"/>
+				<end value="__TOMORROW__T06:45:00.000+00:00"/>
+			</Slot>
+		</resource>
+	</entry>
+	<entry>
+		<fullUrl value="https://directory.spineservices.nhs.uk/Slot/36c56487-6ef5-458c-9351-aab9ddefa506"/>
+		<resource>
+			<Slot>
+				<id value="36c56487-6ef5-458c-9351-aab9ddefa506"/>
+				<meta>
+					<lastUpdated value="__YESTERDAY__T15:01:30.1234567+00:00"/>
+					<profile value="http://hl7.org/fhir/StructureDefinition/Slot"/>
+				</meta>
+				<serviceCategory>
+					<coding>
+						<code value="14"/>
+						<display value="Emergency Department"/>
+					</coding>
+				</serviceCategory>
+				<appointmentType>
+					<coding>
+						<code value="EMERGENCY"/>
+						<display value="Emergency appointment"/>
+					</coding>
+				</appointmentType>
+				<schedule>
+					<reference value="Schedule/7e8c4baa-b7a7-4a7c-bb8c-8c8426ad7781"/>
+				</schedule>
+				<status value="free"/>
+				<start value="__TOMORROW__T06:45:00.000+00:00"/>
+				<end value="__TOMORROW__T07:00:00.000+00:00"/>
+			</Slot>
+		</resource>
+	</entry>
+	<entry>
+		<fullUrl value="https://directory.spineservices.nhs.uk/Slot/f00245a9-c6f3-4db7-88b5-2fd0c56886f4"/>
+		<resource>
+			<Slot>
+				<id value="f00245a9-c6f3-4db7-88b5-2fd0c56886f4"/>
+				<meta>
+					<lastUpdated value="__YESTERDAY__T15:01:30.1234567+00:00"/>
+					<profile value="http://hl7.org/fhir/StructureDefinition/Slot"/>
+				</meta>
+				<serviceCategory>
+					<coding>
+						<code value="14"/>
+						<display value="Emergency Department"/>
+					</coding>
+				</serviceCategory>
+				<appointmentType>
+					<coding>
+						<code value="EMERGENCY"/>
+						<display value="Emergency appointment"/>
+					</coding>
+				</appointmentType>
+				<schedule>
+					<reference value="Schedule/7e8c4baa-b7a7-4a7c-bb8c-8c8426ad7781"/>
+				</schedule>
+				<status value="free"/>
+				<start value="__TOMORROW__T07:00:00.000+00:00"/>
+				<end value="__TOMORROW__T07:15:00.000+00:00"/>
+			</Slot>
+		</resource>
+	</entry>
+	<entry>
+		<fullUrl value="https://directory.spineservices.nhs.uk/Slot/a3e647bf-0ce5-44b3-a9d6-eef0aae135a4"/>
+		<resource>
+			<Slot>
+				<id value="a3e647bf-0ce5-44b3-a9d6-eef0aae135a4"/>
+				<meta>
+					<lastUpdated value="__YESTERDAY__T15:01:30.1234567+00:00"/>
+					<profile value="http://hl7.org/fhir/StructureDefinition/Slot"/>
+				</meta>
+				<serviceCategory>
+					<coding>
+						<code value="14"/>
+						<display value="Emergency Department"/>
+					</coding>
+				</serviceCategory>
+				<appointmentType>
+					<coding>
+						<code value="EMERGENCY"/>
+						<display value="Emergency appointment"/>
+					</coding>
+				</appointmentType>
+				<schedule>
+					<reference value="Schedule/7e8c4baa-b7a7-4a7c-bb8c-8c8426ad7781"/>
+				</schedule>
+				<status value="free"/>
+				<start value="__TOMORROW__T07:15:00.000+00:00"/>
+				<end value="__TOMORROW__T07:30:00.000+00:00"/>
+			</Slot>
+		</resource>
+	</entry>
+	<entry>
+		<fullUrl value="https://directory.spineservices.nhs.uk/Slot/f8cd4e7c-3b23-438e-b295-ecae6973947a"/>
+		<resource>
+			<Slot>
+				<id value="f8cd4e7c-3b23-438e-b295-ecae6973947a"/>
+				<meta>
+					<lastUpdated value="__YESTERDAY__T15:01:30.1234567+00:00"/>
+					<profile value="http://hl7.org/fhir/StructureDefinition/Slot"/>
+				</meta>
+				<serviceCategory>
+					<coding>
+						<code value="14"/>
+						<display value="Emergency Department"/>
+					</coding>
+				</serviceCategory>
+				<appointmentType>
+					<coding>
+						<code value="EMERGENCY"/>
+						<display value="Emergency appointment"/>
+					</coding>
+				</appointmentType>
+				<schedule>
+					<reference value="Schedule/7e8c4baa-b7a7-4a7c-bb8c-8c8426ad7781"/>
+				</schedule>
+				<status value="free"/>
+				<start value="__TOMORROW__T07:30:00.000+00:00"/>
+				<end value="__TOMORROW__T07:45:00.000+00:00"/>
+			</Slot>
+		</resource>
+	</entry>
+	<entry>
+		<fullUrl value="https://directory.spineservices.nhs.uk/Slot/1962b324-700e-4f71-9cb4-173f572d0907"/>
+		<resource>
+			<Slot>
+				<id value="1962b324-700e-4f71-9cb4-173f572d0907"/>
+				<meta>
+					<lastUpdated value="__YESTERDAY__T15:01:30.1234567+00:00"/>
+					<profile value="http://hl7.org/fhir/StructureDefinition/Slot"/>
+				</meta>
+				<serviceCategory>
+					<coding>
+						<code value="14"/>
+						<display value="Emergency Department"/>
+					</coding>
+				</serviceCategory>
+				<appointmentType>
+					<coding>
+						<code value="EMERGENCY"/>
+						<display value="Emergency appointment"/>
+					</coding>
+				</appointmentType>
+				<schedule>
+					<reference value="Schedule/7e8c4baa-b7a7-4a7c-bb8c-8c8426ad7781"/>
+				</schedule>
+				<status value="free"/>
+				<start value="__TOMORROW__T07:45:00.000+00:00"/>
+				<end value="__TOMORROW__T08:00:00.000+00:00"/>
+			</Slot>
+		</resource>
+	</entry>
+	<entry>
+		<fullUrl value="https://directory.spineservices.nhs.uk/Slot/73cab05f-4009-4555-87ee-32457964041b"/>
+		<resource>
+			<Slot>
+				<id value="73cab05f-4009-4555-87ee-32457964041b"/>
+				<meta>
+					<lastUpdated value="__YESTERDAY__T15:01:30.1234567+00:00"/>
+					<profile value="http://hl7.org/fhir/StructureDefinition/Slot"/>
+				</meta>
+				<serviceCategory>
+					<coding>
+						<code value="14"/>
+						<display value="Emergency Department"/>
+					</coding>
+				</serviceCategory>
+				<appointmentType>
+					<coding>
+						<code value="EMERGENCY"/>
+						<display value="Emergency appointment"/>
+					</coding>
+				</appointmentType>
+				<schedule>
+					<reference value="Schedule/7e8c4baa-b7a7-4a7c-bb8c-8c8426ad7781"/>
+				</schedule>
+				<status value="free"/>
+				<start value="__TOMORROW__T08:00:00.000+00:00"/>
+				<end value="__TOMORROW__T08:15:00.000+00:00"/>
+			</Slot>
+		</resource>
+	</entry>
+	<entry>
+		<fullUrl value="https://directory.spineservices.nhs.uk/Slot/1d7d5604-9bf2-4259-8f65-be6fb3ca4f8b"/>
+		<resource>
+			<Slot>
+				<id value="1d7d5604-9bf2-4259-8f65-be6fb3ca4f8b"/>
+				<meta>
+					<lastUpdated value="__YESTERDAY__T15:01:30.1234567+00:00"/>
+					<profile value="http://hl7.org/fhir/StructureDefinition/Slot"/>
+				</meta>
+				<serviceCategory>
+					<coding>
+						<code value="14"/>
+						<display value="Emergency Department"/>
+					</coding>
+				</serviceCategory>
+				<appointmentType>
+					<coding>
+						<code value="EMERGENCY"/>
+						<display value="Emergency appointment"/>
+					</coding>
+				</appointmentType>
+				<schedule>
+					<reference value="Schedule/7e8c4baa-b7a7-4a7c-bb8c-8c8426ad7781"/>
+				</schedule>
+				<status value="free"/>
+				<start value="__TOMORROW__T08:15:00.000+00:00"/>
+				<end value="__TOMORROW__T08:30:00.000+00:00"/>
+			</Slot>
+		</resource>
+	</entry>
+	<entry>
+		<fullUrl value="https://directory.spineservices.nhs.uk/Slot/ae49b1b8-9ea4-4476-98e0-5447cbcbf047"/>
+		<resource>
+			<Slot>
+				<id value="ae49b1b8-9ea4-4476-98e0-5447cbcbf047"/>
+				<meta>
+					<lastUpdated value="__YESTERDAY__T15:01:30.1234567+00:00"/>
+					<profile value="http://hl7.org/fhir/StructureDefinition/Slot"/>
+				</meta>
+				<serviceCategory>
+					<coding>
+						<code value="14"/>
+						<display value="Emergency Department"/>
+					</coding>
+				</serviceCategory>
+				<appointmentType>
+					<coding>
+						<code value="EMERGENCY"/>
+						<display value="Emergency appointment"/>
+					</coding>
+				</appointmentType>
+				<schedule>
+					<reference value="Schedule/7e8c4baa-b7a7-4a7c-bb8c-8c8426ad7781"/>
+				</schedule>
+				<status value="free"/>
+				<start value="__TOMORROW__T08:30:00.000+00:00"/>
+				<end value="__TOMORROW__T08:45:00.000+00:00"/>
+			</Slot>
+		</resource>
+	</entry>
+	<entry>
+		<fullUrl value="https://directory.spineservices.nhs.uk/Slot/912b8574-e711-4368-a08d-7232e86fe69f"/>
+		<resource>
+			<Slot>
+				<id value="912b8574-e711-4368-a08d-7232e86fe69f"/>
+				<meta>
+					<lastUpdated value="__YESTERDAY__T15:01:30.1234567+00:00"/>
+					<profile value="http://hl7.org/fhir/StructureDefinition/Slot"/>
+				</meta>
+				<serviceCategory>
+					<coding>
+						<code value="14"/>
+						<display value="Emergency Department"/>
+					</coding>
+				</serviceCategory>
+				<appointmentType>
+					<coding>
+						<code value="EMERGENCY"/>
+						<display value="Emergency appointment"/>
+					</coding>
+				</appointmentType>
+				<schedule>
+					<reference value="Schedule/7e8c4baa-b7a7-4a7c-bb8c-8c8426ad7781"/>
+				</schedule>
+				<status value="free"/>
+				<start value="__TOMORROW__T08:45:00.000+00:00"/>
+				<end value="__TOMORROW__T09:00:00.000+00:00"/>
+			</Slot>
+		</resource>
+	</entry>
+	<entry>
+		<fullUrl value="https://directory.spineservices.nhs.uk/Slot/513b7137-88d9-4ce7-8793-d7adb3449bf9"/>
+		<resource>
+			<Slot>
+				<id value="513b7137-88d9-4ce7-8793-d7adb3449bf9"/>
+				<meta>
+					<lastUpdated value="__YESTERDAY__T15:01:30.1234567+00:00"/>
+					<profile value="http://hl7.org/fhir/StructureDefinition/Slot"/>
+				</meta>
+				<serviceCategory>
+					<coding>
+						<code value="14"/>
+						<display value="Emergency Department"/>
+					</coding>
+				</serviceCategory>
+				<appointmentType>
+					<coding>
+						<code value="EMERGENCY"/>
+						<display value="Emergency appointment"/>
+					</coding>
+				</appointmentType>
+				<schedule>
+					<reference value="Schedule/7e8c4baa-b7a7-4a7c-bb8c-8c8426ad7781"/>
+				</schedule>
+				<status value="free"/>
+				<start value="__TOMORROW__T09:00:00.000+00:00"/>
+				<end value="__TOMORROW__T09:15:00.000+00:00"/>
+			</Slot>
+		</resource>
+	</entry>
+	<entry>
+		<fullUrl value="https://directory.spineservices.nhs.uk/Slot/5a0f1500-8c0b-4ba5-bc85-fe4ed05d5ed0"/>
+		<resource>
+			<Slot>
+				<id value="5a0f1500-8c0b-4ba5-bc85-fe4ed05d5ed0"/>
+				<meta>
+					<lastUpdated value="__YESTERDAY__T15:01:30.1234567+00:00"/>
+					<profile value="http://hl7.org/fhir/StructureDefinition/Slot"/>
+				</meta>
+				<serviceCategory>
+					<coding>
+						<code value="14"/>
+						<display value="Emergency Department"/>
+					</coding>
+				</serviceCategory>
+				<appointmentType>
+					<coding>
+						<code value="EMERGENCY"/>
+						<display value="Emergency appointment"/>
+					</coding>
+				</appointmentType>
+				<schedule>
+					<reference value="Schedule/7e8c4baa-b7a7-4a7c-bb8c-8c8426ad7781"/>
+				</schedule>
+				<status value="free"/>
+				<start value="__TOMORROW__T09:15:00.000+00:00"/>
+				<end value="__TOMORROW__T09:30:00.000+00:00"/>
+			</Slot>
+		</resource>
+	</entry>
+	<entry>
+		<fullUrl value="https://directory.spineservices.nhs.uk/Slot/93e6840a-2406-4fb4-acd5-8f567c05380a"/>
+		<resource>
+			<Slot>
+				<id value="93e6840a-2406-4fb4-acd5-8f567c05380a"/>
+				<meta>
+					<lastUpdated value="__YESTERDAY__T15:01:30.1234567+00:00"/>
+					<profile value="http://hl7.org/fhir/StructureDefinition/Slot"/>
+				</meta>
+				<serviceCategory>
+					<coding>
+						<code value="14"/>
+						<display value="Emergency Department"/>
+					</coding>
+				</serviceCategory>
+				<appointmentType>
+					<coding>
+						<code value="EMERGENCY"/>
+						<display value="Emergency appointment"/>
+					</coding>
+				</appointmentType>
+				<schedule>
+					<reference value="Schedule/7e8c4baa-b7a7-4a7c-bb8c-8c8426ad7781"/>
+				</schedule>
+				<status value="free"/>
+				<start value="__TOMORROW__T09:30:00.000+00:00"/>
+				<end value="__TOMORROW__T09:45:00.000+00:00"/>
+			</Slot>
+		</resource>
+	</entry>
+	<entry>
+		<fullUrl value="https://directory.spineservices.nhs.uk/Slot/0e486f7a-7f16-4b38-b23d-a2564d72cf87"/>
+		<resource>
+			<Slot>
+				<id value="0e486f7a-7f16-4b38-b23d-a2564d72cf87"/>
+				<meta>
+					<lastUpdated value="__YESTERDAY__T15:01:30.1234567+00:00"/>
+					<profile value="http://hl7.org/fhir/StructureDefinition/Slot"/>
+				</meta>
+				<serviceCategory>
+					<coding>
+						<code value="14"/>
+						<display value="Emergency Department"/>
+					</coding>
+				</serviceCategory>
+				<appointmentType>
+					<coding>
+						<code value="EMERGENCY"/>
+						<display value="Emergency appointment"/>
+					</coding>
+				</appointmentType>
+				<schedule>
+					<reference value="Schedule/7e8c4baa-b7a7-4a7c-bb8c-8c8426ad7781"/>
+				</schedule>
+				<status value="free"/>
+				<start value="__TOMORROW__T09:45:00.000+00:00"/>
+				<end value="__TOMORROW__T10:00:00.000+00:00"/>
+			</Slot>
+		</resource>
+	</entry>
+	<entry>
+		<fullUrl value="https://directory.spineservices.nhs.uk/Slot/070d4e33-a6ca-4898-9108-51451d186401"/>
+		<resource>
+			<Slot>
+				<id value="070d4e33-a6ca-4898-9108-51451d186401"/>
+				<meta>
+					<lastUpdated value="__YESTERDAY__T15:01:30.1234567+00:00"/>
+					<profile value="http://hl7.org/fhir/StructureDefinition/Slot"/>
+				</meta>
+				<serviceCategory>
+					<coding>
+						<code value="14"/>
+						<display value="Emergency Department"/>
+					</coding>
+				</serviceCategory>
+				<appointmentType>
+					<coding>
+						<code value="EMERGENCY"/>
+						<display value="Emergency appointment"/>
+					</coding>
+				</appointmentType>
+				<schedule>
+					<reference value="Schedule/7e8c4baa-b7a7-4a7c-bb8c-8c8426ad7781"/>
+				</schedule>
+				<status value="free"/>
+				<start value="__TOMORROW__T10:00:00.000+00:00"/>
+				<end value="__TOMORROW__T10:15:00.000+00:00"/>
+			</Slot>
+		</resource>
+	</entry>
+	<entry>
+		<fullUrl value="https://directory.spineservices.nhs.uk/Slot/9429f7a4-873a-403f-8ccc-ed3c8466e1e6"/>
+		<resource>
+			<Slot>
+				<id value="9429f7a4-873a-403f-8ccc-ed3c8466e1e6"/>
+				<meta>
+					<lastUpdated value="__YESTERDAY__T15:01:30.1234567+00:00"/>
+					<profile value="http://hl7.org/fhir/StructureDefinition/Slot"/>
+				</meta>
+				<serviceCategory>
+					<coding>
+						<code value="14"/>
+						<display value="Emergency Department"/>
+					</coding>
+				</serviceCategory>
+				<appointmentType>
+					<coding>
+						<code value="EMERGENCY"/>
+						<display value="Emergency appointment"/>
+					</coding>
+				</appointmentType>
+				<schedule>
+					<reference value="Schedule/7e8c4baa-b7a7-4a7c-bb8c-8c8426ad7781"/>
+				</schedule>
+				<status value="free"/>
+				<start value="__TOMORROW__T10:15:00.000+00:00"/>
+				<end value="__TOMORROW__T10:30:00.000+00:00"/>
+			</Slot>
+		</resource>
+	</entry>
+	<entry>
+		<fullUrl value="https://directory.spineservices.nhs.uk/Slot/846401cb-62b1-4eb3-b630-befdcf29a89c"/>
+		<resource>
+			<Slot>
+				<id value="846401cb-62b1-4eb3-b630-befdcf29a89c"/>
+				<meta>
+					<lastUpdated value="__YESTERDAY__T15:01:30.1234567+00:00"/>
+					<profile value="http://hl7.org/fhir/StructureDefinition/Slot"/>
+				</meta>
+				<serviceCategory>
+					<coding>
+						<code value="14"/>
+						<display value="Emergency Department"/>
+					</coding>
+				</serviceCategory>
+				<appointmentType>
+					<coding>
+						<code value="EMERGENCY"/>
+						<display value="Emergency appointment"/>
+					</coding>
+				</appointmentType>
+				<schedule>
+					<reference value="Schedule/7e8c4baa-b7a7-4a7c-bb8c-8c8426ad7781"/>
+				</schedule>
+				<status value="free"/>
+				<start value="__TOMORROW__T10:30:00.000+00:00"/>
+				<end value="__TOMORROW__T10:45:00.000+00:00"/>
+			</Slot>
+		</resource>
+	</entry>
+	<entry>
+		<fullUrl value="https://directory.spineservices.nhs.uk/Slot/7aa25191-29da-43d2-9d0e-c3a65aef183d"/>
+		<resource>
+			<Slot>
+				<id value="7aa25191-29da-43d2-9d0e-c3a65aef183d"/>
+				<meta>
+					<lastUpdated value="__YESTERDAY__T15:01:30.1234567+00:00"/>
+					<profile value="http://hl7.org/fhir/StructureDefinition/Slot"/>
+				</meta>
+				<serviceCategory>
+					<coding>
+						<code value="14"/>
+						<display value="Emergency Department"/>
+					</coding>
+				</serviceCategory>
+				<appointmentType>
+					<coding>
+						<code value="EMERGENCY"/>
+						<display value="Emergency appointment"/>
+					</coding>
+				</appointmentType>
+				<schedule>
+					<reference value="Schedule/7e8c4baa-b7a7-4a7c-bb8c-8c8426ad7781"/>
+				</schedule>
+				<status value="free"/>
+				<start value="__TOMORROW__T10:45:00.000+00:00"/>
+				<end value="__TOMORROW__T11:00:00.000+00:00"/>
+			</Slot>
+		</resource>
+	</entry>
+	<entry>
+		<fullUrl value="https://directory.spineservices.nhs.uk/Slot/f9d8b5ab-452c-43ab-a685-babb655e4779"/>
+		<resource>
+			<Slot>
+				<id value="f9d8b5ab-452c-43ab-a685-babb655e4779"/>
+				<meta>
+					<lastUpdated value="__YESTERDAY__T15:01:30.1234567+00:00"/>
+					<profile value="http://hl7.org/fhir/StructureDefinition/Slot"/>
+				</meta>
+				<serviceCategory>
+					<coding>
+						<code value="14"/>
+						<display value="Emergency Department"/>
+					</coding>
+				</serviceCategory>
+				<appointmentType>
+					<coding>
+						<code value="EMERGENCY"/>
+						<display value="Emergency appointment"/>
+					</coding>
+				</appointmentType>
+				<schedule>
+					<reference value="Schedule/7e8c4baa-b7a7-4a7c-bb8c-8c8426ad7781"/>
+				</schedule>
+				<status value="free"/>
+				<start value="__TOMORROW__T11:00:00.000+00:00"/>
+				<end value="__TOMORROW__T11:15:00.000+00:00"/>
+			</Slot>
+		</resource>
+	</entry>
+	<entry>
+		<fullUrl value="https://directory.spineservices.nhs.uk/Slot/3827a12b-41bc-437a-9754-573ba7d6b3d2"/>
+		<resource>
+			<Slot>
+				<id value="3827a12b-41bc-437a-9754-573ba7d6b3d2"/>
+				<meta>
+					<lastUpdated value="__YESTERDAY__T15:01:30.1234567+00:00"/>
+					<profile value="http://hl7.org/fhir/StructureDefinition/Slot"/>
+				</meta>
+				<serviceCategory>
+					<coding>
+						<code value="14"/>
+						<display value="Emergency Department"/>
+					</coding>
+				</serviceCategory>
+				<appointmentType>
+					<coding>
+						<code value="EMERGENCY"/>
+						<display value="Emergency appointment"/>
+					</coding>
+				</appointmentType>
+				<schedule>
+					<reference value="Schedule/7e8c4baa-b7a7-4a7c-bb8c-8c8426ad7781"/>
+				</schedule>
+				<status value="free"/>
+				<start value="__TOMORROW__T11:15:00.000+00:00"/>
+				<end value="__TOMORROW__T11:30:00.000+00:00"/>
+			</Slot>
+		</resource>
+	</entry>
+	<entry>
+		<fullUrl value="https://directory.spineservices.nhs.uk/Slot/70393ef9-1353-4e54-8393-5d04ca77fec8"/>
+		<resource>
+			<Slot>
+				<id value="70393ef9-1353-4e54-8393-5d04ca77fec8"/>
+				<meta>
+					<lastUpdated value="__YESTERDAY__T15:01:30.1234567+00:00"/>
+					<profile value="http://hl7.org/fhir/StructureDefinition/Slot"/>
+				</meta>
+				<serviceCategory>
+					<coding>
+						<code value="14"/>
+						<display value="Emergency Department"/>
+					</coding>
+				</serviceCategory>
+				<appointmentType>
+					<coding>
+						<code value="EMERGENCY"/>
+						<display value="Emergency appointment"/>
+					</coding>
+				</appointmentType>
+				<schedule>
+					<reference value="Schedule/7e8c4baa-b7a7-4a7c-bb8c-8c8426ad7781"/>
+				</schedule>
+				<status value="free"/>
+				<start value="__TOMORROW__T11:30:00.000+00:00"/>
+				<end value="__TOMORROW__T11:45:00.000+00:00"/>
+			</Slot>
+		</resource>
+	</entry>
+	<entry>
+		<fullUrl value="https://directory.spineservices.nhs.uk/Slot/e27e6724-4ea3-4f3f-93b5-05f7fc01aaa2"/>
+		<resource>
+			<Slot>
+				<id value="e27e6724-4ea3-4f3f-93b5-05f7fc01aaa2"/>
+				<meta>
+					<lastUpdated value="__YESTERDAY__T15:01:30.1234567+00:00"/>
+					<profile value="http://hl7.org/fhir/StructureDefinition/Slot"/>
+				</meta>
+				<serviceCategory>
+					<coding>
+						<code value="14"/>
+						<display value="Emergency Department"/>
+					</coding>
+				</serviceCategory>
+				<appointmentType>
+					<coding>
+						<code value="EMERGENCY"/>
+						<display value="Emergency appointment"/>
+					</coding>
+				</appointmentType>
+				<schedule>
+					<reference value="Schedule/7e8c4baa-b7a7-4a7c-bb8c-8c8426ad7781"/>
+				</schedule>
+				<status value="free"/>
+				<start value="__TOMORROW__T11:45:00.000+00:00"/>
+				<end value="__TOMORROW__T12:00:00.000+00:00"/>
+			</Slot>
+		</resource>
+	</entry>
+	<entry>
+		<fullUrl value="https://directory.spineservices.nhs.uk/Slot/f4d5232d-0eba-48b4-b0aa-ada356584db7"/>
+		<resource>
+			<Slot>
+				<id value="f4d5232d-0eba-48b4-b0aa-ada356584db7"/>
+				<meta>
+					<lastUpdated value="__YESTERDAY__T15:01:30.1234567+00:00"/>
+					<profile value="http://hl7.org/fhir/StructureDefinition/Slot"/>
+				</meta>
+				<serviceCategory>
+					<coding>
+						<code value="14"/>
+						<display value="Emergency Department"/>
+					</coding>
+				</serviceCategory>
+				<appointmentType>
+					<coding>
+						<code value="EMERGENCY"/>
+						<display value="Emergency appointment"/>
+					</coding>
+				</appointmentType>
+				<schedule>
+					<reference value="Schedule/7e8c4baa-b7a7-4a7c-bb8c-8c8426ad7781"/>
+				</schedule>
+				<status value="free"/>
+				<start value="__TOMORROW__T12:00:00.000+00:00"/>
+				<end value="__TOMORROW__T12:15:00.000+00:00"/>
+			</Slot>
+		</resource>
+	</entry>
+	<entry>
+		<fullUrl value="https://directory.spineservices.nhs.uk/Slot/e3719582-9f30-4ee7-8688-b626750b4bbd"/>
+		<resource>
+			<Slot>
+				<id value="e3719582-9f30-4ee7-8688-b626750b4bbd"/>
+				<meta>
+					<lastUpdated value="__YESTERDAY__T15:01:30.1234567+00:00"/>
+					<profile value="http://hl7.org/fhir/StructureDefinition/Slot"/>
+				</meta>
+				<serviceCategory>
+					<coding>
+						<code value="14"/>
+						<display value="Emergency Department"/>
+					</coding>
+				</serviceCategory>
+				<appointmentType>
+					<coding>
+						<code value="EMERGENCY"/>
+						<display value="Emergency appointment"/>
+					</coding>
+				</appointmentType>
+				<schedule>
+					<reference value="Schedule/7e8c4baa-b7a7-4a7c-bb8c-8c8426ad7781"/>
+				</schedule>
+				<status value="free"/>
+				<start value="__TOMORROW__T12:15:00.000+00:00"/>
+				<end value="__TOMORROW__T12:30:00.000+00:00"/>
+			</Slot>
+		</resource>
+	</entry>
+	<entry>
+		<fullUrl value="https://directory.spineservices.nhs.uk/Slot/1efab77b-b6cc-4a8f-87a8-d320dfd8d76d"/>
+		<resource>
+			<Slot>
+				<id value="1efab77b-b6cc-4a8f-87a8-d320dfd8d76d"/>
+				<meta>
+					<lastUpdated value="__YESTERDAY__T15:01:30.1234567+00:00"/>
+					<profile value="http://hl7.org/fhir/StructureDefinition/Slot"/>
+				</meta>
+				<serviceCategory>
+					<coding>
+						<code value="14"/>
+						<display value="Emergency Department"/>
+					</coding>
+				</serviceCategory>
+				<appointmentType>
+					<coding>
+						<code value="EMERGENCY"/>
+						<display value="Emergency appointment"/>
+					</coding>
+				</appointmentType>
+				<schedule>
+					<reference value="Schedule/7e8c4baa-b7a7-4a7c-bb8c-8c8426ad7781"/>
+				</schedule>
+				<status value="free"/>
+				<start value="__TOMORROW__T12:30:00.000+00:00"/>
+				<end value="__TOMORROW__T12:45:00.000+00:00"/>
+			</Slot>
+		</resource>
+	</entry>
+	<entry>
+		<fullUrl value="https://directory.spineservices.nhs.uk/Slot/9a3b5d9a-df50-4389-ad16-268209458e47"/>
+		<resource>
+			<Slot>
+				<id value="9a3b5d9a-df50-4389-ad16-268209458e47"/>
+				<meta>
+					<lastUpdated value="__YESTERDAY__T15:01:30.1234567+00:00"/>
+					<profile value="http://hl7.org/fhir/StructureDefinition/Slot"/>
+				</meta>
+				<serviceCategory>
+					<coding>
+						<code value="14"/>
+						<display value="Emergency Department"/>
+					</coding>
+				</serviceCategory>
+				<appointmentType>
+					<coding>
+						<code value="EMERGENCY"/>
+						<display value="Emergency appointment"/>
+					</coding>
+				</appointmentType>
+				<schedule>
+					<reference value="Schedule/7e8c4baa-b7a7-4a7c-bb8c-8c8426ad7781"/>
+				</schedule>
+				<status value="free"/>
+				<start value="__TOMORROW__T12:45:00.000+00:00"/>
+				<end value="__TOMORROW__T13:00:00.000+00:00"/>
+			</Slot>
+		</resource>
+	</entry>
+	<entry>
+		<fullUrl value="https://directory.spineservices.nhs.uk/Slot/9bea3fc4-3884-4d8f-93ef-7cc653ec9e32"/>
+		<resource>
+			<Slot>
+				<id value="9bea3fc4-3884-4d8f-93ef-7cc653ec9e32"/>
+				<meta>
+					<lastUpdated value="__YESTERDAY__T15:01:30.1234567+00:00"/>
+					<profile value="http://hl7.org/fhir/StructureDefinition/Slot"/>
+				</meta>
+				<serviceCategory>
+					<coding>
+						<code value="14"/>
+						<display value="Emergency Department"/>
+					</coding>
+				</serviceCategory>
+				<appointmentType>
+					<coding>
+						<code value="EMERGENCY"/>
+						<display value="Emergency appointment"/>
+					</coding>
+				</appointmentType>
+				<schedule>
+					<reference value="Schedule/7e8c4baa-b7a7-4a7c-bb8c-8c8426ad7781"/>
+				</schedule>
+				<status value="free"/>
+				<start value="__TOMORROW__T13:00:00.000+00:00"/>
+				<end value="__TOMORROW__T13:15:00.000+00:00"/>
+			</Slot>
+		</resource>
+	</entry>
+	<entry>
+		<fullUrl value="https://directory.spineservices.nhs.uk/Slot/5b658ab7-bad8-4c98-a427-698c861add6a"/>
+		<resource>
+			<Slot>
+				<id value="5b658ab7-bad8-4c98-a427-698c861add6a"/>
+				<meta>
+					<lastUpdated value="__YESTERDAY__T15:01:30.1234567+00:00"/>
+					<profile value="http://hl7.org/fhir/StructureDefinition/Slot"/>
+				</meta>
+				<serviceCategory>
+					<coding>
+						<code value="14"/>
+						<display value="Emergency Department"/>
+					</coding>
+				</serviceCategory>
+				<appointmentType>
+					<coding>
+						<code value="EMERGENCY"/>
+						<display value="Emergency appointment"/>
+					</coding>
+				</appointmentType>
+				<schedule>
+					<reference value="Schedule/7e8c4baa-b7a7-4a7c-bb8c-8c8426ad7781"/>
+				</schedule>
+				<status value="free"/>
+				<start value="__TOMORROW__T13:15:00.000+00:00"/>
+				<end value="__TOMORROW__T13:30:00.000+00:00"/>
+			</Slot>
+		</resource>
+	</entry>
+	<entry>
+		<fullUrl value="https://directory.spineservices.nhs.uk/Slot/b92e47df-c3ee-4c6e-b070-9dc0aa7ce896"/>
+		<resource>
+			<Slot>
+				<id value="b92e47df-c3ee-4c6e-b070-9dc0aa7ce896"/>
+				<meta>
+					<lastUpdated value="__YESTERDAY__T15:01:30.1234567+00:00"/>
+					<profile value="http://hl7.org/fhir/StructureDefinition/Slot"/>
+				</meta>
+				<serviceCategory>
+					<coding>
+						<code value="14"/>
+						<display value="Emergency Department"/>
+					</coding>
+				</serviceCategory>
+				<appointmentType>
+					<coding>
+						<code value="EMERGENCY"/>
+						<display value="Emergency appointment"/>
+					</coding>
+				</appointmentType>
+				<schedule>
+					<reference value="Schedule/7e8c4baa-b7a7-4a7c-bb8c-8c8426ad7781"/>
+				</schedule>
+				<status value="free"/>
+				<start value="__TOMORROW__T13:30:00.000+00:00"/>
+				<end value="__TOMORROW__T13:45:00.000+00:00"/>
+			</Slot>
+		</resource>
+	</entry>
+	<entry>
+		<fullUrl value="https://directory.spineservices.nhs.uk/Slot/2cb264d8-0418-493e-aac8-aa38c88fc5af"/>
+		<resource>
+			<Slot>
+				<id value="2cb264d8-0418-493e-aac8-aa38c88fc5af"/>
+				<meta>
+					<lastUpdated value="__YESTERDAY__T15:01:30.1234567+00:00"/>
+					<profile value="http://hl7.org/fhir/StructureDefinition/Slot"/>
+				</meta>
+				<serviceCategory>
+					<coding>
+						<code value="14"/>
+						<display value="Emergency Department"/>
+					</coding>
+				</serviceCategory>
+				<appointmentType>
+					<coding>
+						<code value="EMERGENCY"/>
+						<display value="Emergency appointment"/>
+					</coding>
+				</appointmentType>
+				<schedule>
+					<reference value="Schedule/7e8c4baa-b7a7-4a7c-bb8c-8c8426ad7781"/>
+				</schedule>
+				<status value="free"/>
+				<start value="__TOMORROW__T13:45:00.000+00:00"/>
+				<end value="__TOMORROW__T14:00:00.000+00:00"/>
+			</Slot>
+		</resource>
+	</entry>
+	<entry>
+		<fullUrl value="https://directory.spineservices.nhs.uk/Slot/b03a178b-21ef-412f-9141-3a1f5b9aed8b"/>
+		<resource>
+			<Slot>
+				<id value="b03a178b-21ef-412f-9141-3a1f5b9aed8b"/>
+				<meta>
+					<lastUpdated value="__YESTERDAY__T15:01:30.1234567+00:00"/>
+					<profile value="http://hl7.org/fhir/StructureDefinition/Slot"/>
+				</meta>
+				<serviceCategory>
+					<coding>
+						<code value="14"/>
+						<display value="Emergency Department"/>
+					</coding>
+				</serviceCategory>
+				<appointmentType>
+					<coding>
+						<code value="EMERGENCY"/>
+						<display value="Emergency appointment"/>
+					</coding>
+				</appointmentType>
+				<schedule>
+					<reference value="Schedule/7e8c4baa-b7a7-4a7c-bb8c-8c8426ad7781"/>
+				</schedule>
+				<status value="free"/>
+				<start value="__TOMORROW__T14:00:00.000+00:00"/>
+				<end value="__TOMORROW__T14:15:00.000+00:00"/>
+			</Slot>
+		</resource>
+	</entry>
+	<entry>
+		<fullUrl value="https://directory.spineservices.nhs.uk/Slot/ff8abd3c-136b-4f57-9530-d81ab65c5f30"/>
+		<resource>
+			<Slot>
+				<id value="ff8abd3c-136b-4f57-9530-d81ab65c5f30"/>
+				<meta>
+					<lastUpdated value="__YESTERDAY__T15:01:30.1234567+00:00"/>
+					<profile value="http://hl7.org/fhir/StructureDefinition/Slot"/>
+				</meta>
+				<serviceCategory>
+					<coding>
+						<code value="14"/>
+						<display value="Emergency Department"/>
+					</coding>
+				</serviceCategory>
+				<appointmentType>
+					<coding>
+						<code value="EMERGENCY"/>
+						<display value="Emergency appointment"/>
+					</coding>
+				</appointmentType>
+				<schedule>
+					<reference value="Schedule/7e8c4baa-b7a7-4a7c-bb8c-8c8426ad7781"/>
+				</schedule>
+				<status value="free"/>
+				<start value="__TOMORROW__T14:15:00.000+00:00"/>
+				<end value="__TOMORROW__T14:30:00.000+00:00"/>
+			</Slot>
+		</resource>
+	</entry>
+	<entry>
+		<fullUrl value="https://directory.spineservices.nhs.uk/Slot/c6f5d04f-9a3e-43b6-a3c7-0a6c8d06e38b"/>
+		<resource>
+			<Slot>
+				<id value="c6f5d04f-9a3e-43b6-a3c7-0a6c8d06e38b"/>
+				<meta>
+					<lastUpdated value="__YESTERDAY__T15:01:30.1234567+00:00"/>
+					<profile value="http://hl7.org/fhir/StructureDefinition/Slot"/>
+				</meta>
+				<serviceCategory>
+					<coding>
+						<code value="14"/>
+						<display value="Emergency Department"/>
+					</coding>
+				</serviceCategory>
+				<appointmentType>
+					<coding>
+						<code value="EMERGENCY"/>
+						<display value="Emergency appointment"/>
+					</coding>
+				</appointmentType>
+				<schedule>
+					<reference value="Schedule/7e8c4baa-b7a7-4a7c-bb8c-8c8426ad7781"/>
+				</schedule>
+				<status value="free"/>
+				<start value="__TOMORROW__T14:30:00.000+00:00"/>
+				<end value="__TOMORROW__T14:45:00.000+00:00"/>
+			</Slot>
+		</resource>
+	</entry>
+	<entry>
+		<fullUrl value="https://directory.spineservices.nhs.uk/Slot/b0823720-5823-4281-bf07-a39cbdb867e4"/>
+		<resource>
+			<Slot>
+				<id value="b0823720-5823-4281-bf07-a39cbdb867e4"/>
+				<meta>
+					<lastUpdated value="__YESTERDAY__T15:01:30.1234567+00:00"/>
+					<profile value="http://hl7.org/fhir/StructureDefinition/Slot"/>
+				</meta>
+				<serviceCategory>
+					<coding>
+						<code value="14"/>
+						<display value="Emergency Department"/>
+					</coding>
+				</serviceCategory>
+				<appointmentType>
+					<coding>
+						<code value="EMERGENCY"/>
+						<display value="Emergency appointment"/>
+					</coding>
+				</appointmentType>
+				<schedule>
+					<reference value="Schedule/7e8c4baa-b7a7-4a7c-bb8c-8c8426ad7781"/>
+				</schedule>
+				<status value="free"/>
+				<start value="__TOMORROW__T14:45:00.000+00:00"/>
+				<end value="__TOMORROW__T15:00:00.000+00:00"/>
+			</Slot>
+		</resource>
+	</entry>
+	<entry>
+		<fullUrl value="https://directory.spineservices.nhs.uk/Slot/854ba576-687c-476f-acf4-ea1246361452"/>
+		<resource>
+			<Slot>
+				<id value="854ba576-687c-476f-acf4-ea1246361452"/>
+				<meta>
+					<lastUpdated value="__YESTERDAY__T15:01:30.1234567+00:00"/>
+					<profile value="http://hl7.org/fhir/StructureDefinition/Slot"/>
+				</meta>
+				<serviceCategory>
+					<coding>
+						<code value="14"/>
+						<display value="Emergency Department"/>
+					</coding>
+				</serviceCategory>
+				<appointmentType>
+					<coding>
+						<code value="EMERGENCY"/>
+						<display value="Emergency appointment"/>
+					</coding>
+				</appointmentType>
+				<schedule>
+					<reference value="Schedule/7e8c4baa-b7a7-4a7c-bb8c-8c8426ad7781"/>
+				</schedule>
+				<status value="free"/>
+				<start value="__TOMORROW__T15:00:00.000+00:00"/>
+				<end value="__TOMORROW__T15:15:00.000+00:00"/>
+			</Slot>
+		</resource>
+	</entry>
+	<entry>
+		<fullUrl value="https://directory.spineservices.nhs.uk/Slot/38007fec-503e-40e6-938b-f81ad2353761"/>
+		<resource>
+			<Slot>
+				<id value="38007fec-503e-40e6-938b-f81ad2353761"/>
+				<meta>
+					<lastUpdated value="__YESTERDAY__T15:01:30.1234567+00:00"/>
+					<profile value="http://hl7.org/fhir/StructureDefinition/Slot"/>
+				</meta>
+				<serviceCategory>
+					<coding>
+						<code value="14"/>
+						<display value="Emergency Department"/>
+					</coding>
+				</serviceCategory>
+				<appointmentType>
+					<coding>
+						<code value="EMERGENCY"/>
+						<display value="Emergency appointment"/>
+					</coding>
+				</appointmentType>
+				<schedule>
+					<reference value="Schedule/7e8c4baa-b7a7-4a7c-bb8c-8c8426ad7781"/>
+				</schedule>
+				<status value="free"/>
+				<start value="__TOMORROW__T15:15:00.000+00:00"/>
+				<end value="__TOMORROW__T15:30:00.000+00:00"/>
+			</Slot>
+		</resource>
+	</entry>
+	<entry>
+		<fullUrl value="https://directory.spineservices.nhs.uk/Slot/c377b52a-ecff-49a0-b2a1-95f032726c73"/>
+		<resource>
+			<Slot>
+				<id value="c377b52a-ecff-49a0-b2a1-95f032726c73"/>
+				<meta>
+					<lastUpdated value="__YESTERDAY__T15:01:30.1234567+00:00"/>
+					<profile value="http://hl7.org/fhir/StructureDefinition/Slot"/>
+				</meta>
+				<serviceCategory>
+					<coding>
+						<code value="14"/>
+						<display value="Emergency Department"/>
+					</coding>
+				</serviceCategory>
+				<appointmentType>
+					<coding>
+						<code value="EMERGENCY"/>
+						<display value="Emergency appointment"/>
+					</coding>
+				</appointmentType>
+				<schedule>
+					<reference value="Schedule/7e8c4baa-b7a7-4a7c-bb8c-8c8426ad7781"/>
+				</schedule>
+				<status value="free"/>
+				<start value="__TOMORROW__T15:30:00.000+00:00"/>
+				<end value="__TOMORROW__T15:45:00.000+00:00"/>
+			</Slot>
+		</resource>
+	</entry>
+	<entry>
+		<fullUrl value="https://directory.spineservices.nhs.uk/Slot/070076ff-4ecc-4db8-bd78-180afc7c0f1e"/>
+		<resource>
+			<Slot>
+				<id value="070076ff-4ecc-4db8-bd78-180afc7c0f1e"/>
+				<meta>
+					<lastUpdated value="__YESTERDAY__T15:01:30.1234567+00:00"/>
+					<profile value="http://hl7.org/fhir/StructureDefinition/Slot"/>
+				</meta>
+				<serviceCategory>
+					<coding>
+						<code value="14"/>
+						<display value="Emergency Department"/>
+					</coding>
+				</serviceCategory>
+				<appointmentType>
+					<coding>
+						<code value="EMERGENCY"/>
+						<display value="Emergency appointment"/>
+					</coding>
+				</appointmentType>
+				<schedule>
+					<reference value="Schedule/7e8c4baa-b7a7-4a7c-bb8c-8c8426ad7781"/>
+				</schedule>
+				<status value="free"/>
+				<start value="__TOMORROW__T15:45:00.000+00:00"/>
+				<end value="__TOMORROW__T16:00:00.000+00:00"/>
+			</Slot>
+		</resource>
+	</entry>
+	<entry>
+		<fullUrl value="https://directory.spineservices.nhs.uk/Slot/f3d1f90e-c727-4aff-8375-0f8366642224"/>
+		<resource>
+			<Slot>
+				<id value="f3d1f90e-c727-4aff-8375-0f8366642224"/>
+				<meta>
+					<lastUpdated value="__YESTERDAY__T15:01:30.1234567+00:00"/>
+					<profile value="http://hl7.org/fhir/StructureDefinition/Slot"/>
+				</meta>
+				<serviceCategory>
+					<coding>
+						<code value="14"/>
+						<display value="Emergency Department"/>
+					</coding>
+				</serviceCategory>
+				<appointmentType>
+					<coding>
+						<code value="EMERGENCY"/>
+						<display value="Emergency appointment"/>
+					</coding>
+				</appointmentType>
+				<schedule>
+					<reference value="Schedule/7e8c4baa-b7a7-4a7c-bb8c-8c8426ad7781"/>
+				</schedule>
+				<status value="free"/>
+				<start value="__TOMORROW__T16:00:00.000+00:00"/>
+				<end value="__TOMORROW__T16:15:00.000+00:00"/>
+			</Slot>
+		</resource>
+	</entry>
+	<entry>
+		<fullUrl value="https://directory.spineservices.nhs.uk/Slot/1ce1fa22-486b-40c9-b92e-d63fcfb59768"/>
+		<resource>
+			<Slot>
+				<id value="1ce1fa22-486b-40c9-b92e-d63fcfb59768"/>
+				<meta>
+					<lastUpdated value="__YESTERDAY__T15:01:30.1234567+00:00"/>
+					<profile value="http://hl7.org/fhir/StructureDefinition/Slot"/>
+				</meta>
+				<serviceCategory>
+					<coding>
+						<code value="14"/>
+						<display value="Emergency Department"/>
+					</coding>
+				</serviceCategory>
+				<appointmentType>
+					<coding>
+						<code value="EMERGENCY"/>
+						<display value="Emergency appointment"/>
+					</coding>
+				</appointmentType>
+				<schedule>
+					<reference value="Schedule/7e8c4baa-b7a7-4a7c-bb8c-8c8426ad7781"/>
+				</schedule>
+				<status value="free"/>
+				<start value="__TOMORROW__T16:15:00.000+00:00"/>
+				<end value="__TOMORROW__T16:30:00.000+00:00"/>
+			</Slot>
+		</resource>
+	</entry>
+	<entry>
+		<fullUrl value="https://directory.spineservices.nhs.uk/Slot/a75c872b-a05d-450b-9dd2-88f13c20358e"/>
+		<resource>
+			<Slot>
+				<id value="a75c872b-a05d-450b-9dd2-88f13c20358e"/>
+				<meta>
+					<lastUpdated value="__YESTERDAY__T15:01:30.1234567+00:00"/>
+					<profile value="http://hl7.org/fhir/StructureDefinition/Slot"/>
+				</meta>
+				<serviceCategory>
+					<coding>
+						<code value="14"/>
+						<display value="Emergency Department"/>
+					</coding>
+				</serviceCategory>
+				<appointmentType>
+					<coding>
+						<code value="EMERGENCY"/>
+						<display value="Emergency appointment"/>
+					</coding>
+				</appointmentType>
+				<schedule>
+					<reference value="Schedule/7e8c4baa-b7a7-4a7c-bb8c-8c8426ad7781"/>
+				</schedule>
+				<status value="free"/>
+				<start value="__TOMORROW__T16:30:00.000+00:00"/>
+				<end value="__TOMORROW__T16:45:00.000+00:00"/>
+			</Slot>
+		</resource>
+	</entry>
+	<entry>
+		<fullUrl value="https://directory.spineservices.nhs.uk/Slot/fdc0c357-c126-4fef-8e9b-5bce8898c0e8"/>
+		<resource>
+			<Slot>
+				<id value="fdc0c357-c126-4fef-8e9b-5bce8898c0e8"/>
+				<meta>
+					<lastUpdated value="__YESTERDAY__T15:01:30.1234567+00:00"/>
+					<profile value="http://hl7.org/fhir/StructureDefinition/Slot"/>
+				</meta>
+				<serviceCategory>
+					<coding>
+						<code value="14"/>
+						<display value="Emergency Department"/>
+					</coding>
+				</serviceCategory>
+				<appointmentType>
+					<coding>
+						<code value="EMERGENCY"/>
+						<display value="Emergency appointment"/>
+					</coding>
+				</appointmentType>
+				<schedule>
+					<reference value="Schedule/7e8c4baa-b7a7-4a7c-bb8c-8c8426ad7781"/>
+				</schedule>
+				<status value="free"/>
+				<start value="__TOMORROW__T16:45:00.000+00:00"/>
+				<end value="__TOMORROW__T17:00:00.000+00:00"/>
+			</Slot>
+		</resource>
+	</entry>
+	<entry>
+		<fullUrl value="https://directory.spineservices.nhs.uk/Slot/50b32f79-faff-451a-b551-d8164713722f"/>
+		<resource>
+			<Slot>
+				<id value="50b32f79-faff-451a-b551-d8164713722f"/>
+				<meta>
+					<lastUpdated value="__YESTERDAY__T15:01:30.1234567+00:00"/>
+					<profile value="http://hl7.org/fhir/StructureDefinition/Slot"/>
+				</meta>
+				<serviceCategory>
+					<coding>
+						<code value="14"/>
+						<display value="Emergency Department"/>
+					</coding>
+				</serviceCategory>
+				<appointmentType>
+					<coding>
+						<code value="EMERGENCY"/>
+						<display value="Emergency appointment"/>
+					</coding>
+				</appointmentType>
+				<schedule>
+					<reference value="Schedule/7e8c4baa-b7a7-4a7c-bb8c-8c8426ad7781"/>
+				</schedule>
+				<status value="free"/>
+				<start value="__TOMORROW__T17:00:00.000+00:00"/>
+				<end value="__TOMORROW__T17:15:00.000+00:00"/>
+			</Slot>
+		</resource>
+	</entry>
+	<entry>
+		<fullUrl value="https://directory.spineservices.nhs.uk/Slot/5dbd9f25-b0a0-4228-839a-9649bff50d4a"/>
+		<resource>
+			<Slot>
+				<id value="5dbd9f25-b0a0-4228-839a-9649bff50d4a"/>
+				<meta>
+					<lastUpdated value="__YESTERDAY__T15:01:30.1234567+00:00"/>
+					<profile value="http://hl7.org/fhir/StructureDefinition/Slot"/>
+				</meta>
+				<serviceCategory>
+					<coding>
+						<code value="14"/>
+						<display value="Emergency Department"/>
+					</coding>
+				</serviceCategory>
+				<appointmentType>
+					<coding>
+						<code value="EMERGENCY"/>
+						<display value="Emergency appointment"/>
+					</coding>
+				</appointmentType>
+				<schedule>
+					<reference value="Schedule/7e8c4baa-b7a7-4a7c-bb8c-8c8426ad7781"/>
+				</schedule>
+				<status value="free"/>
+				<start value="__TOMORROW__T17:15:00.000+00:00"/>
+				<end value="__TOMORROW__T17:30:00.000+00:00"/>
+			</Slot>
+		</resource>
+	</entry>
+	<entry>
+		<fullUrl value="https://directory.spineservices.nhs.uk/Slot/c8fece1e-43af-4765-83c6-e4c443d078ea"/>
+		<resource>
+			<Slot>
+				<id value="c8fece1e-43af-4765-83c6-e4c443d078ea"/>
+				<meta>
+					<lastUpdated value="__YESTERDAY__T15:01:30.1234567+00:00"/>
+					<profile value="http://hl7.org/fhir/StructureDefinition/Slot"/>
+				</meta>
+				<serviceCategory>
+					<coding>
+						<code value="14"/>
+						<display value="Emergency Department"/>
+					</coding>
+				</serviceCategory>
+				<appointmentType>
+					<coding>
+						<code value="EMERGENCY"/>
+						<display value="Emergency appointment"/>
+					</coding>
+				</appointmentType>
+				<schedule>
+					<reference value="Schedule/7e8c4baa-b7a7-4a7c-bb8c-8c8426ad7781"/>
+				</schedule>
+				<status value="free"/>
+				<start value="__TOMORROW__T17:30:00.000+00:00"/>
+				<end value="__TOMORROW__T17:45:00.000+00:00"/>
+			</Slot>
+		</resource>
+	</entry>
+	<entry>
+		<fullUrl value="https://directory.spineservices.nhs.uk/Slot/bcc74819-c81a-484b-8587-810e554c6ddd"/>
+		<resource>
+			<Slot>
+				<id value="bcc74819-c81a-484b-8587-810e554c6ddd"/>
+				<meta>
+					<lastUpdated value="__YESTERDAY__T15:01:30.1234567+00:00"/>
+					<profile value="http://hl7.org/fhir/StructureDefinition/Slot"/>
+				</meta>
+				<serviceCategory>
+					<coding>
+						<code value="14"/>
+						<display value="Emergency Department"/>
+					</coding>
+				</serviceCategory>
+				<appointmentType>
+					<coding>
+						<code value="EMERGENCY"/>
+						<display value="Emergency appointment"/>
+					</coding>
+				</appointmentType>
+				<schedule>
+					<reference value="Schedule/7e8c4baa-b7a7-4a7c-bb8c-8c8426ad7781"/>
+				</schedule>
+				<status value="free"/>
+				<start value="__TOMORROW__T17:45:00.000+00:00"/>
+				<end value="__TOMORROW__T18:00:00.000+00:00"/>
+			</Slot>
+		</resource>
+	</entry>
+	<entry>
+		<fullUrl value="https://directory.spineservices.nhs.uk/Slot/e6eba3cc-6b73-4fa6-9cd5-338caf03bb0d"/>
+		<resource>
+			<Slot>
+				<id value="e6eba3cc-6b73-4fa6-9cd5-338caf03bb0d"/>
+				<meta>
+					<lastUpdated value="__YESTERDAY__T15:01:30.1234567+00:00"/>
+					<profile value="http://hl7.org/fhir/StructureDefinition/Slot"/>
+				</meta>
+				<serviceCategory>
+					<coding>
+						<code value="14"/>
+						<display value="Emergency Department"/>
+					</coding>
+				</serviceCategory>
+				<appointmentType>
+					<coding>
+						<code value="EMERGENCY"/>
+						<display value="Emergency appointment"/>
+					</coding>
+				</appointmentType>
+				<schedule>
+					<reference value="Schedule/7e8c4baa-b7a7-4a7c-bb8c-8c8426ad7781"/>
+				</schedule>
+				<status value="free"/>
+				<start value="__TOMORROW__T18:00:00.000+00:00"/>
+				<end value="__TOMORROW__T18:15:00.000+00:00"/>
+			</Slot>
+		</resource>
+	</entry>
+	<entry>
+		<fullUrl value="https://directory.spineservices.nhs.uk/Slot/95e78b5f-78c8-4bab-9544-e11718ac5267"/>
+		<resource>
+			<Slot>
+				<id value="95e78b5f-78c8-4bab-9544-e11718ac5267"/>
+				<meta>
+					<lastUpdated value="__YESTERDAY__T15:01:30.1234567+00:00"/>
+					<profile value="http://hl7.org/fhir/StructureDefinition/Slot"/>
+				</meta>
+				<serviceCategory>
+					<coding>
+						<code value="14"/>
+						<display value="Emergency Department"/>
+					</coding>
+				</serviceCategory>
+				<appointmentType>
+					<coding>
+						<code value="EMERGENCY"/>
+						<display value="Emergency appointment"/>
+					</coding>
+				</appointmentType>
+				<schedule>
+					<reference value="Schedule/7e8c4baa-b7a7-4a7c-bb8c-8c8426ad7781"/>
+				</schedule>
+				<status value="free"/>
+				<start value="__TOMORROW__T18:15:00.000+00:00"/>
+				<end value="__TOMORROW__T18:30:00.000+00:00"/>
+			</Slot>
+		</resource>
+	</entry>
+	<entry>
+		<fullUrl value="https://directory.spineservices.nhs.uk/Slot/9b675b5c-1bba-4ec3-8c64-4babac405a9c"/>
+		<resource>
+			<Slot>
+				<id value="9b675b5c-1bba-4ec3-8c64-4babac405a9c"/>
+				<meta>
+					<lastUpdated value="__YESTERDAY__T15:01:30.1234567+00:00"/>
+					<profile value="http://hl7.org/fhir/StructureDefinition/Slot"/>
+				</meta>
+				<serviceCategory>
+					<coding>
+						<code value="14"/>
+						<display value="Emergency Department"/>
+					</coding>
+				</serviceCategory>
+				<appointmentType>
+					<coding>
+						<code value="EMERGENCY"/>
+						<display value="Emergency appointment"/>
+					</coding>
+				</appointmentType>
+				<schedule>
+					<reference value="Schedule/7e8c4baa-b7a7-4a7c-bb8c-8c8426ad7781"/>
+				</schedule>
+				<status value="free"/>
+				<start value="__TOMORROW__T18:30:00.000+00:00"/>
+				<end value="__TOMORROW__T18:45:00.000+00:00"/>
+			</Slot>
+		</resource>
+	</entry>
+	<entry>
+		<fullUrl value="https://directory.spineservices.nhs.uk/Slot/0b5dd0fc-4104-446d-8176-3488ceb4b551"/>
+		<resource>
+			<Slot>
+				<id value="0b5dd0fc-4104-446d-8176-3488ceb4b551"/>
+				<meta>
+					<lastUpdated value="__YESTERDAY__T15:01:30.1234567+00:00"/>
+					<profile value="http://hl7.org/fhir/StructureDefinition/Slot"/>
+				</meta>
+				<serviceCategory>
+					<coding>
+						<code value="14"/>
+						<display value="Emergency Department"/>
+					</coding>
+				</serviceCategory>
+				<appointmentType>
+					<coding>
+						<code value="EMERGENCY"/>
+						<display value="Emergency appointment"/>
+					</coding>
+				</appointmentType>
+				<schedule>
+					<reference value="Schedule/7e8c4baa-b7a7-4a7c-bb8c-8c8426ad7781"/>
+				</schedule>
+				<status value="free"/>
+				<start value="__TOMORROW__T18:45:00.000+00:00"/>
+				<end value="__TOMORROW__T19:00:00.000+00:00"/>
+			</Slot>
+		</resource>
+	</entry>
+	<entry>
+		<fullUrl value="https://directory.spineservices.nhs.uk/Slot/2fa81830-c855-4613-8738-92ede6c35dbc"/>
+		<resource>
+			<Slot>
+				<id value="2fa81830-c855-4613-8738-92ede6c35dbc"/>
+				<meta>
+					<lastUpdated value="__YESTERDAY__T15:01:30.1234567+00:00"/>
+					<profile value="http://hl7.org/fhir/StructureDefinition/Slot"/>
+				</meta>
+				<serviceCategory>
+					<coding>
+						<code value="14"/>
+						<display value="Emergency Department"/>
+					</coding>
+				</serviceCategory>
+				<appointmentType>
+					<coding>
+						<code value="EMERGENCY"/>
+						<display value="Emergency appointment"/>
+					</coding>
+				</appointmentType>
+				<schedule>
+					<reference value="Schedule/7e8c4baa-b7a7-4a7c-bb8c-8c8426ad7781"/>
+				</schedule>
+				<status value="free"/>
+				<start value="__TOMORROW__T19:00:00.000+00:00"/>
+				<end value="__TOMORROW__T19:15:00.000+00:00"/>
+			</Slot>
+		</resource>
+	</entry>
+	<entry>
+		<fullUrl value="https://directory.spineservices.nhs.uk/Slot/4043d906-7426-43c8-b784-ea5733afb8e8"/>
+		<resource>
+			<Slot>
+				<id value="4043d906-7426-43c8-b784-ea5733afb8e8"/>
+				<meta>
+					<lastUpdated value="__YESTERDAY__T15:01:30.1234567+00:00"/>
+					<profile value="http://hl7.org/fhir/StructureDefinition/Slot"/>
+				</meta>
+				<serviceCategory>
+					<coding>
+						<code value="14"/>
+						<display value="Emergency Department"/>
+					</coding>
+				</serviceCategory>
+				<appointmentType>
+					<coding>
+						<code value="EMERGENCY"/>
+						<display value="Emergency appointment"/>
+					</coding>
+				</appointmentType>
+				<schedule>
+					<reference value="Schedule/7e8c4baa-b7a7-4a7c-bb8c-8c8426ad7781"/>
+				</schedule>
+				<status value="free"/>
+				<start value="__TOMORROW__T19:15:00.000+00:00"/>
+				<end value="__TOMORROW__T19:30:00.000+00:00"/>
+			</Slot>
+		</resource>
+	</entry>
+	<entry>
+		<fullUrl value="https://directory.spineservices.nhs.uk/Slot/567a4932-cea1-4d17-9a4d-f8f4c49524de"/>
+		<resource>
+			<Slot>
+				<id value="567a4932-cea1-4d17-9a4d-f8f4c49524de"/>
+				<meta>
+					<lastUpdated value="__YESTERDAY__T15:01:30.1234567+00:00"/>
+					<profile value="http://hl7.org/fhir/StructureDefinition/Slot"/>
+				</meta>
+				<serviceCategory>
+					<coding>
+						<code value="14"/>
+						<display value="Emergency Department"/>
+					</coding>
+				</serviceCategory>
+				<appointmentType>
+					<coding>
+						<code value="EMERGENCY"/>
+						<display value="Emergency appointment"/>
+					</coding>
+				</appointmentType>
+				<schedule>
+					<reference value="Schedule/7e8c4baa-b7a7-4a7c-bb8c-8c8426ad7781"/>
+				</schedule>
+				<status value="free"/>
+				<start value="__TOMORROW__T19:30:00.000+00:00"/>
+				<end value="__TOMORROW__T19:45:00.000+00:00"/>
+			</Slot>
+		</resource>
+	</entry>
+	<entry>
+		<fullUrl value="https://directory.spineservices.nhs.uk/Slot/3632c619-c1df-421a-8bfb-aa0dc390c152"/>
+		<resource>
+			<Slot>
+				<id value="3632c619-c1df-421a-8bfb-aa0dc390c152"/>
+				<meta>
+					<lastUpdated value="__YESTERDAY__T15:01:30.1234567+00:00"/>
+					<profile value="http://hl7.org/fhir/StructureDefinition/Slot"/>
+				</meta>
+				<serviceCategory>
+					<coding>
+						<code value="14"/>
+						<display value="Emergency Department"/>
+					</coding>
+				</serviceCategory>
+				<appointmentType>
+					<coding>
+						<code value="EMERGENCY"/>
+						<display value="Emergency appointment"/>
+					</coding>
+				</appointmentType>
+				<schedule>
+					<reference value="Schedule/7e8c4baa-b7a7-4a7c-bb8c-8c8426ad7781"/>
+				</schedule>
+				<status value="free"/>
+				<start value="__TOMORROW__T19:45:00.000+00:00"/>
+				<end value="__TOMORROW__T20:00:00.000+00:00"/>
+			</Slot>
+		</resource>
+	</entry>
+	<entry>
+		<fullUrl value="https://directory.spineservices.nhs.uk/Slot/e6abfae7-5b00-4b75-babf-6dda22333d01"/>
+		<resource>
+			<Slot>
+				<id value="e6abfae7-5b00-4b75-babf-6dda22333d01"/>
+				<meta>
+					<lastUpdated value="__YESTERDAY__T15:01:30.1234567+00:00"/>
+					<profile value="http://hl7.org/fhir/StructureDefinition/Slot"/>
+				</meta>
+				<serviceCategory>
+					<coding>
+						<code value="14"/>
+						<display value="Emergency Department"/>
+					</coding>
+				</serviceCategory>
+				<appointmentType>
+					<coding>
+						<code value="EMERGENCY"/>
+						<display value="Emergency appointment"/>
+					</coding>
+				</appointmentType>
+				<schedule>
+					<reference value="Schedule/7e8c4baa-b7a7-4a7c-bb8c-8c8426ad7781"/>
+				</schedule>
+				<status value="free"/>
+				<start value="__TOMORROW__T20:00:00.000+00:00"/>
+				<end value="__TOMORROW__T20:15:00.000+00:00"/>
+			</Slot>
+		</resource>
+	</entry>
+	<entry>
+		<fullUrl value="https://directory.spineservices.nhs.uk/Slot/c65b4df8-44a8-4c7d-a7f6-ed6d06458e3e"/>
+		<resource>
+			<Slot>
+				<id value="c65b4df8-44a8-4c7d-a7f6-ed6d06458e3e"/>
+				<meta>
+					<lastUpdated value="__YESTERDAY__T15:01:30.1234567+00:00"/>
+					<profile value="http://hl7.org/fhir/StructureDefinition/Slot"/>
+				</meta>
+				<serviceCategory>
+					<coding>
+						<code value="14"/>
+						<display value="Emergency Department"/>
+					</coding>
+				</serviceCategory>
+				<appointmentType>
+					<coding>
+						<code value="EMERGENCY"/>
+						<display value="Emergency appointment"/>
+					</coding>
+				</appointmentType>
+				<schedule>
+					<reference value="Schedule/7e8c4baa-b7a7-4a7c-bb8c-8c8426ad7781"/>
+				</schedule>
+				<status value="free"/>
+				<start value="__TOMORROW__T20:15:00.000+00:00"/>
+				<end value="__TOMORROW__T20:30:00.000+00:00"/>
+			</Slot>
+		</resource>
+	</entry>
+	<entry>
+		<fullUrl value="https://directory.spineservices.nhs.uk/Slot/f48ed396-9525-4394-ab6a-ee19caf9c563"/>
+		<resource>
+			<Slot>
+				<id value="f48ed396-9525-4394-ab6a-ee19caf9c563"/>
+				<meta>
+					<lastUpdated value="__YESTERDAY__T15:01:30.1234567+00:00"/>
+					<profile value="http://hl7.org/fhir/StructureDefinition/Slot"/>
+				</meta>
+				<serviceCategory>
+					<coding>
+						<code value="14"/>
+						<display value="Emergency Department"/>
+					</coding>
+				</serviceCategory>
+				<appointmentType>
+					<coding>
+						<code value="EMERGENCY"/>
+						<display value="Emergency appointment"/>
+					</coding>
+				</appointmentType>
+				<schedule>
+					<reference value="Schedule/7e8c4baa-b7a7-4a7c-bb8c-8c8426ad7781"/>
+				</schedule>
+				<status value="free"/>
+				<start value="__TOMORROW__T20:30:00.000+00:00"/>
+				<end value="__TOMORROW__T20:45:00.000+00:00"/>
+			</Slot>
+		</resource>
+	</entry>
+	<entry>
+		<fullUrl value="https://directory.spineservices.nhs.uk/Slot/8f30cfc7-1ad4-4211-8f70-c2def1917bc9"/>
+		<resource>
+			<Slot>
+				<id value="8f30cfc7-1ad4-4211-8f70-c2def1917bc9"/>
+				<meta>
+					<lastUpdated value="__YESTERDAY__T15:01:30.1234567+00:00"/>
+					<profile value="http://hl7.org/fhir/StructureDefinition/Slot"/>
+				</meta>
+				<serviceCategory>
+					<coding>
+						<code value="14"/>
+						<display value="Emergency Department"/>
+					</coding>
+				</serviceCategory>
+				<appointmentType>
+					<coding>
+						<code value="EMERGENCY"/>
+						<display value="Emergency appointment"/>
+					</coding>
+				</appointmentType>
+				<schedule>
+					<reference value="Schedule/7e8c4baa-b7a7-4a7c-bb8c-8c8426ad7781"/>
+				</schedule>
+				<status value="free"/>
+				<start value="__TOMORROW__T20:45:00.000+00:00"/>
+				<end value="__TOMORROW__T21:00:00.000+00:00"/>
+			</Slot>
+		</resource>
+	</entry>
+	<entry>
+		<fullUrl value="https://directory.spineservices.nhs.uk/Slot/e607dda4-89ea-4cfc-8950-8bcb171ca435"/>
+		<resource>
+			<Slot>
+				<id value="e607dda4-89ea-4cfc-8950-8bcb171ca435"/>
+				<meta>
+					<lastUpdated value="__YESTERDAY__T15:01:30.1234567+00:00"/>
+					<profile value="http://hl7.org/fhir/StructureDefinition/Slot"/>
+				</meta>
+				<serviceCategory>
+					<coding>
+						<code value="14"/>
+						<display value="Emergency Department"/>
+					</coding>
+				</serviceCategory>
+				<appointmentType>
+					<coding>
+						<code value="EMERGENCY"/>
+						<display value="Emergency appointment"/>
+					</coding>
+				</appointmentType>
+				<schedule>
+					<reference value="Schedule/7e8c4baa-b7a7-4a7c-bb8c-8c8426ad7781"/>
+				</schedule>
+				<status value="free"/>
+				<start value="__TOMORROW__T21:00:00.000+00:00"/>
+				<end value="__TOMORROW__T21:15:00.000+00:00"/>
+			</Slot>
+		</resource>
+	</entry>
+	<entry>
+		<fullUrl value="https://directory.spineservices.nhs.uk/Slot/b37f0521-ecaa-4b8d-8fa4-c0d00da10dad"/>
+		<resource>
+			<Slot>
+				<id value="b37f0521-ecaa-4b8d-8fa4-c0d00da10dad"/>
+				<meta>
+					<lastUpdated value="__YESTERDAY__T15:01:30.1234567+00:00"/>
+					<profile value="http://hl7.org/fhir/StructureDefinition/Slot"/>
+				</meta>
+				<serviceCategory>
+					<coding>
+						<code value="14"/>
+						<display value="Emergency Department"/>
+					</coding>
+				</serviceCategory>
+				<appointmentType>
+					<coding>
+						<code value="EMERGENCY"/>
+						<display value="Emergency appointment"/>
+					</coding>
+				</appointmentType>
+				<schedule>
+					<reference value="Schedule/7e8c4baa-b7a7-4a7c-bb8c-8c8426ad7781"/>
+				</schedule>
+				<status value="free"/>
+				<start value="__TOMORROW__T21:15:00.000+00:00"/>
+				<end value="__TOMORROW__T21:30:00.000+00:00"/>
+			</Slot>
+		</resource>
+	</entry>
+	<entry>
+		<fullUrl value="https://directory.spineservices.nhs.uk/Slot/721a988f-1a4d-485f-89a6-dcb1912a825d"/>
+		<resource>
+			<Slot>
+				<id value="721a988f-1a4d-485f-89a6-dcb1912a825d"/>
+				<meta>
+					<lastUpdated value="__YESTERDAY__T15:01:30.1234567+00:00"/>
+					<profile value="http://hl7.org/fhir/StructureDefinition/Slot"/>
+				</meta>
+				<serviceCategory>
+					<coding>
+						<code value="14"/>
+						<display value="Emergency Department"/>
+					</coding>
+				</serviceCategory>
+				<appointmentType>
+					<coding>
+						<code value="EMERGENCY"/>
+						<display value="Emergency appointment"/>
+					</coding>
+				</appointmentType>
+				<schedule>
+					<reference value="Schedule/7e8c4baa-b7a7-4a7c-bb8c-8c8426ad7781"/>
+				</schedule>
+				<status value="free"/>
+				<start value="__TOMORROW__T21:30:00.000+00:00"/>
+				<end value="__TOMORROW__T21:45:00.000+00:00"/>
+			</Slot>
+		</resource>
+	</entry>
+	<entry>
+		<fullUrl value="https://directory.spineservices.nhs.uk/Slot/3426d7de-e3bb-4ad7-a71f-45a316a40d1c"/>
+		<resource>
+			<Slot>
+				<id value="3426d7de-e3bb-4ad7-a71f-45a316a40d1c"/>
+				<meta>
+					<lastUpdated value="__YESTERDAY__T15:01:30.1234567+00:00"/>
+					<profile value="http://hl7.org/fhir/StructureDefinition/Slot"/>
+				</meta>
+				<serviceCategory>
+					<coding>
+						<code value="14"/>
+						<display value="Emergency Department"/>
+					</coding>
+				</serviceCategory>
+				<appointmentType>
+					<coding>
+						<code value="EMERGENCY"/>
+						<display value="Emergency appointment"/>
+					</coding>
+				</appointmentType>
+				<schedule>
+					<reference value="Schedule/7e8c4baa-b7a7-4a7c-bb8c-8c8426ad7781"/>
+				</schedule>
+				<status value="free"/>
+				<start value="__TOMORROW__T21:45:00.000+00:00"/>
+				<end value="__TOMORROW__T22:00:00.000+00:00"/>
+			</Slot>
+		</resource>
+	</entry>
+	<entry>
+		<fullUrl value="https://directory.spineservices.nhs.uk/Schedule/7e8c4baa-b7a7-4a7c-bb8c-8c8426ad7781"/>
+		<resource>
+			<Schedule>
+				<id value="7e8c4baa-b7a7-4a7c-bb8c-8c8426ad7781"/>
+				<meta>
+					<lastUpdated value="__YESTERDAY__T15:01:30.1234567+00:00"/>
+					<profile value="http://hl7.org/fhir/StructureDefinition/Schedule"/>
+				</meta>
+				<identifier>
+					<system value="https://system.supplier.co.uk/Diary/id"/>
+					<value value="8622dfdb-dc6a-47b6-b3a7-2eb2829db287"/>
+				</identifier>
+				<actor>
+					<!--  HealthcareService  -->
+					<reference value="HealthcareService/5088769a-491e-463f-a167-fff78bb472d9"/>
+				</actor>
+				<actor>
+					<!--  PractitionerRole  -->
+					<reference value="PractitionerRole/6bea99e7-b97f-4ee1-980d-05f997afff4f"/>
+				</actor>
+				<actor>
+					<!--  Practitioner  -->
+					<reference value="Practitioner/cad5a61c-3797-4f26-8921-ae4bc7f75eb6"/>
+				</actor>
+			</Schedule>
+		</resource>
+	</entry>
+	<entry>
+		<fullUrl value="https://directory.spineservices.nhs.uk/HealthcareService/5088769a-491e-463f-a167-fff78bb472d9"/>
+		<resource>
+			<HealthcareService>
+				<id value="5088769a-491e-463f-a167-fff78bb472d9"/>
+				<meta>
+					<lastUpdated value="__YESTERDAY__T15:01:30.1234567+00:00"/>
+					<profile value="http://hl7.org/fhir/StructureDefinition/HealthcareService"/>
+				</meta>
+				<identifier>
+					<system value="https://system.supplier.co.uk/My/Healthcare/Services"/>
+					<value value="100"/>
+				</identifier>
+				<location>
+					<reference value="Location/d23eac9a-12e7-46c5-8781-c3c1d9b1d3c5"/>
+				</location>
+				<name value="Healthcare Service Name"/>
+			</HealthcareService>
+		</resource>
+	</entry>
 </Bundle>
